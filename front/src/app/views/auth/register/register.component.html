@@ -31,45 +31,158 @@
             <small>Or sign up with credentials</small>
           </div>
           <form>
-            <div class="relative w-full mb-3">
-              <label
-                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Name
-              </label>
-              <input
-                type="email"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                placeholder="Name"
-              />
-            </div>
 
             <div class="relative w-full mb-3">
               <label
                 class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
-                Email
+                Korisničko ime
               </label>
               <input
-                type="email"
+                type="text"
                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                placeholder="Email"
+                placeholder="Korisničko ime"
               />
             </div>
-
             <div class="relative w-full mb-3">
               <label
                 class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
-                Password
+                Ime
+              </label>
+              <input
+                type="text"
+                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                placeholder="Ime"
+              />
+            </div>
+            <div class="relative w-full mb-3">
+              <label
+                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Prezime
+              </label>
+              <input
+                type="text"
+                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                placeholder="Prezime"
+              />
+            </div>
+            <div class="relative w-full mb-3">
+              <label
+                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Datum rođenja
+              </label>
+              <input
+                type="date"
+                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              />
+            </div>
+            <div class="relative w-full mb-3">
+              <label
+                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Broj telefona
+              </label>
+              <input
+                type="text"
+                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                placeholder="+381 XXXXXXXXX"
+              />
+            </div>
+            <div class="relative w-full mb-3">
+              <label
+                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Mesto
+              </label>
+              <select  [(ngModel)]="mesto" style="margin-bottom: 10px;" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                <option *ngFor="let grad of gradovi" >{{ grad.city }}</option>
+              </select>
+            </div>
+            <div class="relative w-full mb-3">
+              <label
+                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Uloga
+              </label>
+              <div style="display: flex; flex-direction: row; justify-content: space-around;">
+               <div style="display: flex; flex-direction: row; align-items: center;">
+                    <label
+                    class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    htmlFor="grid-password"
+                    style="margin-right: 10px;"
+                  >
+                    Korisnik
+                  </label>
+                    <input
+                    value="k"
+                    [(ngModel)] = "ulogaK"
+                    type="checkbox"
+                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    name = "uloga"
+                    style="width: 10%;"
+                    placeholder="Korisničko"
+                  />
+               </div>
+               <div style="display: flex; flex-direction: row; align-items: center;">
+                <label
+                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+                style="margin-right: 10px;"
+              >
+                Majstor
+              </label>
+                <input
+                [(ngModel)] = "ulogaM"
+                type="checkbox"
+                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                name = "uloga"
+                value="m"
+                style="width: 10%;"
+                placeholder="Korisničko"
+              />
+           </div>
+
+              </div>
+            </div>
+
+           
+          
+            <div class="relative w-full mb-3">
+              <label
+                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Lozinka
               </label>
               <input
                 type="password"
                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                placeholder="Password"
+                placeholder="Lozinka"
+              />
+            </div> 
+
+       
+            <div class="relative w-full mb-3">
+              <label
+                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Ponovite lozinku
+              </label>
+              <input
+                type="password"
+                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                placeholder="Ponovite lozinku"
               />
             </div>
 
@@ -94,7 +207,7 @@
                 class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                 type="button"
               >
-                Create Account
+                Registruj se
               </button>
             </div>
           </form>
