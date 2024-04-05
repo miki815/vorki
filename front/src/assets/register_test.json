@@ -1,0 +1,234 @@
+[
+    {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01",
+        "politika": true,
+        "brojTelefona": "+381123456789",
+        "mesto": "Beograd",
+        "ulogaK": true,
+        "ulogaM": false,
+        "lozinka": "Password1!",
+        "lozinka1": "Password1!"
+      },
+      {
+        "korisnickoIme": "user123"
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John"
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe"
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01"
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01",
+        "politika": true
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01",
+        "politika": true,
+        "brojTelefona": "+381123456789"
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01",
+        "politika": true,
+        "brojTelefona": "+381123456789",
+        "mesto": "Beograd"
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01",
+        "politika": true,
+        "brojTelefona": "+381123456789",
+        "mesto": "Beograd",
+        "ulogaK": true
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01",
+        "politika": true,
+        "brojTelefona": "+381123456789",
+        "mesto": "Beograd",
+        "ulogaK": true,
+        "ulogaM": false
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01",
+        "politika": true,
+        "brojTelefona": "+381123456789",
+        "mesto": "Beograd",
+        "ulogaK": true,
+        "ulogaM": false,
+        "lozinka": "Password1!"
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01",
+        "politika": true,
+        "brojTelefona": "+381123456789",
+        "mesto": "Beograd",
+        "ulogaK": true,
+        "ulogaM": false,
+        "lozinka": "Password1!",
+        "lozinka1": "Password1!"
+      },
+      {
+        "korisnickoIme": "us",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01",
+        "politika": true,
+        "brojTelefona": "+381123456789",
+        "mesto": "Beograd",
+        "ulogaK": true,
+        "ulogaM": false,
+        "lozinka": "Password1!",
+        "lozinka1": "Password1!"
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "Jo",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01",
+        "politika": true,
+        "brojTelefona": "+381123456789",
+        "mesto": "Beograd",
+        "ulogaK": true,
+        "ulogaM": false,
+        "lozinka": "Password1!",
+        "lozinka1": "Password1!"
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Do",
+        "datumRodjenja": "2000-01-01",
+        "politika": true,
+        "brojTelefona": "+381123456789",
+        "mesto": "Beograd",
+        "ulogaK": true,
+        "ulogaM": false,
+        "lozinka": "Password1!",
+        "lozinka1": "Password1!"
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2020-01-01",
+        "politika": true,
+        "brojTelefona": "+381123456789",
+        "mesto": "Beograd",
+        "ulogaK": true,
+        "ulogaM": false,
+        "lozinka": "Password1!",
+        "lozinka1": "Password1!"
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01",
+        "politika": false,
+        "brojTelefona": "64853189",
+        "mesto": "Beograd",
+        "ulogaK": true,
+        "ulogaM": false,
+        "lozinka": "Password1!",
+        "lozinka1": "Password1!"
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01",
+        "politika": false,
+        "brojTelefona": "+381123456789",
+        "mesto": "Beograd",
+        "ulogaK": true,
+        "ulogaM": false,
+        "lozinka": "Password1",
+        "lozinka1": "Password1"
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01",
+        "politika": false,
+        "brojTelefona": "+381123456789",
+        "mesto": "Beograd",
+        "ulogaK": true,
+        "ulogaM": false,
+        "lozinka": "Password!",
+        "lozinka1": "Password!"
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01",
+        "politika": false,
+        "brojTelefona": "+381123456789",
+        "mesto": "Beograd",
+        "ulogaK": true,
+        "ulogaM": false,
+        "lozinka": "password1!",
+        "lozinka1": "password1!"
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01",
+        "politika": false,
+        "brojTelefona": "+381123456789",
+        "mesto": "Beograd",
+        "ulogaK": true,
+        "ulogaM": false,
+        "lozinka": "Pa1!",
+        "lozinka1": "Pa1!"
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01",
+        "politika": false,
+        "brojTelefona": "+381123456789",
+        "mesto": "Beograd",
+        "ulogaK": true,
+        "ulogaM": false,
+        "lozinka": "Password1!",
+        "lozinka1": "Password11!"
+      }
+
+]
