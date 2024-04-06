@@ -21,17 +21,17 @@ export class RegisterComponent implements OnInit {
   lozinka: string = null;
   lozinka1: string = null;
   politika: boolean = null;
+  email:  string = null;
   poruka:  string = null;
   gradovi: any;
 
   ngOnInit(): void {
     console.log('Registracija - ngOnInit: START')
-    
+   
     fetch('assets/city.json')
     .then(response => response.json())
     .then(gradovi => {
       this.gradovi = gradovi; 
-      console.log(this.gradovi);
     })
     .catch(error => {
       console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradiva):', error);
@@ -42,9 +42,10 @@ export class RegisterComponent implements OnInit {
 
   potvrdi(){
     console.log('Registracija - potvrdi: START')
-    alert(this.korisnickoIme)
+
+    // Provera
     if( !this.korisnickoIme ||  !this.ime || !this.prezime ||  !this.datumRodjenja || !this.politika ||
-      !this.brojTelefona ||  !this.mesto || (this.ulogaM && !this.ulogaK) ||  !this.lozinka ||  !this.lozinka1 ){
+      !this.brojTelefona ||  !this.mesto || (this.ulogaM && !this.ulogaK) ||  !this.lozinka ||  !this.lozinka1 || !this.email){
         this.poruka = "Niste uneli sve podatke."; return; }
     if(this.korisnickoIme.length < 3 ){ this.poruka = "Korisničko ime je prekratko."; return; }
     if(this.ime.length < 3 ){ this.poruka = "Ime je prekratko."; return; }
@@ -56,7 +57,9 @@ export class RegisterComponent implements OnInit {
       jedno malo slovo, barem jedno veliko slovo, barem jedan broj i barem jedan specijalni karakter. Lozinka mora\
       imati najmanje 6 karaktera."; return; }
     if (this.lozinka != this.lozinka1){ this.poruka="Lozinke nisu iste. Pokušajte ponovo."; return;}
-
+    if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(this.email)){this.poruka="Email nije u dobrom formatu."; return; }
+   
+   
     let hashLozinka = sha256().update(this.lozinka, 'utf8').digest('hex');
 
     console.log('Registracija - potvrdi: END')
@@ -67,15 +70,15 @@ export class RegisterComponent implements OnInit {
     console.log("Registracija - test: START")
     var testovi;
     var rezultati = [];
-    var provera = [0,-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 2, 3, 4, 5, 6, 6, 6, 6, 6]
+    var provera = [0,-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 2, 3, 4, 5, 6, 6, 6, 6, 6, 7]
     fetch('assets/register_test.json')
     .then(response => response.json())
     .then(testovi1 => {
       testovi = testovi1; 
-      console.log(testovi);
-      testovi.forEach((test) => {
+      testovi.forEach((test, index) => {
         if( !test["korisnickoIme"] ||  !test["ime"] || !test["prezime"] ||  !test["datumRodjenja"] || !test["politika"] ||
-          !test["brojTelefona"] ||  !test["mesto"] || (!test["ulogaM"] && !test["ulogaK"]) ||  !test["lozinka"] ||  !test["lozinka1"] ){
+          !test["brojTelefona"] ||  !test["mesto"] || (!test["ulogaM"] && !test["ulogaK"]) ||  !test["lozinka"] ||  !test["lozinka1"] ||
+          !test["email"] ){
             rezultati.push(-1); return;}
         if(test["korisnickoIme"].length < 3 ){  rezultati.push(1);  return;}
         if(test["ime"].length < 3 ){  rezultati.push(2);  return;}
@@ -83,8 +86,10 @@ export class RegisterComponent implements OnInit {
         if (new Date(test["datumRodjenja"]) > new Date((new Date()).getFullYear() - 18, (new Date()).getMonth(), (new Date()).getDate()))
           {  rezultati.push(4); return; }
         if (!/^381\d{6}\d+$/.test(test["brojTelefona"].slice(1)) || test["brojTelefona"][0]!="+") {  rezultati.push(5); return; }
-        if ( ! /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{6,}$/.test(test["lozinka"])  ) { rezultati.push( 6);  return; }
+        if ( ! /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{6,}$/.test(test["lozinka"])  ) { rezultati.push(6);  return; }
         if (test["lozinka"] != test["lozinka1"]){  rezultati.push(7);  return;}
+        if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(test["email"])){rezultati.push(7);  return;  }
+
         rezultati.push(0);
       });
       if (rezultati.length !== provera.length) {
@@ -105,7 +110,7 @@ export class RegisterComponent implements OnInit {
 
     })
     .catch(error => {
-      console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradiva):', error);
+      console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje registracija):', error);
     });
     
 

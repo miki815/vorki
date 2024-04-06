@@ -88,9 +88,9 @@ import { HttpClientModule } from "@angular/common/http";
     ProfileComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
   ]
     ,

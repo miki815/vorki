@@ -10,7 +10,8 @@
         "ulogaK": true,
         "ulogaM": false,
         "lozinka": "Password1!",
-        "lozinka1": "Password1!"
+        "lozinka1": "Password1!",
+        "email": "johndoe@gmail.com" 
       },
       {
         "korisnickoIme": "user123"
@@ -111,7 +112,8 @@
         "ulogaK": true,
         "ulogaM": false,
         "lozinka": "Password1!",
-        "lozinka1": "Password1!"
+        "lozinka1": "Password1!",
+        "email": "johndoe@gmail.com" 
       },
       {
         "korisnickoIme": "user123",
@@ -124,7 +126,8 @@
         "ulogaK": true,
         "ulogaM": false,
         "lozinka": "Password1!",
-        "lozinka1": "Password1!"
+        "lozinka1": "Password1!",
+        "email": "johndoe@gmail.com" 
       },
       {
         "korisnickoIme": "user123",
@@ -137,7 +140,8 @@
         "ulogaK": true,
         "ulogaM": false,
         "lozinka": "Password1!",
-        "lozinka1": "Password1!"
+        "lozinka1": "Password1!",
+        "email": "johndoe@gmail.com" 
       },
       {
         "korisnickoIme": "user123",
@@ -150,7 +154,8 @@
         "ulogaK": true,
         "ulogaM": false,
         "lozinka": "Password1!",
-        "lozinka1": "Password1!"
+        "lozinka1": "Password1!",
+        "email": "johndoe@gmail.com" 
       },
       {
         "korisnickoIme": "user123",
@@ -163,7 +168,8 @@
         "ulogaK": true,
         "ulogaM": false,
         "lozinka": "Password1!",
-        "lozinka1": "Password1!"
+        "lozinka1": "Password1!",
+        "email": "johndoe@gmail.com" 
       },
       {
         "korisnickoIme": "user123",
@@ -176,7 +182,8 @@
         "ulogaK": true,
         "ulogaM": false,
         "lozinka": "Password1",
-        "lozinka1": "Password1"
+        "lozinka1": "Password1",
+        "email": "johndoe@gmail.com" 
       },
       {
         "korisnickoIme": "user123",
@@ -189,7 +196,8 @@
         "ulogaK": true,
         "ulogaM": false,
         "lozinka": "Password!",
-        "lozinka1": "Password!"
+        "lozinka1": "Password!",
+        "email": "johndoe@gmail.com" 
       },
       {
         "korisnickoIme": "user123",
@@ -202,7 +210,8 @@
         "ulogaK": true,
         "ulogaM": false,
         "lozinka": "password1!",
-        "lozinka1": "password1!"
+        "lozinka1": "password1!",
+        "email": "johndoe@gmail.com" 
       },
       {
         "korisnickoIme": "user123",
@@ -215,7 +224,8 @@
         "ulogaK": true,
         "ulogaM": false,
         "lozinka": "Pa1!",
-        "lozinka1": "Pa1!"
+        "lozinka1": "Pa1!",
+        "email": "johndoe@gmail.com" 
       },
       {
         "korisnickoIme": "user123",
@@ -228,7 +238,24 @@
         "ulogaK": true,
         "ulogaM": false,
         "lozinka": "Password1!",
-        "lozinka1": "Password11!"
+        "lozinka1": "Password11!",
+        "email": "johndoe@gmail.com" 
+
+      },
+      {
+        "korisnickoIme": "user123",
+        "ime": "John",
+        "prezime": "Doe",
+        "datumRodjenja": "2000-01-01",
+        "politika": false,
+        "brojTelefona": "+381123456789",
+        "mesto": "Beograd",
+        "ulogaK": true,
+        "ulogaM": false,
+        "lozinka": "Password1!",
+        "lozinka1": "Password1!",
+        "email": "johndoegmail.com" 
+
       }
 
 ]
