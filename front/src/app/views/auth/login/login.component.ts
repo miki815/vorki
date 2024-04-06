@@ -17,10 +17,17 @@ export class LoginComponent implements OnInit {
   }
 
   potvrdi(){
-    alert(this.email);
-    if(!this.email || !this.lozinka){
-      this.poruka = "Niste uneli sve podatke."
-    }
+    console.log("Prijava - potvrdi: START")
+
+    // Provera
+    if(!this.email || !this.lozinka){ this.poruka = "Niste uneli sve podatke."; return; }
+
+    //Pakovanje
+    const data = { email: this.email,lozinka: this.lozinka}
+
+    //Slanje
+
+    console.log("Prijava - potvrdi: END")
   }
   
   

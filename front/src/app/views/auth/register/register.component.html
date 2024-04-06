@@ -21,6 +21,8 @@
                 Korisničko ime
               </label>
               <input
+                [(ngModel)]="korisnickoIme"
+                name="korisnickoIme"
                 type="text"
                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 placeholder="Korisničko ime"
@@ -34,6 +36,8 @@
                 Email
               </label>
               <input
+                [(ngModel)]="email"
+                name="email"
                 type="email"
                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 placeholder="Email"
@@ -47,6 +51,8 @@
                 Ime
               </label>
               <input
+                [(ngModel)]="ime"
+                name="ime"
                 type="text"
                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 placeholder="Ime"
@@ -60,6 +66,8 @@
                 Prezime
               </label>
               <input
+                [(ngModel)]="prezime"
+                name="prezime"
                 type="text"
                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 placeholder="Prezime"
@@ -73,6 +81,8 @@
                 Datum rođenja
               </label>
               <input
+                [(ngModel)]="datumRodjenja"
+                name="datumRodjenja"
                 type="date"
                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
@@ -85,6 +95,8 @@
                 Broj telefona
               </label>
               <input
+                [(ngModel)]="brojTelefona"
+                name="brojTelefona"
                 type="text"
                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 placeholder="+381 XXXXXXXXX"
@@ -97,7 +109,8 @@
               >
                 Mesto
               </label>
-              <select  style="margin-bottom: 10px;" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+              <select [(ngModel)]="mesto"
+              name="mesto"  style="margin-bottom: 10px;" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                 <option *ngFor="let grad of gradovi" >{{ grad.city }}</option>
               </select>
             </div>
@@ -118,12 +131,13 @@
                     Korisnik
                   </label>
                     <input
+                    [(ngModel)]="ulogaK"
+                    name="ulogaK"
                     value="k"
                     type="checkbox"
                     class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     name = "uloga"
                     style="width: 10%;"
-                    placeholder="Korisničko"
                   />
                </div>
                <div style="display: flex; flex-direction: row; align-items: center;">
@@ -135,12 +149,13 @@
                 Majstor
               </label>
                 <input
+                [(ngModel)]="ulogaM"
+                name="ulogaM"
                 type="checkbox"
                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 name = "uloga"
                 value="m"
                 style="width: 10%;"
-                placeholder="Korisničko"
               />
            </div>
 
@@ -157,6 +172,8 @@
                 Lozinka
               </label>
               <input
+                [(ngModel)]="lozinka"
+                name="lozinka"
                 type="password"
                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 placeholder="Lozinka"
@@ -172,6 +189,8 @@
                 Ponovite lozinku
               </label>
               <input
+                [(ngModel)]="lozinka1"
+                name="lozinka1"
                 type="password"
                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 placeholder="Ponovite lozinku"
@@ -181,6 +200,8 @@
             <div>
               <label class="inline-flex items-center cursor-pointer">
                 <input
+                  [(ngModel)]="politika"
+                  name="politika"
                   id="customCheckLogin"
                   type="checkbox"
                   class="form-checkbox border-0 text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150 rounded"
@@ -203,6 +224,7 @@
                 Registruj se
               </button>
             </div>
+            {{poruka}}
           </form>
          
         </div>

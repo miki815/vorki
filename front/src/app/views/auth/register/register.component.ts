@@ -1,6 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { sha256 } from 'sha.js';
-
 
 @Component({
   selector: "app-register",
@@ -9,13 +7,12 @@ import { sha256 } from 'sha.js';
 export class RegisterComponent implements OnInit {
   constructor() {}
 
-
   korisnickoIme : string = null;
   ime: string = null;
   prezime: string = null;
   datumRodjenja: Date = null;
   brojTelefona: string = null;
-  mesto: string = null;
+  mesto: string = "Beograd";
   ulogaK: boolean = false;
   ulogaM: boolean = false;
   lozinka: string = null;
@@ -27,7 +24,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('Registracija - ngOnInit: START')
-   
+    
     fetch('assets/city.json')
     .then(response => response.json())
     .then(gradovi => {
@@ -59,11 +56,24 @@ export class RegisterComponent implements OnInit {
     if (this.lozinka != this.lozinka1){ this.poruka="Lozinke nisu iste. Pokušajte ponovo."; return;}
     if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(this.email)){this.poruka="Email nije u dobrom formatu."; return; }
    
-   
-    let hashLozinka = sha256().update(this.lozinka, 'utf8').digest('hex');
+    //Pakovanje
+    const data = {
+      korisnickoIme : this.korisnickoIme,
+      ime : this.ime,
+      prezime: this.prezime,
+      datumRodjenja: this.datumRodjenja,
+      brojTelefona: this.brojTelefona,
+      mesto: this.mesto,
+      ulogaK: this.ulogaK,
+      ulogaM: this.ulogaM,
+      lozinka: this.lozinka,
+      email: this.email
+    }
+    
+    //Slanje
+
 
     console.log('Registracija - potvrdi: END')
-
   }
 
   test(){
