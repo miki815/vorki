@@ -7,7 +7,8 @@ let User = new Schema({
     },
     name: {
         type: String
-    }, surname: {
+    }, 
+    surname: {
         type: String
     },
     password: {
@@ -18,7 +19,8 @@ let User = new Schema({
     },
     telephone: {
         type: String
-    }, country: {
+    }, 
+    country: {
         type: String
     },
     city: {

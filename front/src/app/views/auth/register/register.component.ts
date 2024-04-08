@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log('Registracija - ngOnInit: START')
+    console.log('Register - ngOnInit: START')
 
     fetch('assets/city.json')
       .then(response => response.json())
@@ -39,11 +39,11 @@ export class RegisterComponent implements OnInit {
         console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradiva):', error);
       });
 
-    console.log('Registracija - ngOnInit: END')
+    console.log('Register - ngOnInit: END')
   }
 
   potvrdi() {
-    console.log('Registracija - potvrdi: START')
+    console.log('Register - submit: START')
 
     // Provera
     if (!this.korisnickoIme || !this.ime || !this.prezime || !this.datumRodjenja || !this.politika ||
@@ -78,13 +78,13 @@ export class RegisterComponent implements OnInit {
     }
 
     this.userService.register(data).subscribe((message: any) => {
-      alert("finish reg");
       if (message['message'] == "0") {
-        this.router.navigate(["/login"]);
+        this.router.navigate(["/auth/login"]);
         return;
       } else {
-        // this.message = message['message']
+        this.poruka = message['message'];
       }
+      console.log('Register - submit: END')
     })
   }
 

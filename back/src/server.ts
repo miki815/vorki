@@ -7,16 +7,15 @@ import userRouter from './routers/user.router';
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-//app.use(bodyParser.json({ limit: '50mb' }));
-//app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
 
 const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
-  host: 'localhost', // Adresa MySQL servera
-  user: 'root',      // Korisničko ime
-  password: 'miki',  // Lozinka
-  database: 'vorki'       // Ime baze podataka
+  host: 'localhost',
+  user: 'root',      
+  password: '',  
+  database: 'vorki'       
 });
 
 connection.connect((err) => {
@@ -25,16 +24,8 @@ connection.connect((err) => {
     return;
   }
   console.log('db connection ok');
-  connection.query('SELECT * FROM user', (err, results) => {
-    if (err) {
-      console.error('get user fail: ', err);
-      return;
-    }
-    console.log('Users:', results);
-  });
 });
 
-// module.exports = {connection};
 
 app.use('/users', userRouter)
 

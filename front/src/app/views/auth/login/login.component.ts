@@ -1,11 +1,14 @@
+import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { UserService } from "src/app/services/user.service";
 
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  constructor(private userService: UserService, private router: Router, private http: HttpClient) { }
 
   email: string = null;
   lozinka: string = null;
@@ -17,17 +20,23 @@ export class LoginComponent implements OnInit {
   }
 
   potvrdi(){
-    console.log("Prijava - potvrdi: START")
+    console.log("Login - submit: START")
 
     // Provera
     if(!this.email || !this.lozinka){ this.poruka = "Niste uneli sve podatke."; return; }
 
     //Pakovanje
-    const data = { email: this.email,lozinka: this.lozinka}
+    const data = { email: this.email,password: this.lozinka}
 
     //Slanje
+    this.userService.login(data).subscribe((message: any) => {
+      if (message['error'] == "0") {
+        this.router.navigate(["landing"]);
+        return;
+      } else {  this.poruka = message['message'];}
+    })
 
-    console.log("Prijava - potvrdi: END")
+    console.log("Login - submit: END")
   }
   
   

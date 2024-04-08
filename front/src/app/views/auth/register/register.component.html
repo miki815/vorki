@@ -1,3 +1,5 @@
+
+
 <div class="container mx-auto px-4 h-full">
   <div class="flex content-center items-center justify-center h-full">
     <div class="w-full lg:w-6/12 px-4">
@@ -99,7 +101,7 @@
                 name="brojTelefona"
                 type="text"
                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                placeholder="+381 XXXXXXXXX"
+                placeholder="+381XXXXXXXXX"
               />
             </div>
             <div class="relative w-full mb-3">
@@ -224,7 +226,11 @@
                 Registruj se
               </button>
             </div>
-            {{poruka}}
+         
+            <div *ngIf="poruka" style="width: 100%; text-align: center; margin-top: 20px; background-color: rgb(239, 114, 114); color: white; padding: 10px; border-radius: 5px; ">
+              {{poruka}}
+            </div>
+
           </form>
          
         </div>
@@ -232,7 +238,7 @@
       </div>
       <div class="flex flex-wrap mt-6 relative">
         <div class="w-1/2">
-          <a href="javascript:void(0)" class="text-blueGray-200" style="font-size: 20px;">
+          <a [routerLink]="['/auth/login']" class="text-blueGray-200" style="font-size: 20px;">
             <small>Imate profil? Prijavite se!</small>
           </a>
         </div>
