@@ -1,32 +1,35 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
-const mysql = require('mysql2');
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'vorki'
-});
-connection.connect((err) => {
-    if (err) {
-        console.error('db connection fail: ', err);
-        return;
-    }
-    console.log('db connection ok ctr');
-});
+const server_1 = require("../server");
+// const mysql = require('mysql2');
+// const connection = mysql.createConnection({
+//     host: 'localhost', 
+//     user: 'root',      
+//     password: 'miki',  
+//     database: 'vorki'      
+// });
+// connection.connect((err) => {
+//     if (err) {
+//         console.error('db connection fail: ', err);
+//         return;
+//     }
+//     console.log('db connection ok ctr');
+// });
 class UserController {
     constructor() {
         this.login = (req, res) => {
             const { email, password } = req.body;
             var sql = 'SELECT * FROM user WHERE email = ? and password = ?';
-            connection.query(sql, [email, password], (err, user) => {
+            server_1.connection.query(sql, [email, password], (err, user) => {
                 if (err) {
                     res.json({ error: 1, message: "Fatal error: " + err });
                     return;
                 }
-                if (user.length)
+                if (user.length) {
+                    console.log('Login success');
                     res.json({ error: 0, message: user });
+                }
                 else {
                     res.json({ error: 1, message: "Korisnik sa datim emailom i lozinkom ne postoji." });
                 }
@@ -36,7 +39,7 @@ class UserController {
             const { username, firstname, lastname, password, birthday, phone, location, ulogaK, ulogaM, email } = req.body;
             // const hashedPassword = bcrypt.hash(password, 10); 
             var sql = 'SELECT * FROM user WHERE username = ?';
-            connection.query(sql, [username], (err, result) => {
+            server_1.connection.query(sql, [username], (err, result) => {
                 if (err) {
                     res.json({ message: "Fatal error: " + err });
                     return;
@@ -46,7 +49,7 @@ class UserController {
                     return;
                 }
                 sql = 'SELECT * FROM user WHERE email = ?';
-                connection.query(sql, [email], (err, result) => {
+                server_1.connection.query(sql, [email], (err, result) => {
                     if (err) {
                         res.json({ message: "Fatal error: " + err });
                         return;
@@ -56,7 +59,7 @@ class UserController {
                         return;
                     }
                     sql = 'INSERT INTO user (username, firstname, lastname, password, birthday, phone, location, ulogaK, ulogaM, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-                    connection.query(sql, [username, firstname, lastname, password, birthday, phone, location, ulogaK, ulogaM, email], (err, result) => {
+                    server_1.connection.query(sql, [username, firstname, lastname, password, birthday, phone, location, ulogaK, ulogaM, email], (err, result) => {
                         if (err) {
                             res.json({ message: "Fatal error: " + err });
                             return;

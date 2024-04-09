@@ -2,23 +2,7 @@ import User from '../models/user';
 import e, * as express from 'express';
 import bcrypt from 'bcryptjs';
 import { log } from 'console';
-
-const mysql = require('mysql2');
-
-const connection = mysql.createConnection({
-    host: 'localhost', 
-    user: 'root',      
-    password: '',  
-    database: 'vorki'      
-});
-
-connection.connect((err) => {
-    if (err) {
-        console.error('db connection fail: ', err);
-        return;
-    }
-    console.log('db connection ok ctr');
-});
+import { connection } from '../server';
 
 
 export class UserController {
@@ -28,8 +12,13 @@ export class UserController {
         var sql = 'SELECT * FROM user WHERE email = ? and password = ?';
         connection.query(sql,[ email,  password], (err, user) => {
             if (err) { res.json({error: 1,  message: "Fatal error: " + err }); return; }
-            if(user.length) res.json({error: 0, message: user  });
-            else { res.json({error: 1,  message: "Korisnik sa datim emailom i lozinkom ne postoji." }); }
+            if(user.length) {
+                console.log('Login success');
+                res.json({error: 0, message: user  });
+            }
+            else { 
+                res.json({error: 1,  message: "Korisnik sa datim emailom i lozinkom ne postoji." }); 
+            }
         });
     }
 
