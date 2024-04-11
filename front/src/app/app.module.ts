@@ -51,6 +51,7 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { CookieService } from 'ngx-cookie-service';
 import { GalleryModule  } from 'ng-gallery';
+import { ProfileSettingsComponent } from "./views/profile-settings/profile-settings.component";
 
 
 
@@ -91,6 +92,8 @@ import { GalleryModule  } from 'ng-gallery';
     IndexComponent,
     LandingComponent,
     ProfileComponent,
+    ProfileSettingsComponent
+
     
   ],
   imports: [
@@ -98,7 +101,9 @@ import { GalleryModule  } from 'ng-gallery';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    GalleryModule 
+    GalleryModule ,
+    
+
     
   ]
     ,
