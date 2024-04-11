@@ -39,6 +39,11 @@ userRouter.route('/getRateByIdUserAndRater').post(
     (req, res) => new UserController().getRateByIdUserAndRater(req, res)
 )
 
+userRouter.route('/getGalleryById').post(
+    (req, res) => new UserController().getGalleryById(req, res)
+)
+
+
 
 
 export default userRouter;

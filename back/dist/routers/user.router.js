@@ -15,4 +15,5 @@ userRouter.route('/deleteCommentById').post((req, res) => new user_controller_1.
 userRouter.route('/rate').post((req, res) => new user_controller_1.UserController().rate(req, res));
 userRouter.route('/getRateByIdUser').post((req, res) => new user_controller_1.UserController().getRateByIdUser(req, res));
 userRouter.route('/getRateByIdUserAndRater').post((req, res) => new user_controller_1.UserController().getRateByIdUserAndRater(req, res));
+userRouter.route('/getGalleryById').post((req, res) => new user_controller_1.UserController().getGalleryById(req, res));
 exports.default = userRouter;

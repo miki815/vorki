@@ -50,6 +50,9 @@ import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { CookieService } from 'ngx-cookie-service';
+import { GalleryModule  } from 'ng-gallery';
+
+
 
 
 @NgModule({
@@ -88,12 +91,14 @@ import { CookieService } from 'ngx-cookie-service';
     IndexComponent,
     LandingComponent,
     ProfileComponent,
+    
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    GalleryModule 
     
   ]
     ,

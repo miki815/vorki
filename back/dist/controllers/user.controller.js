@@ -167,13 +167,25 @@ class UserController {
             const { idUser, idCommentator } = req.body;
             var sql = 'SELECT rate FROM rate WHERE idUser = ? and idCommentator = ?';
             server_1.connection.query(sql, [idUser, idCommentator], (err, data) => {
-                console.log(data);
                 if (err) {
                     res.json({ error: 1, message: "Fatal error: " + err });
                     console.log('getRateByIdUserAndRater failed');
                     return;
                 }
                 res.json({ error: 0, message: data });
+            });
+        };
+        this.getGalleryById = (req, res) => {
+            const { idUser } = req.body;
+            var sql = 'SELECT * FROM gallery where idUser = ?';
+            server_1.connection.query(sql, [idUser], (err, comments) => {
+                if (err) {
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    console.log('getGalleryById failed');
+                    return;
+                }
+                res.json({ error: 0, message: comments });
+                console.log('getGalleryById success');
             });
         };
     }

@@ -1,10 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { CookieService } from "ngx-cookie-service";
 import { UserService } from "src/app/services/user.service";
+import { GalleryModule, GalleryItem, ImageItem } from 'ng-gallery';
+
 
 @Component({
   selector: "app-profile",
   templateUrl: "./profile.component.html",
+  
 })
 
 
@@ -13,6 +16,7 @@ import { UserService } from "src/app/services/user.service";
 export class ProfileComponent implements OnInit {
   constructor(private cookieService: CookieService, private userService: UserService) {}
 
+  images: GalleryItem[] = [];
   email: string = null;
   username : string = null;
   firstname : string = null;
@@ -29,13 +33,27 @@ export class ProfileComponent implements OnInit {
   rating: number = 0;
   userRate: number = 0;
   userRateLen: number = 0;
+  cookie: string = "";
+  idUser: string = "";
+  imagesLoaded: boolean = false;
   
 
   ngOnInit(): void {
+
     console.log("Profile - ngOnInit: START")
+
+    this.cookie =  this.cookieService.get("token");
+    this.idUser = localStorage.getItem("idProfile");
+    this.userService.getGalleryById({idUser: this.idUser}).subscribe((message: any) => {
+      var imgs =  message['message'];
+      imgs.forEach(element => {
+        this.images.push(new ImageItem({ src: element.urlPhoto, thumb: element.urlPhoto }));
+        this.imagesLoaded = true;
+      });
+    })
     this.getRate()
-    const id = this.cookieService.get("token");
-    const data = {id: id}
+   
+    const data = {id:  this.cookie}
     this.userService.getUserById(data).subscribe((message: any) => {
       if (message['error'] == "0") {
        console.log(message['message'])
@@ -53,13 +71,14 @@ export class ProfileComponent implements OnInit {
       } 
     })
 
-    const data1 = {idUser: localStorage.getItem("idProfile")}
+    const data1 = {idUser: this.idUser}
 
     this.userService.getCommentById(data1).subscribe((message: any) => {
       var comments  = message["message"];
       comments.forEach(comm => {
         this.userService.getUserById({ id: comm.idCommentator }).subscribe((message: any) => {
           const data =  {
+            id: comm.id,
             comment : comm.comment,
             idCommentator: comm.idCommentator,
             dateC: comm.dateC,
@@ -72,7 +91,6 @@ export class ProfileComponent implements OnInit {
       
       });
     });
-
     console.log("Profile - ngOnInit: END")
 
 
@@ -83,8 +101,9 @@ export class ProfileComponent implements OnInit {
 
   addComment(){
     console.log("Profile - addComment: START")
-    if (/^\s*$/.test( this.comment)) {return;}
-    const data = {idCommentator: this.cookieService.get("token"), comment: this.comment, idUser: localStorage.getItem("idProfile"), dateC: new Date() }
+    if(this.comment=="") return;
+    if (/^\s*$/.test( this.comment)) return;
+    const data = {idCommentator:  this.cookie, comment: this.comment, idUser:this.idUser, dateC: new Date() }
     this.userService.addComment(data).subscribe((message: any) => {
       this.userService.getUserById({ id: data.idCommentator }).subscribe((message: any) => {
         const data1 =  {
@@ -102,8 +121,25 @@ export class ProfileComponent implements OnInit {
     })
   }
 
+  deleteComment(id){
+    console.log("Profile - deleteComment: START")
+
+    this.userService.deleteCommentById({id: id}).subscribe((message: any) => {
+
+      const index = this.comments.findIndex(obj => obj.id === id);
+      if (index !== -1) {
+        this.comments.splice(index, 1);
+      }
+
+    })
+
+    console.log("Profile - deleteComment: END")
+
+  }
+
   more() {
     this.visibleComments += 3;
+    if(this.visibleComments > this.comments.length) this.visibleComments = this.comments.length;
   }
 
   less(){
@@ -116,13 +152,13 @@ export class ProfileComponent implements OnInit {
   }
 
   getRate(){
-    this.userService.getRateByIdUser({idUser: localStorage.getItem("idProfile")}).subscribe((message: any) => {
+    this.userService.getRateByIdUser({idUser: this.idUser}).subscribe((message: any) => {
       this.userRate = 0;
       message["message"].forEach(element => {
         this.userRate += parseInt(element.rate);
       });
       this.userRateLen =  message["message"].length;
-      this.userService.getRateByIdUserAndRater( {idUser: localStorage.getItem("idProfile"), idCommentator: this.cookieService.get("token") }).subscribe((message: any) => {
+      this.userService.getRateByIdUserAndRater( {idUser: this.idUser, idCommentator:  this.cookie}).subscribe((message: any) => {
         this.rating = parseInt(message["message"][0].rate);
       })
 
@@ -134,8 +170,8 @@ export class ProfileComponent implements OnInit {
     console.log("Profile - rate: START")
 
     const data = {
-      idUser:  localStorage.getItem("idProfile"),
-      idCommentator: this.cookieService.get("token"),
+      idUser:  this.idUser,
+      idCommentator:  this.cookie,
       rate: this.rating
     }
 
@@ -145,4 +181,9 @@ export class ProfileComponent implements OnInit {
     });
 
   }
+
+
+  
+ 
+
 }
