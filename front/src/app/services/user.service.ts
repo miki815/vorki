@@ -18,5 +18,33 @@ export class UserService {
     return this.http.post(`${this.uri}/users/register`, data);
   }
 
+  getUserById(data) {
+    return this.http.post(`${this.uri}/users/getUserById`, data);
+  }
 
+  addComment(data) {
+    return this.http.post(`${this.uri}/users/addComment`, data);
+  }
+
+  getCommentById(data) {
+    return this.http.post(`${this.uri}/users/getCommentById`, data);
+  }
+
+  deleteCommentById(data) {
+    return this.http.post(`${this.uri}/users/deleteCommentById`, data);
+  }
+
+  rate(data) {
+    return this.http.post(`${this.uri}/users/rate`, data);
+  }
+
+  getRateByIdUser(data) {
+    return this.http.post(`${this.uri}/users/getRateByIdUser`, data);
+  }
+
+  getRateByIdUserAndRater(data) {
+    return this.http.post(`${this.uri}/users/getRateByIdUserAndRater`, data);
+  }
+
+  
 }

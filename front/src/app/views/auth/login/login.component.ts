@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { CookieService } from "ngx-cookie-service";
 import { UserService } from "src/app/services/user.service";
 
 @Component({
@@ -8,16 +9,14 @@ import { UserService } from "src/app/services/user.service";
   templateUrl: "./login.component.html",
 })
 export class LoginComponent implements OnInit {
-  constructor(private userService: UserService, private router: Router, private http: HttpClient) { }
+  constructor(private userService: UserService, private router: Router, private http: HttpClient,private cookieService: CookieService) { }
 
   email: string = null;
   lozinka: string = null;
   poruka: string = null;
 
 
-  ngOnInit(): void {
-  
-  }
+  ngOnInit(): void {}
 
   potvrdi(){
     console.log("Login - submit: START")
@@ -31,7 +30,8 @@ export class LoginComponent implements OnInit {
     //Slanje
     this.userService.login(data).subscribe((message: any) => {
       if (message['error'] == "0") {
-        this.router.navigate(["landing"]);
+        this.cookieService.set("token",  JSON.stringify(message['message']))
+        this.router.navigate(["profile"]);
         return;
       } else {  this.poruka = message['message'];}
     })
