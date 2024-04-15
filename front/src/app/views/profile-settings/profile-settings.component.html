@@ -30,11 +30,13 @@
           <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
             Informacije 
            </h6>
-           <div class="image-container">
-            <img src="{{photo}}" style="border-radius: 50%;height: 100px;">
+           <div class="image-container" style="margin-top: 5px;">
+            <img src="{{photo}}" style="border-radius: 50%; height: 100px; width: 100px; object-fit: cover;">
             <div class="overlay">
-                <p>Izmeni</p>
+                <label for="fileInput1" style="color: white;">Izmeni</label>
+                <input #fileInput1 id="fileInput1" type="file" (change)="loadPhoto($event,0)" class="hidden" accept=".jpg, .jpeg, .png">
             </div>
+
         </div>
         </div>
        
@@ -170,49 +172,65 @@
               >
               Galerija
               </label>
-              <gallery *ngIf="imagesLoaded"  [items]="images" style="background-color: black !important;  width: 100% !important;height: 650px !important;object-fit: cover;"
+              <gallery id="{{galleryId}}" *ngIf="imagesLoaded"  [items]="images" style="background-color: black !important;  width: 100% !important;height: 650px !important;object-fit: cover;"
               (indexChange)="onIndexChange($event)"></gallery>
               <i class='fas fa-trash-alt' align="center" style='font-size:24px; margin-top: 10px; width: 100%;' (click)="delete()"></i>
              
-  
-              
+            <label for="fileInput" class="hover:bg-red-700 active:bg-red-700 cursor-pointer uppercase font-bold text-xs px-4 py-2 rounded shadow-md text-white bg-red-600">
+              Odaberi fotografije
+          </label>
+          <input id="fileInput" type="file" [(ngModel)]="newphoto" (change)="loadPhoto($event,1)" class="hidden" accept=".jpg, .jpeg, .png" multiple>
             </div>
           </div>
+        
           <div class="w-full lg:w-6/12 px-4">
+           
             <div class="relative w-full mb-3">
               <label
                 class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
-              Dodatna podešavanja
+               Promena lozinke
               </label>
-              <button
-              style="margin-top: 5px;"
-              class="bg-red-600 active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-              type="button"
-              >Dodatno</button>
-              <button
-              style="margin-top: 5px;"
-              class="bg-red-600 active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-              type="button"
-              >Dodatno</button>
-              <button
-              style="margin-top: 5px;"
-              class="bg-red-600 active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-              type="button"
-              >Dodatno</button>
-              <button
-              style="margin-top: 5px;"
-              class="bg-red-600 active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-              type="button"
-            >Dodatno</button>
-  
-            
              
+                <input
+                type="password"
+                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                placeholder="Stara lozinka"
+                style="margin-bottom: 10px;"
+                name = "oldPassword"
+                [(ngModel)]="oldPassword"
+
+                  />
+                <input
+                  type="password"
+                  class=" border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  placeholder="Stara lozinka"
+                  style="margin-bottom: 10px;"
+                  name = "password"
+                  [(ngModel)]="password"
   
+                />
+                <input
+                type="password"
+                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                placeholder="Ponovite staru lozinku"
+                style="margin-bottom: 10px;"
+                name = "password1"
+                [(ngModel)]="password1"
+              />
+              <button
+              style="margin-top: 5px;"
+              (click) = "newPass()"
+              class="bg-red-600 active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+              type="button"
+            >
+              Potvrdi
+            </button>
               
             </div>
           </div>
+          
           
       
         </div>
@@ -253,4 +271,9 @@
 .image-container:hover .overlay {
     opacity: 1; /* Pri hoveru, prikaži overlay */
 }
+
+input[type="file"].hidden {
+    display: none;
+}
+
 </style>

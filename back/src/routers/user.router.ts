@@ -43,6 +43,11 @@ userRouter.route('/getGalleryById').post(
     (req, res) => new UserController().getGalleryById(req, res)
 )
 
+userRouter.route('/changePassword').post(
+    (req, res) => new UserController().changePassword(req, res)
+)
+
+
 
 
 

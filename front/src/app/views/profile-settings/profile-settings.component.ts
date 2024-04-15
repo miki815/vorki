@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { GalleryItem, GalleryState, ImageItem } from 'ng-gallery';
+import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { Gallery, GalleryItem, GalleryRef, GalleryState, ImageItem } from 'ng-gallery';
 import { CookieService } from 'ngx-cookie-service';
+import { Observable } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,7 +11,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ProfileSettingsComponent {
 
-  constructor(private cookieService: CookieService, private userService: UserService) {}
+  constructor(private gallery: Gallery,private cookieService: CookieService, private userService: UserService,private cdr: ChangeDetectorRef) {}
+
+  
 
   images: GalleryItem[] = [];
   email: string = null;
@@ -34,14 +37,22 @@ export class ProfileSettingsComponent {
   imagesLoaded: boolean = false;
   birthdayDate : string = "";
   
+  galleryId = 'mixed';
+  galleryRef: GalleryRef = this.gallery.ref(this.galleryId);
+
+  password: string = "";
+  password1: string = "";
+  oldPassword: string = "";
+
+  message: string = "";
 
   ngOnInit(): void {
 
     console.log("ProfileSettings - ngOnInit: START")
 
     this.cookie =  this.cookieService.get("token");
-    this.idUser = localStorage.getItem("idProfile");
     this.cookie = "1";
+    this.idUser = localStorage.getItem("idProfile");
     this.userService.getGalleryById({idUser: this.cookie}).subscribe((message: any) => {
       var imgs =  message['message'];
       imgs.forEach(element => {
@@ -87,4 +98,77 @@ export class ProfileSettingsComponent {
   onIndexChange(event: GalleryState) {
     this.imgIndex = event.currIndex
   }
+
+  newphoto: string = "";
+  
+
+  loadPhoto(event,gal){
+    const files = (event.target as HTMLInputElement).files;
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const ext = file.name.substr(file.name.lastIndexOf('.') + 1);
+        if (ext === 'jpg' || ext === 'png' || ext === 'jpeg') {
+            this.convertToBase64(file,gal);
+        }
+    }
+   
+}
+
+  convertToBase64(file, gal){
+      let ob=new Observable((subscriber)=>{
+          this.readFile(file, subscriber)
+      })
+      ob.subscribe((ph: string)=>{
+          this.newphoto=ph;
+          if(!gal) this.photo = this.newphoto;
+          if (gal) this.images.push(new ImageItem({ src:  this.newphoto, thumb: this.newphoto }));
+          this.cdr.detectChanges(); // Osvežavanje komponente
+
+      })
+  }
+
+  readFile(file, subscriber){
+      let reader=new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload=()=>{
+          subscriber.next(reader.result);
+          subscriber.complete(); // Ispravljena greška u nazivu metode complete()
+      }
+  }
+
+  newPass(){
+    if(!this.password || !this.password1 || !this.oldPassword){
+      this.message = "Unesite sva polja.";
+      return;
+    }
+    if(this.password!=this.password1){
+      this.message = "Lozinke nisu iste.";
+      return;
+    }
+    if (! /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{6,}$/.test(this.password)) {
+      this.message = "Lozinka mora imati barem \
+      jedno malo slovo, barem jedno veliko slovo, barem jedan broj i barem jedan specijalni karakter. Lozinka mora\
+      imati najmanje 6 karaktera."; return;
+    }
+    const data = {
+      idUser: this.cookie,
+      password: this.oldPassword,
+      newPassword: this.password
+    }
+    this.userService.changePassword(data).subscribe((message: any) => {
+      if(message["message"].affectedRows){
+        this.message = "Uspesno ste promenili lozinku."
+      }else{
+        this.message = "Niste uneli ispravnu lozinku."
+      }
+      this.password = "";
+      this.password1 = "";
+      this.oldPassword = "";
+    })
+
+    
+
+  }
+
+
 }

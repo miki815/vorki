@@ -188,6 +188,19 @@ class UserController {
                 console.log('getGalleryById success');
             });
         };
+        this.changePassword = (req, res) => {
+            const { idUser, password, newPassword } = req.body;
+            var sql = 'UPDATE user SET password = ? WHERE id = ? and password = ?';
+            server_1.connection.query(sql, [newPassword, idUser, password], (err, comments) => {
+                if (err) {
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    console.log('changePassword failed');
+                    return;
+                }
+                res.json({ error: 0, message: comments });
+                console.log('changePassword success');
+            });
+        };
     }
 }
 exports.UserController = UserController;

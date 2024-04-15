@@ -16,4 +16,5 @@ userRouter.route('/rate').post((req, res) => new user_controller_1.UserControlle
 userRouter.route('/getRateByIdUser').post((req, res) => new user_controller_1.UserController().getRateByIdUser(req, res));
 userRouter.route('/getRateByIdUserAndRater').post((req, res) => new user_controller_1.UserController().getRateByIdUserAndRater(req, res));
 userRouter.route('/getGalleryById').post((req, res) => new user_controller_1.UserController().getGalleryById(req, res));
+userRouter.route('/changePassword').post((req, res) => new user_controller_1.UserController().changePassword(req, res));
 exports.default = userRouter;

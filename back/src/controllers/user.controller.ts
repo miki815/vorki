@@ -173,6 +173,18 @@ export class UserController {
             console.log('getGalleryById success');
         });
     }
+
+    changePassword = (req: express.Request, res: express.Response) => {
+        const { idUser, password, newPassword } =  req.body;
+        var sql = 'UPDATE user SET password = ? WHERE id = ? and password = ?';
+        connection.query(sql,[ newPassword, idUser, password ], (err, comments) => {
+            if (err) { res.json({error: 1,  message: "Fatal error: " + err });   console.log('changePassword failed'); return; }
+            res.json({error: 0, message: comments});
+            console.log('changePassword success');
+        });
+    }
+
+
     
 
 }
