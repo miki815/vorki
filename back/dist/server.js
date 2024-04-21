@@ -10,7 +10,9 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const user_router_1 = __importDefault(require("./routers/user.router"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
-app.use(body_parser_1.default.json());
+//app.use(bodyParser.json());
+app.use(body_parser_1.default.json({ limit: '100mb' }));
+app.use(body_parser_1.default.urlencoded({ limit: '100mb', extended: true }));
 const mysql = require('mysql2');
 const connection = mysql.createConnection({
     host: 'localhost',

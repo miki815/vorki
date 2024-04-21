@@ -10,7 +10,7 @@ CREATE TABLE user (
     ulogaK BOOLEAN DEFAULT FALSE,
     ulogaM BOOLEAN DEFAULT FALSE,
     email VARCHAR(255) NOT NULL,
-    photo TEXT NOT NULL
+    photo LONGTEXT NOT NULL
 );
 
 
@@ -36,7 +36,7 @@ CREATE TABLE rate (
 CREATE TABLE gallery (
     id INT AUTO_INCREMENT PRIMARY KEY,
     idUser INT NOT NULL,
-    urlPhoto TEXT NOT NULL,
+    urlPhoto LONGTEXT NOT NULL,
     FOREIGN KEY (idUser) REFERENCES user(id)
 );
 

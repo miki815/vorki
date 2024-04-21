@@ -201,6 +201,67 @@ class UserController {
                 console.log('changePassword success');
             });
         };
+        this.updateGallery = (req, res) => {
+            const { idUser, images } = req.body;
+            var sql = 'DELETE FROM gallery WHERE idUser = ?';
+            server_1.connection.query(sql, [idUser], (err, comments) => {
+                if (err) {
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    console.log('updateGallery failed');
+                    return;
+                }
+                images.forEach(element => {
+                    var sql1 = 'INSERT INTO gallery(idUser,urlPhoto) VALUES(?,?)';
+                    server_1.connection.query(sql1, [idUser, element], (err, comments) => {
+                        if (err) {
+                            res.json({ error: 1, message: "Fatal error: " + err });
+                            console.log('updateGallery failed');
+                            return;
+                        }
+                    });
+                });
+            });
+        };
+        this.getIdByEmail = (req, res) => {
+            const { email } = req.body;
+            var sql = 'SELECT id FROM user WHERE email LIKE ?';
+            server_1.connection.query(sql, [email], (err, id) => {
+                if (err) {
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    console.log('getIdByEmail failed');
+                    return;
+                }
+                res.json({ error: 0, message: id });
+                console.log('getIdByEmail success');
+            });
+        };
+        this.getIdByUsername = (req, res) => {
+            const { username } = req.body;
+            var sql = 'SELECT id FROM user WHERE username LIKE ?';
+            server_1.connection.query(sql, [username], (err, id) => {
+                if (err) {
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    console.log('getIdByUsername failed');
+                    return;
+                }
+                res.json({ error: 0, message: id });
+                console.log('getIdByUsername success');
+            });
+        };
+        this.updateUser = (req, res) => {
+            const { idUser, username, email, firstname, lastname, birthday, location, phone, photo } = req.body;
+            console.log(username);
+            var sql = 'UPDATE user SET username=?, email=?, firstname=?, lastname=?, birthday=?, location=?, phone=?, photo=? WHERE id=?';
+            server_1.connection.query(sql, [username, email, firstname, lastname, birthday, location, phone, photo, idUser], (err, id) => {
+                if (err) {
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    console.log('updateUser failed');
+                    return;
+                }
+                res.json({ error: 0, message: id });
+                console.log('updateUser success');
+            });
+        };
     }
 }
 exports.UserController = UserController;

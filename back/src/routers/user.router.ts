@@ -47,6 +47,21 @@ userRouter.route('/changePassword').post(
     (req, res) => new UserController().changePassword(req, res)
 )
 
+userRouter.route('/updateGallery').post(
+    (req, res) => new UserController().updateGallery(req, res)
+)
+
+userRouter.route('/getIdByEmail').post(
+    (req, res) => new UserController().getIdByEmail(req, res)
+)
+
+userRouter.route('/getIdByUsername').post(
+    (req, res) => new UserController().getIdByUsername(req, res)
+)
+
+userRouter.route('/updateUser').post(
+    (req, res) => new UserController().updateUser(req, res)
+)
 
 
 

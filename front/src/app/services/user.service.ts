@@ -54,5 +54,22 @@ export class UserService {
     return this.http.post(`${this.uri}/users/changePassword`, data);
   }
 
+  updateGallery(data) {
+    return this.http.post(`${this.uri}/users/updateGallery`, data);
+  }
+
+  getIdByEmail(data) {
+    return this.http.post(`${this.uri}/users/getIdByEmail`, data);
+  }
+
+  getIdByUsername(data) {
+    return this.http.post(`${this.uri}/users/getIdByUsername`, data);
+  }
+
+  updateUser(data) {
+    return this.http.post(`${this.uri}/users/updateUser`, data);
+  }
+
+
   
 }

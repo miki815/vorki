@@ -44,7 +44,16 @@ export class ProfileSettingsComponent {
   password1: string = "";
   oldPassword: string = "";
 
+ 
+  numberOfPhotos: number = 0;
+
+  err: boolean = false;
+  notErr: boolean = false;
   message: string = "";
+
+  imgIndex : number = 0;
+  newphoto: string = "";
+
 
   ngOnInit(): void {
 
@@ -56,9 +65,11 @@ export class ProfileSettingsComponent {
     this.userService.getGalleryById({idUser: this.cookie}).subscribe((message: any) => {
       var imgs =  message['message'];
       imgs.forEach(element => {
-        this.images.push(new ImageItem({ src: element.urlPhoto, thumb: element.urlPhoto }));
+        this.galleryRef.add(new ImageItem({ src: element.urlPhoto, thumb: element.urlPhoto }))
+        this.numberOfPhotos += 1;
       });
       this.imagesLoaded = true;
+      
     })
 
    
@@ -82,25 +93,18 @@ export class ProfileSettingsComponent {
       } 
      
     })
-
-    const data1 = {idUser: this.idUser}
-
-  
     console.log("ProfileSettings - ngOnInit: END")
   }
 
-  imgIndex : number = 0;
   delete(){
-    alert(this.imgIndex);
+    this.galleryRef.remove(this.imgIndex);
+    this.numberOfPhotos -=1 ;
   }
 
 
   onIndexChange(event: GalleryState) {
     this.imgIndex = event.currIndex
   }
-
-  newphoto: string = "";
-  
 
   loadPhoto(event,gal){
     const files = (event.target as HTMLInputElement).files;
@@ -109,30 +113,62 @@ export class ProfileSettingsComponent {
         const ext = file.name.substr(file.name.lastIndexOf('.') + 1);
         if (ext === 'jpg' || ext === 'png' || ext === 'jpeg') {
             this.convertToBase64(file,gal);
+            if(gal) this.galleryRef.prev();
         }
     }
    
 }
 
-  convertToBase64(file, gal){
-      let ob=new Observable((subscriber)=>{
-          this.readFile(file, subscriber)
-      })
-      ob.subscribe((ph: string)=>{
-          this.newphoto=ph;
-          if(!gal) this.photo = this.newphoto;
-          if (gal) this.images.push(new ImageItem({ src:  this.newphoto, thumb: this.newphoto }));
-          this.cdr.detectChanges(); // Osvežavanje komponente
-
-      })
+  convertToBase64(file, gal) {
+    let ob = new Observable((subscriber) => {
+        this.resizeImage(file, 800, 600, (resizedFile) => {
+            this.readFile(resizedFile, subscriber);
+        });
+    });
+    ob.subscribe((ph: string) => {
+        this.newphoto = ph;
+        if (!gal) this.photo = this.newphoto;
+        if (gal){
+          this.galleryRef.add(new ImageItem({ src: this.newphoto, thumb:this.newphoto }));
+          this.numberOfPhotos += 1;
+        } 
+    });
   }
+
+  resizeImage(file, maxWidth, maxHeight, callback) {
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        let img = new Image();
+        img.src = reader.result as string;
+        img.onload = () => {
+            let width = img.width;
+            let height = img.height;
+            if (width > maxWidth || height > maxHeight) {
+                let ratio = Math.min(maxWidth / width, maxHeight / height);
+                width *= ratio;
+                height *= ratio;
+            }
+            let canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            let ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+            canvas.toBlob((blob) => {
+                callback(new File([blob], file.name, { type: 'image/jpeg', lastModified: Date.now() }));
+            }, 'image/jpeg');
+        };
+    };
+  }
+
+
 
   readFile(file, subscriber){
       let reader=new FileReader();
       reader.readAsDataURL(file);
       reader.onload=()=>{
           subscriber.next(reader.result);
-          subscriber.complete(); // Ispravljena greška u nazivu metode complete()
+          subscriber.complete(); 
       }
   }
 
@@ -167,6 +203,50 @@ export class ProfileSettingsComponent {
     })
 
     
+
+  }
+
+  updateGallery(){
+    const imgs=[]
+    this.galleryRef.stateSnapshot.items.forEach(element => {
+      imgs.push(element.data.src)
+    });
+
+    const data = {
+      images: imgs,
+      idUser: this.idUser
+    }
+    this.userService.updateGallery(data).subscribe((message: any) => {
+    })
+  }
+
+  update(){
+    this.userService.getIdByEmail({email: this.email}).subscribe((message: any) => {
+      if(message["message"].length && message["message"][0].id!=this.idUser){ this.message="Email već postoji."}
+      this.userService.getIdByUsername({username: this.username}).subscribe((message: any) => {
+        if(message["message"].length && message["message"][0].id!=this.idUser){ this.message="Korisničko ime već postoji."}
+        if (this.username.length < 3) { this.message = "Korisničko ime je prekratko."; return; }
+        if (this.firstname.length < 3) { this.message = "Ime je prekratko."; return; }
+        if (this.lastname.length < 3) { this.message = "Prezime je prekratko."; return; }
+        if (this.birthday > new Date((new Date()).getFullYear() - 18, (new Date()).getMonth(), (new Date()).getDate())) { this.message = "Morate biti punoletni."; return; }
+        if (!/^381\d{6}\d+$/.test(this.phone.slice(1)) || this.phone[0] != "+") { this.message = "Mobilni telefon nije u dobrom formatu."; return; }
+        if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(this.email)) { this.message = "Email nije u dobrom formatu."; return; }
+        const data={
+          idUser: this.idUser,
+          username: this.username,
+          email: this.email,
+          firstname: this.firstname,
+          lastname: this.lastname,
+          birthday: this.birthday,
+          location: this.location,
+          phone: this.phone,
+          photo: this.photo
+        }
+        this.userService.updateUser(data).subscribe((message: any) => {
+          alert(message)
+        })
+      })
+    })
 
   }
 
