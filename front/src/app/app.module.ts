@@ -52,6 +52,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { CookieService } from 'ngx-cookie-service';
 import { GalleryModule  } from 'ng-gallery';
 import { ProfileSettingsComponent } from "./views/profile-settings/profile-settings.component";
+import { CommonModule } from "@angular/common";
+import { AdvertisementComponent } from "./views/auth/advertisement/advertisement.component";
 
 
 
@@ -92,9 +94,8 @@ import { ProfileSettingsComponent } from "./views/profile-settings/profile-setti
     IndexComponent,
     LandingComponent,
     ProfileComponent,
-    ProfileSettingsComponent
-
-    
+    ProfileSettingsComponent,
+    AdvertisementComponent
   ],
   imports: [
     FormsModule,
@@ -102,7 +103,7 @@ import { ProfileSettingsComponent } from "./views/profile-settings/profile-setti
     AppRoutingModule,
     HttpClientModule,
     GalleryModule ,
-    
+    CommonModule
 
     
   ]

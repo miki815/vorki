@@ -30,13 +30,23 @@ CREATE TABLE rate (
     idRater INT NOT NULL,
     rate text NOT NULL,
     FOREIGN KEY (idUser) REFERENCES user(id),
-    FOREIGN KEY (idCommentator) REFERENCES user(id)
+    FOREIGN KEY (idRater) REFERENCES user(id)
 );
 
 CREATE TABLE gallery (
     id INT AUTO_INCREMENT PRIMARY KEY,
     idUser INT NOT NULL,
     urlPhoto LONGTEXT NOT NULL,
+    FOREIGN KEY (idUser) REFERENCES user(id)
+);
+
+CREATE TABLE job (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    idUser INT,
+    profession VARCHAR(255),
+    title VARCHAR(255),
+    description TEXT,
+    city VARCHAR(255),
     FOREIGN KEY (idUser) REFERENCES user(id)
 );
 

@@ -20,6 +20,7 @@ import { IndexComponent } from "./views/index/index.component";
 import { LandingComponent } from "./views/landing/landing.component";
 import { ProfileComponent } from "./views/profile/profile.component";
 import { ProfileSettingsComponent } from "./views/profile-settings/profile-settings.component";
+import { AdvertisementComponent } from "./views/auth/advertisement/advertisement.component";
 
 const routes: Routes = [
   // admin views
@@ -41,12 +42,13 @@ const routes: Routes = [
     children: [
       { path: "login", component: LoginComponent },
       { path: "register", component: RegisterComponent },
+      { path: "dodaj_oglas", component: AdvertisementComponent },
       { path: "", redirectTo: "login", pathMatch: "full" },
     ],
   },
   // no layout views
-  { path: "profile", component: ProfileComponent},
-  { path: "profiles", component: ProfileSettingsComponent},
+  { path: "profile", component: ProfileComponent },
+  { path: "profiles", component: ProfileSettingsComponent },
   { path: "landing", component: LandingComponent },
   { path: "", component: IndexComponent },
   { path: "**", redirectTo: "", pathMatch: "full" },
@@ -56,4 +58,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

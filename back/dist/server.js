@@ -8,6 +8,7 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const user_router_1 = __importDefault(require("./routers/user.router"));
+const job_router_1 = __importDefault(require("./routers/job.router"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 //app.use(bodyParser.json());
@@ -17,7 +18,7 @@ const mysql = require('mysql2');
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'miki',
     database: 'vorki'
 });
 exports.connection = connection;
@@ -29,5 +30,6 @@ connection.connect((err) => {
     console.log('db connection ok');
 });
 app.use('/users', user_router_1.default);
+app.use('/jobs', job_router_1.default);
 app.get('/', (req, res) => res.send('Hello World!'));
 app.listen(4000, () => console.log(`Express server running on port 4000`));

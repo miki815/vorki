@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors'
 import bodyParser from 'body-parser'
-import mongoose from 'mongoose'
 import userRouter from './routers/user.router';
+import jobRouter from './routers/job.router';
 
 const app = express();
 app.use(cors());
@@ -16,7 +16,7 @@ const mysql = require('mysql2');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',      
-  password: '',  
+  password: 'miki',  
   database: 'vorki'       
 });
 
@@ -30,7 +30,8 @@ connection.connect((err) => {
 
 export { connection };
 
-app.use('/users', userRouter)
+app.use('/users', userRouter);
+app.use('/jobs', jobRouter);
 
 app.get('/', (req, res) => res.send('Hello World!'));
 app.listen(4000, () => console.log(`Express server running on port 4000`));

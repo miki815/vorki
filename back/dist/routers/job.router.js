@@ -1,0 +1,10 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const job_controller_1 = require("../controllers/job.controller");
+const jobRouter = express_1.default.Router();
+jobRouter.route('/insertJob').post((req, res) => new job_controller_1.JobController().insertJob(req, res));
+exports.default = jobRouter;

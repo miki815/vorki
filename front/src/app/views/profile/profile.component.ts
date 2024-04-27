@@ -10,9 +10,6 @@ import { GalleryModule, GalleryItem, ImageItem } from 'ng-gallery';
   
 })
 
-
-
-
 export class ProfileComponent implements OnInit {
   constructor(private cookieService: CookieService, private userService: UserService) {}
 
