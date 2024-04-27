@@ -3989,6 +3989,11 @@ select {
     color: rgba(226, 232, 240, var(--tw-text-opacity));
   }
 
+  .lg\:hover\:text-blackYellow-200:hover {
+    --tw-text-opacity: 1;
+    color: rgba(40, 50, 0, var(--tw-text-opacity));
+  }
+
   .lg\:w-auto {
     width: auto;
   }

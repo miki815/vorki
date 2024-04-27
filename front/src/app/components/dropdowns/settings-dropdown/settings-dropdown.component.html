@@ -1,0 +1,81 @@
+<a
+  class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+  href="#pablo"
+  (click)="toggleDropdown($event)"
+  #btnDropdownRef
+>
+<i
+class="lg:text-blueGray-200 text-blueGray-400 fas fa-cog text-lg leading-lg lg:hover:text-blackYellow-200" 
+></i>
+</a>
+<div
+  class="bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
+  [ngClass]="dropdownPopoverShow ? 'block' : 'hidden'"
+  #popoverDropdownRef
+>
+  <span
+    class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
+  >
+    Podešavanja
+  </span>
+  <a
+    [routerLink]="['/profile']"
+    class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+  >
+    Moj profil
+  </a>
+  <a
+    [routerLink]="['/profiles']"
+    class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+  >
+    Izmena informacija
+  </a>
+  <a
+    [routerLink]="['/auth/login']"
+    class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+  >
+    Odjava
+  </a>
+  <a
+    [routerLink]="['/auth/login']"
+    class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+  >
+    Maps
+  </a>
+  <div class="h-0 mx-4 my-2 border border-solid border-blueGray-100"></div>
+  <span
+    class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
+  >
+    Auth Layout
+  </span>
+  <a
+    [routerLink]="['/auth/login']"
+    class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+  >
+    Login
+  </a>
+  <a
+    [routerLink]="['/auth/register']"
+    class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+  >
+    Register
+  </a>
+  <div class="h-0 mx-4 my-2 border border-solid border-blueGray-100"></div>
+  <span
+    class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
+  >
+    No Layout
+  </span>
+  <a
+    [routerLink]="['/landing']"
+    class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+  >
+    Landing
+  </a>
+  <a
+    [routerLink]="['/profile']"
+    class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+  >
+    Profile
+  </a>
+</div>

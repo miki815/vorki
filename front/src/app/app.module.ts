@@ -54,6 +54,8 @@ import { GalleryModule  } from 'ng-gallery';
 import { ProfileSettingsComponent } from "./views/profile-settings/profile-settings.component";
 import { CommonModule } from "@angular/common";
 import { AdvertisementComponent } from "./views/auth/advertisement/advertisement.component";
+import { MainNavbarComponent } from "./components/navbars/main-navbar/main-navbar.component";
+import { SettingsDropdownComponent } from "./components/dropdowns/settings-dropdown/settings-dropdown.component";
 
 
 
@@ -95,7 +97,9 @@ import { AdvertisementComponent } from "./views/auth/advertisement/advertisement
     LandingComponent,
     ProfileComponent,
     ProfileSettingsComponent,
-    AdvertisementComponent
+    AdvertisementComponent,
+    MainNavbarComponent,
+    SettingsDropdownComponent
   ],
   imports: [
     FormsModule,
