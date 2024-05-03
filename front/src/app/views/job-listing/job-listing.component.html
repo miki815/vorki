@@ -1,0 +1,18 @@
+<div #top class="my-element"></div>
+
+
+<!-- Single jobs -->
+<div class="grid grid-cols-1 gap-4 place-items-center">
+    <div class="py-3 w-1/2" *ngFor="let job of jobs.slice((currentPage - 1) * jobsPerPage, currentPage * jobsPerPage)">
+        <app-single-job-short [job]="job"></app-single-job-short>
+    </div>
+</div>
+
+<!-- Pagination buttons -->
+<div class="mt-4 pb-4 flex justify-center">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Prethodna</button>
+    <span class="mx-4">|  {{ currentPage }}  |</span>
+    <button (click)="nextPage()" [disabled]="jobs.length <= currentPage * jobsPerPage">Sledeća</button>
+</div>
+
+<!--md:grid-cols-2 lg:grid-cols-3-->

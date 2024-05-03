@@ -21,6 +21,8 @@ import { LandingComponent } from "./views/landing/landing.component";
 import { ProfileComponent } from "./views/profile/profile.component";
 import { ProfileSettingsComponent } from "./views/profile-settings/profile-settings.component";
 import { AdvertisementComponent } from "./views/auth/advertisement/advertisement.component";
+import { JobListingComponent } from "./views/job-listing/job-listing.component";
+import { SingleJobLongComponent } from "./views/single-job-long/single-job-long.component";
 
 const routes: Routes = [
   // admin views
@@ -50,6 +52,8 @@ const routes: Routes = [
   { path: "profile", component: ProfileComponent },
   { path: "profiles", component: ProfileSettingsComponent },
   { path: "landing", component: LandingComponent },
+  {path: "oglasi", component: JobListingComponent},
+  { path: 'oglasi/:id', component: SingleJobLongComponent },
   { path: "", component: IndexComponent },
   { path: "**", redirectTo: "", pathMatch: "full" },
 ];

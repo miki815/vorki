@@ -16,6 +16,26 @@ class JobController {
                 res.json({ message: "0" });
             });
         };
+        this.getJobs = (req, res) => {
+            var sql = 'SELECT * FROM job';
+            server_1.connection.query(sql, (err, jobs) => {
+                if (err) {
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    return;
+                }
+                res.json(jobs);
+            });
+        };
+        this.getJobById = (req, res) => {
+            var sql = 'SELECT * FROM job WHERE id = ?';
+            server_1.connection.query(sql, [req.params.id], (err, job) => {
+                if (err) {
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    return;
+                }
+                res.json(job);
+            });
+        };
     }
 }
 exports.JobController = JobController;

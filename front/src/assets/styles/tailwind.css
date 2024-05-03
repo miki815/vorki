@@ -1272,6 +1272,12 @@ select {
 .bg-emerald-200 {
   --tw-bg-opacity: 1;
   background-color: rgba(167, 243, 208, var(--tw-bg-opacity));
+} 
+
+.bg-nice{
+  --tw-bg-opacity: 1;
+  background-color: #ecede7;
+
 }
 
 .bg-emerald-400 {
@@ -1496,6 +1502,11 @@ select {
 .border-blueGray-600 {
   --tw-border-opacity: 1;
   border-color: rgba(71, 85, 105, var(--tw-border-opacity));
+}
+
+.border-yellow {
+  --tw-border-opacity: 1;
+  border-color: rgba(203, 220, 45, var(--tw-border-opacity));
 }
 
 .focus\:border-black:focus {

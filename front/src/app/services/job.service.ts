@@ -12,4 +12,12 @@ export class JobService {
   insertJob(data) {
     return this.http.post(`${this.uri}/jobs/insertJob`, data);
   }
+
+  getJobs() {
+    return this.http.get(`${this.uri}/jobs/getJobs`);
+  }
+
+  getJobById(id) {
+    return this.http.get(`${this.uri}/jobs/getJobById/${id}`);
+  }
 }

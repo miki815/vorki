@@ -60,6 +60,24 @@ INSERT INTO  gallery(idUser, urlPhoto) VALUES
 (1, '../../../assets/img/team-3-800x800.jpg'),
 (1, '../../../assets/img/team-4-470x470.png');
 
+INSERT INTO job (idUser, profession, title, description, city)
+VALUES
+    (1, 'Moler', 'Farbanje zidova u stambenim objektima', 'Nudimo usluge farbanja zidova u stambenim objektima. Kontaktirajte nas za više informacija.', 'Beograd'),
+    (2, 'Vodoinstalater', 'Popravka kvarova na vodovodnoj mreži', 'Nudimo usluge hitne popravke kvarova na vodovodnoj mreži. Kontaktirajte nas za pomoć.', 'Novi Sad'),
+    (3, 'Električar', 'Instalacija rasvete u poslovnim prostorima', 'Nudimo usluge instalacije rasvete u novim poslovnim prostorima. Kontaktirajte nas za više informacija.', 'Požarevac'),
+    (1, 'Stolar', 'Izrada nameštaja po meri', 'Nudimo usluge izrade nameštaja po meri prema vašim zahtevima. Kontaktirajte nas za konsultacije.', 'Kostolac'),
+    (2, 'Keramičar', 'Postavljanje pločica u kuhinji i kupatilu', 'Nudimo usluge postavljanja pločica u kuhinji i kupatilu. Kontaktirajte nas za besplatnu procenu.', 'Beograd'),
+    (3, 'Pekar', 'Potreban pekar za rad u pekari', 'Tražimo pekara sa iskustvom za rad u našoj pekari. Prijavite se odmah!', 'Novi Sad'),
+    (1, 'Frizer', 'Frizerski salon - Sređivanje frizure', 'Nudimo usluge sređivanja frizure u našem salonu. Dođite i uživajte u profesionalnom tretmanu.', 'Beograd'),
+    (2, 'Automehaničar', 'Popravka automobila svih marki', 'Nudimo usluge popravke automobila svih marki. Kontaktirajte nas za besplatnu procenu.', 'Novi Sad'),
+    (3, 'Baštovan', 'Održavanje bašte i uređenje vrtova', 'Nudimo usluge održavanja bašte i uređenja vrtova. Posadite s nama sreću u vašem dvorištu.', 'Beograd'),
+    (1, 'Fotograf', 'Fotografisanje posebnih trenutaka', 'Nudimo usluge profesionalnog fotografisanja za sve vaše posebne trenutke. Kontaktirajte nas za rezervaciju termina.', 'Novi Sad'),
+    (3, 'Moler', 'Farbanje zidova u stanovima i kućama', 'Vršimo profesionalno farbanje zidova u svim vrstama stanova i kuća. Kontaktirajte nas za besplatnu procenu.', 'Niš'),
+    (1, 'Vodoinstalater', 'Popravka kvarova na vodovodnoj mreži i instalacije', 'Hitne intervencije za sve vrste kvarova na vodovodnoj mreži i instalacijama. Radimo brzo i efikasno.', 'Kragujevac'),
+    (1, 'Električar', 'Električarski radovi u domaćinstvima i poslovnim objektima', 'Stručno obavljamo sve vrste električarskih radova u domaćinstvima i poslovnim objektima. Pouzdani smo i efikasni.', 'Novi Sad');
+
+
 select * from user;
 select * from comments;
+select * from job;
 

@@ -50,12 +50,15 @@ import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { CookieService } from 'ngx-cookie-service';
-import { GalleryModule  } from 'ng-gallery';
+import { GalleryModule } from 'ng-gallery';
 import { ProfileSettingsComponent } from "./views/profile-settings/profile-settings.component";
 import { CommonModule } from "@angular/common";
 import { AdvertisementComponent } from "./views/auth/advertisement/advertisement.component";
 import { MainNavbarComponent } from "./components/navbars/main-navbar/main-navbar.component";
 import { SettingsDropdownComponent } from "./components/dropdowns/settings-dropdown/settings-dropdown.component";
+import { JobListingComponent } from "./views/job-listing/job-listing.component";
+import { SingleJobLongComponent } from "./views/single-job-long/single-job-long.component";
+import { SingleJobShortComponent } from "./views/single-job-short/single-job-short.component";
 
 
 
@@ -99,20 +102,21 @@ import { SettingsDropdownComponent } from "./components/dropdowns/settings-dropd
     ProfileSettingsComponent,
     AdvertisementComponent,
     MainNavbarComponent,
-    SettingsDropdownComponent
+    SettingsDropdownComponent,
+    JobListingComponent,
+    SingleJobShortComponent,
+    SingleJobLongComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    GalleryModule ,
+    GalleryModule,
     CommonModule
-
-    
   ]
-    ,
+  ,
   providers: [CookieService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
