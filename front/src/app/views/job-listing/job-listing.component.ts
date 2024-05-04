@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { filter } from 'rxjs';
 import { JobService } from 'src/app/services/job.service';
 
 @Component({
@@ -7,19 +8,29 @@ import { JobService } from 'src/app/services/job.service';
 })
 export class JobListingComponent implements OnInit{
   jobs: Array<any>;
+  allJobs: Array<any>;
   currentPage: number = 1;
   jobsPerPage: number = 10;
   @ViewChild('top') topElement!: ElementRef;
 
+  cities = ['Beograd', 'Novi Sad', 'Niš', 'Kragujevac'];
+  selectedCity: string = '';
+  professions = ['Moler', 'Vodoinstalater', 'Automehaničar', 'Električar', 'Stolar', 'Bravar', 'Keramičar', 'Tesar', 'Zidar', 'Gipsar', 'Limar'];
+  selectedProfession: string = '';
   ngOnInit(): void {
-    this.jobService.getJobs().subscribe((jobs: any) => {
+    // this.jobService.getJobs().subscribe((jobs: any) => {
+    //   this.jobs = jobs;
+    //   this.allJobs = jobs;
+    // });
+    this.jobService.getJobsWithUserInfo2().subscribe((jobs: any) => {
+      console.log(jobs)
       this.jobs = jobs;
+      this.allJobs = jobs;
     });
   }
 
 
   constructor(private jobService: JobService) {
-    
     // this.jobs = [
     //   {
     //     title: 'Moler',
@@ -103,5 +114,26 @@ export class JobListingComponent implements OnInit{
     if (this.jobs.length > this.currentPage * this.jobsPerPage) this.currentPage++;
     this.moveToTop();
   }
+
+  // filterCity() {
+  //   this.currentPage = 1;
+  //   if (this.selectedCity === '') this.jobs = this.allJobs;    
+  //   else this.jobs = this.allJobs.filter(job => job.city === this.selectedCity);
+  // }
+
+  // filterProfession() {
+  //   this.currentPage = 1;
+  //   if (this.selectedProfession === '') this.jobs = this.allJobs;
+  //   else this.jobs = this.allJobs.filter(job => job.profession === this.selectedProfession);
+  // }
+
+  filterJobs() {
+    this.currentPage = 1;
+    if (this.selectedCity === '' && this.selectedProfession === '') this.jobs = this.allJobs;
+    else if (this.selectedCity === '') this.jobs = this.allJobs.filter(job => job.profession === this.selectedProfession);
+    else if (this.selectedProfession === '') this.jobs = this.allJobs.filter(job => job.city === this.selectedCity);
+    else this.jobs = this.allJobs.filter(job => job.city === this.selectedCity && job.profession === this.selectedProfession);
+  }
+
   
 }

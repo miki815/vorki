@@ -1,5 +1,18 @@
 <div #top class="my-element"></div>
 
+<div class="flex items-center justify-center mt-4">
+    <select [(ngModel)]="selectedCity" id="city" class="border border-gray-300 rounded-md mx-4" (change)="filterJobs()">
+        <option value="">Izaberite grad</option>
+        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+    </select>
+    <select [(ngModel)]="selectedProfession" id="profession" class="border border-gray-300 rounded-md" (change)="filterJobs()">
+        <option value="">Izaberite zanimanje</option>
+        <option *ngFor="let profession of professions" [value]="profession">{{ profession }}</option>
+    </select>    
+</div>
+
+
+
 
 <!-- Single jobs -->
 <div class="grid grid-cols-1 gap-4 place-items-center">
@@ -11,7 +24,7 @@
 <!-- Pagination buttons -->
 <div class="mt-4 pb-4 flex justify-center">
     <button (click)="prevPage()" [disabled]="currentPage === 1">Prethodna</button>
-    <span class="mx-4">|  {{ currentPage }}  |</span>
+    <span class="mx-4">| {{ currentPage }} |</span>
     <button (click)="nextPage()" [disabled]="jobs.length <= currentPage * jobsPerPage">Sledeća</button>
 </div>
 

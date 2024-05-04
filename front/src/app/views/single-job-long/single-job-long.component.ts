@@ -12,13 +12,14 @@ export class SingleJobLongComponent implements OnInit {
 
   constructor(private jobService: JobService, private route: ActivatedRoute) { }
   ngOnInit(): void {
+    this.job = history.state.job;
     this.route.paramMap.subscribe(params => {
       this.jobId = params.get('id');
     });
-    this.jobService.getJobById(this.jobId).subscribe((job: any) => {
-      // getJobById returns array of one element
-      this.job = job[0];
-    });
+    // this.jobService.getJobById(this.jobId).subscribe((job: any) => {
+    //   // getJobById returns array of one element
+    //   this.job = job[0];
+    // });
   }
 
 

@@ -36,6 +36,36 @@ class JobController {
                 res.json(job);
             });
         };
+        this.getJobsWithUserInfo = (req, res) => {
+            var sql = 'SELECT * FROM job';
+            server_1.connection.query(sql, (err, jobs) => {
+                if (err) {
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    return;
+                }
+                var sql = 'SELECT * FROM user';
+                server_1.connection.query(sql, (err, users) => {
+                    if (err) {
+                        res.json({ error: 1, message: "Fatal error: " + err });
+                        return;
+                    }
+                    jobs.forEach(job => {
+                        job.user = users.find(user => user.id === job.idUser);
+                    });
+                    res.json(jobs);
+                });
+            });
+        };
+        this.getJobsWithUserInfo2 = (req, res) => {
+            var sql = 'SELECT job.id, job.profession, job.title, job.description, job.city, user.username, user.photo FROM job INNER JOIN user ON job.idUser = user.id';
+            server_1.connection.query(sql, (err, jobs) => {
+                if (err) {
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    return;
+                }
+                res.json(jobs);
+            });
+        };
     }
 }
 exports.JobController = JobController;

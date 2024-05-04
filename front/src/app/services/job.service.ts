@@ -20,4 +20,12 @@ export class JobService {
   getJobById(id) {
     return this.http.get(`${this.uri}/jobs/getJobById/${id}`);
   }
+
+  getJobsWithUserInfo() {
+    return this.http.get(`${this.uri}/jobs/getJobsWithUserInfo`);
+  }
+
+  getJobsWithUserInfo2() {
+    return this.http.get(`${this.uri}/jobs/getJobsWithUserInfo2`);
+  }
 }

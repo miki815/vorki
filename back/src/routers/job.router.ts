@@ -16,4 +16,12 @@ jobRouter.route('/getJobById/:id').get(
     (req, res) => new JobController().getJobById(req, res)
 )
 
+jobRouter.route('/getJobsWithUserInfo').get(
+    (req, res) => new JobController().getJobsWithUserInfo(req, res)
+)
+
+jobRouter.route('/getJobsWithUserInfo2').get(
+    (req, res) => new JobController().getJobsWithUserInfo2(req, res)
+)
+
 export default jobRouter;

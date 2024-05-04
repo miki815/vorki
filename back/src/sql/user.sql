@@ -10,6 +10,7 @@ CREATE TABLE user (
     ulogaK BOOLEAN DEFAULT FALSE,
     ulogaM BOOLEAN DEFAULT FALSE,
     email VARCHAR(255) NOT NULL,
+    averageRate FLOAT DEFAULT 0,
     photo LONGTEXT NOT NULL
 );
 

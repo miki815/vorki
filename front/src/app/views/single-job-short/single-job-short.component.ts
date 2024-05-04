@@ -1,18 +1,28 @@
-import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-single-job-short',
   templateUrl: './single-job-short.component.html',
 })
-export class SingleJobShortComponent {
+export class SingleJobShortComponent implements OnInit{
   @Input() job: any;
+  imageSrc: string;
 
   constructor(private router: Router) { }
 
-  locateToJob(job: any) {
+  ngOnInit(): void {
+    this.imageSrc = this.job.photo;
+  }
+
+  locateToJob() {
     console.log(this.job)
-    this.router.navigate(['/oglasi/', this.job.id]);
+    const navigationExtras: NavigationExtras = {
+      state: {
+        job: this.job
+      }
+    };
+    this.router.navigate(['/oglasi/', this.job.id], navigationExtras);
   }
 
 }

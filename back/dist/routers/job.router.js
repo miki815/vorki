@@ -9,4 +9,6 @@ const jobRouter = express_1.default.Router();
 jobRouter.route('/insertJob').post((req, res) => new job_controller_1.JobController().insertJob(req, res));
 jobRouter.route('/getJobs').get((req, res) => new job_controller_1.JobController().getJobs(req, res));
 jobRouter.route('/getJobById/:id').get((req, res) => new job_controller_1.JobController().getJobById(req, res));
+jobRouter.route('/getJobsWithUserInfo').get((req, res) => new job_controller_1.JobController().getJobsWithUserInfo(req, res));
+jobRouter.route('/getJobsWithUserInfo2').get((req, res) => new job_controller_1.JobController().getJobsWithUserInfo2(req, res));
 exports.default = jobRouter;
