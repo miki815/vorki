@@ -59,6 +59,7 @@ import { SettingsDropdownComponent } from "./components/dropdowns/settings-dropd
 import { JobListingComponent } from "./views/job-listing/job-listing.component";
 import { SingleJobLongComponent } from "./views/single-job-long/single-job-long.component";
 import { SingleJobShortComponent } from "./views/single-job-short/single-job-short.component";
+import { CategoriesChoiceComponent } from "./views/categories-choice/categories-choice.component";
 
 
 
@@ -105,7 +106,8 @@ import { SingleJobShortComponent } from "./views/single-job-short/single-job-sho
     SettingsDropdownComponent,
     JobListingComponent,
     SingleJobShortComponent,
-    SingleJobLongComponent
+    SingleJobLongComponent,
+    CategoriesChoiceComponent
   ],
   imports: [
     FormsModule,

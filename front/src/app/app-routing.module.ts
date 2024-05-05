@@ -23,6 +23,7 @@ import { ProfileSettingsComponent } from "./views/profile-settings/profile-setti
 import { AdvertisementComponent } from "./views/auth/advertisement/advertisement.component";
 import { JobListingComponent } from "./views/job-listing/job-listing.component";
 import { SingleJobLongComponent } from "./views/single-job-long/single-job-long.component";
+import { CategoriesChoiceComponent } from "./views/categories-choice/categories-choice.component";
 
 const routes: Routes = [
   // admin views
@@ -53,9 +54,10 @@ const routes: Routes = [
   { path: "profiles", component: ProfileSettingsComponent },
   { path: "landing", component: LandingComponent },
   {path: "oglasi", component: JobListingComponent},
+  {path: "izbor-kategorije", component: CategoriesChoiceComponent},
   { path: 'oglasi/:id', component: SingleJobLongComponent },
   { path: "", component: IndexComponent },
-  { path: "**", redirectTo: "", pathMatch: "full" },
+  { path: "**", redirectTo: "", pathMatch: "full" }
 ];
 
 @NgModule({

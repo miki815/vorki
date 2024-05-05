@@ -11,7 +11,8 @@ CREATE TABLE user (
     ulogaM BOOLEAN DEFAULT FALSE,
     email VARCHAR(255) NOT NULL,
     averageRate FLOAT DEFAULT 0,
-    photo LONGTEXT NOT NULL
+    photo LONGTEXT NOT NULL,
+    avgRate FLOAT DEFAULT 0
 );
 
 
@@ -21,6 +22,7 @@ CREATE TABLE comments (
     idCommentator INT NOT NULL,
     comment text NOT NULL,
     dateC DATE NOT NULL,
+    jobId INT DEFAULT 0,
     FOREIGN KEY (idUser) REFERENCES user(id),
     FOREIGN KEY (idCommentator) REFERENCES user(id)
 );

@@ -69,7 +69,6 @@ export class ProfileSettingsComponent {
         this.numberOfPhotos += 1;
       });
       this.imagesLoaded = true;
-      
     })
 
    

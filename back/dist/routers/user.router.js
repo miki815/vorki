@@ -11,6 +11,7 @@ userRouter.route('/register').post((req, res) => new user_controller_1.UserContr
 userRouter.route('/getUserById').post((req, res) => new user_controller_1.UserController().getUserById(req, res));
 userRouter.route('/addComment').post((req, res) => new user_controller_1.UserController().addComment(req, res));
 userRouter.route('/getCommentById').post((req, res) => new user_controller_1.UserController().getCommentById(req, res));
+userRouter.route('/getCommentsByJobId').post((req, res) => new user_controller_1.UserController().getCommentsByJobId(req, res));
 userRouter.route('/deleteCommentById').post((req, res) => new user_controller_1.UserController().deleteCommentById(req, res));
 userRouter.route('/rate').post((req, res) => new user_controller_1.UserController().rate(req, res));
 userRouter.route('/getRateByIdUser').post((req, res) => new user_controller_1.UserController().getRateByIdUser(req, res));

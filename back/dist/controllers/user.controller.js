@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const server_1 = require("../server");
+const moment = require('moment');
 class UserController {
     constructor() {
         this.login = (req, res) => {
@@ -75,12 +76,14 @@ class UserController {
             });
         };
         this.addComment = (req, res) => {
-            const { idUser, idCommentator, comment, dateC } = req.body;
-            var sql = 'INSERT INTO comments (idUser, idCommentator, comment, dateC) VALUES (?, ?, ?, ?)';
-            server_1.connection.query(sql, [idUser, idCommentator, comment, dateC], (err, d) => {
+            const { idUser, idCommentator, comment, dateC, jobId } = req.body;
+            let convertedDate = moment(dateC).format('YYYY-MM-DD HH:mm:ss');
+            console.log(idUser + " " + idCommentator + " " + comment + " " + dateC + " " + jobId);
+            var sql = 'INSERT INTO comments (idUser, idCommentator, comment, dateC, jobId) VALUES (?, ?, ?, ?, ?)';
+            server_1.connection.query(sql, [idUser, idCommentator, comment, convertedDate, jobId], (err, d) => {
                 if (err) {
                     res.json({ error: 1, message: "Fatal error: " + err });
-                    console.log('addComment failed');
+                    console.log('addComment failed', err);
                     return;
                 }
                 res.json({ error: 0 });
@@ -98,6 +101,20 @@ class UserController {
                 }
                 res.json({ error: 0, message: comments });
                 console.log('getCommentById success');
+            });
+        };
+        this.getCommentsByJobId = (req, res) => {
+            const { jobId } = req.body;
+            var sql = 'SELECT * FROM comments where jobId = ?';
+            console.log(jobId);
+            server_1.connection.query(sql, [jobId], (err, comments) => {
+                if (err) {
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    console.log('getCommentByIdJob failed');
+                    return;
+                }
+                res.json({ error: 0, message: comments });
+                console.log('getCommentByIdJob success');
             });
         };
         this.deleteCommentById = (req, res) => {

@@ -23,6 +23,10 @@ userRouter.route('/getCommentById').post(
     (req, res) => new UserController().getCommentById(req, res)
 )
 
+userRouter.route('/getCommentsByJobId').post(
+    (req, res) => new UserController().getCommentsByJobId(req, res)
+)
+
 userRouter.route('/deleteCommentById').post(
     (req, res) => new UserController().deleteCommentById(req, res)
 )

@@ -30,6 +30,10 @@ export class UserService {
     return this.http.post(`${this.uri}/users/getCommentById`, data);
   }
 
+  getCommentsByJobId(data) {
+    return this.http.post(`${this.uri}/users/getCommentsByJobId`, data);
+  }
+
   deleteCommentById(data) {
     return this.http.post(`${this.uri}/users/deleteCommentById`, data);
   }

@@ -57,7 +57,7 @@ class JobController {
             });
         };
         this.getJobsWithUserInfo2 = (req, res) => {
-            var sql = 'SELECT job.id, job.profession, job.title, job.description, job.city, user.username, user.photo FROM job INNER JOIN user ON job.idUser = user.id';
+            var sql = 'SELECT job.id, job.profession, job.title, job.description, job.city, job.idUser, user.username, user.photo, user.avgRate FROM job INNER JOIN user ON job.idUser = user.id';
             server_1.connection.query(sql, (err, jobs) => {
                 if (err) {
                     res.json({ error: 1, message: "Fatal error: " + err });

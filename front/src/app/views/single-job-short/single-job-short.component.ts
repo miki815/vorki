@@ -8,11 +8,13 @@ import { NavigationExtras, Router } from '@angular/router';
 export class SingleJobShortComponent implements OnInit{
   @Input() job: any;
   imageSrc: string;
+  shortDescription: string;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.imageSrc = this.job.photo;
+    this.shortDescription = this.job.description.substring(0, 100) + '...';
   }
 
   locateToJob() {

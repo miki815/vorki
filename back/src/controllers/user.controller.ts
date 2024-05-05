@@ -2,7 +2,7 @@ import User from '../models/user';
 import e, * as express from 'express';
 import bcrypt from 'bcryptjs';
 import { connection } from '../server';
-
+const moment = require('moment');
 
 export class UserController {
 
@@ -66,10 +66,12 @@ export class UserController {
     }
 
     addComment = (req: express.Request, res: express.Response) => {
-        const { idUser, idCommentator, comment, dateC} =  req.body;
-        var sql = 'INSERT INTO comments (idUser, idCommentator, comment, dateC) VALUES (?, ?, ?, ?)';
-        connection.query(sql,[  idUser, idCommentator, comment, dateC ], (err, d) => {
-            if (err) { res.json({error: 1,  message: "Fatal error: " + err });   console.log('addComment failed'); return; }
+        const { idUser, idCommentator, comment, dateC, jobId} =  req.body;
+        let convertedDate = moment(dateC).format('YYYY-MM-DD HH:mm:ss');
+       console.log(idUser + " " + idCommentator + " " + comment + " " + dateC + " " + jobId);
+        var sql = 'INSERT INTO comments (idUser, idCommentator, comment, dateC, jobId) VALUES (?, ?, ?, ?, ?)';
+        connection.query(sql,[  idUser, idCommentator, comment, convertedDate, jobId ], (err, d) => {
+            if (err) { res.json({error: 1,  message: "Fatal error: " + err });   console.log('addComment failed', err); return; }
             res.json({error: 0});
             console.log('addComment success');
         });
@@ -84,6 +86,18 @@ export class UserController {
             console.log('getCommentById success');
         });
     }
+
+    getCommentsByJobId = (req: express.Request, res: express.Response) => {
+        const { jobId } =  req.body;
+        var sql = 'SELECT * FROM comments where jobId = ?';
+        // console.log(jobId);
+        connection.query(sql,[ jobId ], (err, comments) => {
+            if (err) { res.json({error: 1,  message: "Fatal error: " + err });   console.log('getCommentByIdJob failed'); return; }
+            res.json({error: 0, message: comments});
+            console.log('getCommentByIdJob success');
+        });
+    }
+
 
     deleteCommentById = (req: express.Request, res: express.Response) => {
         const { id } =  req.body;

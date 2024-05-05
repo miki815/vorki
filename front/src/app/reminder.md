@@ -11,8 +11,7 @@
 
 1. Hover style za buttons (ne radi iz nekog razloga)
 2. Dodati meni komponentu
-3. Prikaz ocene majstora koji nudi posao
-4. Popuniti gradove i zanimanja
+3. Popuniti gradove i zanimanja
 
 # Questions
 
@@ -22,6 +21,11 @@
 
 
 # Notes
+
+1. Dodao polje avgRate kod usera, to treba azurirati svaki put kad neko da ocenu
+2. Dodao polje jobId kod komentara, da kada se pregleda pojedinacan posao mogu da se vide svi komentari/pitanja
+vezana za taj posao (default vrednost je 0 i to predstavlja komentarisanje na profilu majstora kada jobId nije
+ni potreban)
 
 ## Dokumentacija za style
 https://tailwindcss.com/docs/place-items
