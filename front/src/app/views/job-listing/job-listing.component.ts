@@ -13,15 +13,34 @@ export class JobListingComponent implements OnInit{
   jobsPerPage: number = 10;
   @ViewChild('top') topElement!: ElementRef;
 
-  cities = ['Beograd', 'Novi Sad', 'Niš', 'Kragujevac'];
+  cities = [];
   selectedCity: string = '';
-  professions = ['Moler', 'Vodoinstalater', 'Automehaničar', 'Električar', 'Stolar', 'Bravar', 'Keramičar', 'Tesar', 'Zidar', 'Gipsar', 'Limar'];
+  professions = [];
   selectedProfession: string = '';
   ngOnInit(): void {
     // this.jobService.getJobs().subscribe((jobs: any) => {
     //   this.jobs = jobs;
     //   this.allJobs = jobs;
     // });
+
+    fetch('assets/city.json')
+    .then(response => response.json())
+    .then(cities => {
+      this.cities = cities;
+    })
+    .catch(error => {
+      console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradova):', error);
+    });
+
+    fetch('assets/craftsmen.json')
+    .then(response => response.json())
+    .then(professions => {
+      this.professions = professions.craftsmen;
+    })
+    .catch(error => {
+      console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):', error);
+    });
+
     this.jobService.getJobsWithUserInfo2().subscribe((jobs: any) => {
       console.log(jobs)
       this.jobs = jobs;
@@ -137,3 +156,5 @@ export class JobListingComponent implements OnInit{
 
   
 }
+
+

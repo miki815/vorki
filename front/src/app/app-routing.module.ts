@@ -24,6 +24,7 @@ import { AdvertisementComponent } from "./views/auth/advertisement/advertisement
 import { JobListingComponent } from "./views/job-listing/job-listing.component";
 import { SingleJobLongComponent } from "./views/single-job-long/single-job-long.component";
 import { CategoriesChoiceComponent } from "./views/categories-choice/categories-choice.component";
+import { AdvertisementUserComponent } from "./views/auth/advertisement-user/advertisement-user.component";
 
 const routes: Routes = [
   // admin views
@@ -46,11 +47,12 @@ const routes: Routes = [
       { path: "login", component: LoginComponent },
       { path: "register", component: RegisterComponent },
       { path: "dodaj_oglas", component: AdvertisementComponent },
+      { path: "dodaj_oglas_korisnik", component: AdvertisementUserComponent },
       { path: "", redirectTo: "login", pathMatch: "full" },
     ],
   },
   // no layout views
-  { path: "profile", component: ProfileComponent },
+  { path: "profile/:id", component: ProfileComponent },
   { path: "profiles", component: ProfileSettingsComponent },
   { path: "landing", component: LandingComponent },
   {path: "oglasi", component: JobListingComponent},

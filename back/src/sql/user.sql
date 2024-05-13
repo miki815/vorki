@@ -1,3 +1,15 @@
+
+
+DROP TABLE IF EXISTS rate;
+DROP TABLE IF EXISTS comments;
+DROP TABLE IF EXISTS gallery;
+DROP TABLE IF EXISTS rate;
+DROP TABLE IF EXISTS job;
+DROP TABLE IF EXISTS user;
+
+
+
+
 CREATE TABLE user (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
@@ -52,6 +64,17 @@ CREATE TABLE job (
     city VARCHAR(255),
     FOREIGN KEY (idUser) REFERENCES user(id)
 );
+
+CREATE TABLE jobUser (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    idUser INT,
+    profession VARCHAR(255),
+    title VARCHAR(255),
+    description TEXT,
+    city VARCHAR(255),
+    FOREIGN KEY (idUser) REFERENCES user(id)
+);
+
 
 INSERT INTO user (username, firstname, lastname, password, birthday, phone, location, ulogaK, ulogaM, email, photo)
 VALUES 

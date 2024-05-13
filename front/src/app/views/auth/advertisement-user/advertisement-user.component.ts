@@ -7,12 +7,13 @@ import { UserService } from "src/app/services/user.service";
 
 
 @Component({
-  selector: 'app-advertisement',
-  templateUrl: './advertisement.component.html',
+  selector: 'app-advertisement-user',
+  templateUrl: './advertisement-user.component.html',
 })
-export class AdvertisementComponent implements OnInit {
+export class AdvertisementUserComponent implements OnInit {
 
   title: string = null;
+  telephone: string = null;
   description: string = null;
   cities = [];
   professions = [];
@@ -49,6 +50,7 @@ export class AdvertisementComponent implements OnInit {
 
     // Provera
     if (!this.description || !this.title) { this.poruka = "Niste uneli sve podatke."; return; }
+    if (!/^381\d{6}\d+$/.test(this.telephone.slice(1)) || this.telephone[0] != "+") { this.poruka = "Mobilni telefon nije u dobrom formatu."; return; }
 
     //Pakovanje
     const data = {
@@ -56,12 +58,13 @@ export class AdvertisementComponent implements OnInit {
       title: this.title,
       city: this.selectedCity,
       profession: this.selectedProfession,
-      id: JSON.parse(this.cookieService.get('token'))
+      id: JSON.parse(this.cookieService.get('token')),
+      telephone: this.telephone
     }
    // console.log(data);
 
     //Slanje
-    this.jobService.insertJob(data).subscribe((message: any) => {
+    this.jobService.insertJobUser(data).subscribe((message: any) => {
       if(message['message'] == 0) {
         console.log("Insert job - submit: PASS")
       }
