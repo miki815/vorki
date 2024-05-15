@@ -51,7 +51,7 @@ export class UserController {
 
     getUserById = (req: express.Request, res: express.Response) => {
         const { id } =  req.body;
-        var sql = 'SELECT username, firstname, lastname, birthday, phone, location, ulogaK, ulogaM, email, photo FROM user WHERE id = ?';
+        var sql = 'SELECT username, firstname, lastname, birthday, phone, location, ulogaK, ulogaM, email, photo, type FROM user WHERE id = ?';
         connection.query(sql,[ id ], (err, user) => {
             if (err) { res.json({error: 1,  message: "Fatal error: " + err }); return; }
             if(user.length) {
@@ -68,7 +68,7 @@ export class UserController {
     addComment = (req: express.Request, res: express.Response) => {
         const { idUser, idCommentator, comment, dateC, jobId} =  req.body;
         let convertedDate = moment(dateC).format('YYYY-MM-DD HH:mm:ss');
-       console.log(idUser + " " + idCommentator + " " + comment + " " + dateC + " " + jobId);
+        console.log(idUser + " " + idCommentator + " " + comment + " " + dateC + " " + jobId);
         var sql = 'INSERT INTO comments (idUser, idCommentator, comment, dateC, jobId) VALUES (?, ?, ?, ?, ?)';
         connection.query(sql,[  idUser, idCommentator, comment, convertedDate, jobId ], (err, d) => {
             if (err) { res.json({error: 1,  message: "Fatal error: " + err });   console.log('addComment failed', err); return; }

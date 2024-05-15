@@ -7,24 +7,15 @@ import { connection } from '../server';
 export class JobController {
 
     insertJob = (req: express.Request, res: express.Response) => {
-        const { description, title, city, profession, id } = req.body;
-        var sql = 'INSERT INTO job (idUser, title, description, city, profession) VALUES (?, ?, ?, ?, ?)';
-        connection.query(sql, [id, title, description, city, profession], (err, user) => {
+        const { description, title, city, profession, id, type } = req.body;
+        var sql = 'INSERT INTO job (idUser, title, description, city, profession, type) VALUES (?, ?, ?, ?, ?, ?)';
+        connection.query(sql, [id, title, description, city, profession, type], (err, user) => {
             if (err) { res.json({ error: 1, message: "Fatal error: " + err }); return; }
             console.log('User ' + id + ' added job: ' + title);
             res.json({ message: "0" });
         });
     }
 
-    insertJobUser = (req: express.Request, res: express.Response) => {
-        const { description, title, city, profession, id, telephone } = req.body;
-        var sql = 'INSERT INTO jobUser (idUser, title, description, city, profession, telephone) VALUES (?, ?, ?, ?, ?, ?)';
-        connection.query(sql, [id, title, description, city, profession, telephone], (err, user) => {
-            if (err) { res.json({ error: 1, message: "Fatal error: " + err }); return; }
-            console.log('User ' + id + ' added job: ' + title);
-            res.json({ message: "0" });
-        });
-    }
 
     getJobs = (req: express.Request, res: express.Response) => {
         var sql = 'SELECT * FROM job';
@@ -59,7 +50,7 @@ export class JobController {
 
     getJobsWithUserInfo2 = (req: express.Request, res: express.Response) => {
         var sql = 'SELECT job.id, job.profession, job.title, job.description, job.city, job.idUser, user.username, user.photo,'
-        sql += 'COALESCE((SELECT AVG(rate) FROM rate r WHERE r.idUser = job.idUser GROUP BY r.idUser), 0) AS avgRate '
+        sql += 'COALESCE((SELECT AVG(rate) FROM rate r WHERE r.idUser = job.idUser GROUP BY r.idUser), 0) AS avgRate, user.type '
         sql += 'FROM job INNER JOIN user ON job.idUser = user.id;';
         connection.query(sql, (err, jobs) => {
             if (err) { res.json({ error: 1, message: "Fatal error: " + err }); return; }

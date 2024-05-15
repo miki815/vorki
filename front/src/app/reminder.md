@@ -2,22 +2,22 @@
 
 1. Kalendar
 2. Sredjivanje profila (na kraju)
-3. Izdvajanje oglasa
+3. Izdvajanje oglasa *** Uradjeno *** 
 4. Sredjivanje podesavanja profila (na kraju)
 5. Rezervacija (to moze i zajedno sa kalendarom)
 6. Sredjivanje Menu-a i dodavanje svuda
 7. Dodavanje svuda footer
-8. Izlistavanje oglasa korisnika 
-7. Dodavanje Mape u oglasima
+8. Izlistavanje oglasa korisnika *** Uradjeno *** 
+7. Dodavanje Mape u oglasima *** Uradjeno *** 
 9. Zastititi sve stranice od pristupa preko URL ako korisnik nije ulogovan 
 10. Ograniciti duzinu pitanja, komentara i ostalih input polja na odredjen broj karaktera 
 
 # Pages
 
-1. Dodavanje oglasa korisnika
-2. Dodavanje oglasa majstora (mozda i da se spoji da bude jedan pa na osnovu ID-a da se vidi da li je korisnik ili majstor)
-3. Izlistavanje oglasa korisnika
-4. Izlistavanje oglasa majstora (mozda i da se spoji pa da na osnovu boola se prikazu samo odredjeni oglasi ako spojimo iznad)
+1. Dodavanje oglasa korisnika *** Spojeno ***  
+2. Dodavanje oglasa majstora (mozda i da se spoji da bude jedan pa na osnovu ID-a da se vidi da li je korisnik ili majstor) *** Spojeno *** 
+3. Izlistavanje oglasa korisnika *** Spojeno *** 
+4. Izlistavanje oglasa majstora (mozda i da se spoji pa da na osnovu boola se prikazu samo odredjeni oglasi ako spojimo iznad)*** Spojeno *** 
 5. Profil majstora
 6. Profil korisnika
 7. Podesavanje profila majstora

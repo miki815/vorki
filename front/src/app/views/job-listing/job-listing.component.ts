@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { filter } from 'rxjs';
 import { JobService } from 'src/app/services/job.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-job-listing',
@@ -17,6 +19,8 @@ export class JobListingComponent implements OnInit{
   selectedCity: string = '';
   professions = [];
   selectedProfession: string = '';
+  
+
   ngOnInit(): void {
     // this.jobService.getJobs().subscribe((jobs: any) => {
     //   this.jobs = jobs;
@@ -42,14 +46,19 @@ export class JobListingComponent implements OnInit{
     });
 
     this.jobService.getJobsWithUserInfo2().subscribe((jobs: any) => {
-      console.log(jobs)
-      this.jobs = jobs;
-      this.allJobs = jobs;
+      this.userService.getUserById({id: this.cookieService.get('token')}).subscribe((user: any) => {
+        console.log(jobs)
+        var type = user['message'].type ? 0: 1;
+        jobs = jobs.filter(job => job.type === type);
+        this.jobs = jobs;
+        this.allJobs = jobs;
+      })
+     
     });
   }
 
 
-  constructor(private jobService: JobService) {
+  constructor(private jobService: JobService,private userService: UserService, private cookieService: CookieService) {
     // this.jobs = [
     //   {
     //     title: 'Moler',

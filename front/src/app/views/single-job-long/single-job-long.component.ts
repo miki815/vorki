@@ -4,6 +4,9 @@ import { Gallery, GalleryItem, GalleryRef, GalleryState, ImageItem } from 'ng-ga
 import { CookieService } from 'ngx-cookie-service';
 import { JobService } from 'src/app/services/job.service';
 import { UserService } from 'src/app/services/user.service';
+import * as L from 'leaflet';
+import { CalendarEvent, CalendarView } from 'angular-calendar';
+
 
 @Component({
   selector: 'app-single-job-long',
@@ -24,10 +27,13 @@ export class SingleJobLongComponent implements OnInit {
   galleryRef: GalleryRef = this.gallery.ref(this.galleryId);
   numberOfPhotos: number = 0;
   imgIndex: number = 0;
+  private map;
+
+
 
   constructor(private jobService: JobService, private route: ActivatedRoute, private cookieService: CookieService, private userService: UserService, private gallery: Gallery) { }
   ngOnInit(): void {
-    this.cookie = this.cookieService.get("token");
+    /*this.cookie = this.cookieService.get("token");
     this.job = history.state.job;
     this.route.paramMap.subscribe(params => {
       this.jobId = params.get('id');
@@ -40,7 +46,27 @@ export class SingleJobLongComponent implements OnInit {
         this.numberOfPhotos += 1;
       });
       this.imagesLoaded = true;
-    })
+    })*/
+
+    this.map = L.map('map').setView([0, 0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+    }).addTo(this.map);
+    fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + "Beograd")
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0) {
+                var lat = parseFloat(data[0].lat);
+                var lon = parseFloat(data[0].lon);
+                L.marker([lat, lon]).addTo(this.map)
+                    .bindPopup('' + "Beograd")
+                    .openPopup();
+                    this.map.setView([lat, lon], 8);
+            } 
+        })
+        .catch(error => {
+            console.error('Greška pri pretrazi grada:', error);
+        });
     // this.jobService.getJobById(this.jobId).subscribe((job: any) => {
     //   // getJobById returns array of one element
     //   this.job = job[0];

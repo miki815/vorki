@@ -20,7 +20,7 @@ export class AdvertisementComponent implements OnInit {
   selectedProfession: string = "Vodoinstalater";
   poruka: string = null;
 
-  constructor(private jobService: JobService, private router: Router, private http: HttpClient, private cookieService: CookieService) {
+  constructor(private jobService: JobService, private router: Router,private userService: UserService, private http: HttpClient, private cookieService: CookieService) {
    
   }
 
@@ -47,26 +47,35 @@ export class AdvertisementComponent implements OnInit {
   insertJob() {
     console.log("Insert job - submit: START")
 
+
+
     // Provera
     if (!this.description || !this.title) { this.poruka = "Niste uneli sve podatke."; return; }
 
-    //Pakovanje
-    const data = {
-      description: this.description,
-      title: this.title,
-      city: this.selectedCity,
-      profession: this.selectedProfession,
-      id: JSON.parse(this.cookieService.get('token'))
-    }
-   // console.log(data);
-
-    //Slanje
-    this.jobService.insertJob(data).subscribe((message: any) => {
-      if(message['message'] == 0) {
-        console.log("Insert job - submit: PASS")
+    this.userService.getUserById({id: this.cookieService.get('token')}).subscribe((message: any) => {
+      //Pakovanje
+      const data = {
+        description: this.description,
+        title: this.title,
+        city: this.selectedCity,
+        profession: this.selectedProfession,
+        id: JSON.parse(this.cookieService.get('token')),
+        type: message['message'].type
       }
-      
+      // console.log(data);
+
+      //Slanje
+      this.jobService.insertJob(data).subscribe((message: any) => {
+        if(message['message'] == 0) {
+          console.log("Insert job - submit: PASS")
+        }
+        
+      })
+    
     })
+
+
+   
 
   }
 
