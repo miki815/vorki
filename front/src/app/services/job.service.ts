@@ -13,6 +13,7 @@ export class JobService {
     return this.http.post(`${this.uri}/jobs/insertJob`, data);
   }
 
+
   getJobs() {
     return this.http.get(`${this.uri}/jobs/getJobs`);
   }

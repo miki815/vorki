@@ -50,7 +50,7 @@ const routes: Routes = [
     ],
   },
   // no layout views
-  { path: "profile", component: ProfileComponent },
+  { path: "profile/:id", component: ProfileComponent },
   { path: "profiles", component: ProfileSettingsComponent },
   { path: "landing", component: LandingComponent },
   {path: "oglasi", component: JobListingComponent},

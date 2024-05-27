@@ -24,4 +24,5 @@ jobRouter.route('/getJobsWithUserInfo2').get(
     (req, res) => new JobController().getJobsWithUserInfo2(req, res)
 )
 
+
 export default jobRouter;

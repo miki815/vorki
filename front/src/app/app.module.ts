@@ -60,6 +60,8 @@ import { JobListingComponent } from "./views/job-listing/job-listing.component";
 import { SingleJobLongComponent } from "./views/single-job-long/single-job-long.component";
 import { SingleJobShortComponent } from "./views/single-job-short/single-job-short.component";
 import { CategoriesChoiceComponent } from "./views/categories-choice/categories-choice.component";
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/moment';
 
 
 
@@ -107,7 +109,7 @@ import { CategoriesChoiceComponent } from "./views/categories-choice/categories-
     JobListingComponent,
     SingleJobShortComponent,
     SingleJobLongComponent,
-    CategoriesChoiceComponent
+    CategoriesChoiceComponent,
   ],
   imports: [
     FormsModule,
@@ -115,7 +117,12 @@ import { CategoriesChoiceComponent } from "./views/categories-choice/categories-
     AppRoutingModule,
     HttpClientModule,
     GalleryModule,
-    CommonModule
+    CommonModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    })
+
   ]
   ,
   providers: [CookieService],

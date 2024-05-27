@@ -5,9 +5,9 @@ const server_1 = require("../server");
 class JobController {
     constructor() {
         this.insertJob = (req, res) => {
-            const { description, title, city, profession, id } = req.body;
-            var sql = 'INSERT INTO job (idUser, title, description, city, profession) VALUES (?, ?, ?, ?, ?)';
-            server_1.connection.query(sql, [id, title, description, city, profession], (err, user) => {
+            const { description, title, city, profession, id, type } = req.body;
+            var sql = 'INSERT INTO job (idUser, title, description, city, profession, type) VALUES (?, ?, ?, ?, ?, ?)';
+            server_1.connection.query(sql, [id, title, description, city, profession, type], (err, user) => {
                 if (err) {
                     res.json({ error: 1, message: "Fatal error: " + err });
                     return;
@@ -57,7 +57,9 @@ class JobController {
             });
         };
         this.getJobsWithUserInfo2 = (req, res) => {
-            var sql = 'SELECT job.id, job.profession, job.title, job.description, job.city, job.idUser, user.username, user.photo, user.avgRate FROM job INNER JOIN user ON job.idUser = user.id';
+            var sql = 'SELECT job.id, job.profession, job.title, job.description, job.city, job.idUser, user.username, user.photo,';
+            sql += 'COALESCE((SELECT AVG(rate) FROM rate r WHERE r.idUser = job.idUser GROUP BY r.idUser), 0) AS avgRate ';
+            sql += 'FROM job INNER JOIN user ON job.idUser = user.id;';
             server_1.connection.query(sql, (err, jobs) => {
                 if (err) {
                     res.json({ error: 1, message: "Fatal error: " + err });

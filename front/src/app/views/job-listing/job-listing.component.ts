@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { filter } from 'rxjs';
 import { JobService } from 'src/app/services/job.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-job-listing',
@@ -13,24 +15,50 @@ export class JobListingComponent implements OnInit{
   jobsPerPage: number = 10;
   @ViewChild('top') topElement!: ElementRef;
 
-  cities = ['Beograd', 'Novi Sad', 'Niš', 'Kragujevac'];
+  cities = [];
   selectedCity: string = '';
-  professions = ['Moler', 'Vodoinstalater', 'Automehaničar', 'Električar', 'Stolar', 'Bravar', 'Keramičar', 'Tesar', 'Zidar', 'Gipsar', 'Limar'];
+  professions = [];
   selectedProfession: string = '';
+  
+
   ngOnInit(): void {
     // this.jobService.getJobs().subscribe((jobs: any) => {
     //   this.jobs = jobs;
     //   this.allJobs = jobs;
     // });
+
+    fetch('assets/city.json')
+    .then(response => response.json())
+    .then(cities => {
+      this.cities = cities;
+    })
+    .catch(error => {
+      console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradova):', error);
+    });
+
+    fetch('assets/craftsmen.json')
+    .then(response => response.json())
+    .then(professions => {
+      this.professions = professions.craftsmen;
+    })
+    .catch(error => {
+      console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):', error);
+    });
+
     this.jobService.getJobsWithUserInfo2().subscribe((jobs: any) => {
-      console.log(jobs)
-      this.jobs = jobs;
-      this.allJobs = jobs;
+      this.userService.getUserById({id: this.cookieService.get('token')}).subscribe((user: any) => {
+        console.log(jobs)
+        var type = user['message'].type ? 0: 1;
+        jobs = jobs.filter(job => job.type === type);
+        this.jobs = jobs;
+        this.allJobs = jobs;
+      })
+     
     });
   }
 
 
-  constructor(private jobService: JobService) {
+  constructor(private jobService: JobService,private userService: UserService, private cookieService: CookieService) {
     // this.jobs = [
     //   {
     //     title: 'Moler',
@@ -137,3 +165,5 @@ export class JobListingComponent implements OnInit{
 
   
 }
+
+

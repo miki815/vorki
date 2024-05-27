@@ -1,3 +1,10 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+crossorigin=""></script>
+
 <main class="profile-page">
     <section class="relative block h-500-px">
         <div class="absolute top-0 w-full h-full bg-center bg-cover" style="
@@ -199,6 +206,7 @@
 
                             </tbody>
                         </table>
+
                     </div>
                 </div>
                 <!--   Galerija   -->
@@ -211,15 +219,21 @@
                     </gallery> -->
                     <gallery  id="{{galleryId}}" *ngIf="imagesLoaded"  style="background-color: white ;width: 100% !important; height: 650px !important; object-fit: cover;"
                     [activeIndex]="imgIndex"  (indexChange)="onIndexChange($event)"></gallery>
+                 
                 </div>
+                
 
             </div>
 
         </div>
     </section>
+    <div id="map" style="height: 500px;"></div>
 
 
 </main>
+
+
+  
 <style>
     @media screen and (max-width: 1025px) {
 

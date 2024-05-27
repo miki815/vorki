@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { CookieService } from "ngx-cookie-service";
 import { UserService } from "src/app/services/user.service";
 import { GalleryModule, GalleryItem, ImageItem } from 'ng-gallery';
+import { ActivatedRoute } from "@angular/router";
+import { JobService } from "src/app/services/job.service";
 
 
 @Component({
@@ -11,7 +13,7 @@ import { GalleryModule, GalleryItem, ImageItem } from 'ng-gallery';
 })
 
 export class ProfileComponent implements OnInit {
-  constructor(private cookieService: CookieService, private userService: UserService) {}
+  constructor(private cookieService: CookieService, private userService: UserService,  private route: ActivatedRoute, private jobService: JobService) {}
 
   images: GalleryItem[] = [];
   email: string = null;
@@ -33,14 +35,18 @@ export class ProfileComponent implements OnInit {
   cookie: string = "";
   idUser: string = "";
   imagesLoaded: boolean = false;
+  jobs: Array<any>;
+  allJobs: Array<any>;
   
 
   ngOnInit(): void {
 
     console.log("Profile - ngOnInit: START")
 
+    this.route.paramMap.subscribe(params => {
+      this.idUser = params.get('id');
+    });
     this.cookie =  this.cookieService.get("token");
-    this.idUser = localStorage.getItem("idProfile");
     this.userService.getGalleryById({idUser: this.idUser}).subscribe((message: any) => {
       var imgs =  message['message'];
       imgs.forEach(element => {
@@ -88,12 +94,15 @@ export class ProfileComponent implements OnInit {
       
       });
     });
+
+    this.jobService.getJobsWithUserInfo2().subscribe((jobs: any) => {
+      console.log(jobs)
+      this.jobs = jobs;
+      this.allJobs = jobs;
+      this.jobs = this.allJobs.filter(job => job.idUser === parseInt(this.idUser));
+    });
+
     console.log("Profile - ngOnInit: END")
-
-
-
-   
-
   }
 
   addComment(){
@@ -155,7 +164,7 @@ export class ProfileComponent implements OnInit {
         this.userRate += parseInt(element.rate);
       });
       this.userRateLen =  message["message"].length;
-      this.userService.getRateByIdUserAndRater( {idUser: this.idUser, idCommentator:  this.cookie}).subscribe((message: any) => {
+      this.userService.getRateByIdUserAndRater( {idUser: this.idUser, idRater:  this.cookie}).subscribe((message: any) => {
         this.rating = parseInt(message["message"][0].rate);
       })
 
@@ -168,7 +177,7 @@ export class ProfileComponent implements OnInit {
 
     const data = {
       idUser:  this.idUser,
-      idCommentator:  this.cookie,
+      idRater:  this.cookie,
       rate: this.rating
     }
 

@@ -39,7 +39,7 @@
                 Zanimanje 
               </label>
               <select class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" [(ngModel)]="selectedProfession" name="selectedProfession" id="proffesion">
-                <option *ngFor="let profession of professions" [value]="profession">{{ profession }}</option>
+                <option *ngFor="let profession of professions" [value]="selectedProfession">{{ profession }}</option>
               </select><br><br>
             </div>
 
@@ -51,7 +51,7 @@
                 Mesto rada
               </label>
               <select class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" [(ngModel)]="selectedCity" name="selectedCity" id="city">
-                <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+                <option *ngFor="let city of cities" [value]="selectedCity">{{ city.city }}</option>
               </select><br><br>
             </div>
          

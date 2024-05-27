@@ -51,7 +51,7 @@ export class UserController {
 
     getUserById = (req: express.Request, res: express.Response) => {
         const { id } =  req.body;
-        var sql = 'SELECT username, firstname, lastname, birthday, phone, location, ulogaK, ulogaM, email, photo FROM user WHERE id = ?';
+        var sql = 'SELECT username, firstname, lastname, birthday, phone, location, ulogaK, ulogaM, email, photo, type FROM user WHERE id = ?';
         connection.query(sql,[ id ], (err, user) => {
             if (err) { res.json({error: 1,  message: "Fatal error: " + err }); return; }
             if(user.length) {
@@ -68,7 +68,7 @@ export class UserController {
     addComment = (req: express.Request, res: express.Response) => {
         const { idUser, idCommentator, comment, dateC, jobId} =  req.body;
         let convertedDate = moment(dateC).format('YYYY-MM-DD HH:mm:ss');
-       console.log(idUser + " " + idCommentator + " " + comment + " " + dateC + " " + jobId);
+        console.log(idUser + " " + idCommentator + " " + comment + " " + dateC + " " + jobId);
         var sql = 'INSERT INTO comments (idUser, idCommentator, comment, dateC, jobId) VALUES (?, ?, ?, ?, ?)';
         connection.query(sql,[  idUser, idCommentator, comment, convertedDate, jobId ], (err, d) => {
             if (err) { res.json({error: 1,  message: "Fatal error: " + err });   console.log('addComment failed', err); return; }
@@ -110,10 +110,10 @@ export class UserController {
     }
 
     rate = (req: express.Request, res: express.Response) => {
-        const { idUser, idCommentator, rate} =  req.body;
-        console.log(idUser + " " + idCommentator + " " + rate);
-        var sql = 'SELECT * FROM rate WHERE idUser = ? and idCommentator = ?';
-        connection.query(sql, [idUser, idCommentator], (err, data) => {
+        const { idUser, idRater, rate} =  req.body;
+        console.log(idUser + " " + idRater + " " + rate);
+        var sql = 'SELECT * FROM rate WHERE idUser = ? and idRater = ?';
+        connection.query(sql, [idUser, idRater], (err, data) => {
             console.log(data);
             if (err) {
                 res.json({ error: 1, message: "Fatal error: " + err });
@@ -121,8 +121,8 @@ export class UserController {
                 return;
             }
             if (data.length) {
-                sql = 'UPDATE rate SET rate = ? WHERE idUser = ? and idCommentator = ?';
-                connection.query(sql, [rate, idUser, idCommentator], (err, data) => {
+                sql = 'UPDATE rate SET rate = ? WHERE idUser = ? and idRater = ?';
+                connection.query(sql, [rate, idUser, idRater], (err, data) => {
                     if (err) {
                         res.json({ error: 1, message: "Fatal error: " + err });
                         console.log('rate failed');
@@ -132,8 +132,8 @@ export class UserController {
                     console.log('rate success');
                 });
             } else {
-                sql = 'INSERT INTO rate (idUser, idCommentator, rate) VALUES (?, ?, ?)';
-                connection.query(sql, [idUser, idCommentator, rate], (err, data) => {
+                sql = 'INSERT INTO rate (idUser, idRater, rate) VALUES (?, ?, ?)';
+                connection.query(sql, [idUser, idRater, rate], (err, data) => {
                     if (err) {
                         res.json({ error: 1, message: "Fatal error: " + err });
                         console.log('rate failed');
@@ -162,16 +162,15 @@ export class UserController {
     }
 
     getRateByIdUserAndRater = (req: express.Request, res: express.Response) => {
-        const { idUser, idCommentator } =  req.body;
-        var sql = 'SELECT rate FROM rate WHERE idUser = ? and idCommentator = ?';
-        connection.query(sql, [idUser, idCommentator], (err, data) => {
+        const { idUser, idRater } =  req.body;
+        var sql = 'SELECT rate FROM rate WHERE idUser = ? and idRater = ?';
+        connection.query(sql, [idUser, idRater], (err, data) => {
             if (err) {
                 res.json({ error: 1, message: "Fatal error: " + err });
                 console.log('getRateByIdUserAndRater failed');
                 return;
             }
             res.json({error: 0, message: data});
-            
         });
     }
 
