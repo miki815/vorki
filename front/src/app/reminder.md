@@ -7,6 +7,13 @@
 
 1. Srediti parametre oglasa u .html
 
+## single-job-long
+
+1. Ocenjivanje sa proverama
+2. Rezervacija majstora
+3. Max duzina i broj komentara
+4. 
+
 ## job-listing
 
 1. Hover style za buttons (ne radi iz nekog razloga)
