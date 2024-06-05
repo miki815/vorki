@@ -8,57 +8,61 @@ import { UserService } from 'src/app/services/user.service';
   selector: 'app-job-listing',
   templateUrl: './job-listing.component.html',
 })
-export class JobListingComponent implements OnInit{
+export class JobListingComponent implements OnInit {
   jobs: Array<any>;
   allJobs: Array<any>;
   currentPage: number = 1;
   jobsPerPage: number = 10;
   @ViewChild('top') topElement!: ElementRef;
 
-  cities = [];
+  cities = [''];
   selectedCity: string = '';
   professions = [];
   selectedProfession: string = '';
-  
+
 
   ngOnInit(): void {
     // this.jobService.getJobs().subscribe((jobs: any) => {
     //   this.jobs = jobs;
     //   this.allJobs = jobs;
     // });
+    this.cities = ['Beograd', 'Novi Sad', 'Niš', 'Kragujevac', 'Kraljevo', 'Subotica', 'Zrenjanin', 'Pančevo', 'Čačak', 'Novi Pazar', 'Kruševac', 'Leskovac', 'Smederevo', 'Valjevo', 'Vranje', 'Šabac', 'Užice', 'Požarevac', 'Bor', 'Zaječar', 'Sombor', 'Pirot', 'Vršac', 'Ruma', 'Bačka Palanka', 'Kikinda', 'Sremska Mitrovica', 'Prokuplje', 'Loznica', 'Žabalj', 'Inđija', 'Senta', 'Vrbas', 'Apatin', 'Bačka Topola', 'Sombor', 'Bač', 'Bački Petrovac', 'Bečej', 'Kula', 'Odžaci', 'Srbobran', 'Temerin', 'Titel', 'Vrbas', 'Žabalj', 'Aleksinac', 'Aranđelovac', 'Bajina Bašta', 'Bela Crkva', 'Bogatić', 'Boljevac', 'Brus', 'Bujanovac', 'Crna Trava', 'Despotovac', 'Dimitrovgrad', 'Doljevac', 'Gadžin Han', 'Ivanjica', 'Kladovo', 'Knić', 'Koceljeva', 'Kosjerić', 'Kovačica', 'Kovin', 'Kuršumlija', 'Lajkovac', 'Lapovo', 'Lebane', 'Ljig', 'Ljubovija', 'Lučani', 'Majdanpek', 'Mali Zvornik', 'Mionica', 'Negotin', 'Nova Crnja', 'Nova Varoš', 'Opovo', 'Petrovac na Mlavi', 'Plandište', 'Preševo', 'Ražanj', 'Rekovac', 'Sečanj', 'Sjenica', 'Sokobanja', 'Surdulica']
+    this.professions = ['Moler', 'Vodoinstalater', 'Automehaničar', 'Električar', 'Stolar', 'Bravar', 'Keramičar', 'Tesar', 'Zidar', 'Gipsar', 'Limar']
 
-    fetch('assets/city.json')
-    .then(response => response.json())
-    .then(cities => {
-      this.cities = cities;
-    })
-    .catch(error => {
-      console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradova):', error);
-    });
+    // fetch('assets/city.json')
+    //   .then(response => response.json())
+    //   .then(cities => {
+    //     this.cities = cities;
+    //   })
+    //   .catch(error => {
+    //     console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradova):', error);
+    //   });
 
-    fetch('assets/craftsmen.json')
-    .then(response => response.json())
-    .then(professions => {
-      this.professions = professions.craftsmen;
-    })
-    .catch(error => {
-      console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):', error);
-    });
+    // fetch('assets/craftsmen.json')
+    //   .then(response => response.json())
+    //   .then(professions => {
+    //     this.professions = professions.craftsmen;
+    //   })
+    //   .catch(error => {
+    //     console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):', error);
+    //   });
 
     this.jobService.getJobsWithUserInfo2().subscribe((jobs: any) => {
-      this.userService.getUserById({id: this.cookieService.get('token')}).subscribe((user: any) => {
+      this.userService.getUserById({ id: this.cookieService.get('token') }).subscribe((user: any) => {
         console.log(jobs)
-        var type = user['message'].type ? 0: 1;
+        var type = user['message'].type ? 0 : 1;
         jobs = jobs.filter(job => job.type === type);
         this.jobs = jobs;
         this.allJobs = jobs;
       })
-     
+
     });
+
+
   }
 
 
-  constructor(private jobService: JobService,private userService: UserService, private cookieService: CookieService) {
+  constructor(private jobService: JobService, private userService: UserService, private cookieService: CookieService) {
     // this.jobs = [
     //   {
     //     title: 'Moler',
@@ -137,7 +141,7 @@ export class JobListingComponent implements OnInit{
     if (this.currentPage > 1) this.currentPage--;
     this.moveToTop();
   }
-  
+
   nextPage() {
     if (this.jobs.length > this.currentPage * this.jobsPerPage) this.currentPage++;
     this.moveToTop();
@@ -163,7 +167,7 @@ export class JobListingComponent implements OnInit{
     else this.jobs = this.allJobs.filter(job => job.city === this.selectedCity && job.profession === this.selectedProfession);
   }
 
-  
+
 }
 
 

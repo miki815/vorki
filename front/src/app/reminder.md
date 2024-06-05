@@ -11,6 +11,7 @@
 7. Dodavanje Mape u oglasima *** Uradjeno *** 
 9. Zastititi sve stranice od pristupa preko URL ako korisnik nije ulogovan 
 10. Ograniciti duzinu pitanja, komentara i ostalih input polja na odredjen broj karaktera 
+11. Početna - backend
 
 # Pages
 
