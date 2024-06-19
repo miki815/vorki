@@ -14,6 +14,8 @@ import { TablesComponent } from "./views/admin/tables/tables.component";
 // auth views
 import { LoginComponent } from "./views/auth/login/login.component";
 import { RegisterComponent } from "./views/auth/register/register.component";
+import { ForgottenPasswordComponent } from "./views/auth/forgotten-password/forgotten-password.component";
+import { ForgottenPasswordChangeComponent } from "./views/auth/forgotten-password-change/forgotten-password-change.component";
 
 // no layouts views
 import { IndexComponent } from "./views/index/index.component";
@@ -46,6 +48,8 @@ const routes: Routes = [
       { path: "login", component: LoginComponent },
       { path: "register", component: RegisterComponent },
       { path: "dodaj_oglas", component: AdvertisementComponent },
+      { path: "zaboravljena_lozinka", component: ForgottenPasswordComponent },
+      { path: 'promena_zaboravljene_lozinke/:reset_token', component: ForgottenPasswordChangeComponent },
       { path: "", redirectTo: "login", pathMatch: "full" },
     ],
   },
@@ -53,8 +57,8 @@ const routes: Routes = [
   { path: "profile/:id", component: ProfileComponent },
   { path: "profiles", component: ProfileSettingsComponent },
   { path: "landing", component: LandingComponent },
-  {path: "oglasi", component: JobListingComponent},
-  {path: "izbor-kategorije", component: CategoriesChoiceComponent},
+  { path: "oglasi", component: JobListingComponent },
+  { path: "izbor-kategorije", component: CategoriesChoiceComponent },
   { path: 'oglasi/:id', component: SingleJobLongComponent },
   { path: "", component: IndexComponent },
   { path: "**", redirectTo: "", pathMatch: "full" }

@@ -62,6 +62,8 @@ import { SingleJobShortComponent } from "./views/single-job-short/single-job-sho
 import { CategoriesChoiceComponent } from "./views/categories-choice/categories-choice.component";
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/moment';
+import { ForgottenPasswordComponent } from "./views/auth/forgotten-password/forgotten-password.component";
+import { ForgottenPasswordChangeComponent } from "./views/auth/forgotten-password-change/forgotten-password-change.component";
 
 
 
@@ -110,6 +112,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/moment';
     SingleJobShortComponent,
     SingleJobLongComponent,
     CategoriesChoiceComponent,
+    ForgottenPasswordComponent,
+    ForgottenPasswordChangeComponent
   ],
   imports: [
     FormsModule,

@@ -77,6 +77,12 @@ CREATE TABLE jobUser (
     FOREIGN KEY (idUser) REFERENCES user(id)
 );
 
+CREATE TABLE resetToken (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    token VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    expire_time DATETIME NOT NULL
+);
 
 INSERT INTO user (username, firstname, lastname, password, birthday, phone, location, ulogaK, ulogaM, email, photo, type)
 VALUES 

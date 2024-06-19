@@ -1,7 +1,13 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const server_1 = require("../server");
+const nodemailer_1 = __importDefault(require("nodemailer"));
+const crypto_1 = __importDefault(require("crypto"));
+const reset_token_1 = __importDefault(require("../models/reset_token"));
 const moment = require('moment');
 class UserController {
     constructor() {
@@ -278,6 +284,107 @@ class UserController {
                 res.json({ error: 0, message: id });
                 console.log('updateUser success');
             });
+        };
+        this.forgotPasswordRequest = (req, res) => {
+            let expire_time = new Date();
+            expire_time.setMinutes(expire_time.getMinutes() + 30);
+            let reset_token = new reset_token_1.default({
+                token: crypto_1.default.randomBytes(16).toString('hex'),
+                email: req.body.email, expire_time: expire_time
+            });
+            const query = 'INSERT INTO resettoken (token, email, expire_time) VALUES (?, ?, ?)';
+            server_1.connection.query(query, [reset_token.token, req.body.email, expire_time], (err, result) => {
+                if (err) {
+                    console.error('Error inserting token into the database:', err);
+                    res.status(400).json({ 'message': 'error' });
+                    return;
+                }
+                else
+                    console.log("Token saved in database");
+            });
+            var transporter = nodemailer_1.default.createTransport({
+                service: 'hotmail',
+                auth: {
+                    user: 'stankrelja@gmail.com',
+                    pass: '1billion1M@'
+                }
+            });
+            var mailOptions = {
+                from: 'stankrelja@gmail.com',
+                to: req.body.email,
+                subject: 'Promena lozinke',
+                text: `http://localhost:4200/auth/promena_zaboravljene_lozinke/${reset_token.token}`
+            };
+            // console.log(req.body.email);
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                    res.send(error);
+                }
+                else
+                    res.status(200).json({ 'message': 'poruka poslata' });
+            });
+        };
+        this.tokenValidation = (req, res) => {
+            let token = req.body.token;
+            console.log(token);
+            const query = 'SELECT * FROM ResetToken WHERE token = ?';
+            server_1.connection.query(query, [token], (err, results) => {
+                if (err) {
+                    console.error('Error searching for token in the database:', err);
+                    return res.status(500).send('An error occurred while searching for the token.');
+                }
+                if (results.length > 0) {
+                    const foundToken = results[0];
+                    if (new Date() > foundToken.expire_time)
+                        res.status(200).json({ 'poruka': 'Vreme isteklo' });
+                    else {
+                        console.log('Token dobar');
+                        res.status(200).json({ 'poruka': 'Ok', 'email': foundToken.email });
+                    }
+                }
+                else {
+                    res.status(404).send('Token not found.');
+                }
+            });
+        };
+        this.changeForgottenPassword = (req, res) => {
+            let email = req.body.email;
+            let password = req.body.password;
+            console.log("Changing forgotten password for email: " + email);
+            const searchQuery = 'SELECT * FROM user WHERE email = ?';
+            server_1.connection.query(searchQuery, [email], (err, results) => {
+                if (err) {
+                    console.error('Error searching for user in the database:', err);
+                    return res.status(500).send('An error occurred while searching for the user.');
+                }
+                if (results.length > 0) {
+                    const updateQuery = 'UPDATE user SET password = ? WHERE email = ?';
+                    server_1.connection.query(updateQuery, [password, email], (err, updateResult) => {
+                        if (err) {
+                            console.error('Error updating password in the database:', err);
+                            res.status(400).json({ 'poruka': 'Greska pri promeni lozinke' });
+                        }
+                        res.status(200).json({ 'poruka': 'Lozinka promenjena' });
+                    });
+                }
+                else {
+                    res.status(400).json({ 'poruka': 'Korisnik ne postoji' });
+                }
+            });
+            // User.findOne({ 'email': email }, (err, user) => {
+            //     if (err) console.log(err);
+            //     else if (user == null) res.status(200).json({ 'poruka': 'Korisnik ne postoji' });
+            //     else {
+            //         console.log(`${user.username} password changed`);
+            //         user.password = password;
+            //         user.save().then(us => {
+            //             res.status(200).json({ 'poruka': 'Lozinka promenjena' });
+            //         }).catch(err => {
+            //             res.status(400).json({ 'poruka': 'Greska pri promeni lozinke' });
+            //         })
+            //     }
+            // })
         };
     }
 }

@@ -74,6 +74,16 @@ export class UserService {
     return this.http.post(`${this.uri}/users/updateUser`, data);
   }
 
+  forgotPasswordRequest(data){
+    return this.http.post(`${this.uri}/users/forgotPasswordRequest`, data);
+  }
 
+  tokenValidation(data){
+    return this.http.post(`${this.uri}/users/tokenValidation`, data);
+  }
+
+  changeForgottenPassword(data){
+    return this.http.post(`${this.uri}/users/changeForgottenPassword`, data);
+  }
 
 }

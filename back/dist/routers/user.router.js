@@ -22,4 +22,7 @@ userRouter.route('/updateGallery').post((req, res) => new user_controller_1.User
 userRouter.route('/getIdByEmail').post((req, res) => new user_controller_1.UserController().getIdByEmail(req, res));
 userRouter.route('/getIdByUsername').post((req, res) => new user_controller_1.UserController().getIdByUsername(req, res));
 userRouter.route('/updateUser').post((req, res) => new user_controller_1.UserController().updateUser(req, res));
+userRouter.route('/forgotPasswordRequest').post((req, res) => new user_controller_1.UserController().forgotPasswordRequest(req, res));
+userRouter.route('/tokenValidation').post((req, res) => new user_controller_1.UserController().tokenValidation(req, res));
+userRouter.route('/changeForgottenPassword').post((req, res) => new user_controller_1.UserController().changeForgottenPassword(req, res));
 exports.default = userRouter;

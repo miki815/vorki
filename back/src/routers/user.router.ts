@@ -67,7 +67,16 @@ userRouter.route('/updateUser').post(
     (req, res) => new UserController().updateUser(req, res)
 )
 
+userRouter.route('/forgotPasswordRequest').post(
+    (req, res) => new UserController().forgotPasswordRequest(req, res)
+)
 
+userRouter.route('/tokenValidation').post(
+    (req, res)=>new UserController().tokenValidation(req, res)
+)
 
+userRouter.route('/changeForgottenPassword').post(
+    (req, res)=>new UserController().changeForgottenPassword(req, res)
+)
 
 export default userRouter;
