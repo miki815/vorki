@@ -305,17 +305,17 @@ class UserController {
             var transporter = nodemailer_1.default.createTransport({
                 service: 'hotmail',
                 auth: {
-                    user: 'stankrelja@gmail.com',
-                    pass: '1billion1M@'
+                    user: 'email here',
+                    pass: 'password here'
                 }
             });
             var mailOptions = {
-                from: 'stankrelja@gmail.com',
+                from: 'email here',
                 to: req.body.email,
                 subject: 'Promena lozinke',
                 text: `http://localhost:4200/auth/promena_zaboravljene_lozinke/${reset_token.token}`
             };
-            // console.log(req.body.email);
+            console.log('Sending mail to: ' + req.body.email + ' for password reset');
             transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {
                     console.log(error);
@@ -372,19 +372,34 @@ class UserController {
                     res.status(400).json({ 'poruka': 'Korisnik ne postoji' });
                 }
             });
-            // User.findOne({ 'email': email }, (err, user) => {
-            //     if (err) console.log(err);
-            //     else if (user == null) res.status(200).json({ 'poruka': 'Korisnik ne postoji' });
-            //     else {
-            //         console.log(`${user.username} password changed`);
-            //         user.password = password;
-            //         user.save().then(us => {
-            //             res.status(200).json({ 'poruka': 'Lozinka promenjena' });
-            //         }).catch(err => {
-            //             res.status(400).json({ 'poruka': 'Greska pri promeni lozinke' });
-            //         })
-            //     }
-            // })
+        };
+        this.getTop5masters = (req, res) => {
+            console.log('Getting top 5 masters');
+            const sql = `
+      SELECT u.*, averageRate
+      FROM (
+          SELECT idUser, AVG(CAST(rate AS DECIMAL)) as averageRate
+          FROM rate
+          GROUP BY idUser
+          ORDER BY averageRate DESC
+          LIMIT 5
+      ) as topUsers
+      JOIN user u ON u.id = topUsers.idUser;
+    `;
+            server_1.connection.query(sql, (err, users) => {
+                if (err) {
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    return;
+                }
+                if (users.length) {
+                    console.log('Getting top 5 masters success');
+                    res.json({ error: 0, top5: users });
+                }
+                else {
+                    console.log('Getting top 5 masters failed');
+                    res.json({ error: 1, message: null });
+                }
+            });
         };
     }
 }

@@ -86,4 +86,8 @@ export class UserService {
     return this.http.post(`${this.uri}/users/changeForgottenPassword`, data);
   }
 
+  getTop5masters(){
+    return this.http.get(`${this.uri}/users/getTop5masters`);
+  }
+
 }

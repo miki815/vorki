@@ -9,8 +9,10 @@
 7. Dodavanje svuda footer
 8. Izlistavanje oglasa korisnika *** Uradjeno *** 
 7. Dodavanje Mape u oglasima *** Uradjeno *** 
-9. Zastititi sve stranice od pristupa preko URL ako korisnik nije ulogovan 
-10. Ograniciti duzinu pitanja, komentara i ostalih input polja na odredjen broj karaktera 
+9. Zastititi sve stranice od pristupa preko URL ako korisnik nije ulogovan *** Uradjeno Riki 22.6. *** 
+    Samo iskopirati *** canActivate: [authGuard] *** u sve rute koje je potrebno zastititi (app-routing-module)
+10. Ograniciti duzinu pitanja, komentara i ostalih input polja na odredjen broj karaktera - maxLength atribut 
+*** Uradjeno za login i register ***
 11. Početna - backend
 
 # Pages
@@ -22,11 +24,11 @@
 5. Profil majstora
 6. Profil korisnika
 7. Podesavanje profila majstora
-8. Podesavanje porfila korisnika (profil/podesvanje profila mozda da budu iste stranice samo sa *ngIf majstor/korisnik)
+8. Podesavanje porfila korisnika (profil/podesvanje profila mozda da budu iste stranice samo sa *ngIf majstor/korisnik) 
 9. Kalendar
 10. Rezervacija termina
 11. O nama
-12. Zaboravljena lozinka
+12. Zaboravljena lozinka *** Riki 19.6. ***
 13. Prijava
 14. Registracija
 15. Stranica za neregistrovane
@@ -37,6 +39,7 @@
 1. Filtriranje poslova - grad, profesija, ..jos nesto? - Ne treba
 2. Za dovlacenje podataka o poslu i prikaz oglasa potrebni su slika i ime majstora - cuvati to u tabeli o poslu ili pisati join upit (napisao) - Sredjeno
 3. Mozda nije lose cuvati profilnu kao base64 a slike iz galerije u assets - Mislim da ne mora
+4. Zasto je rate u tabeli rate tipa text? Da li ce biti neki problem ako prebacimo na float
 
 
 # Notes

@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { authGuard } from "./auth.guard";
 
 // layouts
 import { AdminComponent } from "./layouts/admin/admin.component";
@@ -55,9 +56,9 @@ const routes: Routes = [
   },
   // no layout views
   { path: "profile/:id", component: ProfileComponent },
-  { path: "profiles", component: ProfileSettingsComponent },
-  { path: "landing", component: LandingComponent },
-  { path: "oglasi", component: JobListingComponent },
+  { path: "profiles", component: ProfileSettingsComponent, canActivate: [authGuard]},
+  { path: "landing", component: LandingComponent, canActivate: [authGuard]},
+  { path: "oglasi", component: JobListingComponent, canActivate: [authGuard]},
   { path: "izbor-kategorije", component: CategoriesChoiceComponent },
   { path: 'oglasi/:id', component: SingleJobLongComponent },
   { path: "", component: IndexComponent },

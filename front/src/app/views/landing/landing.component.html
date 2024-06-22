@@ -197,7 +197,7 @@
           <img
             alt="..."
             class="max-w-full rounded-lg shadow-lg"
-            src="assets/img/back1.jpg"
+            src="assets/img/r10.jpg"
           />
         </div>
         <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
@@ -278,13 +278,13 @@
           <div class="px-6">
             <img
               alt="..."
-              src="assets/img/team-1-800x800.jpg"
+              [src]="topMasters[0].photo"
               class="shadow-lg rounded-full mx-auto max-w-120-px"
             />
             <div class="pt-6 text-center">
-              <h5 class="text-xl font-bold">Filip Petrovic</h5>
+              <h5 class="text-xl font-bold">{{topMasters[0].username}}</h5>
               <p class="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-                Moler
+                {{topMasters[0].location}}
               </p>
               <div class="mt-6">
                 <button
@@ -313,13 +313,13 @@
           <div class="px-6">
             <img
               alt="..."
-              src="assets/img/team-2-800x800.jpg"
+              [src]="topMasters[1].photo"
               class="shadow-lg rounded-full mx-auto max-w-120-px"
             />
             <div class="pt-6 text-center">
-              <h5 class="text-xl font-bold">Natalija Marjanovic</h5>
+              <h5 class="text-xl font-bold">{{topMasters[1].username}}</h5>
               <p class="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-                Privatni časovi
+                {{topMasters[1].location}}
               </p>
               <div class="mt-6">
                 <button
@@ -342,13 +342,13 @@
           <div class="px-6">
             <img
               alt="..."
-              src="assets/img/team-3-800x800.jpg"
+              [src]="topMasters[2].photo"
               class="shadow-lg rounded-full mx-auto max-w-120-px"
             />
             <div class="pt-6 text-center">
-              <h5 class="text-xl font-bold">Milica Simic</h5>
+              <h5 class="text-xl font-bold">{{topMasters[2].username}}</h5>
               <p class="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-                Fotograf
+                {{topMasters[2].location}}
               </p>
               <div class="mt-6">
                 <button
@@ -377,13 +377,13 @@
           <div class="px-6">
             <img
               alt="..."
-              src="assets/img/team-4-470x470.png"
+              [src]="topMasters[2].photo"
               class="shadow-lg rounded-full mx-auto max-w-120-px"
             />
             <div class="pt-6 text-center">
-              <h5 class="text-xl font-bold">Jelena Lazic</h5>
+              <h5 class="text-xl font-bold">{{topMasters[2].username}}</h5>
               <p class="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-                Psiholog
+                {{topMasters[2].location}}
               </p>
               <div class="mt-6">
                 <button

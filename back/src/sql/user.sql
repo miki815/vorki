@@ -110,6 +110,12 @@ VALUES
     (1, 'Vodoinstalater', 'Popravka kvarova na vodovodnoj mreži i instalacije', 'Hitne intervencije za sve vrste kvarova na vodovodnoj mreži i instalacijama. Radimo brzo i efikasno.', 'Kragujevac',0),
     (1, 'Električar', 'Električarski radovi u domaćinstvima i poslovnim objektima', 'Stručno obavljamo sve vrste električarskih radova u domaćinstvima i poslovnim objektima. Pouzdani smo i efikasni.', 'Novi Sad',0);
 
+INSERT INTO rate (idUser, idRater, rate) VALUES (1, 2, '4.5');
+INSERT INTO rate (idUser, idRater, rate) VALUES (1, 3, '3.8');
+INSERT INTO rate (idUser, idRater, rate) VALUES (2, 2, '4.2');
+INSERT INTO rate (idUser, idRater, rate) VALUES (2, 3, '4.9');
+INSERT INTO rate (idUser, idRater, rate) VALUES (3, 1, '5.0');
+INSERT INTO rate (idUser, idRater, rate) VALUES (3, 2, '4.7');
 
 select * from user;
 select * from comments;

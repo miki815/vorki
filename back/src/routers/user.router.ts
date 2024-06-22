@@ -79,4 +79,8 @@ userRouter.route('/changeForgottenPassword').post(
     (req, res)=>new UserController().changeForgottenPassword(req, res)
 )
 
+userRouter.route('/getTop5masters').get(
+    (req, res)=>new UserController().getTop5masters(req, res)
+)
+
 export default userRouter;

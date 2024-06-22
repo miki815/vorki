@@ -329,24 +329,35 @@ export class UserController {
                 res.status(400).json({ 'poruka': 'Korisnik ne postoji' });
             }
         });
-
-
-
-
-        // User.findOne({ 'email': email }, (err, user) => {
-        //     if (err) console.log(err);
-        //     else if (user == null) res.status(200).json({ 'poruka': 'Korisnik ne postoji' });
-        //     else {
-        //         console.log(`${user.username} password changed`);
-        //         user.password = password;
-        //         user.save().then(us => {
-        //             res.status(200).json({ 'poruka': 'Lozinka promenjena' });
-        //         }).catch(err => {
-        //             res.status(400).json({ 'poruka': 'Greska pri promeni lozinke' });
-        //         })
-        //     }
-        // })
     }
+
+    getTop5masters = (req: express.Request, res: express.Response) => {
+        console.log('Getting top 5 masters')
+        const sql = `
+      SELECT u.*, averageRate
+      FROM (
+          SELECT idUser, AVG(CAST(rate AS DECIMAL)) as averageRate
+          FROM rate
+          GROUP BY idUser
+          ORDER BY averageRate DESC
+          LIMIT 5
+      ) as topUsers
+      JOIN user u ON u.id = topUsers.idUser;
+    `;
+    connection.query(sql, (err, users) => {
+        if (err) { res.json({ error: 1, message: "Fatal error: " + err }); return; }
+        if (users.length) {
+            console.log('Getting top 5 masters success');
+            res.json({ error: 0, top5: users });
+        }
+        else {
+            console.log('Getting top 5 masters failed');
+            res.json({ error: 1, message: null });
+        }
+    });
+    }
+
+
 
 
 
