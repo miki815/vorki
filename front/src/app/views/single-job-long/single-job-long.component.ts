@@ -28,6 +28,8 @@ export class SingleJobLongComponent implements OnInit {
   numberOfPhotos: number = 0;
   imgIndex: number = 0;
   private map;
+  idUser: string = "";
+  rating: number = 0;
 
 
 
@@ -112,6 +114,35 @@ export class SingleJobLongComponent implements OnInit {
 
   onIndexChange(event: GalleryState) {
     this.imgIndex = event.currIndex
+  }
+
+  setRating(rating: number) {
+    this.rating = rating;
+  }
+
+  rate() {
+    console.log("Job - rate: START")
+    const data = { idUser: this.job.idUser, idRater: this.cookie, rate: this.rating }
+    this.userService.rate(data).subscribe((message: any) => {
+      console.log("Job - rate: END")
+    })
+  }
+
+  deleteComment(idComment: string) {
+    console.log("Job - deleteComment: START")
+    const data = { idComment: idComment }
+    this.userService.deleteCommentById(data).subscribe((message: any) => {
+      this.comments = this.comments.filter(comment => comment.id != idComment);
+      console.log("Job - deleteComment: END")
+    })
+  }
+
+  more() {
+    this.visibleComments += 3;
+  }
+
+  less() {
+    this.visibleComments = 3;
   }
 
 

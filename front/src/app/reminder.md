@@ -24,7 +24,7 @@
 5. Profil majstora
 6. Profil korisnika
 7. Podesavanje profila majstora
-8. Podesavanje porfila korisnika (profil/podesvanje profila mozda da budu iste stranice samo sa *ngIf majstor/korisnik) 
+8. Podesavanje profila korisnika (profil/podesvanje profila mozda da budu iste stranice samo sa *ngIf majstor/korisnik) 
 9. Kalendar
 10. Rezervacija termina
 11. O nama

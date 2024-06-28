@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, isDevMode } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -64,6 +64,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/moment';
 import { ForgottenPasswordComponent } from "./views/auth/forgotten-password/forgotten-password.component";
 import { ForgottenPasswordChangeComponent } from "./views/auth/forgotten-password-change/forgotten-password-change.component";
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 
@@ -125,6 +126,12 @@ import { ForgottenPasswordChangeComponent } from "./views/auth/forgotten-passwor
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
     })
 
   ]
