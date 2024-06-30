@@ -36,6 +36,7 @@ export class ProfileSettingsComponent {
   idUser: string = "";
   imagesLoaded: boolean = false;
   birthdayDate : string = "";
+  poruka : string = ""; // dodao da ne izbacuje gresku
   
   galleryId = 'mixed';
   galleryRef: GalleryRef = this.gallery.ref(this.galleryId);

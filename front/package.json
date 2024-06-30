@@ -25,6 +25,7 @@
     "@angular/platform-browser": "17.3.3",
     "@angular/platform-browser-dynamic": "17.3.3",
     "@angular/router": "17.3.3",
+    "@angular/service-worker": "17.3.3",
     "@fortawesome/fontawesome-free": "5.15.3",
     "@popperjs/core": "2.9.1",
     "@tailwindcss/forms": "0.2.1",
@@ -37,6 +38,7 @@
     "ngx-cookie-service": "^17.1.0",
     "ngx-date-fns": "^11.0.0",
     "ngx-leaflet": "^0.0.16",
+    "protractor": "^7.0.0",
     "rxjs": "^7.8.1",
     "sha.js": "^2.4.11",
     "tailwindcss": "^2.2.19",
@@ -59,7 +61,6 @@
     "karma-coverage-istanbul-reporter": "3.0.3",
     "karma-jasmine": "4.0.1",
     "karma-jasmine-html-reporter": "1.5.4",
-    "protractor": "^3.3.0",
     "ts-node": "9.1.1",
     "tslint": "^6.1.3",
     "typescript": "5.4.3"

@@ -208,7 +208,7 @@
               Galerija
               </label>
               <gallery  id="{{galleryId}}" *ngIf="imagesLoaded"  style="background-color: rgba(241, 245, 249) ;width: 100% !important; height: 650px !important; object-fit: cover;"
-              [activeIndex]="imgIndex"  (indexChange)="onIndexChange($event)"></gallery>
+                (indexChange)="onIndexChange($event)"></gallery>
      
               <i class='fas fa-trash-alt' align="center" style='font-size:24px; margin-top: 10px; width: 100%;' (click)="delete()"></i>
              
