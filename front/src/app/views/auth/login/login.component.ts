@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(data).subscribe((message: any) => {
       if (message['error'] == "0") {
         this.cookieService.set('token', JSON.stringify(message['message']), 30, '/');
-        this.router.navigate(["landing"]);
+        this.router.navigate(["pocetna"]);
         return;
       } else {  this.poruka = message['message'];}
     })

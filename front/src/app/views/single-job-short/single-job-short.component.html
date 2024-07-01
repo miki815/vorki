@@ -1,25 +1,54 @@
-<div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg overflow-hidden border-2 border-blueGray-600">
-    <div class="px-4 py-2 flex items-center">
+<div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg overflow-hidden border-2 border-blueGray-600 relative">
+    <div class="px-4 py-2 flex items-center flex-wrap">
         <img [src]="imageSrc" alt="Profile Picture" class="w-16 h-16 rounded-full mr-4">
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">{{ job.title }}</h2>
-            <p class="text-sm text-gray-600">{{ job.city }} - {{ job.profession }} &#9733;{{job.avgRate}}</p>
+        <div class="flex-grow"> 
+            <center>
+                <h2 class="font-semibold text-gray-800">{{ job.title }}</h2>
+                <p class="text-gray-600"><i class="fas fa-map-marker-alt mr-1"></i> {{ job.city }}
+                </p>
+                    <p> <i class="fas fa-briefcase mr-1"></i>{{ job.profession }}</p>
+            </center>
+        </div>
+        <div class="avg-rate">
+            &#9733;{{ job.avgRate | number:'1.2-2' }}
         </div>
     </div>
     <div class="px-4 py-2">
-        <p class="text-gray-700">{{ shortDescription }}</p>
+        <center><p class="text-gray-700">{{ shortDescription }}</p></center>
     </div>
     <button class="block mx-auto align-middle border-2 px-4 py-2 mb-1 bg-nice text-black rounded-lg" (click)="locateToJob()">
         Prikaži detalje
     </button>
 </div>
 
-
-
 <style>
-    button:hover{
-        background-color: aqua;
+    .relative {
+        position: relative;
+    }
+
+    .avg-rate {
+        margin-left: auto;
+        margin-right: 0;
+        color: red;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 20px;
+    }
+
+    @media (max-width: 640px) {
+        .avg-rate {
+            position: static;
+            margin-top: 8px;
+            margin-left: 0;
+            font-size: 16px;
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+    }
+
+    button:hover {
+        background-color: rgb(255, 232, 60);
     }
 </style>
-
-<!-- ../../../assets/img/team-2-800x800.jpg -->

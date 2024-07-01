@@ -10,7 +10,11 @@ export const authGuard: CanActivateFn = (route, state) => {
     // authService.deleteAll(); za testiranje
     return true;
   } else {
-    router.navigate(['/auth/login']);
+    if (state.url === '/pocetna') {
+      window.location.reload(); 
+    } else {
+      router.navigate(['/pocetna']);
+    }
     return false;
   }
 };

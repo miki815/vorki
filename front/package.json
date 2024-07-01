@@ -25,7 +25,7 @@
     "@angular/platform-browser": "17.3.3",
     "@angular/platform-browser-dynamic": "17.3.3",
     "@angular/router": "17.3.3",
-    "@angular/service-worker": "17.3.3",
+    "@angular/service-worker": "^17.3.3",
     "@fortawesome/fontawesome-free": "5.15.3",
     "@popperjs/core": "2.9.1",
     "@tailwindcss/forms": "0.2.1",

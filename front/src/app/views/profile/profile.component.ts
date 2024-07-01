@@ -23,8 +23,7 @@ export class ProfileComponent implements OnInit {
   birthday : Date = null;
   phone : string = null;
   location : string = null;
-  ulogaK : boolean = null;
-  ulogaM : boolean = null;
+  role : string = null;
   photo : string = null;
   comments : any[] = [];
   comment : string = null;
@@ -67,8 +66,7 @@ export class ProfileComponent implements OnInit {
        this.birthday =  message['message'].birthday;
        this.phone =  message['message'].phone;
        this.location =  message['message'].location;
-       this.ulogaK =  message['message'].ulogaK;
-       this.ulogaM =  message['message'].ulogaM;
+       this.role =  message['message'].role;
        this.photo =  message['message'].photo;
        return;
       } 

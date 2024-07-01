@@ -1,52 +1,96 @@
-<div #top class="my-element"></div>
+<app-main-navbar></app-main-navbar>
 
-<div class="flex items-center justify-center mt-4">
-    <select [(ngModel)]="selectedCity" id="city" class="border border-gray-300 rounded-md mx-4" (change)="filterJobs()">
-        <option value="">Izaberite grad</option>
-        <option *ngFor="let city of cities">{{ city.city }}</option>
+<div class="page-container">
+  <div style="width: 100%;" class="flex items-center justify-center mt-4">
+    <select
+      [(ngModel)]="selectedCity"
+      id="city"
+      class="border border-gray-300 rounded-md mx-4"
+      (change)="filterJobs()"
+    >
+      <option value="">Izaberite grad</option>
+      <option *ngFor="let city of cities">{{ city.city }}</option>
     </select>
-    <select [(ngModel)]="selectedProfession" id="profession" class="border border-gray-300 rounded-md" (change)="filterJobs()">
-        <option value="">Izaberite zanimanje</option>
-        <option *ngFor="let profession of professions" [value]="profession">{{ profession }}</option>
-    </select>    
-</div>
+    <select
+      [(ngModel)]="selectedProfession"
+      id="profession"
+      class="border border-gray-300 rounded-md"
+      (change)="filterJobs()"
+    >
+      <option value="">Izaberite zanimanje</option>
+      <option *ngFor="let profession of professions" [value]="profession">
+        {{ profession }}
+      </option>
+    </select>
+    <select
+    [(ngModel)]="selectedSort"
+    class="border border-gray-300 rounded-md mx-4"
+    (change)="sort()"
+  >
+    <option value="">Sortiranje</option>
+    <option value="rate">Ocena</option>
+    <option value="city">Grad</option>
+    <!-- <option value="name">Ime korisnika</option> -->
 
+  </select>
+  </div>
 
-
-
-<!-- Single jobs -->
-<!-- <div class="grid grid-cols-1 gap-4 place-items-center">
-    <div class="py-3 w-1/2" *ngFor="let job of jobs.slice((currentPage - 1) * jobsPerPage, currentPage * jobsPerPage)">
-        <app-single-job-short [job]="job"></app-single-job-short>
+  <div class="grid grid-cols-1 gap-4 place-items-center">
+    <div
+      class="py-3 w-1/2"
+      *ngFor="let job of jobs.slice(
+        (currentPage - 1) * jobsPerPage,
+        currentPage * jobsPerPage
+      )"
+    >
+      <app-single-job-short [job]="job"></app-single-job-short>
     </div>
-</div>
-<app-advertisement-user ></app-advertisement-user> -->
+  </div>
 
-<div class="grid grid-cols-1 gap-4 place-items-center">
-    <div class="py-3 w-1/2" *ngFor="let job of jobs.slice((currentPage - 1) * jobsPerPage, currentPage * jobsPerPage)">
-        <app-single-job-short [job]="job"></app-single-job-short>
-    </div>
-</div>
-
-<!-- <div class="grid grid-cols-1 gap-4 place-items-center">
-    <div class="py-3 w-1/2">
-        <app-advertisement-user ></app-advertisement-user>
-    </div>
-</div> -->
-
-
-<!-- Pagination buttons -->
-<div class="mt-4 pb-4 flex justify-center">
+  <div class="mt-4 pb-4 flex justify-center">
     <button (click)="prevPage()" [disabled]="currentPage === 1">Prethodna</button>
-    <span class="mx-4">| {{ currentPage }} |</span>
-    <button (click)="nextPage()" [disabled]="jobs.length <= currentPage * jobsPerPage">Sledeća</button>
+    <span class="mx-4" style="color: white">| {{ currentPage }} |</span>
+    <button
+      (click)="nextPage()"
+      [disabled]="jobs.length <= currentPage * jobsPerPage"
+    >
+      Sledeća
+    </button>
+  </div>
 </div>
+<app-footer></app-footer>
 
-
-<!--md:grid-cols-2 lg:grid-cols-3-->
 
 <style>
-    button:hover{
-        background-color: aqua;
-    }
+  .page-container {
+    background-image: url('../../../assets/img/r7.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding: 20px;
+    padding-top: 80px; /* Adjust this value based on the height of your navbar */
+  }
+
+  button:hover {
+    background-color: rgb(255, 232, 60);
+  }
+
+  button {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  select {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+  }
+
+  .flex1 {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+  }
 </style>

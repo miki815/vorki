@@ -15,8 +15,7 @@ export class RegisterComponent implements OnInit {
   datumRodjenja: Date = null;
   brojTelefona: string = null;
   mesto: string = "Beograd";
-  ulogaK: boolean = false;
-  ulogaM: boolean = false;
+  role: string = null;
   lozinka: string = null;
   lozinka1: string = null;
   politika: boolean = null;
@@ -47,7 +46,7 @@ export class RegisterComponent implements OnInit {
 
     // Provera
     if (!this.korisnickoIme || !this.ime || !this.prezime || !this.datumRodjenja || !this.politika ||
-      !this.brojTelefona || !this.mesto || (!this.ulogaM && !this.ulogaK) || !this.lozinka || !this.lozinka1 || !this.email) {
+      !this.brojTelefona || !this.mesto || (!this.role) || !this.lozinka || !this.lozinka1 || !this.email) {
       this.poruka = "Niste uneli sve podatke."; return;
     }
     if (this.korisnickoIme.length < 3) { this.poruka = "Korisničko ime je prekratko."; return; }
@@ -72,14 +71,13 @@ export class RegisterComponent implements OnInit {
       birthday: this.datumRodjenja,
       phone: this.brojTelefona,
       location: this.mesto,
-      ulogaK: this.ulogaK,
-      ulogaM: this.ulogaM,
+      role: this.role,
       email: this.email
     }
 
     this.userService.register(data).subscribe((message: any) => {
       if (message['message'] == "0") {
-        this.router.navigate(["/auth/login"]);
+        this.router.navigate(["/autentikacija/prijava"]);
         return;
       } else {
         this.poruka = message['message'];
@@ -99,7 +97,7 @@ export class RegisterComponent implements OnInit {
         testovi = testovi1;
         testovi.forEach((test, index) => {
           if (!test["korisnickoIme"] || !test["ime"] || !test["prezime"] || !test["datumRodjenja"] || !test["politika"] ||
-            !test["brojTelefona"] || !test["mesto"] || (!test["ulogaM"] && !test["ulogaK"]) || !test["lozinka"] || !test["lozinka1"] ||
+            !test["brojTelefona"] || !test["mesto"] || (!test["role"]) || !test["lozinka"] || !test["lozinka1"] ||
             !test["email"]) {
             rezultati.push(-1); return;
           }

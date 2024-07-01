@@ -1,19 +1,9 @@
 <nav
-  class="border top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg"
-  style="background-color: #6b6c0f;"
+  class="fixed  w-full flex  items-center justify-between px-2 py-3 navbar-expand-lg bg-blueGray-800"
+  style="height: 70px; font-size: 20px;" 
 >
-  <div
-    class="container px-4 mx-auto flex flex-wrap items-center justify-between"
-  >
-    <div
-      class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
-    >
-      <a
-        [routerLink]="['/']"
-        class="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase lg:hover:text-blackYellow-200"
-      > 
-        Vorki
-      </a>
+  <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+    <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
       <button
         class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
         type="button"
@@ -28,58 +18,70 @@
       id="example-navbar-warning"
     >
       <ul class="flex flex-col lg:flex-row list-none mr-auto">
-        <li class="flex items-center ">
+        <li class="flex items-center">
           <a
-            class="lg:text-white lg:hover:text-blackYellow-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-            [routerLink]="['/auth/dodaj_oglas']"
-
+            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold"
+            [routerLink]="['/pocetna']"
+            style="font-size: 20px;" 
           >
-            <i
-              class="lg:text-blueGray-200 text-blueGray-400 far fa-file-alt text-lg leading-lg mr-2 "
-            ></i>
+            Pocetna
+          </a>
+        </li>
+        <li class="flex items-center">
+          <a
+            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold"
+            [routerLink]="['/dodaj_oglas']"
+            style="font-size: 20px;" 
+          >
             Dodaj oglas
           </a>
         </li>
         <li class="flex items-center">
-            <a
-              class="lg:text-white lg:hover:text-blackYellow-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-              [routerLink]="['/oglasi']"
-  
-            >
-              <i
-                class="lg:text-blueGray-200 text-blueGray-400 far fa-file-alt text-lg leading-lg mr-2"
-              ></i>
-              Oglasi
-            </a>
-          </li>
+          <a
+            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold"
+            [routerLink]="['/oglasi']"
+            style="font-size: 20px;" 
+          >
+            Svi oglasi
+          </a>
+        </li>
+        <li class="flex items-center">
+          <a
+            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold"
+            [routerLink]="['/dodaj_oglas']"
+            style="font-size: 20px;" 
+          >
+           Profil
+          </a>
+        </li>
+        <li class="flex items-center">
+          <a
+            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold"
+            [routerLink]="['/pocetna']"
+           (click) = 'logout()'
+            style="font-size: 20px;" 
+          >
+           Odjava
+          </a>
+        </li>
       </ul>
-      <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+      <!-- <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
         <li class="flex items-center">
           <app-settings-dropdown class="block"></app-settings-dropdown>
         </li>
-
-        <!-- <li class="flex items-center">
-          <a
-            class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-            href="https://github.com/creativetimofficial/notus-angular?ref=na-auth-navbar"
-            target="_blank"
-          >
-            <i
-              class="lg:text-blueGray-200 text-blueGray-400 fab fa-github text-lg leading-lg"
-            ></i>
-            <span class="lg:hidden inline-block ml-2">Star</span>
-          </a>
-        </li> -->
-
-        <!-- <li class="flex items-center">
-          <button
-            class="bg-white text-blueGray-700 active:bg-blueGray-50 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
-            type="button"
-          >
-            <i class="fas fa-arrow-alt-circle-down"></i> Download
-          </button>
-        </li> -->
-      </ul>
+      </ul> -->
     </div>
   </div>
 </nav>
+
+<style>
+  a:hover{
+  color: rgb(255, 232, 60);
+}
+:host {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+</style>

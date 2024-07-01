@@ -1,4 +1,6 @@
-<app-auth-navbar></app-auth-navbar>
+<app-auth-navbar *ngIf="login==0"></app-auth-navbar>
+<app-main-navbar *ngIf="login==1"></app-main-navbar>
+
 <main>
   <div
     class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75"

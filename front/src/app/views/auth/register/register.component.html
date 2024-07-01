@@ -139,9 +139,9 @@
                     Korisnik
                   </label>
                     <input
-                    [(ngModel)]="ulogaK"
-                    name="ulogaK"
-                    value="k"
+                    [(ngModel)]="role"
+                    name="role"
+                    value="K"
                     type="checkbox"
                     class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     name = "uloga"
@@ -162,7 +162,7 @@
                 type="checkbox"
                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 name = "uloga"
-                value="m"
+                value="M"
                 style="width: 10%;"
               />
            </div>
@@ -246,7 +246,7 @@
       </div>
       <div class="flex flex-wrap mt-6 relative">
         <div class="w-1/2">
-          <a [routerLink]="['/auth/login']" class="text-blueGray-200" style="font-size: 20px;">
+          <a [routerLink]="['/autentikacija/prijava']" class="text-blueGray-200" style="font-size: 20px;">
             <small>Imate profil? Prijavite se!</small>
           </a>
         </div>

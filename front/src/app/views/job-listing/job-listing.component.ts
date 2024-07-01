@@ -12,48 +12,47 @@ export class JobListingComponent implements OnInit {
   jobs: Array<any>;
   allJobs: Array<any>;
   currentPage: number = 1;
-  jobsPerPage: number = 10;
+  jobsPerPage: number = 5;
   @ViewChild('top') topElement!: ElementRef;
 
-  cities = [''];
+  cities = [];
   selectedCity: string = '';
   professions = [];
   selectedProfession: string = '';
+  selectedSort: string = '';
 
 
   ngOnInit(): void {
-    // this.jobService.getJobs().subscribe((jobs: any) => {
-    //   this.jobs = jobs;
-    //   this.allJobs = jobs;
-    // });
-    this.cities = ['Beograd', 'Novi Sad', 'Niš', 'Kragujevac', 'Kraljevo', 'Subotica', 'Zrenjanin', 'Pančevo', 'Čačak', 'Novi Pazar', 'Kruševac', 'Leskovac', 'Smederevo', 'Valjevo', 'Vranje', 'Šabac', 'Užice', 'Požarevac', 'Bor', 'Zaječar', 'Sombor', 'Pirot', 'Vršac', 'Ruma', 'Bačka Palanka', 'Kikinda', 'Sremska Mitrovica', 'Prokuplje', 'Loznica', 'Žabalj', 'Inđija', 'Senta', 'Vrbas', 'Apatin', 'Bačka Topola', 'Sombor', 'Bač', 'Bački Petrovac', 'Bečej', 'Kula', 'Odžaci', 'Srbobran', 'Temerin', 'Titel', 'Vrbas', 'Žabalj', 'Aleksinac', 'Aranđelovac', 'Bajina Bašta', 'Bela Crkva', 'Bogatić', 'Boljevac', 'Brus', 'Bujanovac', 'Crna Trava', 'Despotovac', 'Dimitrovgrad', 'Doljevac', 'Gadžin Han', 'Ivanjica', 'Kladovo', 'Knić', 'Koceljeva', 'Kosjerić', 'Kovačica', 'Kovin', 'Kuršumlija', 'Lajkovac', 'Lapovo', 'Lebane', 'Ljig', 'Ljubovija', 'Lučani', 'Majdanpek', 'Mali Zvornik', 'Mionica', 'Negotin', 'Nova Crnja', 'Nova Varoš', 'Opovo', 'Petrovac na Mlavi', 'Plandište', 'Preševo', 'Ražanj', 'Rekovac', 'Sečanj', 'Sjenica', 'Sokobanja', 'Surdulica']
-    this.professions = ['Moler', 'Vodoinstalater', 'Automehaničar', 'Električar', 'Stolar', 'Bravar', 'Keramičar', 'Tesar', 'Zidar', 'Gipsar', 'Limar']
+    fetch('assets/city.json')
+    .then(response => response.json())
+    .then(cities => {
+      this.cities = cities;
+      this.cities.sort((a, b) => a.city.localeCompare(b.city)); 
+      var a = 1
+    })
+    .catch(error => {
+      console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradiva):', error);
+    });
 
-    // fetch('assets/city.json')
-    //   .then(response => response.json())
-    //   .then(cities => {
-    //     this.cities = cities;
-    //   })
-    //   .catch(error => {
-    //     console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradova):', error);
-    //   });
+    fetch('assets/craftsmen.json')
+      .then(response => response.json())
+      .then(professions => {
+        this.professions = professions.craftsmen;
+        this.professions.sort((a, b) => a.localeCompare(b));
 
-    // fetch('assets/craftsmen.json')
-    //   .then(response => response.json())
-    //   .then(professions => {
-    //     this.professions = professions.craftsmen;
-    //   })
-    //   .catch(error => {
-    //     console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):', error);
-    //   });
+      })
+      .catch(error => {
+        console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):', error);
+      });
 
     this.jobService.getJobsWithUserInfo2().subscribe((jobs: any) => {
       this.userService.getUserById({ id: this.cookieService.get('token') }).subscribe((user: any) => {
         console.log(jobs)
         var type = user['message'].type ? 0 : 1;
-        jobs = jobs.filter(job => job.type === type);
+        jobs = jobs.filter(job => job.type == type);
         this.jobs = jobs;
         this.allJobs = jobs;
+        
       })
 
     });
@@ -63,74 +62,6 @@ export class JobListingComponent implements OnInit {
 
 
   constructor(private jobService: JobService, private userService: UserService, private cookieService: CookieService) {
-    // this.jobs = [
-    //   {
-    //     title: 'Moler',
-    //     description: 'Potrebno je da se ofarba stan od 50 kvadrata',
-    //     city: 'Beograd',
-    //     profession: 'Moler'
-    //   },
-    //   {
-    //     title: 'Vodoinstalater',
-    //     description: 'Potrebno je da se zameni vodokotlić',
-    //     city: 'Beograd',
-    //     profession: 'Vodoinstalater'
-    //   },
-    //   {
-    //     title: 'Automehaničar',
-    //     description: 'Potrebno je da se zameni ulje na automobilu',
-    //     city: 'Beograd',
-    //     profession: 'Automehaničar'
-    //   },
-    //   {
-    //     title: 'Električar',
-    //     description: 'Potrebno je da se zameni sijalica',
-    //     city: 'Beograd',
-    //     profession: 'Električar'
-    //   },
-    //   {
-    //     title: 'Stolar',
-    //     description: 'Potrebno je da se napravi polica',
-    //     city: 'Beograd',
-    //     profession: 'Stolar'
-    //   },
-    //   {
-    //     title: 'Bravar',
-    //     description: 'Potrebno je da se napravi ograda',
-    //     city: 'Beograd',
-    //     profession: 'Bravar'
-    //   },
-    //   {
-    //     title: 'Keramičar',
-    //     description: 'Potrebno je da se postavi pločice',
-    //     city: 'Beograd',
-    //     profession: 'Keramičar'
-    //   },
-    //   {
-    //     title: 'Tesar',
-    //     description: 'Potrebno je da se napravi krov',
-    //     city: 'Beograd',
-    //     profession: 'Tesar'
-    //   },
-    //   {
-    //     title: 'Zidar',
-    //     description: 'Potrebno je da se zida kuća',
-    //     city: 'Beograd',
-    //     profession: 'Zidar'
-    //   },
-    //   {
-    //     title: 'Gipsar',
-    //     description: 'Potrebno je da se postavi gips',
-    //     city: 'Beograd',
-    //     profession: 'Gipsar'
-    //   },
-    //   {
-    //     title: 'Limar',
-    //     description: 'Potrebno je da se postavi lim',
-    //     city: 'Beograd',
-    //     profession: 'Limar'
-    //   },
-    // ]
   }
 
   moveToTop() {
@@ -147,24 +78,20 @@ export class JobListingComponent implements OnInit {
     this.moveToTop();
   }
 
-  // filterCity() {
-  //   this.currentPage = 1;
-  //   if (this.selectedCity === '') this.jobs = this.allJobs;    
-  //   else this.jobs = this.allJobs.filter(job => job.city === this.selectedCity);
-  // }
-
-  // filterProfession() {
-  //   this.currentPage = 1;
-  //   if (this.selectedProfession === '') this.jobs = this.allJobs;
-  //   else this.jobs = this.allJobs.filter(job => job.profession === this.selectedProfession);
-  // }
-
   filterJobs() {
     this.currentPage = 1;
     if (this.selectedCity === '' && this.selectedProfession === '') this.jobs = this.allJobs;
     else if (this.selectedCity === '') this.jobs = this.allJobs.filter(job => job.profession === this.selectedProfession);
     else if (this.selectedProfession === '') this.jobs = this.allJobs.filter(job => job.city === this.selectedCity);
     else this.jobs = this.allJobs.filter(job => job.city === this.selectedCity && job.profession === this.selectedProfession);
+  }
+
+  sort() {
+    this.currentPage = 1;
+    if (this.selectedSort === 'rate') this.jobs = this.allJobs.sort((a, b) => b.avgRate - a.avgRate);
+    if (this.selectedSort === 'city') this.jobs = this.allJobs.sort((a, b) => a.city.localeCompare(b.city));
+   //if (this.selectedSort === 'name') this.jobs = this.allJobs.sort((a, b) => a.name.localeCompare(b.name));
+
   }
 
 

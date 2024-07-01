@@ -23,8 +23,7 @@ export class ProfileSettingsComponent {
   birthday : Date = null;
   phone : string = null;
   location : string = null;
-  ulogaK : boolean = null;
-  ulogaM : boolean = null;
+  role : string = null;
   photo : string = null;
   comments : any[] = [];
   comment : string = null;
@@ -84,8 +83,7 @@ export class ProfileSettingsComponent {
        this.birthday =  message['message'].birthday;
        this.phone =  message['message'].phone;
        this.location =  message['message'].location;
-       this.ulogaK =  message['message'].ulogaK;
-       this.ulogaM =  message['message'].ulogaM;
+       this.role =  message['message'].role;
        this.photo =  message['message'].photo;
        this.birthday = new Date(this.birthday);
        this.birthdayDate = this.birthday.getFullYear() + "-" + (this.birthday.getMonth() + 1).toString().padStart(2, '0') + "-" + this.birthday.getDate().toString().padStart(2, '0');

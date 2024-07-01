@@ -23,7 +23,7 @@ import { IndexComponent } from "./views/index/index.component";
 import { LandingComponent } from "./views/landing/landing.component";
 import { ProfileComponent } from "./views/profile/profile.component";
 import { ProfileSettingsComponent } from "./views/profile-settings/profile-settings.component";
-import { AdvertisementComponent } from "./views/auth/advertisement/advertisement.component";
+import { AdvertisementComponent } from "./views/advertisement/advertisement.component";
 import { JobListingComponent } from "./views/job-listing/job-listing.component";
 import { SingleJobLongComponent } from "./views/single-job-long/single-job-long.component";
 import { CategoriesChoiceComponent } from "./views/categories-choice/categories-choice.component";
@@ -43,26 +43,28 @@ const routes: Routes = [
   },
   // auth views
   {
-    path: "auth",
+    path: "autentikacija",
     component: AuthComponent,
     children: [
-      { path: "login", component: LoginComponent },
-      { path: "register", component: RegisterComponent },
-      { path: "dodaj_oglas", component: AdvertisementComponent },
+      { path: "prijava", component: LoginComponent },
+      { path: "registracija", component: RegisterComponent },
       { path: "zaboravljena_lozinka", component: ForgottenPasswordComponent },
       { path: 'promena_zaboravljene_lozinke/:reset_token', component: ForgottenPasswordChangeComponent },
       { path: "", redirectTo: "login", pathMatch: "full" },
+      //{ path: "dodaj_oglas", component: AdvertisementComponent },
+
     ],
   },
   // no layout views
   { path: "profile/:id", component: ProfileComponent },
   { path: "profiles", component: ProfileSettingsComponent, canActivate: [authGuard]},
-  { path: "landing", component: LandingComponent, canActivate: [authGuard]},
+  { path: "pocetna", component: LandingComponent},
   { path: "oglasi", component: JobListingComponent, canActivate: [authGuard]},
   { path: "izbor-kategorije", component: CategoriesChoiceComponent },
+  { path: "dodaj_oglas", component: AdvertisementComponent, canActivate: [authGuard] },
   { path: 'oglasi/:id', component: SingleJobLongComponent },
   { path: "", component: IndexComponent },
-  { path: "**", redirectTo: "", pathMatch: "full" }
+  { path: "**", redirectTo: "", pathMatch: "full" },
 ];
 
 @NgModule({
