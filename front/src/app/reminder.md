@@ -52,3 +52,25 @@ ni potreban)
 ## Dokumentacija za style
 https://tailwindcss.com/docs/place-items
 
+
+
+
+# ------------------------------------------------------------
+
+# Pocetna strana
+- Izmeniti mozda ove ikonice za drustvene mreze
+
+# Prijava
+- Izgled
+
+# Registracija
+- Izgled
+
+# Footer
+- Sredjivanje
+
+# Oglasi
+-Izgled
+
+
+

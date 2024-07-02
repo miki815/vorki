@@ -56,8 +56,8 @@ const routes: Routes = [
     ],
   },
   // no layout views
-  { path: "profile/:id", component: ProfileComponent },
-  { path: "profiles", component: ProfileSettingsComponent, canActivate: [authGuard]},
+  { path: "profil/:id", component: ProfileComponent },
+  { path: "podesvanje_profila", component: ProfileSettingsComponent, canActivate: [authGuard]},
   { path: "pocetna", component: LandingComponent},
   { path: "oglasi", component: JobListingComponent, canActivate: [authGuard]},
   { path: "izbor-kategorije", component: CategoriesChoiceComponent },

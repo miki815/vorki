@@ -357,7 +357,36 @@ export class UserController {
     });
     }
 
+    support=async (req: express.Request, res: express.Response)=>{
+        var text=req.body.message+"\n\n\n"+"FROM: "+req.body.contact + " - " + req.body.nameAndSurname
+        var nodemailer = require('nodemailer');
+        var transporter = nodemailer.createTransport({
+        service: 'outlook',
+        auth: {
+            user: "vorkisupp@outlook.com",
+            pass: 'mikineca2000'
+        },
+        tls: {
+            rejectUnauthorized: false 
+        }
+        });
+        var mailOptions = {
+            from: "vorkisupp@outlook.com",
+            to: "vorkisupp@outlook.com",
+            subject: 'Support',
+            text:  text
+        };
 
+        transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.response);
+            }
+            });
+            res.json({ message: "0" });        
+           
+    }
 
 
 

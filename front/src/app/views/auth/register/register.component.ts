@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
     if (this.ime.length < 3) { this.poruka = "Ime je prekratko."; return; }
     if (this.prezime.length < 3) { this.poruka = "Prezime je prekratko."; return; }
     if (this.datumRodjenja > new Date((new Date()).getFullYear() - 18, (new Date()).getMonth(), (new Date()).getDate())) { this.poruka = "Morate biti punoletni."; return; }
-    if (!/^381\d{6}\d+$/.test(this.brojTelefona.slice(1)) || this.brojTelefona[0] != "+") { this.poruka = "Mobilni telefon nije u dobrom formatu."; return; }
+    if (!/^381\d{8,9}$/.test(this.brojTelefona.slice(1)) || this.brojTelefona[0] != "+") { this.poruka = "Mobilni telefon nije u dobrom formatu."; return; }
     if (! /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{6,}$/.test(this.lozinka)) {
       this.poruka = "Lozinka mora imati barem \
       jedno malo slovo, barem jedno veliko slovo, barem jedan broj i barem jedan specijalni karakter. Lozinka mora\

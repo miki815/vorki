@@ -20,4 +20,7 @@ export class MainNavbarComponent implements OnInit {
     this.cookieService.delete('token', '/');
     window.location.reload(); 
   }
+  navigateToProfile() {
+    this.router.navigate(['/profil',  this.cookieService.get('token')]);
+  }
 }

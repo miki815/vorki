@@ -1,20 +1,18 @@
 <nav
-  class="fixed  w-full flex  items-center justify-between px-2 py-3 navbar-expand-lg bg-blueGray-800"
-  style="height: 70px; font-size: 20px;" 
+  class="fixed w-full flex items-center justify-between px-2 py-3 navbar-expand-lg bg-blueGray-800"
+  style="height: 70px; font-size: 20px;"
 >
-  <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-    <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-      <button
-        class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-        type="button"
-        (click)="setNavbarOpen()"
-      >
-        <i class="text-white fas fa-bars"></i>
-      </button>
-    </div>
+  <button
+    class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+    type="button"
+    (click)="setNavbarOpen()"
+  >
+    <i class="text-white fas fa-bars"></i>
+  </button>
+  <div class="container" style="width: 100%; display: flex;">
     <div
       class="lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none"
-      [ngClass]="{ hidden: !navbarOpen, 'block rounded shadow-lg': navbarOpen }"
+      [ngClass]="{ 'hidden': !navbarOpen, 'block': navbarOpen }"
       id="example-navbar-warning"
     >
       <ul class="flex flex-col lg:flex-row list-none mr-auto">
@@ -22,16 +20,16 @@
           <a
             class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold"
             [routerLink]="['/pocetna']"
-            style="font-size: 20px;" 
+            style="font-size: 20px;"
           >
-            Pocetna
+            Početna strana
           </a>
         </li>
         <li class="flex items-center">
           <a
             class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold"
             [routerLink]="['/dodaj_oglas']"
-            style="font-size: 20px;" 
+            style="font-size: 20px;"
           >
             Dodaj oglas
           </a>
@@ -40,7 +38,7 @@
           <a
             class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold"
             [routerLink]="['/oglasi']"
-            style="font-size: 20px;" 
+            style="font-size: 20px;"
           >
             Svi oglasi
           </a>
@@ -48,31 +46,30 @@
         <li class="flex items-center">
           <a
             class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold"
-            [routerLink]="['/dodaj_oglas']"
-            style="font-size: 20px;" 
+            (click)="navigateToProfile()"
+            [routerLink]="['/profil']"
+            style="font-size: 20px;"
           >
-           Profil
+            Profil
           </a>
         </li>
         <li class="flex items-center">
           <a
             class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold"
             [routerLink]="['/pocetna']"
-           (click) = 'logout()'
-            style="font-size: 20px;" 
+            (click)="logout()"
+            style="font-size: 20px;"
           >
-           Odjava
+            Odjava
           </a>
         </li>
       </ul>
-      <!-- <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
-        <li class="flex items-center">
-          <app-settings-dropdown class="block"></app-settings-dropdown>
-        </li>
-      </ul> -->
     </div>
   </div>
 </nav>
+
+
+
 
 <style>
   a:hover{

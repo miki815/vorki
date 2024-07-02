@@ -83,4 +83,8 @@ userRouter.route('/getTop5masters').get(
     (req, res)=>new UserController().getTop5masters(req, res)
 )
 
+userRouter.route('/support').post(
+    (req, res)=>new UserController().support(req, res)
+)
+
 export default userRouter;

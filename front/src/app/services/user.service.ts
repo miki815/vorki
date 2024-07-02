@@ -90,4 +90,7 @@ export class UserService {
     return this.http.get(`${this.uri}/users/getTop5masters`);
   }
 
+  support(data){
+    return this.http.post(`${this.uri}/users/support`, data);
+  }
 }
