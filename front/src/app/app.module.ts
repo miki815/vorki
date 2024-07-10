@@ -4,6 +4,7 @@ import { NgModule, isDevMode } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
+
 // layouts
 import { AdminComponent } from "./layouts/admin/admin.component";
 import { AuthComponent } from "./layouts/auth/auth.component";
@@ -60,12 +61,12 @@ import { JobListingComponent } from "./views/job-listing/job-listing.component";
 import { SingleJobLongComponent } from "./views/single-job-long/single-job-long.component";
 import { SingleJobShortComponent } from "./views/single-job-short/single-job-short.component";
 import { CategoriesChoiceComponent } from "./views/categories-choice/categories-choice.component";
-import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/moment';
 import { ForgottenPasswordComponent } from "./views/auth/forgotten-password/forgotten-password.component";
 import { ForgottenPasswordChangeComponent } from "./views/auth/forgotten-password-change/forgotten-password-change.component";
 import { ServiceWorkerModule } from '@angular/service-worker';
-
+import { CalendarComponent } from "./components/calendar/calendar.component";
+import { RecurrenceEditorModule, ScheduleModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from "@syncfusion/ej2-angular-schedule";
 
 
 
@@ -114,7 +115,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     SingleJobLongComponent,
     CategoriesChoiceComponent,
     ForgottenPasswordComponent,
-    ForgottenPasswordChangeComponent
+    ForgottenPasswordChangeComponent,
+    CalendarComponent
   ],
   imports: [
     FormsModule,
@@ -123,10 +125,12 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     HttpClientModule,
     GalleryModule,
     CommonModule,
-    CalendarModule.forRoot({
-      provide: DateAdapter,
-      useFactory: adapterFactory,
-    }),
+    ScheduleModule,
+    RecurrenceEditorModule,
+    // CalendarModule.forRoot({
+    //   provide: DateAdapter,
+    //   useFactory: adapterFactory,
+    // }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
@@ -136,7 +140,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
   ]
   ,
-  providers: [CookieService],
+  providers: [CookieService,
+    DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

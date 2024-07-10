@@ -43,7 +43,7 @@ crossorigin=""></script>
                                 </div>
                                 <div class="mr-4 p-3 text-center">
                                     <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                                        {{job.avgRate}}
+                                        {{job.avgRate.toFixed(2)}}
                                     </span>
                                     <span class="text-sm text-blueGray-400">Ocena</span>
                                 </div>
@@ -94,10 +94,12 @@ crossorigin=""></script>
                                 *ngIf="cookie!=idUser">
 
                                 <div style="display: flex; flex-direction: row;">
+                                    <!-- <app-calendar></app-calendar> -->
+
                                     <button style="margin-top: 5px;"
                                         class="bg-emerald-200 text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
                                         type="button">
-                                        Kalendar
+                                        Kalendar majstora
                                     </button>
                                     <button style="margin-top: 5px;"
                                         class="bg-emerald-200 text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
@@ -115,7 +117,7 @@ crossorigin=""></script>
                         <div class="w-full lg:w-4/12 px-4 lg:order-1">
                             <div class="text-center mt-12">
                                 <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-                                    {{job.username}} &nbsp; {{job.username}}
+                                    {{job.username}} 
                                 </h3>
                                 <div class="text-md leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                                     <i class="fas  fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
@@ -124,6 +126,10 @@ crossorigin=""></script>
                                 <div class="mb-2 text-blueGray-600">
                                     <i class="fas fa-user mr-2 text-lg text-blueGray-400"></i>
                                     {{job.profession}}
+                                </div>
+                                <div class="mb-2 text-blueGray-600">
+                                    <i class="fas fa-phone mr-2 text-lg text-blueGray-400"></i>
+                                    {{phoneNumber}}
                                 </div>
                                 <!-- <div class="mb-2 text-blueGray-600">
                   <i class="fas fa-phone mr-2 text-lg text-blueGray-400"></i>
@@ -196,7 +202,7 @@ crossorigin=""></script>
                                     <input style="width: 100%;" name="comment" type="text"
                                         [(ngModel)]="comment"
                                         class="ml-2 border placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                        placeholder="Unesite pitanje" [disabled]="cookie === idUser" />
+                                        placeholder="Unesite pitanje" [disabled]="cookie === idUser" maxlength="200"/>
                                     <button
                                         class="px-4 ml-2 bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase  rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1  ease-linear transition-all duration-150"
                                         type="button" (click)="addComment()">
@@ -227,7 +233,7 @@ crossorigin=""></script>
 
         </div>
     </section>
-    <div id="map" style="height: 500px;"></div>
+    <div id="map" style="height: 400px;"></div> 
 
 
 </main>

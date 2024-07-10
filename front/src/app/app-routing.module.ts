@@ -27,6 +27,7 @@ import { AdvertisementComponent } from "./views/advertisement/advertisement.comp
 import { JobListingComponent } from "./views/job-listing/job-listing.component";
 import { SingleJobLongComponent } from "./views/single-job-long/single-job-long.component";
 import { CategoriesChoiceComponent } from "./views/categories-choice/categories-choice.component";
+import { CalendarComponent } from "./components/calendar/calendar.component";
 
 const routes: Routes = [
   // admin views
@@ -56,6 +57,7 @@ const routes: Routes = [
     ],
   },
   // no layout views
+  {path: "calendarTest", component: CalendarComponent},
   { path: "profil/:id", component: ProfileComponent },
   { path: "podesvanje_profila", component: ProfileSettingsComponent, canActivate: [authGuard]},
   { path: "pocetna", component: LandingComponent},

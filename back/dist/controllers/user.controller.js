@@ -22,6 +22,7 @@ class UserController {
     constructor() {
         this.login = (req, res) => {
             const { email, password } = req.body;
+            console.log("Login attempt: " + email + " " + password);
             var sql = 'SELECT * FROM user WHERE email = ? and password = ?';
             server_1.connection.query(sql, [email, password], (err, user) => {
                 if (err) {
@@ -74,7 +75,7 @@ class UserController {
         };
         this.getUserById = (req, res) => {
             const { id } = req.body;
-            var sql = 'SELECT username, firstname, lastname, birthday, phone, location, role, email, photo, type FROM user WHERE id = ?';
+            var sql = 'SELECT username, firstname, lastname, birthday, phone, location, email, photo FROM user WHERE id = ?';
             server_1.connection.query(sql, [id], (err, user) => {
                 if (err) {
                     res.json({ error: 1, message: "Fatal error: " + err });

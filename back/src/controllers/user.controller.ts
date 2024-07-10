@@ -13,6 +13,7 @@ export class UserController {
 
     login = (req: express.Request, res: express.Response) => {
         const { email, password } = req.body;
+        console.log("Login attempt: " + email + " " + password);
         var sql = 'SELECT * FROM user WHERE email = ? and password = ?';
         connection.query(sql, [email, password], (err, user) => {
             if (err) { res.json({ error: 1, message: "Fatal error: " + err }); return; }
@@ -56,7 +57,7 @@ export class UserController {
 
     getUserById = (req: express.Request, res: express.Response) => {
         const { id } = req.body;
-        var sql = 'SELECT username, firstname, lastname, birthday, phone, location, role, email, photo, type FROM user WHERE id = ?';
+        var sql = 'SELECT username, firstname, lastname, birthday, phone, location, email, photo FROM user WHERE id = ?';
         connection.query(sql, [id], (err, user) => {
             if (err) { res.json({ error: 1, message: "Fatal error: " + err }); return; }
             if (user.length) {

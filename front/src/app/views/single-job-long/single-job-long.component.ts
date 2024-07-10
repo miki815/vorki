@@ -30,13 +30,21 @@ export class SingleJobLongComponent implements OnInit {
   private map;
   idUser: string = "";
   rating: number = 0;
+  phoneNumber: string = "";
 
 
 
   constructor(private jobService: JobService, private route: ActivatedRoute, private cookieService: CookieService, private userService: UserService, private gallery: Gallery) { }
   ngOnInit(): void {
-    /*this.cookie = this.cookieService.get("token");
+    this.cookie = this.cookieService.get("token");
     this.job = history.state.job;
+    this.idUser = this.job.idUser;
+    this.userService.getUserById({ id: this.idUser }).subscribe((message: any) => {
+      console.log(message['message'])
+      this.photo = message['message'].photo;
+      this.username = message['message'].username;
+      this.phoneNumber = message['message'].phone;
+    });
     this.route.paramMap.subscribe(params => {
       this.jobId = params.get('id');
     });
@@ -48,20 +56,20 @@ export class SingleJobLongComponent implements OnInit {
         this.numberOfPhotos += 1;
       });
       this.imagesLoaded = true;
-    })*/
+    })
 
     this.map = L.map('map').setView([0, 0], 2);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
     }).addTo(this.map);
-    fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + "Beograd")
+    fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + this.job.city)
         .then(response => response.json())
         .then(data => {
             if (data.length > 0) {
                 var lat = parseFloat(data[0].lat);
                 var lon = parseFloat(data[0].lon);
                 L.marker([lat, lon]).addTo(this.map)
-                    .bindPopup('' + "Beograd")
+                    .bindPopup('' + this.job.city)
                     .openPopup();
                     this.map.setView([lat, lon], 8);
             } 
