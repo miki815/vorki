@@ -63,7 +63,7 @@ crossorigin=""></script>
                                 </div>
                             </div>
 
-                            <div class="py-3 px-3 mt-0 sm:mt-16"
+                            <!-- <div class="py-3 px-3 mt-0 sm:mt-16"
                                 style="display: flex; flex-direction: column; align-items: center;"
                                 *ngIf="cookie==idUser">
                                 <div style="display: flex; flex-direction: row; padding: 3px; ">
@@ -88,10 +88,57 @@ crossorigin=""></script>
                                     type="button">
                                     Potvrdi
                                 </button>
-                            </div>
+                            </div> -->
                             <div class="py-3 px-3 mt-0 sm:mt-16"
                                 style="display: flex; flex-direction: column; align-items: center;"
-                                *ngIf="cookie!=idUser">
+                                *ngIf="isRequest==true">
+                                <div style="display: flex; flex-direction: row; padding: 3px; ">
+                                    <div class="relative w-full mb-3 margin-5" style="margin-right: 10px;">
+                                        <label
+                                          class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                          htmlFor="grid-password"
+                                        >
+                                          Predlog termina
+                                        </label>
+                                        <input
+                                          [(ngModel)]="startDate"
+                                          name="startDate"
+                                          type="date"
+                                          class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                          maxlength="50"
+                                        />
+                                      </div>
+                                <!-- </div>
+
+                                <div style="display: flex; flex-direction: row; padding: 3px; "> -->
+                                    <div class="relative w-full mb-3">
+                                        <label
+                                          class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                          htmlFor="additionalInfo"
+                                        >
+                                          Dodatne informacije
+                                        </label>
+                                        <textarea
+                                          [(ngModel)]="additionalInfo"
+                                          name="additionalInfo"
+                                          type="date"
+                                          class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                          maxlength="255"
+                                        ></textarea>
+                                      </div>
+                                </div>
+
+                                <button style="margin-top: 5px;" (click)="userRequestForAgreement()"
+                                    class="bg-red-600 active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                                    type="button">
+                                    Pošalji zahtev
+                                </button>
+                            </div>
+
+
+                            <div class="py-3 px-3 mt-0 sm:mt-16"
+                                style="display: flex; flex-direction: column; align-items: center;"
+                                *ngIf="cookie!=idUser && isRequest==false">
 
                                 <div style="display: flex; flex-direction: row;">
                                     <!-- <app-calendar></app-calendar> -->
@@ -103,7 +150,7 @@ crossorigin=""></script>
                                     </button>
                                     <button style="margin-top: 5px;"
                                         class="bg-emerald-200 text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                                        type="button">
+                                        type="button" (click)="showRequestForm()">
                                         Rezerviši termin
                                     </button>
                                     <button style="margin-top: 5px;"

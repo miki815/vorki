@@ -29,4 +29,8 @@ export class JobService {
   getJobsWithUserInfo2() {
     return this.http.get(`${this.uri}/jobs/getJobsWithUserInfo2`);
   }
+
+  requestForAgreement(data) {
+    return this.http.post(`${this.uri}/jobs/requestForAgreement`, data);
+  }
 }

@@ -31,6 +31,12 @@ export class SingleJobLongComponent implements OnInit {
   idUser: string = "";
   rating: number = 0;
   phoneNumber: string = "";
+  isRequest: boolean = false;
+  startDate: Date = new Date();
+  endDate: Date = new Date();
+  startTime: Date = new Date();
+  endTime: Date = new Date();
+  additionalInfo: string = "";
 
 
 
@@ -151,6 +157,33 @@ export class SingleJobLongComponent implements OnInit {
 
   less() {
     this.visibleComments = 3;
+  }
+
+  showRequestForm(){
+    this.isRequest = true;
+  }
+
+  formatDateTime(date: Date, time: Date): string {
+    console.log("Date: " + date);
+    console.log("Time: " + time);
+    const year = date.getFullYear();
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    const day = ('0' + date.getDate()).slice(-2);
+    const hours = ('0' + time.getHours()).slice(-2);
+    const minutes = ('0' + time.getMinutes()).slice(-2);
+    const seconds = ('0' + time.getSeconds()).slice(-2);
+    
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  }
+
+  userRequestForAgreement(){
+    console.log("Job - userRequestForAgreement: START")
+    // let formattedStartDate = this.formatDateTime(this.startDate, this.startTime);
+    let formattedEndDate = this.formatDateTime(this.endDate, this.endTime);
+    const data = { idUser: this.cookie, idJob: this.job.id, idMaster: this.job.idUser, startDate: this.startDate, endDate: formattedEndDate, additionalInfo: this.additionalInfo }
+    this.jobService.requestForAgreement(data).subscribe((message: any) => {
+      console.log("Job - userRequestForAgreement: END")
+    })
   }
 
 

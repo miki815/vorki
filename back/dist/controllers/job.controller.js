@@ -68,6 +68,19 @@ class JobController {
                 res.json(jobs);
             });
         };
+        this.requestForAgreement = (req, res) => {
+            const { idJob, idUser, idMaster, startDate, endDate, additionalInfo } = req.body;
+            var sql = 'INSERT INTO agreements (idJob, idUser, idMaster, startTime, endTime, additionalInfo, currentStatus) VALUES (?, ?, ?, ?, ?, ?, "pending")';
+            server_1.connection.query(sql, [idJob, idUser, idMaster, startDate, endDate, additionalInfo], (err, user) => {
+                if (err) {
+                    console.log(err);
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    return;
+                }
+                console.log('User ' + idUser + ' requested agreement for job ' + idJob);
+                res.json({ message: "0" });
+            });
+        };
     }
 }
 exports.JobController = JobController;

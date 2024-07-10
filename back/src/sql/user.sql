@@ -90,7 +90,8 @@ CREATE TABLE agreements (
     idJob INT,
     startTime DATETIME,
     endTime DATETIME,
-    currentStatus CHAR(1),
+    currentStatus VARCHAR(20),
+    additionalInfo VARCHAR(255),
     FOREIGN KEY (idMaster) REFERENCES user(id),
     FOREIGN KEY (idUser) REFERENCES user(id),
     FOREIGN KEY (idJob) REFERENCES job(id)
