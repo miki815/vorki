@@ -23,7 +23,7 @@ export class ProfileSettingsComponent {
   birthday : Date = null;
   phone : string = null;
   location : string = null;
-  role : string = null;
+  type : string = null;
   photo : string = null;
   comments : any[] = [];
   comment : string = null;
@@ -36,7 +36,8 @@ export class ProfileSettingsComponent {
   imagesLoaded: boolean = false;
   birthdayDate : string = "";
   poruka : string = ""; // dodao da ne izbacuje gresku
-  
+  backPhoto : string = null;
+
   galleryId = 'mixed';
   galleryRef: GalleryRef = this.gallery.ref(this.galleryId);
 
@@ -83,9 +84,10 @@ export class ProfileSettingsComponent {
        this.birthday =  message['message'].birthday;
        this.phone =  message['message'].phone;
        this.location =  message['message'].location;
-       this.role =  message['message'].role;
+       this.type =  message['message'].type;
        this.photo =  message['message'].photo;
        this.birthday = new Date(this.birthday);
+       this.backPhoto =  message['message'].backPhoto;
        this.birthdayDate = this.birthday.getFullYear() + "-" + (this.birthday.getMonth() + 1).toString().padStart(2, '0') + "-" + this.birthday.getDate().toString().padStart(2, '0');
        return;
       } 
@@ -104,20 +106,20 @@ export class ProfileSettingsComponent {
     this.imgIndex = event.currIndex
   }
 
-  loadPhoto(event,gal){
+  loadPhoto(event,back){
     const files = (event.target as HTMLInputElement).files;
     for (let i = 0; i < files.length; i++) {
         const file = files[i];
         const ext = file.name.substr(file.name.lastIndexOf('.') + 1);
         if (ext === 'jpg' || ext === 'png' || ext === 'jpeg') {
-            this.convertToBase64(file,gal);
-            if(gal) this.galleryRef.prev();
+            this.convertToBase64(file,back);
+            //if(gal) this.galleryRef.prev();
         }
     }
    
 }
 
-  convertToBase64(file, gal) {
+  convertToBase64(file, back) {
     let ob = new Observable((subscriber) => {
         this.resizeImage(file, 800, 600, (resizedFile) => {
             this.readFile(resizedFile, subscriber);
@@ -125,10 +127,9 @@ export class ProfileSettingsComponent {
     });
     ob.subscribe((ph: string) => {
         this.newphoto = ph;
-        if (!gal) this.photo = this.newphoto;
-        if (gal){
-          this.galleryRef.add(new ImageItem({ src: this.newphoto, thumb:this.newphoto }));
-          this.numberOfPhotos += 1;
+        if (!back) this.photo = this.newphoto;
+        else{
+          this.backPhoto = this.newphoto;
         } 
     });
   }
@@ -238,7 +239,8 @@ export class ProfileSettingsComponent {
           birthday: this.birthday,
           location: this.location,
           phone: this.phone,
-          photo: this.photo
+          photo: this.photo,
+          backPhoto: this.backPhoto
         }
         this.userService.updateUser(data).subscribe((message: any) => {
           alert(message)

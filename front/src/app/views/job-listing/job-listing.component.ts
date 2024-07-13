@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { filter } from 'rxjs';
 import { JobService } from 'src/app/services/job.service';
@@ -20,10 +21,12 @@ export class JobListingComponent implements OnInit {
   professions = [];
   selectedProfession: string = '';
   selectedSort: string = '';
-
+  id: string = '';
 
   ngOnInit(): void {
-    fetch('assets/city.json')
+    this.route.paramMap.subscribe(params => {
+      this.id = params.get('id');
+          fetch('assets/city.json')
     .then(response => response.json())
     .then(cities => {
       this.cities = cities;
@@ -56,12 +59,15 @@ export class JobListingComponent implements OnInit {
       })
 
     });
+    });
+
+
 
 
   }
 
 
-  constructor(private jobService: JobService, private userService: UserService, private cookieService: CookieService) {
+  constructor(private jobService: JobService, private userService: UserService, private cookieService: CookieService, private route: ActivatedRoute) {
   }
 
   moveToTop() {

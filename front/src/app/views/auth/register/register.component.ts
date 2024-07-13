@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   datumRodjenja: Date = null;
   brojTelefona: string = null;
   mesto: string = "Beograd";
-  role: string = null;
+  type: string = null;
   lozinka: string = null;
   lozinka1: string = null;
   politika: boolean = null;
@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
 
     // Provera
     if (!this.korisnickoIme || !this.ime || !this.prezime || !this.datumRodjenja || !this.politika ||
-      !this.brojTelefona || !this.mesto || (!this.role) || !this.lozinka || !this.lozinka1 || !this.email) {
+      !this.brojTelefona || !this.mesto || (!this.type) || !this.lozinka || !this.lozinka1 || !this.email) {
       this.poruka = "Niste uneli sve podatke."; return;
     }
     if (this.korisnickoIme.length < 3) { this.poruka = "Korisničko ime je prekratko."; return; }
@@ -61,8 +61,11 @@ export class RegisterComponent implements OnInit {
     }
     if (this.lozinka != this.lozinka1) { this.poruka = "Lozinke nisu iste. Pokušajte ponovo."; return; }
     if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(this.email)) { this.poruka = "Email nije u dobrom formatu."; return; }
-
-    //Pakovanje
+    
+    fetch('assets/backPhoto.txt')
+    .then(response => response.text())
+    .then(backPhoto => {
+      //Pakovanje
     const data = {
       username: this.korisnickoIme,
       firstname: this.ime,
@@ -71,8 +74,9 @@ export class RegisterComponent implements OnInit {
       birthday: this.datumRodjenja,
       phone: this.brojTelefona,
       location: this.mesto,
-      role: this.role,
-      email: this.email
+      type: this.type,
+      email: this.email,
+      backPhoto: backPhoto
     }
 
     this.userService.register(data).subscribe((message: any) => {
@@ -84,6 +88,8 @@ export class RegisterComponent implements OnInit {
       }
       console.log('Register - submit: END')
     })
+    })
+    
   }
 
   test() {
@@ -97,7 +103,7 @@ export class RegisterComponent implements OnInit {
         testovi = testovi1;
         testovi.forEach((test, index) => {
           if (!test["korisnickoIme"] || !test["ime"] || !test["prezime"] || !test["datumRodjenja"] || !test["politika"] ||
-            !test["brojTelefona"] || !test["mesto"] || (!test["role"]) || !test["lozinka"] || !test["lozinka1"] ||
+            !test["brojTelefona"] || !test["mesto"] || (!test["type"]) || !test["lozinka"] || !test["lozinka1"] ||
             !test["email"]) {
             rezultati.push(-1); return;
           }

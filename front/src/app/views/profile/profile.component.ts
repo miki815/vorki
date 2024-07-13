@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { CookieService } from "ngx-cookie-service";
 import { UserService } from "src/app/services/user.service";
 import { GalleryModule, GalleryItem, ImageItem } from 'ng-gallery';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { JobService } from "src/app/services/job.service";
 
 
@@ -13,7 +13,7 @@ import { JobService } from "src/app/services/job.service";
 })
 
 export class ProfileComponent implements OnInit {
-  constructor(private cookieService: CookieService, private userService: UserService,  private route: ActivatedRoute, private jobService: JobService) {}
+  constructor(private cookieService: CookieService, private router: Router, private userService: UserService,  private route: ActivatedRoute, private jobService: JobService) {}
 
   images: GalleryItem[] = [];
   email: string = null;
@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
   birthday : Date = null;
   phone : string = null;
   location : string = null;
-  role : string = null;
+  type : string = null;
   photo : string = null;
   comments : any[] = [];
   comment : string = null;
@@ -35,8 +35,10 @@ export class ProfileComponent implements OnInit {
   idUser: string = "";
   imagesLoaded: boolean = false;
   jobs: Array<any>;
+  jobNumber: number = 0;
   allJobs: Array<any>;
-  
+  backPhoto: string = "";
+
 
   ngOnInit(): void {
 
@@ -66,8 +68,9 @@ export class ProfileComponent implements OnInit {
        this.birthday =  message['message'].birthday;
        this.phone =  message['message'].phone;
        this.location =  message['message'].location;
-       this.role =  message['message'].role;
+       this.type =  message['message'].type;
        this.photo =  message['message'].photo;
+       this.backPhoto =  message['message'].backPhoto;
        return;
       } 
     })
@@ -98,6 +101,7 @@ export class ProfileComponent implements OnInit {
       this.jobs = jobs;
       this.allJobs = jobs;
       this.jobs = this.allJobs.filter(job => job.idUser === parseInt(this.idUser));
+      this.jobNumber = this.jobs.length;
     });
 
     console.log("Profile - ngOnInit: END")
@@ -186,6 +190,17 @@ export class ProfileComponent implements OnInit {
 
   }
 
+  kalendar(){
+    this.router.navigate(["/kalendar"]);
+  }
+
+  podesavanje(){
+    this.router.navigate(["/podesavanje_profila"]);
+  }
+
+  oglasi(){
+    this.router.navigate(["/mojiOglasi"]);
+  }
   
   
  
