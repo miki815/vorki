@@ -21,6 +21,7 @@ export class MainNavbarComponent implements OnInit {
     window.location.reload(); 
   }
   navigateToProfile() {
+    var id = this.cookieService.get('token');
     this.router.navigate(['/profil',  this.cookieService.get('token')]);
   }
 }

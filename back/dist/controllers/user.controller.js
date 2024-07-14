@@ -277,6 +277,7 @@ class UserController {
                     console.log('getIdByUsername failed');
                     return;
                 }
+                console.log("ID: " + id);
                 res.json({ error: 0, message: id });
                 console.log('getIdByUsername success');
             });
@@ -285,13 +286,13 @@ class UserController {
             const { idUser, username, email, firstname, lastname, birthday, location, phone, backPhoto, photo } = req.body;
             console.log(username);
             var sql = 'UPDATE user SET username=?, email=?, firstname=?, lastname=?, birthday=?, location=?, phone=?, photo=?, backPhoto = ? WHERE id=?';
-            server_1.connection.query(sql, [username, email, firstname, lastname, birthday, location, phone, photo, backPhoto, idUser], (err, id) => {
+            server_1.connection.query(sql, [username, email, firstname, lastname, birthday, location, phone, photo, backPhoto, idUser], (err, message) => {
                 if (err) {
-                    res.json({ error: 1, message: "Fatal error: " + err });
+                    res.json({ error: 1, message: message });
                     console.log('updateUser failed');
                     return;
                 }
-                res.json({ error: 0, message: id });
+                res.json({ error: 0, message: message });
                 console.log('updateUser success');
             });
         };

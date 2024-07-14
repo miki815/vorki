@@ -14,7 +14,7 @@ export class ProfileSettingsComponent {
   constructor(private gallery: Gallery,private cookieService: CookieService, private userService: UserService,private cdr: ChangeDetectorRef) {}
 
   
-
+  // TODO: Obrisati sve prom koje nisu potrebne
   images: GalleryItem[] = [];
   email: string = null;
   username : string = null;
@@ -44,35 +44,41 @@ export class ProfileSettingsComponent {
   password: string = "";
   password1: string = "";
   oldPassword: string = "";
-
+  gradovi: any;
  
   numberOfPhotos: number = 0;
 
-  err: boolean = false;
-  notErr: boolean = false;
+  err: number = 0;
+
   message: string = "";
 
   imgIndex : number = 0;
   newphoto: string = "";
 
+ 
 
   ngOnInit(): void {
 
     console.log("ProfileSettings - ngOnInit: START")
 
-    this.cookie =  this.cookieService.get("token");
-    this.cookie = "1";
-    this.idUser = localStorage.getItem("idProfile");
-    this.userService.getGalleryById({idUser: this.cookie}).subscribe((message: any) => {
-      var imgs =  message['message'];
-      imgs.forEach(element => {
-        this.galleryRef.add(new ImageItem({ src: element.urlPhoto, thumb: element.urlPhoto }))
-        this.numberOfPhotos += 1;
-      });
-      this.imagesLoaded = true;
-    })
+    this.getToken();
+    this.getUser();
 
-   
+    console.log("ProfileSettings - ngOnInit: END")
+  }
+
+  getToken(){
+    console.log("ProfileSettings - getToken: START")
+
+    this.cookie =  this.cookieService.get("token");
+    this.idUser = localStorage.getItem("idProfile");
+
+    console.log("ProfileSettings - getToke: END")
+  }
+
+  getUser(){
+    console.log("ProfileSettings - getUser: START")
+
     const data = {id:  this.cookie}
     this.userService.getUserById(data).subscribe((message: any) => {
       if (message['error'] == "0") {
@@ -89,22 +95,64 @@ export class ProfileSettingsComponent {
        this.birthday = new Date(this.birthday);
        this.backPhoto =  message['message'].backPhoto;
        this.birthdayDate = this.birthday.getFullYear() + "-" + (this.birthday.getMonth() + 1).toString().padStart(2, '0') + "-" + this.birthday.getDate().toString().padStart(2, '0');
+       fetch('assets/city.json')
+      .then(response => response.json())
+      .then(gradovi => {
+        this.gradovi = gradovi;
+        this.gradovi.sort((a, b) => a.city.localeCompare(b.city)); 
+      })
+      .catch(error => {
+        console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradiva):', error);
+      });
        return;
       } 
      
     })
-    console.log("ProfileSettings - ngOnInit: END")
+
+    console.log("ProfileSettings - getUser: END")
+  }
+ 
+  update(){
+    console.log("ProfileSettings - update: START")
+
+    this.userService.getIdByEmail({email: this.email}).subscribe((message: any) => {
+      if(message["message"].length && message["message"][0].id!=this.idUser){ this.message="Email već postoji."; this.err = 1; return;}
+      this.userService.getIdByUsername({username: this.username}).subscribe((message: any) => {
+        if(message["message"].length && message["message"][0].id!=this.idUser){ this.message="Korisničko ime već postoji."; this.err = 1; return;}
+        if (this.username.length < 3) { this.message = "Korisničko ime je prekratko."; this.err = 1; return; }
+        if (this.firstname.length < 3) { this.message = "Ime je prekratko."; this.err = 1; return; }
+        if (this.lastname.length < 3) { this.message = "Prezime je prekratko."; this.err = 1; return; }
+        if (this.birthday > new Date((new Date()).getFullYear() - 18, (new Date()).getMonth(), (new Date()).getDate())) { this.message = "Morate biti punoletni."; this.err = 1; return; }
+        if (!/^381\d{6}\d+$/.test(this.phone.slice(1)) || this.phone[0] != "+") { this.message = "Mobilni telefon nije u dobrom formatu."; this.err = 1; return; }
+        if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(this.email)) { this.message = "Email nije u dobrom formatu."; this.err = 1; return; }
+        const data={
+          idUser: this.idUser,
+          username: this.username,
+          email: this.email,
+          firstname: this.firstname,
+          lastname: this.lastname,
+          birthday: this.birthday,
+          location: this.location,
+          phone: this.phone,
+          photo: this.photo,
+          backPhoto: this.backPhoto
+        }
+        this.userService.updateUser(data).subscribe((message: any) => {
+          if(message.error){
+            this.message = "Korisnik sa datim korisničkim imenom ili emailom već postoji"
+            this.err = 1;
+            return;
+          }
+          this.message = "Uspešno ste izmenili podatke"
+        })
+      })
+    })
+
+    console.log("ProfileSettings - update: END")
   }
 
-  delete(){
-    this.galleryRef.remove(this.imgIndex);
-    this.numberOfPhotos -=1 ;
-  }
 
-
-  onIndexChange(event: GalleryState) {
-    this.imgIndex = event.currIndex
-  }
+  // Load photo functions  
 
   loadPhoto(event,back){
     const files = (event.target as HTMLInputElement).files;
@@ -117,7 +165,7 @@ export class ProfileSettingsComponent {
         }
     }
    
-}
+  }
 
   convertToBase64(file, back) {
     let ob = new Observable((subscriber) => {
@@ -131,6 +179,8 @@ export class ProfileSettingsComponent {
         else{
           this.backPhoto = this.newphoto;
         } 
+        this.cdr.detectChanges(); 
+
     });
   }
 
@@ -160,8 +210,6 @@ export class ProfileSettingsComponent {
     };
   }
 
-
-
   readFile(file, subscriber){
       let reader=new FileReader();
       reader.readAsDataURL(file);
@@ -174,16 +222,18 @@ export class ProfileSettingsComponent {
   newPass(){
     if(!this.password || !this.password1 || !this.oldPassword){
       this.message = "Unesite sva polja.";
+      this.err = 1;
       return;
     }
     if(this.password!=this.password1){
       this.message = "Lozinke nisu iste.";
+      this.err = 1;
       return;
     }
     if (! /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{6,}$/.test(this.password)) {
       this.message = "Lozinka mora imati barem \
       jedno malo slovo, barem jedno veliko slovo, barem jedan broj i barem jedan specijalni karakter. Lozinka mora\
-      imati najmanje 6 karaktera."; return;
+      imati najmanje 6 karaktera."; this.err = 1; return;
     }
     const data = {
       idUser: this.cookie,
@@ -195,6 +245,7 @@ export class ProfileSettingsComponent {
         this.message = "Uspesno ste promenili lozinku."
       }else{
         this.message = "Niste uneli ispravnu lozinku."
+        this.err = 1;
       }
       this.password = "";
       this.password1 = "";
@@ -205,50 +256,35 @@ export class ProfileSettingsComponent {
 
   }
 
-  updateGallery(){
-    const imgs=[]
-    this.galleryRef.stateSnapshot.items.forEach(element => {
-      imgs.push(element.data.src)
+  // updateGallery(){
+  //   const imgs=[]
+  //   this.galleryRef.stateSnapshot.items.forEach(element => {
+  //     imgs.push(element.data.src)
+  //   });
+
+  //   const data = {
+  //     images: imgs,
+  //     idUser: this.idUser
+  //   }
+  //   this.userService.updateGallery(data).subscribe((message: any) => {
+  //   })
+  // }
+    /* this.userService.getGalleryById({idUser: this.cookie}).subscribe((message: any) => {
+    var imgs =  message['message'];
+    imgs.forEach(element => {
+      this.galleryRef.add(new ImageItem({ src: element.urlPhoto, thumb: element.urlPhoto }))
+      this.numberOfPhotos += 1;
     });
+    this.imagesLoaded = true;
+    })  */ 
+   // delete(){
+  //   this.galleryRef.remove(this.imgIndex);
+  //   this.numberOfPhotos -=1 ;
+  // }
 
-    const data = {
-      images: imgs,
-      idUser: this.idUser
-    }
-    this.userService.updateGallery(data).subscribe((message: any) => {
-    })
-  }
 
-  update(){
-    this.userService.getIdByEmail({email: this.email}).subscribe((message: any) => {
-      if(message["message"].length && message["message"][0].id!=this.idUser){ this.message="Email već postoji."}
-      this.userService.getIdByUsername({username: this.username}).subscribe((message: any) => {
-        if(message["message"].length && message["message"][0].id!=this.idUser){ this.message="Korisničko ime već postoji."}
-        if (this.username.length < 3) { this.message = "Korisničko ime je prekratko."; return; }
-        if (this.firstname.length < 3) { this.message = "Ime je prekratko."; return; }
-        if (this.lastname.length < 3) { this.message = "Prezime je prekratko."; return; }
-        if (this.birthday > new Date((new Date()).getFullYear() - 18, (new Date()).getMonth(), (new Date()).getDate())) { this.message = "Morate biti punoletni."; return; }
-        if (!/^381\d{6}\d+$/.test(this.phone.slice(1)) || this.phone[0] != "+") { this.message = "Mobilni telefon nije u dobrom formatu."; return; }
-        if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(this.email)) { this.message = "Email nije u dobrom formatu."; return; }
-        const data={
-          idUser: this.idUser,
-          username: this.username,
-          email: this.email,
-          firstname: this.firstname,
-          lastname: this.lastname,
-          birthday: this.birthday,
-          location: this.location,
-          phone: this.phone,
-          photo: this.photo,
-          backPhoto: this.backPhoto
-        }
-        this.userService.updateUser(data).subscribe((message: any) => {
-          alert(message)
-        })
-      })
-    })
-
-  }
-
+  // onIndexChange(event: GalleryState) {
+  //   this.imgIndex = event.currIndex
+  // }
 
 }

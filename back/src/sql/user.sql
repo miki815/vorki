@@ -13,14 +13,14 @@ DROP TABLE IF EXISTS user;
 
 CREATE TABLE user (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
+    username VARCHAR(255) NOT NULL UNIQUE,
     firstname VARCHAR(255) NOT NULL,
     lastname VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     birthday DATE NOT NULL,
     phone VARCHAR(20),
     location VARCHAR(255),
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
     photo LONGTEXT NOT NULL,
     backPhoto LONGTEXT NOT NULL,
     type INT NOT  NULL

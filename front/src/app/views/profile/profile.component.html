@@ -3,12 +3,9 @@
 <main class="profile-page full-page">
   <section class="relative block h-500-px">
     <div
-      class="absolute top-0 w-full h-full bg-center bg-cover"
+      class="absolute top-0 w-full h-full bg-center bg-cover image-container"
       style="
-        background-image: url({{backPhoto}});
-        background-size: 70%;
-        background-position: center;
-      "
+        background-image: url({{backPhoto}})"
     >
       <span
         id="blackOverlay"
@@ -113,7 +110,7 @@
                   style="margin-top: 5px;background-color: rgb(255, 232, 60); color:rgb(30, 41, 59); "
                   class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
                   type="button"
-                  (click) = "kalendar()"
+                  (click) = "calendar()"
                 >
                   Kalendar
                 </button>
@@ -121,7 +118,7 @@
                 style="margin-top: 5px;background-color: rgb(255, 232, 60); color:rgb(30, 41, 59); "
                 class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
                 type="button"
-                (click) = "podesavanje()"
+                (click) = "settings()"
 
               >
                 Podešavanja
@@ -130,7 +127,7 @@
               style="margin-top: 5px;background-color: rgb(255, 232, 60); color:rgb(30, 41, 59); "
               class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
               type="button"
-              (click) = "oglasi()"
+              (click) = "jobs1()"
 
             >
               Svi oglasi

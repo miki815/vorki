@@ -229,6 +229,7 @@ export class UserController {
         var sql = 'SELECT id FROM user WHERE username LIKE ?';
         connection.query(sql, [username], (err, id) => {
             if (err) { res.json({ error: 1, message: "Fatal error: " + err }); console.log('getIdByUsername failed'); return; }
+            console.log("ID: "+ id);
             res.json({ error: 0, message: id });
             console.log('getIdByUsername success');
         });
@@ -238,9 +239,14 @@ export class UserController {
         const { idUser, username, email, firstname, lastname, birthday, location, phone, backPhoto, photo } = req.body;
         console.log(username)
         var sql = 'UPDATE user SET username=?, email=?, firstname=?, lastname=?, birthday=?, location=?, phone=?, photo=?, backPhoto = ? WHERE id=?';
-        connection.query(sql, [username, email, firstname, lastname, birthday, location, phone, photo, backPhoto, idUser], (err, id) => {
-            if (err) { res.json({ error: 1, message: "Fatal error: " + err }); console.log('updateUser failed'); return; }
-            res.json({ error: 0, message: id });
+        connection.query(sql, [username, email, firstname, lastname, birthday, location, phone, photo, backPhoto, idUser], (err, message) => {            
+            if(err){
+                res.json({ error: 1, message: message});
+                console.log('updateUser failed'); 
+                return; 
+            }
+            res.json({ error: 0, message: message});
+
             console.log('updateUser success');
         });
     }

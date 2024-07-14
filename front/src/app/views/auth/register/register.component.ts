@@ -33,6 +33,8 @@ export class RegisterComponent implements OnInit {
       .then(response => response.json())
       .then(gradovi => {
         this.gradovi = gradovi;
+        this.gradovi.sort((a, b) => a.city.localeCompare(b.city)); 
+
       })
       .catch(error => {
         console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradiva):', error);
