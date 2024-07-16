@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { filter } from 'rxjs';
 import { JobService } from 'src/app/services/job.service';
@@ -15,27 +15,52 @@ export class JobListingComponent implements OnInit {
   currentPage: number = 1;
   jobsPerPage: number = 5;
   @ViewChild('top') topElement!: ElementRef;
-
   cities = [];
   selectedCity: string = '';
   professions = [];
   selectedProfession: string = '';
   selectedSort: string = '';
   id: string = '';
+  idUser: string = '';
+  cookie: string = '';
+  userType: string = '';
+
+  constructor(private jobService: JobService, private router: Router,  private userService: UserService, private cookieService: CookieService, private route: ActivatedRoute) {
+  }
+
 
   ngOnInit(): void {
+    console.log("JobListing - ngOnInit: START")
+
+    this.cookie =  this.cookieService.get("token");
     this.route.paramMap.subscribe(params => {
-      this.id = params.get('id');
-          fetch('assets/city.json')
+      this.idUser = params.get('id');
+      this.getCities();
+      this.getCraftmen();
+      this.getJobs();
+    });  
+
+    console.log("JobListing - ngOnInit: END")
+  }
+
+  getCities(){
+    console.log("JobListing - getCities: START")
+
+    fetch('assets/city.json')
     .then(response => response.json())
     .then(cities => {
       this.cities = cities;
       this.cities.sort((a, b) => a.city.localeCompare(b.city)); 
-      var a = 1
     })
     .catch(error => {
       console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradiva):', error);
     });
+
+    console.log("JobListing - getCities: END")
+  }
+
+  getCraftmen(){
+    console.log("JobListing - getCraftmen: START")
 
     fetch('assets/craftsmen.json')
       .then(response => response.json())
@@ -48,26 +73,33 @@ export class JobListingComponent implements OnInit {
         console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):', error);
       });
 
-    this.jobService.getJobsWithUserInfo2().subscribe((jobs: any) => {
-      this.userService.getUserById({ id: this.cookieService.get('token') }).subscribe((user: any) => {
-        console.log(jobs)
-        var type = user['message'].type ? 0 : 1;
-        jobs = jobs.filter(job => job.type == type);
-        this.jobs = jobs;
-        this.allJobs = jobs;
-        
-      })
-
-    });
-    });
-
-
-
-
+    console.log("JobListing - getCraftmen: END")
   }
 
+  getJobs(){
+    console.log("JobListing - getJobs: START")
 
-  constructor(private jobService: JobService, private userService: UserService, private cookieService: CookieService, private route: ActivatedRoute) {
+    this.jobService.getJobsWithUserInfo2().subscribe((jobs: any) => {
+      this.userService.getUserById({ id: this.cookie }).subscribe((me: any) => {
+        this.userService.getUserById({ id: this.idUser }).subscribe((user: any) => {
+
+          if(this.idUser && me['message'].type == user['message'].type && this.cookie!=this.idUser){
+            this.router.navigate(["/oglasi/"])
+            return;
+          }
+          var type = me['message'].type ? 0 : 1;
+          jobs = jobs.filter(job => job.type == type);
+          if(this.idUser){
+            jobs = jobs.filter(job => job.idUser == this.idUser);
+          }
+          this.jobs = jobs;
+          this.allJobs = jobs;
+          this.userType =  me['message'].type;
+        })
+      })
+      });
+     
+    console.log("JobListing - getJobs: END")
   }
 
   moveToTop() {
@@ -97,7 +129,6 @@ export class JobListingComponent implements OnInit {
     if (this.selectedSort === 'rate') this.jobs = this.allJobs.sort((a, b) => b.avgRate - a.avgRate);
     if (this.selectedSort === 'city') this.jobs = this.allJobs.sort((a, b) => a.city.localeCompare(b.city));
    //if (this.selectedSort === 'name') this.jobs = this.allJobs.sort((a, b) => a.name.localeCompare(b.name));
-
   }
 
 

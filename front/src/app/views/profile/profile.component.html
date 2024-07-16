@@ -130,7 +130,12 @@
               (click) = "jobs1()"
 
             >
+             <div *ngIf="idUser==cookie">
+                Moji oglasi
+             </div>
+             <div *ngIf="idUser!=cookie">
               Svi oglasi
+            </div>
             </button>
                 </div>
             </div>

@@ -58,7 +58,7 @@ class JobController {
         };
         this.getJobsWithUserInfo2 = (req, res) => {
             var sql = 'SELECT job.id, job.profession, job.title, job.description, job.city, job.idUser, user.username, user.photo,';
-            sql += 'COALESCE((SELECT AVG(rate) FROM rate r WHERE r.idUser = job.idUser GROUP BY r.idUser), 0) AS avgRate, user.type ';
+            sql += 'COALESCE((SELECT AVG(rate) FROM rate r WHERE r.idUser = job.idUser GROUP BY r.idUser), 0) AS avgRate, job.type ';
             sql += 'FROM job INNER JOIN user ON job.idUser = user.id;';
             server_1.connection.query(sql, (err, jobs) => {
                 if (err) {

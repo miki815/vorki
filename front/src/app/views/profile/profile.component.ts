@@ -70,7 +70,9 @@ export class ProfileComponent implements OnInit {
         this.userRate += parseInt(element.rate);
       });
       this.userRateLen =  message["message"].length;
-      this.userRate = this.userRate / this.userRateLen;
+      if(this.userRateLen){
+        this.userRate = this.userRate / this.userRateLen;
+      }
       this.userService.getRateByIdUserAndRater( {idUser: this.idUser, idRater:  this.cookie}).subscribe((message: any) => {
         this.rating = parseInt(message["message"][0].rate);
       })
@@ -135,7 +137,7 @@ export class ProfileComponent implements OnInit {
   // Pages
   calendar(){this.router.navigate(["/kalendar"]);}
   settings(){this.router.navigate(["/podesavanje_profila"]);}
-  jobs1(){ this.router.navigate(["/mojiOglasi"]);}
+  jobs1(){ this.router.navigate(["/oglasi/" +this.idUser ]);}
 
   /*addComment(){
     console.log("Profile - addComment: START")
