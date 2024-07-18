@@ -88,6 +88,7 @@ CREATE TABLE agreements (
     idMaster INT,
     idUser INT,
     idJob INT,
+    title VARCHAR(255),
     startTime DATETIME,
     endTime DATETIME,
     currentStatus VARCHAR(20),

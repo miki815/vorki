@@ -62,7 +62,7 @@ const routes: Routes = [
   { path: "podesavanje_profila", component: ProfileSettingsComponent, canActivate: [authGuard]},
   { path: "pocetna", component: LandingComponent},
   { path: "oglasi", component: JobListingComponent, canActivate: [authGuard]},
-  { path: "oglasi/:id", component: JobListingComponent, canActivate: [authGuard]},
+  // { path: "oglasi/:id", component: JobListingComponent, canActivate: [authGuard]},
   { path: "izbor-kategorije", component: CategoriesChoiceComponent },
   { path: "dodaj_oglas", component: AdvertisementComponent, canActivate: [authGuard] },
   { path: 'oglasi/:id', component: SingleJobLongComponent },
