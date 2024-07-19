@@ -12,4 +12,5 @@ jobRouter.route('/getJobById/:id').get((req, res) => new job_controller_1.JobCon
 jobRouter.route('/getJobsWithUserInfo').get((req, res) => new job_controller_1.JobController().getJobsWithUserInfo(req, res));
 jobRouter.route('/getJobsWithUserInfo2').get((req, res) => new job_controller_1.JobController().getJobsWithUserInfo2(req, res));
 jobRouter.route('/requestForAgreement').post((req, res) => new job_controller_1.JobController().requestForAgreement(req, res));
+jobRouter.route('/updateJob').post((req, res) => new job_controller_1.JobController().updateJob(req, res));
 exports.default = jobRouter;

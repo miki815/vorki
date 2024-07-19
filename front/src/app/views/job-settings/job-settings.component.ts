@@ -86,7 +86,12 @@ export class JobSettingsComponent {
 
   update() {
     console.log("JobSettings - update: START");
-
+    this.jobService.updateJob({ job: this.updatedJob }).subscribe((message: any) => {
+      // this.message = message.message;
+      if (this.message == "Job updated") {
+        alert("Uspešno ste ažurirali posao");
+      }
+    })
     console.log("JobSettings - update: END");
   }
 
@@ -158,6 +163,16 @@ export class JobSettingsComponent {
     }
   }
 
+  delete(){
+    this.galleryRef.remove(this.imgIndex);
+    this.numberOfPhotos -=1 ;
+  }
+
+
+  onIndexChange(event: GalleryState) {
+    this.imgIndex = event.currIndex
+  }
+
 
   // updateGallery(){
   //   const imgs=[]
@@ -182,13 +197,4 @@ export class JobSettingsComponent {
   // this.imagesLoaded = true;
   // }) 
 
-  // delete(){
-  //   this.galleryRef.remove(this.imgIndex);
-  //   this.numberOfPhotos -=1 ;
-  // }
-
-
-  // onIndexChange(event: GalleryState) {
-  //   this.imgIndex = event.currIndex
-  // }
 }

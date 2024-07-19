@@ -83,6 +83,19 @@ class JobController {
                 res.json({ message: "0" });
             });
         };
+        this.updateJob = (req, res) => {
+            const { job } = req.body;
+            console.log("Updating job " + job.id);
+            var sql = 'UPDATE job SET title = ?, description = ?, city = ?, profession = ? WHERE id = ?';
+            server_1.connection.query(sql, [job.title, job.description, job.city, job.profession, job.id], (err, info) => {
+                if (err) {
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    return;
+                }
+                console.log('Job ' + job.id + ' updated');
+                res.json({ message: "Job updated" });
+            });
+        };
     }
 }
 exports.JobController = JobController;

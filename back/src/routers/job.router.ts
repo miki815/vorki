@@ -28,5 +28,9 @@ jobRouter.route('/requestForAgreement').post(
     (req, res) => new JobController().requestForAgreement(req, res)
 )
 
+jobRouter.route('/updateJob').post(
+    (req, res) => new JobController().updateJob(req, res)
+)
+
 
 export default jobRouter;

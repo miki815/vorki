@@ -70,4 +70,15 @@ export class JobController {
         });
     }
 
+
+    updateJob = (req: express.Request, res: express.Response) => {
+        const { job } = req.body;
+        console.log("Updating job " + job.id);
+        var sql = 'UPDATE job SET title = ?, description = ?, city = ?, profession = ? WHERE id = ?';
+        connection.query(sql, [job.title, job.description, job.city, job.profession, job.id], (err, info) => {
+            if (err) { res.json({ error: 1, message: "Fatal error: " + err }); return; }
+            console.log('Job ' + job.id + ' updated');
+            res.json({ message: "Job updated" });
+        });
+    }
 }

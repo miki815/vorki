@@ -33,4 +33,8 @@ export class JobService {
   requestForAgreement(data) {
     return this.http.post(`${this.uri}/jobs/requestForAgreement`, data);
   }
+
+  updateJob(data) {
+    return this.http.post(`${this.uri}/jobs/updateJob`, data);
+  }
 }
