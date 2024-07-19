@@ -67,6 +67,7 @@ import { ForgottenPasswordChangeComponent } from "./views/auth/forgotten-passwor
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { CalendarComponent } from "./components/calendar/calendar.component";
 import { RecurrenceEditorModule, ScheduleModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from "@syncfusion/ej2-angular-schedule";
+import { JobSettingsComponent } from "./views/job-settings/job-settings.component";
 
 
 
@@ -116,7 +117,8 @@ import { RecurrenceEditorModule, ScheduleModule, DayService, WeekService, WorkWe
     CategoriesChoiceComponent,
     ForgottenPasswordComponent,
     ForgottenPasswordChangeComponent,
-    CalendarComponent
+    CalendarComponent,
+    JobSettingsComponent
   ],
   imports: [
     FormsModule,

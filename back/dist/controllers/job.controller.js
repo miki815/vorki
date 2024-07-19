@@ -27,12 +27,14 @@ class JobController {
             });
         };
         this.getJobById = (req, res) => {
+            console.log("Getting job with ID " + req.params.id);
             var sql = 'SELECT * FROM job WHERE id = ?';
             server_1.connection.query(sql, [req.params.id], (err, job) => {
                 if (err) {
                     res.json({ error: 1, message: "Fatal error: " + err });
                     return;
                 }
+                console.log(job);
                 res.json(job);
             });
         };

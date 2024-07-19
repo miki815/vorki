@@ -28,6 +28,7 @@ import { JobListingComponent } from "./views/job-listing/job-listing.component";
 import { SingleJobLongComponent } from "./views/single-job-long/single-job-long.component";
 import { CategoriesChoiceComponent } from "./views/categories-choice/categories-choice.component";
 import { CalendarComponent } from "./components/calendar/calendar.component";
+import { JobSettingsComponent } from "./views/job-settings/job-settings.component";
 
 const routes: Routes = [
   // admin views
@@ -60,6 +61,7 @@ const routes: Routes = [
   {path: "kalendar", component: CalendarComponent},
   { path: "profil/:id", component: ProfileComponent },
   { path: "podesavanje_profila", component: ProfileSettingsComponent, canActivate: [authGuard]},
+  { path: "podesavanje_oglasa/:jobId", component: JobSettingsComponent, canActivate: [authGuard]},
   { path: "pocetna", component: LandingComponent},
   { path: "oglasi", component: JobListingComponent, canActivate: [authGuard]},
   // { path: "oglasi/:id", component: JobListingComponent, canActivate: [authGuard]},
