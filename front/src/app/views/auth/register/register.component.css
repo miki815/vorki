@@ -21,4 +21,7 @@
 
   .ovde:hover{
     color: #ffe83c;
+    background-color: #1e293b;
+    border-radius: 5%;
   }
+

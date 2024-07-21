@@ -8,6 +8,8 @@ import * as bcrypt from 'bcryptjs';
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
+  styleUrl: '../register/register.component.css'
+
 })
 export class LoginComponent{
   constructor(private userService: UserService, private router: Router, private http: HttpClient,private cookieService: CookieService) { }
@@ -21,25 +23,26 @@ export class LoginComponent{
     return await bcrypt.hash(plainPassword, salt);
   }
 
+ 
+
   submit(){
     console.log("Login - submit: START")
 
-    // VERIFY
-    if(!this.email || !this.password){ this.message = "Niste uneli sve podatke."; return; }
+    if(!this.verifyRequest()) return;
 
     // SEND
-    this.hashPassword(this.password).then(hashedPassword => {
-      const data = { email: this.email,password: hashedPassword}
-      this.userService.login(data).subscribe((message: any) => {
-        if (message['error'] == "0") {
-          this.cookieService.set('token', JSON.stringify(message['message']), 30, '/');
+    const data = { email: this.email,password: this.password}
+      this.userService.login(data).subscribe((response: any) => {
+        if (response['error'] == "0") {
+          this.cookieService.set('token', JSON.stringify(response['id']), 30, '/');
           this.router.navigate(["pocetna"]);
-          return;
-        } else {  this.message = message['message'];}
+        } else { this.message = response['message'];}
       })
       console.log("Login - submit: END")
-    })
-   
+  }
+
+  verifyRequest(){
+    if(!this.email || !this.password){ this.message = "Niste uneli sve podatke."; return false; }
   }
   
 }

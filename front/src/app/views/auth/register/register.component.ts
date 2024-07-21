@@ -59,24 +59,7 @@ export class RegisterComponent implements OnInit {
   submit() {
     console.log('Register - submit: START')
     
-    // VERIFY
-    if (!this.username || !this.name || !this.surname || !this.birthday || !this.policy ||
-      !this.telephone || !this.location || (!this.type) || !this.password || !this.password1 || !this.email) {
-      this.message = "Niste uneli sve podatke."; return;
-    }
-    if (this.username.length < 3) { this.message = "Korisničko name je prekratko, mora imati najmanje 3 karaktera."; return; }
-    if (this.name.length < 2) { this.message = "Ime je prekratko, mora imati najmanje 2 karaktera."; return; }
-    if (this.surname.length < 2) { this.message = "Prezime je prekratko, mora imati najmanje 2 karaktera."; return; }
-    if (new Date(this.birthday).getFullYear() < 1930) { this.message = "Unesite ispravno godinu rođenja."; return; }
-    if (new Date(this.birthday) > new Date((new Date()).getFullYear() - 18, (new Date()).getMonth(), (new Date()).getDate())) { this.message = "Morate biti punoletni."; return; }
-    if (!/^381\d{8,9}$/.test(this.telephone.slice(1)) || this.telephone[0] != "+") { this.message = "Mobilni telefon nije u dobrom formatu. Format: +381XXXXXXXXX"; return; }
-    if (! /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{6,}$/.test(this.password)) {
-      this.message = "Lozinka mora imati barem \
-      jedno malo slovo, jedno veliko slovo, jedan broj i jedan specijalni (@#$%^&*()\-_=+{};:,<.>) karakter. Lozinka mora\
-      imati najmanje 6 karaktera."; return;
-    }
-    if (this.password != this.password1) { this.message = "Lozinke nisu iste."; return; }
-    if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(this.email)) { this.message = "Email nije u dobrom formatu."; return; }
+    if(!this.verifyRequest()) return;
     
     // SEND
     fetch('assets/backPhoto.txt')
@@ -96,16 +79,35 @@ export class RegisterComponent implements OnInit {
           backPhoto: backPhoto
         }
   
-        this.userService.register(data).subscribe((message: any) => {
-          if (message['message'] == "0") {
+        this.userService.register(data).subscribe((response: any) => {
+          if (response['error'] == "0") {
             this.router.navigate(["/autentikacija/prijava"]);
           } else {
-            this.message = message['message'];
+            this.message = response['message'];
           }
           console.log('Register - submit: END')
         })
       });   
     }) 
   }
-
+  
+  verifyRequest(){
+    if (!this.username || !this.name || !this.surname || !this.birthday || !this.policy ||
+      !this.telephone || !this.location || (!this.type) || !this.password || !this.password1 || !this.email) {
+      this.message = "Niste uneli sve podatke.";  false;
+    }
+    if (this.username.length < 3) { this.message = "Korisničko name je prekratko, mora imati najmanje 3 karaktera."; return false; }
+    if (this.name.length < 2) { this.message = "Ime je prekratko, mora imati najmanje 2 karaktera."; return false; }
+    if (this.surname.length < 2) { this.message = "Prezime je prekratko, mora imati najmanje 2 karaktera."; return false; }
+    if (new Date(this.birthday).getFullYear() < 1930) { this.message = "Unesite ispravno godinu rođenja."; return false; }
+    if (new Date(this.birthday) > new Date((new Date()).getFullYear() - 18, (new Date()).getMonth(), (new Date()).getDate())) { this.message = "Morate biti punoletni."; return false; }
+    if (!/^381\d{8,9}$/.test(this.telephone.slice(1)) || this.telephone[0] != "+") { this.message = "Mobilni telefon nije u dobrom formatu. Format: +381XXXXXXXXX"; return false; }
+    if (! /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{6,}$/.test(this.password)) {
+      this.message = "Lozinka mora imati barem \
+      jedno malo slovo, jedno veliko slovo, jedan broj i jedan specijalni (@#$%^&*()\-_=+{};:,<.>) karakter. Lozinka mora\
+      imati najmanje 6 karaktera."; return false;
+    }
+    if (this.password != this.password1) { this.message = "Lozinke nisu iste."; return false; }
+    if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(this.email)) { this.message = "Email nije u dobrom formatu."; return false; }
+  }
 }

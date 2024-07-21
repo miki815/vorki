@@ -55,22 +55,18 @@ https://tailwindcss.com/docs/place-items
 
 
 
-# ------------------------------------------------------------
+## DONE ------------------------------------------------------
 
-# Pocetna strana
-- Izmeniti mozda ove ikonice za drustvene mreze
-
-# Prijava
-- Izgled
-
-# Registracija
-- Izgled
-
-# Footer
-- Sredjivanje
-
-# Oglasi
--Izgled
-
-
-
+| Page             | HTML      | CSS       | TYPECSRIPT | BACKEND   | TEST      |
+|------------------|-----------|-----------|------------|-----------|-----------|
+| Login            | 20/7/2024 | 20/7/2024 | 20/7/2024  | 20/7/2024 |           |
+| Register         | 20/7/2024 | 20/7/2024 | 20/7/2024  | 20/7/2024 |           |
+| 404              | 20/7/2024 | 20/7/2024 | 20/7/2024  | 20/7/2024 | 20/7/2024 |
+| Index            |           |           |            |           |           |
+| Add job          |           |           |            |           |           |
+| All jobs         |           |           |            |           |           |
+| One job          |           |           |            |           |           |
+| Update job       |           |           |            |           |           |
+| Profile          |           |           |            |           |           |
+| Profile settings |           |           |            |           |           |
+| Calendar         |           |           |            |           |           |
