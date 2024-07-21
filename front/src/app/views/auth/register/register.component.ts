@@ -109,5 +109,6 @@ export class RegisterComponent implements OnInit {
     }
     if (this.password != this.password1) { this.message = "Lozinke nisu iste."; return false; }
     if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(this.email)) { this.message = "Email nije u dobrom formatu."; return false; }
+    return true;
   }
 }

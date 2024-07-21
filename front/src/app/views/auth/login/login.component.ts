@@ -43,6 +43,7 @@ export class LoginComponent{
 
   verifyRequest(){
     if(!this.email || !this.password){ this.message = "Niste uneli sve podatke."; return false; }
+    return true;
   }
   
 }

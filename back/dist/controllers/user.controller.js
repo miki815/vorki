@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const server_1 = require("../server");
-const nodemailer_1 = __importDefault(require("nodemailer"));
 const crypto_1 = __importDefault(require("crypto"));
 const reset_token_1 = __importDefault(require("../models/reset_token"));
 const moment = require('moment');
@@ -302,38 +301,72 @@ class UserController {
                 token: crypto_1.default.randomBytes(16).toString('hex'),
                 email: req.body.email, expire_time: expire_time
             });
-            const query = 'INSERT INTO resettoken (token, email, expire_time) VALUES (?, ?, ?)';
-            server_1.connection.query(query, [reset_token.token, req.body.email, expire_time], (err, result) => {
+            var query = 'DELETE FROM resettoken WHERE email = ? ';
+            server_1.connection.query(query, [req.body.email], (err) => {
                 if (err) {
-                    console.error('Error inserting token into the database:', err);
-                    res.status(400).json({ 'message': 'error' });
+                    // console.error('Error inserting token into the database:', err);
+                    // res.status(400).json({ 'message': 'error' });
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    return;
+                }
+            });
+            query = 'INSERT INTO resettoken (token, email, expire_time) VALUES (?, ?, ?)';
+            server_1.connection.query(query, [reset_token.token, req.body.email, expire_time], (err) => {
+                if (err) {
+                    // console.error('Error inserting token into the database:', err);
+                    // res.status(400).json({ 'message': 'error' });
+                    res.json({ error: 1, message: "Fatal error: " + err });
                     return;
                 }
                 else
                     console.log("Token saved in database");
             });
-            var transporter = nodemailer_1.default.createTransport({
-                service: 'hotmail',
+            // var transporter = nodemailer.createTransport({
+            //     service: 'hotmail',
+            //     auth: {
+            //         user: 'email here',
+            //         pass: 'password here'
+            //     }
+            // });
+            // var mailOptions = {
+            //     from: 'email here',
+            //     to: req.body.email,
+            //     subject: 'Promena lozinke',
+            //     text: `http://localhost:4200/auth/promena_zaboravljene_lozinke/${reset_token.token}`
+            // };
+            // console.log('Sending mail to: ' + req.body.email + ' for password reset');
+            // transporter.sendMail(mailOptions, function (error, _) {
+            //     if (error) { console.log(error); res.send(error) }
+            //     else res.status(200).json({ 'message': 'poruka poslata' });
+            // })
+            var nodemailer = require('nodemailer');
+            var transporter = nodemailer.createTransport({
+                service: 'outlook',
                 auth: {
-                    user: 'email here',
-                    pass: 'password here'
+                    user: "vorkisupp@outlook.com",
+                    pass: 'mikineca2000'
+                },
+                tls: {
+                    rejectUnauthorized: false
                 }
             });
             var mailOptions = {
-                from: 'email here',
+                from: "vorkisupp@outlook.com",
                 to: req.body.email,
-                subject: 'Promena lozinke',
+                subject: 'Password change',
                 text: `http://localhost:4200/auth/promena_zaboravljene_lozinke/${reset_token.token}`
             };
-            console.log('Sending mail to: ' + req.body.email + ' for password reset');
-            transporter.sendMail(mailOptions, function (error, info) {
-                if (error) {
-                    console.log(error);
-                    res.send(error);
+            transporter.sendMail(mailOptions, function (err, info) {
+                if (err) {
+                    console.log(err);
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    return;
                 }
-                else
-                    res.status(200).json({ 'message': 'poruka poslata' });
+                else {
+                    console.log('Email sent: ' + info.response);
+                }
             });
+            res.json({ error: 0 });
         };
         this.tokenValidation = (req, res) => {
             let token = req.body.token;

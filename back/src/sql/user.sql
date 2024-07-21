@@ -80,7 +80,9 @@ CREATE TABLE resetToken (
     id INT AUTO_INCREMENT PRIMARY KEY,
     token VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    expire_time DATETIME NOT NULL
+    expire_time DATETIME NOT NULL,
+
+    -- TODO: FOREIGN KEY (email) REFERENCES user(email)
 );
 
 CREATE TABLE agreements (

@@ -25,3 +25,15 @@
     border-radius: 5%;
   }
 
+
+  .messageSucc{
+    width: 100%; 
+    text-align: center; 
+    margin-top: 20px; 
+    background-color: rgb(59, 185, 109);
+    color: white; 
+    padding: 10px; 
+    border-radius: 5px; 
+    color: #1e293b;
+  }
+  
