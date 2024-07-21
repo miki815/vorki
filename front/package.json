@@ -34,6 +34,7 @@
     "@syncfusion/ej2-material-theme": "~17.1.41",
     "@tailwindcss/forms": "0.2.1",
     "angular-calendar": "^0.31.1",
+    "bcryptjs": "^2.4.3",
     "chart.js": "2.9.4",
     "date-fns": "^3.6.0",
     "leaflet": "^1.9.4",
