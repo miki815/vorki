@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
         return;
       } else {  this.poruka = message['message'];}
     })
-
     console.log("Login - submit: END")
   }
   
