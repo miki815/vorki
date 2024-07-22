@@ -37,7 +37,8 @@ export class SingleJobLongComponent implements OnInit {
   startTime: Date = new Date();
   endTime: Date = new Date();
   additionalInfo: string = "";
-
+  numberOfJobs: number = 0;
+  ph: string = "https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80"
 
 
   constructor(private jobService: JobService, private route: ActivatedRoute, private cookieService: CookieService, private userService: UserService, private gallery: Gallery) { }

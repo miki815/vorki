@@ -3,72 +3,47 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { CookieService } from "ngx-cookie-service";
 import { UserService } from "src/app/services/user.service";
+import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
+  styleUrl: '../register/register.component.css'
+
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent{
   constructor(private userService: UserService, private router: Router, private http: HttpClient,private cookieService: CookieService) { }
 
   email: string = null;
-  lozinka: string = null;
-  poruka: string = null;
+  password: string = null;
+  message: string = null;
 
+  async hashPassword(plainPassword: string): Promise<string> {
+    const salt = await bcrypt.genSalt(10);
+    return await bcrypt.hash(plainPassword, salt);
+  }
 
-  ngOnInit(): void {}
+ 
 
-  potvrdi(){
+  submit(){
     console.log("Login - submit: START")
 
-    // Provera
-    if(!this.email || !this.lozinka){ this.poruka = "Niste uneli sve podatke."; return; }
+    if(!this.verifyRequest()) return;
 
-    //Pakovanje
-    const data = { email: this.email,password: this.lozinka}
+    // SEND
+    const data = { email: this.email,password: this.password}
+      this.userService.login(data).subscribe((response: any) => {
+        if (response['error'] == "0") {
+          this.cookieService.set('token', JSON.stringify(response['id']), 30, '/');
+          this.router.navigate(["pocetna"]);
+        } else { this.message = response['message'];}
+      })
+      console.log("Login - submit: END")
+  }
 
-    //Slanje
-    this.userService.login(data).subscribe((message: any) => {
-      if (message['error'] == "0") {
-        this.cookieService.set('token', JSON.stringify(message['message']), 30, '/');
-        this.router.navigate(["pocetna"]);
-        return;
-      } else {  this.poruka = message['message'];}
-    })
-    console.log("Login - submit: END")
+  verifyRequest(){
+    if(!this.email || !this.password){ this.message = "Niste uneli sve podatke."; return false; }
+    return true;
   }
   
-  
-  
-  test(){
-    console.log("Prijava - test: START")
-    var rezultati = [];
-    var provera = [0,-1, -1]
-    fetch('assets/login_test.json')
-    .then(response => response.json())
-    .then(testovi1 => {
-      testovi1.forEach((test) => {
-        if(!this.email || !this.lozinka){
-          rezultati.push(-1);
-        }
-        else{ rezultati.push(0);}
-      });
-
-      if (rezultati.length !== provera.length) {
-        alert("Prijava - test: FAILED")
-        console.log("Prijava - test: FAILED");
-        return;
-      }
-      if (rezultati.every((element, index) => element === provera[index])) {
-        alert("Prijava - test: FAILED")
-        console.log("Prijava - test: FAILED");
-        return;
-      }
-      alert("Prijava - test: PASS");
-      console.log("Prijava - test: END")
-    })
-    .catch(error => {
-      console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje login):', error);
-    });
-  }
 }

@@ -55,22 +55,25 @@ https://tailwindcss.com/docs/place-items
 
 
 
-# ------------------------------------------------------------
+## DONE ------------------------------------------------------
 
-# Pocetna strana
-- Izmeniti mozda ove ikonice za drustvene mreze
+|----------|---------------------------|--------------|--------------|--------------|--------------|---------------------|
+| Number   | Page                      | HTML         | CSS          | FRONTEND     | BACKEND      | TESTED              |
+|----------|---------------------------|--------------|--------------|--------------|--------------|---------------------|
+| 1.       | Login                     | Nemanja 21/7 | Nemanja 21/7 | Nemanja 21/7 | Nemanja 21/7 |                     |
+| 2.       | Register                  | Nemanja 21/7 | Nemanja 21/7 | Nemanja 21/7 | Nemanja 21/7 |                     |
+| 3.       | 404                       | Nemanja 20/7 | Nemanja 20/7 | Nemanja 20/7 | Nemanja 20/7 | Nemanja 20/7        |
+| 4.       | Forgot password - email   | Nemanja 21/7 | Nemanja 21/7 | Nemanja 20/7 | Nemanja 20/7 |                     |
+| 5.       | Forgot password  - change |              |              |              |              |                     |
+| 6.       | Index                     |              |              |              |              |                     |
+| 7.       | Add job                   |              |              |              |              |                     |
+| 8.       | All jobs                  |              |              |              |              |                     |
+| 9.       | One job                   |              |              |              |              |                     |
+| 10.      | Update job                |              |              |              |              |                     |
+| 11.      | Profile                   |              |              |              |              |                     |
+| 12.      | Profile settings          |              |              |              |              |                     |
+| 13.      | Calendar                  |              |              |              |              |                     |
+|----------|---------------------------|--------------|--------------|--------------|--------------|---------------------|
 
-# Prijava
-- Izgled
 
-# Registracija
-- Izgled
-
-# Footer
-- Sredjivanje
-
-# Oglasi
--Izgled
-
-
-
+4) Zakomentarisan je kod koji je postojao, ako ne ne treba obirisi
