@@ -21,9 +21,9 @@ CREATE TABLE user (
     phone VARCHAR(20),
     location VARCHAR(255),
     email VARCHAR(255) NOT NULL UNIQUE,
-    photo LONGTEXT NOT NULL,
-    backPhoto LONGTEXT NOT NULL,
-    type INT NOT  NULL
+    photo LONGTEXT,
+    backPhoto LONGTEXT,
+    type INT NOT NULL
 );
 
 
@@ -80,7 +80,7 @@ CREATE TABLE resetToken (
     id INT AUTO_INCREMENT PRIMARY KEY,
     token VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    expire_time DATETIME NOT NULL,
+    expire_time DATETIME NOT NULL
 
     -- TODO: FOREIGN KEY (email) REFERENCES user(email)
 );

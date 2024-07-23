@@ -1,3 +1,24 @@
 #introImgDiv {
     background-image: url('../../../assets/img/homepage1.jpg');
 }
+
+/* style="width: 100%; text-align: center; margin-top: 20px; background-color: rgb(239, 114, 114); color: white; padding: 10px; border-radius: 5px; " */
+#msg {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    background-color: rgb(239, 114, 114);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* style="width: 100%; text-align: center; margin-top: 20px; color: white; padding: 10px; border-radius: 5px; " */
+#sentMsg {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}

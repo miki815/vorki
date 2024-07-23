@@ -3147,7 +3147,12 @@ select {
 .text-white {
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
-}
+}  
+
+.text-yellow {
+  --tw-text-opacity: 1;
+  color:  rgba(255, 232, 60, var(--tw-text-opacity));
+}  
 
 .text-pink-400 {
   --tw-text-opacity: 1;
