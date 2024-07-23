@@ -8,7 +8,8 @@ import { JobService } from "src/app/services/job.service";
 @Component({
   selector: "app-profile",
   templateUrl: "./profile.component.html",
-  
+  styleUrl: './profile.component.css'
+
 })
 
 export class ProfileComponent implements OnInit {
@@ -23,23 +24,22 @@ export class ProfileComponent implements OnInit {
   location : string = null;
   type : string = null;
   photo : string = null;
-  // comments : any[] = [];
-  // comment : string = null;
-  // visibleComments: number = 3;
   rating: number = 0;
   userRate: number = 0;
   userRateLen: number = 0;
   cookie: string = "";
   idUser: string = "";
-  // imagesLoaded: boolean = false;
   jobs: Array<any>;
   jobNumber: number = 0;
   allJobs: Array<any>;
   backPhoto: string = "";
-
+  instagram: string = "";
+  facebook: string = "";
 
   ngOnInit(): void {
     console.log("Profile - ngOnInit: START")
+
+
 
     this.getToken();
     this.getRate();
@@ -53,9 +53,11 @@ export class ProfileComponent implements OnInit {
     console.log("Profile - getToken: START")
 
     this.route.paramMap.subscribe(params => {
+      this.cookie =  this.cookieService.get("token");
       this.idUser = params.get('id');
     });
-    this.cookie =  this.cookieService.get("token");
+    
+    
 
     console.log("Profile - getToken: END")
 
@@ -83,7 +85,7 @@ export class ProfileComponent implements OnInit {
   getUser(){
     console.log("Profile - getUser: START")
 
-    const data = {id:  this.cookie}
+    const data = {id:  this.idUser}
     this.userService.getUserById(data).subscribe((message: any) => {
       if (message['error'] == "0") {
        console.log(message['message'])
@@ -97,6 +99,8 @@ export class ProfileComponent implements OnInit {
        this.type =  message['message'].type;
        this.photo =  message['message'].photo;
        this.backPhoto =  message['message'].backPhoto;
+       this.instagram =  message['message'].instagram;
+       this.facebook =  message['message'].facebook;
 
        console.log("Profile - getUser: END")
        return;
@@ -115,29 +119,31 @@ export class ProfileComponent implements OnInit {
     console.log("Profile - getJobs: END")
   }
 
-  rate(){
-    console.log("Profile - rate: START")
+  // rate(){
+  //   console.log("Profile - rate: START")
 
-    const data = {
-      idUser:  this.idUser,
-      idRater:  this.cookie,
-      rate: this.rating
-    }
+  //   const data = {
+  //     idUser:  this.idUser,
+  //     idRater:  this.cookie,
+  //     rate: this.rating
+  //   }
 
-    this.userService.rate(data).subscribe(() => {
-      this.getRate();
-      console.log("Profile - rate: END")
-    });
+  //   this.userService.rate(data).subscribe(() => {
+  //     this.getRate();
+  //     console.log("Profile - rate: END")
+  //   });
 
-  }
+  // }
 
-  setRating(rating) {this.rating = rating;}
+  // setRating(rating) {this.rating = rating;}
 
 
   // Pages
   calendar(){this.router.navigate(["/kalendar"]);}
   settings(){this.router.navigate(["/podesavanje_profila"]);}
-  jobs1(){ this.router.navigate(["/oglasi/" +this.idUser ]);}
+  jobs1(){ this.router.navigate(["/oglasi/" +this.idUser ]);} // TODO: Razmisliti sta treba ovde
+  instagram1(){ window.location.href = this.instagram;}
+  facebook1(){  window.location.href = this.facebook;}
 
   /*addComment(){
     console.log("Profile - addComment: START")

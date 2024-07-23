@@ -57,7 +57,7 @@ export class UserController {
 
     getUserById = (req: express.Request, res: express.Response) => {
         const { id } = req.body;
-        var sql = 'SELECT username, firstname, lastname, birthday, phone, location, email, photo, backPhoto, type FROM user WHERE id = ?';
+        var sql = 'SELECT username, firstname, lastname, birthday, phone, location, email, photo, backPhoto, type, instagram, facebook FROM user WHERE id = ?';
         connection.query(sql, [id], (err, user) => {
             if (err) { res.json({ error: 1, message: "Fatal error: " + err }); return; }
             if (user.length) {
