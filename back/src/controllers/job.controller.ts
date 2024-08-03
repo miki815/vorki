@@ -51,11 +51,13 @@ export class JobController {
     }
 
     getJobsWithUserInfo2 = (req: express.Request, res: express.Response) => {
+        console.log("Getting jobs with user info");
         var sql = 'SELECT job.id, job.profession, job.title, job.description, job.city, job.idUser, user.username, user.photo,'
         sql += 'COALESCE((SELECT AVG(rate) FROM rate r WHERE r.idUser = job.idUser GROUP BY r.idUser), 0) AS avgRate, job.type '
         sql += 'FROM job INNER JOIN user ON job.idUser = user.id;';
         connection.query(sql, (err, jobs) => {
             if (err) { res.json({ error: 1, message: "Fatal error: " + err }); return; }
+            console.log(jobs);
             res.json(jobs);
         });
     }

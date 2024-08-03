@@ -82,16 +82,16 @@ export class JobListingComponent implements OnInit {
     this.jobService.getJobsWithUserInfo2().subscribe((jobs: any) => {
       this.userService.getUserById({ id: this.cookie }).subscribe((me: any) => {
         this.userService.getUserById({ id: this.idUser }).subscribe((user: any) => {
-
-          if(this.idUser && me['message'].type == user['message'].type && this.cookie!=this.idUser){
-            this.router.navigate(["/oglasi/"])
-            return;
-          }
-          var type = me['message'].type ? 0 : 1;
-          jobs = jobs.filter(job => job.type == type);
-          if(this.idUser){
-            jobs = jobs.filter(job => job.idUser == this.idUser);
-          }
+          console.log("Jobs: ", jobs)
+        //   if(this.idUser && me['message'].type == user['message'].type && this.cookie!=this.idUser){
+        //     this.router.navigate(["/oglasi/"])
+        //     return;
+        //   }
+        //   var type = me['message'].type ? 0 : 1;
+        //   jobs = jobs.filter(job => job.type == type);
+        //   if(this.idUser){
+        //     jobs = jobs.filter(job => job.idUser == this.idUser);
+        //   }
           this.jobs = jobs;
           this.allJobs = jobs;
           this.userType =  me['message'].type;
