@@ -1,55 +1,78 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector: 'app-forgotten-password-change',
   templateUrl: './forgotten-password-change.component.html',
+  styleUrl: '../register/register.component.css'
 })
 export class ForgottenPasswordChangeComponent implements OnInit {
   constructor(private route: ActivatedRoute, private userService: UserService, private router: Router) { }
 
-  token: string;
-  errorMsg: string;
-  email: string;
-  lozinka_nova: string;
-  lozinka_nova2: string;
-  linkValidan: boolean = false;
+  token: string = '';
+  message: string = '';
+  messageSucc: string = '';
+  email: string = '';
+  password: string = '';
+  password2: string = '';
+  // linkValidan: boolean = false;
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.token = params.get('reset_token');
-      console.log(this.token);
-    })
-    this.userService.tokenValidation({ token: this.token }).subscribe(ob => {
-      if (ob['poruka'] == 'Vreme isteklo') {
-        //  alert('Link vise ne vazi')
-      } else {
-        this.linkValidan = true;
-        this.email = ob['email'];
-        console.log(this.email)
+      this.validate();
+    })  
+  }
+
+  validate(){
+    this.userService.tokenValidation({ token: this.token }).subscribe(response => {
+      if (response['error'] == '1') {
+        this.message = response["message"];
+        return;
       }
+      else if (response['error'] == '2') {
+        this.router.navigate(['../../autentikacija/prijava']);
+      }
+      // this.linkValidan = true;
+      this.email = response['email'];
     });
   }
 
-  changeForgottenPassword() {
+  async hashPassword(plainPassword: string): Promise<string> {
+    const salt = await bcrypt.genSalt(10);
+    return await bcrypt.hash(plainPassword, salt);
+  }
+
+  submit() {
     console.log("Zaboravljena lozinka - promena: START")
-    if (this.lozinka_nova == '' || this.lozinka_nova2 == '')
-      this.errorMsg = "Molimo vas da unesete sva trazena polja.";
-    else if (this.lozinka_nova != this.lozinka_nova2) this.errorMsg = 'Lozinke se ne poklapaju.';
-    else if (this.lozinka_nova.match(/^(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z][a-zA-Z0-9!@#$%^&*]{7,15}$/)) {
-      this.errorMsg = '';
-      this.userService.changeForgottenPassword({email: this.email, password: this.lozinka_nova}).subscribe(res => {
-        if (res['poruka'] == 'Lozinka promenjena') {
-          alert('Lozinka promenjena! Molimo Vas da se ulogujete ponovo.');
+
+    if(!this.validateRequest()){return;}
+    this.hashPassword(this.password).then(hashedPassword => {
+      this.userService.changeForgottenPassword({email: this.email, password: hashedPassword}).subscribe(res => {
+        if (res['error'] == '0') {
+          this.messageSucc ='Lozinka promenjena! Molimo Vas da se ulogujete ponovo.';
+          this.password = '';
+          this.password2 = '';
           sessionStorage.removeItem('user')
-          this.router.navigate(['../']);
+          //this.router.navigate(['../../autentikacija/prijava']);
         }
       })
-    } else {
-      this.errorMsg = "Nova lozinka mora da sadrzi 8-16 karaktera, bar jedno veliko slovo, \
-      broj i specijalni karakter i mora pocinjati slovom.";
-    }
+    });
+
     console.log("Zaboravljena lozinka - promena: END")
+  }
+
+  validateRequest(){
+    if (this.password == '' || this.password2 == ''){ this.message = "Molimo vas da unesete sva trazena polja."; return false; }
+    if (this.password != this.password2) { this.message = "Lozinke nisu iste."; return false; }
+    if (!this.password.match(/^(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z][a-zA-Z0-9!@#$%^&*]{7,15}$/)) {
+      this.message = "Lozinka mora imati barem \
+      jedno malo slovo, jedno veliko slovo, jedan broj i jedan specijalni (@#$%^&*()\-_=+{};:,<.>) karakter. Lozinka mora\
+      imati najmanje 6 karaktera.";
+      return false;
+    }
+    return true;
   }
 }

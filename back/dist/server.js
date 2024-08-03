@@ -30,7 +30,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'vorki3'
+    database: 'vorki'
 });
 exports.connection = connection;
 connection.connect((err) => {

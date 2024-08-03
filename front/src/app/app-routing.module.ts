@@ -68,6 +68,7 @@ const routes: Routes = [
   { path: "izbor-kategorije", component: CategoriesChoiceComponent },
   { path: "dodaj_oglas", component: AdvertisementComponent, canActivate: [authGuard] },
   { path: 'oglasi/:id', component: SingleJobLongComponent },
+  { path: 'oglasi/:idKorisnik', component: SingleJobLongComponent },
   { path: "", component: IndexComponent },
   { path: "**", redirectTo: "", pathMatch: "full" },
 ];

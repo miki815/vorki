@@ -57,7 +57,7 @@ export class UserController {
 
     getUserById = (req: express.Request, res: express.Response) => {
         const { id } = req.body;
-        var sql = 'SELECT username, firstname, lastname, birthday, phone, location, email, photo, backPhoto, type FROM user WHERE id = ?';
+        var sql = 'SELECT username, firstname, lastname, birthday, phone, location, email, photo, backPhoto, type, instagram, facebook FROM user WHERE id = ?';
         connection.query(sql, [id], (err, user) => {
             if (err) { res.json({ error: 1, message: "Fatal error: " + err }); return; }
             if (user.length) {
@@ -261,26 +261,64 @@ export class UserController {
             email: req.body.email, expire_time: expire_time
         });
 
-        var query = 'DELETE FROM resettoken WHERE email = ? ';
-        connection.query(query, [req.body.email], (err) => {
+        var query = 'SELECT Id FROM user WHERE email = ?';
+        connection.query(query, [req.body.email], (err, results) => {
             if (err) {
-                // console.error('Error inserting token into the database:', err);
-                // res.status(400).json({ 'message': 'error' });
                 res.json({ error: 1, message: "Fatal error: " + err }); 
                 return;
             }
+           if(results.length != 1){res.json({error: 1}); return;}
+           query = 'DELETE FROM resettoken WHERE email = ? ';
+           connection.query(query, [req.body.email], (err) => {
+               if (err) {
+                   // console.error('Error inserting token into the database:', err);
+                   // res.status(400).json({ 'message': 'error' });
+                   res.json({ error: 1, message: "Fatal error: " + err }); 
+                   return;
+               }
+               query = 'INSERT INTO resettoken (token, email, expire_time) VALUES (?, ?, ?)';
+               connection.query(query, [reset_token.token, req.body.email, expire_time], (err) => {
+                   if (err) {
+                       // console.error('Error inserting token into the database:', err);
+                       // res.status(400).json({ 'message': 'error' });
+                       res.json({ error: 1, message: "Fatal error: " + err }); 
+                       return;
+                   }
+                    console.log("Token saved in database");
+                    var nodemailer = require('nodemailer');
+                    var transporter = nodemailer.createTransport({
+                    service: 'outlook',
+                    auth: {
+                        user: "vorkisupp@outlook.com",
+                        pass: 'mikineca2000'
+                    },
+                    tls: {
+                        rejectUnauthorized: false 
+                    }
+                    });
+                    var mailOptions = {
+                        from: "vorkisupp@outlook.com",
+                        to: req.body.email,
+                        subject: 'Password change',
+                        text: `http://localhost:4200/autentikacija/promena_zaboravljene_lozinke/${reset_token.token}`
+                    };
+
+                    transporter.sendMail(mailOptions, function(err, info){
+                        if (err) {
+                            console.log(err);
+                            res.json({ error: 1, message: "Fatal error: " + err }); 
+                            return
+                        }
+                        console.log('Email sent: ' + info.response);
+                        res.json({ error: 0 });
+                    });
+               });
+           });
         });
 
-        query = 'INSERT INTO resettoken (token, email, expire_time) VALUES (?, ?, ?)';
-        connection.query(query, [reset_token.token, req.body.email, expire_time], (err) => {
-            if (err) {
-                // console.error('Error inserting token into the database:', err);
-                // res.status(400).json({ 'message': 'error' });
-                res.json({ error: 1, message: "Fatal error: " + err }); 
-                return;
-            }
-            else console.log("Token saved in database");
-        });
+       
+
+    
 
         // var transporter = nodemailer.createTransport({
         //     service: 'hotmail',
@@ -300,55 +338,30 @@ export class UserController {
         //     if (error) { console.log(error); res.send(error) }
         //     else res.status(200).json({ 'message': 'poruka poslata' });
         // })
-
-        var nodemailer = require('nodemailer');
-        var transporter = nodemailer.createTransport({
-        service: 'outlook',
-        auth: {
-            user: "vorkisupp@outlook.com",
-            pass: 'mikineca2000'
-        },
-        tls: {
-            rejectUnauthorized: false 
-        }
-        });
-        var mailOptions = {
-            from: "vorkisupp@outlook.com",
-            to: req.body.email,
-            subject: 'Password change',
-            text: `http://localhost:4200/auth/promena_zaboravljene_lozinke/${reset_token.token}`
-        };
-
-        transporter.sendMail(mailOptions, function(err, info){
-            if (err) {
-                console.log(err);
-                res.json({ error: 1, message: "Fatal error: " + err }); 
-                return
-            } else {
-                console.log('Email sent: ' + info.response);
-            }
-        });
-        res.json({ error: 0 });
     }
 
 
     tokenValidation = (req: express.Request, res: express.Response) => {
+        // console.log(token);
         let token = req.body.token;
-        console.log(token);
-
         const query = 'SELECT * FROM ResetToken WHERE token = ?';
         connection.query(query, [token], (err, results) => {
             if (err) {
-                console.error('Error searching for token in the database:', err);
-                return res.status(500).send('An error occurred while searching for the token.');
+                res.json({ error: 1, message: "Fatal error: " + err });
+                console.log('tokenValidation failed');
+                return;
             }
             if (results.length > 0) {
                 const foundToken = results[0];
-                if (new Date() > foundToken.expire_time) res.status(200).json({ 'poruka': 'Vreme isteklo' });
-                else { console.log('Token dobar'); res.status(200).json({ 'poruka': 'Ok', 'email': foundToken.email }); }
-            } else {
-                res.status(404).send('Token not found.');
+                if (new Date() > foundToken.expire_time){res.json({ error: 1, message: "Vreme za izmenu lozinke je isteklo."}); return;}
+                res.json({error: 0, 'email': foundToken.email});
+            } 
+            else{
+                res.json({ error: 2}); 
+                console.log('tokenValidation failed');
+                return;
             }
+            console.log('tokenValidation success');
         });
     }
 
@@ -360,21 +373,29 @@ export class UserController {
         const searchQuery = 'SELECT * FROM user WHERE email = ?';
         connection.query(searchQuery, [email], (err, results) => {
             if (err) {
-                console.error('Error searching for user in the database:', err);
-                return res.status(500).send('An error occurred while searching for the user.');
+                res.json({ error: 1, message: "Fatal error: " + err });
+                console.log('changeForgottenPassword failed');
+                return;
             }
             if (results.length > 0) {
                 const updateQuery = 'UPDATE user SET password = ? WHERE email = ?';
-                connection.query(updateQuery, [password, email], (err, updateResult) => {
+                connection.query(updateQuery, [password, email], (err) => {
                     if (err) {
-                        console.error('Error updating password in the database:', err);
-                        res.status(400).json({ 'poruka': 'Greska pri promeni lozinke' });
+                        res.json({ error: 1, message: "Fatal error: " + err });
+                        console.log('changeForgottenPassword failed');
+                        return;
                     }
-                    res.status(200).json({ 'poruka': 'Lozinka promenjena' });
+                    const deleteQuery = 'DELETE FROM resettoken WHERE email = ?';
+                    connection.query(deleteQuery, [email], (err) => {
+                        if (err) {
+                            res.json({ error: 1, message: "Fatal error: " + err });
+                            console.log('changeForgottenPassword failed');
+                            return;
+                        }
+                    });
+                    res.json({ error: 0 });                
                 });
-            } else {
-                res.status(400).json({ 'poruka': 'Korisnik ne postoji' });
-            }
+            } 
         });
     }
 
@@ -427,11 +448,13 @@ export class UserController {
         transporter.sendMail(mailOptions, function(error, info){
             if (error) {
                 console.log(error);
+                res.json({ error: 1 });        
+                return;
             } else {
                 console.log('Email sent: ' + info.response);
+                res.json({ error: 0 });        
             }
         });
-        res.json({ message: "0" });        
            
     }
 

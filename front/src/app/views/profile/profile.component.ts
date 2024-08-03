@@ -8,7 +8,8 @@ import { JobService } from "src/app/services/job.service";
 @Component({
   selector: "app-profile",
   templateUrl: "./profile.component.html",
-  
+  styleUrl: './profile.component.css'
+
 })
 
 export class ProfileComponent implements OnInit {
@@ -23,23 +24,22 @@ export class ProfileComponent implements OnInit {
   location : string = null;
   type : string = null;
   photo : string = null;
-  // comments : any[] = [];
-  // comment : string = null;
-  // visibleComments: number = 3;
   rating: number = 0;
   userRate: number = 0;
   userRateLen: number = 0;
   cookie: string = "";
   idUser: string = "";
-  // imagesLoaded: boolean = false;
   jobs: Array<any>;
   jobNumber: number = 0;
   allJobs: Array<any>;
   backPhoto: string = "";
-
+  instagram: string = "";
+  facebook: string = "";
 
   ngOnInit(): void {
     console.log("Profile - ngOnInit: START")
+
+
 
     this.getToken();
     this.getRate();
@@ -53,9 +53,11 @@ export class ProfileComponent implements OnInit {
     console.log("Profile - getToken: START")
 
     this.route.paramMap.subscribe(params => {
+      this.cookie =  this.cookieService.get("token");
       this.idUser = params.get('id');
     });
-    this.cookie =  this.cookieService.get("token");
+    
+    
 
     console.log("Profile - getToken: END")
 
@@ -64,17 +66,17 @@ export class ProfileComponent implements OnInit {
   getRate(){
     console.log("Profile - getRate: START")
 
-    this.userService.getRateByIdUser({idUser: this.idUser}).subscribe((message: any) => {
+    this.userService.getRateByIdUser({idUser: this.idUser}).subscribe((response: any) => {
       this.userRate = 0;
-      message["message"].forEach(element => {
+      response["message"].forEach(element => {
         this.userRate += parseInt(element.rate);
       });
-      this.userRateLen =  message["message"].length;
+      this.userRateLen =  response["message"].length;
       if(this.userRateLen){
         this.userRate = this.userRate / this.userRateLen;
       }
-      this.userService.getRateByIdUserAndRater( {idUser: this.idUser, idRater:  this.cookie}).subscribe((message: any) => {
-        this.rating = parseInt(message["message"][0].rate);
+      this.userService.getRateByIdUserAndRater( {idUser: this.idUser, idRater:  this.cookie}).subscribe((response: any) => {
+        this.rating = parseInt(response["message"][0].rate);
       })
       console.log("Profile - getRate: END")
     })
@@ -83,20 +85,22 @@ export class ProfileComponent implements OnInit {
   getUser(){
     console.log("Profile - getUser: START")
 
-    const data = {id:  this.cookie}
-    this.userService.getUserById(data).subscribe((message: any) => {
-      if (message['error'] == "0") {
-       console.log(message['message'])
-       this.email =  message['message'].email;
-       this.username =  message['message'].username;
-       this.firstname =  message['message'].firstname;
-       this.lastname =  message['message'].lastname;
-       this.birthday =  message['message'].birthday;
-       this.phone =  message['message'].phone;
-       this.location =  message['message'].location;
-       this.type =  message['message'].type;
-       this.photo =  message['message'].photo;
-       this.backPhoto =  message['message'].backPhoto;
+    const data = {id:  this.idUser}
+    this.userService.getUserById(data).subscribe((response: any) => {
+      if (response['error'] == "0") {
+       console.log(response['message'])
+       this.email =  response['message'].email;
+       this.username =  response['message'].username;
+       this.firstname =  response['message'].firstname;
+       this.lastname =  response['message'].lastname;
+       this.birthday =  response['message'].birthday;
+       this.phone =  response['message'].phone;
+       this.location =  response['message'].location;
+       this.type =  response['message'].type;
+       this.photo =  response['message'].photo;
+       this.backPhoto =  response['message'].backPhoto;
+       this.instagram =  response['message'].instagram;
+       this.facebook =  response['message'].facebook;
 
        console.log("Profile - getUser: END")
        return;
@@ -107,37 +111,39 @@ export class ProfileComponent implements OnInit {
   getJobs(){ // TODO: Dodati servis samo za dohvatanje broja poslova
     console.log("Profile - getJobs: START")
 
-    this.jobService.getJobsWithUserInfo2().subscribe((jobs: any) => { 
-      this.jobs = jobs.filter(job => job.idUser === parseInt(this.idUser));
+    this.jobService.getJobsWithUserInfo2().subscribe((response: any) => { 
+      this.jobs = response.filter(job => job.idUser === parseInt(this.idUser));
       this.jobNumber = this.jobs.length;
     });
 
     console.log("Profile - getJobs: END")
   }
 
-  rate(){
-    console.log("Profile - rate: START")
+  // rate(){
+  //   console.log("Profile - rate: START")
 
-    const data = {
-      idUser:  this.idUser,
-      idRater:  this.cookie,
-      rate: this.rating
-    }
+  //   const data = {
+  //     idUser:  this.idUser,
+  //     idRater:  this.cookie,
+  //     rate: this.rating
+  //   }
 
-    this.userService.rate(data).subscribe(() => {
-      this.getRate();
-      console.log("Profile - rate: END")
-    });
+  //   this.userService.rate(data).subscribe(() => {
+  //     this.getRate();
+  //     console.log("Profile - rate: END")
+  //   });
 
-  }
+  // }
 
-  setRating(rating) {this.rating = rating;}
+  // setRating(rating) {this.rating = rating;}
 
 
   // Pages
   calendar(){this.router.navigate(["/kalendar"]);}
   settings(){this.router.navigate(["/podesavanje_profila"]);}
-  jobs1(){ this.router.navigate(["/oglasi/" +this.idUser ]);}
+  jobs1(){     this.router.navigate(['/oglasi'], { queryParams: { idKorisnik: this.idUser} });} // TODO: Razmisliti sta treba ovde
+  instagram1(){ window.location.href = this.instagram;}
+  facebook1(){  window.location.href = this.facebook;}
 
   /*addComment(){
     console.log("Profile - addComment: START")
