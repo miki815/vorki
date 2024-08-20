@@ -211,6 +211,116 @@
       </div>
     </div>
   </section>
+
+<!-- MAJSTOR -->
+  <div class="flex justify-center" *ngIf="type == '0'">
+    <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden justify-center">
+      <thead class="bg-gray-800">
+        <tr>
+          <th class="py-3 px-6 text-left">Korisnik</th>
+          <th class="py-3 px-6 text-left">Datum</th>
+          <th class="py-3 px-6 text-left">Posao</th>
+          <th class="py-3 px-6 text-left">Dodatne Informacije</th>
+          <th class="py-3 px-6 text-left">Vreme Dolaska</th>
+          <th class="py-3 px-6 text-center">Prihvati</th>
+          <th class="py-3 px-6 text-center">Odbij</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr 
+          *ngFor="let request of jobRequests" 
+          class="border-b border-gray-200 hover:bg-gray-100"
+        >
+          <td class="py-3 px-6 text-left">{{ request.username }}</td>
+          <td class="py-3 px-6 text-left">{{ request.startTime }}</td>
+          <td class="py-3 px-6 text-left">{{ request.title }}</td>
+          <td class="py-3 px-6 text-left">{{ request.additionalInfo }}</td>
+          <td class="py-3 px-6 text-left" *ngIf="request.currentStatus=='pending'">
+            <input
+              type="time"
+              [(ngModel)]="request.endTime"
+              lang="en-GB"
+              class="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </td>
+          <td class="py-3 px-6 text-left" *ngIf="request.currentStatus=='accepted'">{{ request.startTime }}</td>
+
+          <td class="py-3 px-6 text-center" *ngIf="request.currentStatus=='pending'">
+            <button 
+              class="bg-green-500 text-white px-3 py-1 rounded-md text-sm" 
+              id="acceptBtn"
+              (click)="acceptRequest(request)"
+            >
+              Prihvati
+            </button>
+          </td>
+          <td class="py-3 px-6 text-center" *ngIf="request.currentStatus=='accepted'">Posao prihvaćen</td>
+          <td class="py-3 px-6 text-center" *ngIf="request.currentStatus=='pending'">
+            <button 
+              class="bg-red-500 text-white px-3 py-1 rounded-md text-sm" 
+              id="declineBtn"
+              (click)="declineRequest(request)"
+            >
+              Odbij
+            </button>
+          </td>
+          <td class="py-3 px-6 text-center" *ngIf="request.currentStatus=='accepted'">
+            <button 
+              class="bg-red-500 text-white px-3 py-1 rounded-md text-sm" 
+              id="declineBtn"
+              (click)="cancelRequest(request)"
+            >
+              Otkaži
+            </button>
+          </td>        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+  <!-- KORISNIK -->
+  <div class="flex justify-center" *ngIf="type=='1'">
+    <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden justify-center">
+      <thead class="bg-gray-800">
+        <tr>
+          <th class="py-3 px-6 text-left">Majstor</th>
+          <th class="py-3 px-6 text-left">Datum</th>
+          <th class="py-3 px-6 text-left">Posao</th>
+          <th class="py-3 px-6 text-left">Dodatne Informacije</th>
+          <th class="py-3 px-6 text-left">Vreme Dolaska</th>
+          <th class="py-3 px-6 text-center">Status</th>
+          <th class="py-3 px-6 text-center">Otkaži</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr 
+          *ngFor="let request of jobRequests" 
+          class="border-b border-gray-200 hover:bg-gray-100"
+        >
+          <td class="py-3 px-6 text-left">{{ request.username }}</td>
+          <td class="py-3 px-6 text-left">{{ request.startTime }}</td>
+          <td class="py-3 px-6 text-left">{{ request.title }}</td>
+          <td class="py-3 px-6 text-left">{{ request.additionalInfo }}</td>
+          <td class="py-3 px-6 text-left" *ngIf="request.currentStatus!='accepted'">-</td>
+          <td class="py-3 px-6 text-left" *ngIf="request.currentStatus=='accepted'">{{ request.startTime }}</td>
+          <td class="py-3 px-6 text-center bg-green-500 text-white" *ngIf="request.currentStatus=='accepted'">Posao prihvaćen</td>
+          <td class="py-3 px-6 text-center bg-red-500 text-white" *ngIf="request.currentStatus=='declined'">Posao odbijen</td>
+          <td class="py-3 px-6 text-center bg-yellow-500 text-white" *ngIf="request.currentStatus=='pending'">Čeka se odgovor majstora</td>
+
+          <td class="py-3 px-6 text-center">
+            <button 
+              class="bg-red-500 text-white px-3 py-1 rounded-md text-sm" 
+              id="declineBtn"
+              (click)="cancelRequest(request)"
+            >
+              Otkaži
+            </button>
+          </td>  
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
 </main>
 
 <app-footer></app-footer>

@@ -208,6 +208,7 @@ class UserController {
         };
         this.getGalleryById = (req, res) => {
             const { idUser } = req.body;
+            console.log(idUser);
             var sql = 'SELECT * FROM gallery where idUser = ?';
             server_1.connection.query(sql, [idUser], (err, comments) => {
                 if (err) {
@@ -215,6 +216,7 @@ class UserController {
                     console.log('getGalleryById failed');
                     return;
                 }
+                console.log(comments);
                 res.json({ error: 0, message: comments });
                 console.log('getGalleryById success');
             });

@@ -15,17 +15,26 @@ webPush.setVapidDetails('mailto:mmilenkovic815@gmail.com', publicVapidKey, priva
 const app = express();
 app.use(cors());
 //app.use(bodyParser.json());
-app.use(bodyParser.json({limit: '100mb'}));
-app.use(bodyParser.urlencoded({limit: '100mb', extended: true}));
+app.use(bodyParser.json({ limit: '100mb' }));
+app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
 
 app.post('/subscribe', (req, res) => {
-  console.log('subscribe')
   const subscription = req.body;
-  res.status(201).json({});
-
+  if (!subscription || !subscription.endpoint || !subscription.keys || !subscription.keys.p256dh || !subscription.keys.auth) {
+    console.error('Invalid subscription object:', subscription);
+    return res.status(400).json({ error: 'Invalid subscription object' });
+  }
+  console.log("Subscription: " + subscription);
   const payload = JSON.stringify({ title: 'Push Test', body: 'Push notification test' });
-
-  webPush.sendNotification(subscription, payload).catch(error => console.error(error));
+  webPush.sendNotification(subscription, payload)
+    .then(() => {
+      console.log('Notification sent successfully');
+      res.status(200).json({ message: '0' });
+    })
+    .catch(error => {
+      console.error('Error sending notification:', error);
+      res.status(500).json({ message: 'Error sending notification', error: error.message });
+    });
 });
 
 
@@ -33,9 +42,9 @@ const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'root',      
-  password: '',  
-  database: 'vorki'       
+  user: 'root',
+  password: '',
+  database: 'vorki'
 });
 
 connection.connect((err) => {

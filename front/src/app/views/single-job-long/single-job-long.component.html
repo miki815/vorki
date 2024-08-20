@@ -118,8 +118,8 @@ crossorigin=""></script>
                                     </button>
                                     <button style="margin-top: 5px;"
                                         class="bg-emerald-200 text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                                        type="button" (click)="showRequestForm()">
-                                        Rezerviši termin
+                                        type="button" [disabled]="requestMsg=='Zahtev poslat!'" (click)="showRequestForm()">
+                                        {{requestMsg}}
                                     </button>
                                     <button style="margin-top: 5px;"
                                         class="bg-emerald-200 text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
@@ -155,7 +155,7 @@ crossorigin=""></script>
                 <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded">
                     <hr>
                     <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 text-center"> Opis posla </h3>
-                    <p class="text-lg mb-2 text-blueGray-700  ml-5">{{job.description}}</p>
+                    <p class="text-lg mb-2 text-blueGray-700 ml-5 text-center">{{job.description}}</p>
                 </div>
             </div>
         </div>

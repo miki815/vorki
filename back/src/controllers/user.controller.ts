@@ -182,9 +182,11 @@ export class UserController {
 
     getGalleryById = (req: express.Request, res: express.Response) => {
         const { idUser } = req.body;
+        console.log(idUser);
         var sql = 'SELECT * FROM gallery where idUser = ?';
         connection.query(sql, [idUser], (err, comments) => {
             if (err) { res.json({ error: 1, message: "Fatal error: " + err }); console.log('getGalleryById failed'); return; }
+            console.log(comments);
             res.json({ error: 0, message: comments });
             console.log('getGalleryById success');
         });

@@ -134,7 +134,8 @@ import { JobSettingsComponent } from "./views/job-settings/job-settings.componen
     //   useFactory: adapterFactory,
     // }),
     ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: !isDevMode(),
+      enabled: true,
+      // enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'

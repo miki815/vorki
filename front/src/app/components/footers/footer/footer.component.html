@@ -1,106 +1,32 @@
-<footer class="relative bg-blueGray-200 pt-8 pb-6">
-  <!-- <div
-    class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
-    style="transform: translateZ(0)"
-  >
-    <!-- <svg
-      class="absolute bottom-0 overflow-hidden"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="none"
-      version="1.1"
-      viewBox="0 0 2560 100"
-      x="0"
-      y="0"
-    >
-      <polygon
-        class="text-red-500 fill-current"
-        points="2560 0 2560 100 0 100"
-      ></polygon>
-    </svg>
-  </div> -->
+<footer class="relative bg-blueGray-800 pt-8 pb-6 text-white">
   <div class="container mx-auto px-4">
-    <div class="flex flex-wrap text-center lg:text-left">
-     
-      <div class="w-full  px-4">
-        <div class="flex flex-wrap items-top mb-6">
-          <div class="w-full lg:w-4/12 px-4 ml-auto">
-            <span
-              class="block uppercase text-blueGray-500 text-sm font-semibold mb-2"
-            >
+    <div class="flex justify-center text-center lg:text-left">
+      <div class="w-full px-4">
+        <div class="flex justify-center mb-6">
+          <div class="w-full lg:w-auto px-4">
+            <span class="block uppercase text-white text-sm font-semibold mb-2 flex justify-center">
               Vorki
             </span>
-            <ul class="list-unstyled">
+            <ul class="list-unstyled flex justify-center space-x-4">
               <li>
-                <a
-                  class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                  href="pocenta"
-                >
-                  Početna
+                <a class="text-white font-semibold text-sm" href="pocetna">
+                  O nama
                 </a>
               </li>
               <li>
-                <a
-                  class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                  href="oglasi"
-                >
-                  Oglasi
+                <a class="text-white font-semibold text-sm" href="oglasi">
+                  Kontakt
                 </a>
               </li>
               <li>
-                <a
-                  class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                  href="profiles"
-                >
-                  Podešavanja
+                <a class="text-white font-semibold text-sm" href="profiles">
+                  Uslovi korišćenja
                 </a>
               </li>
               <li>
-                <a
-                  class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                  href="https://www.creative-tim.com/bootstrap-themes/free?ref=na-footer"
-                >
-                  Free Products
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="w-full lg:w-4/12 px-4">
-            <span
-              class="block uppercase text-blueGray-500 text-sm font-semibold mb-2"
-            >
-              Other Resources
-            </span>
-            <ul class="list-unstyled">
-              <li>
-                <a
-                  class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                  href="https://github.com/creativetimofficial/notus-angular/blob/main/LICENSE.md?ref=creativetim"
-                >
-                  MIT License
-                </a>
-              </li>
-              <li>
-                <a
-                  class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                  href="https://creative-tim.com/terms?ref=na-footer"
-                >
-                  Terms & Conditions
-                </a>
-              </li>
-              <li>
-                <a
-                  class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                  href="https://creative-tim.com/privacy?ref=na-footer"
-                >
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                  href="https://creative-tim.com/contact-us?ref=na-footer"
-                >
-                  Contact Us
+                <a class="text-white font-semibold text-sm"
+                  href="https://www.creative-tim.com/bootstrap-themes/free?ref=na-footer">
+                  Politika privatnosti
                 </a>
               </li>
             </ul>
@@ -111,18 +37,27 @@
     <hr class="my-6 border-blueGray-300" />
     <div class="flex flex-wrap items-center md:justify-between justify-center">
       <div class="w-full md:w-4/12 px-4 mx-auto text-center">
-        <div class="text-sm text-blueGray-500 font-semibold py-1">
-          Copyright © {{ date }} by
-          <a
-            href="https://www.creative-tim.com?ref=na-footer"
-            class="text-blueGray-500 hover:text-blueGray-800"
-          >
-            Vorki
-          </a>
-          .
+        <div class="text-sm text-white font-semibold py-1">
+          <span class="text-white">
+            © 2024 Vorki - Sva prava zadržana.
+          </span>
         </div>
       </div>
     </div>
   </div>
 </footer>
 
+
+
+<style>
+  a:hover {
+    color: rgb(255, 232, 60);
+  }
+
+  footer {
+    background-color: #2d3748;
+    /* boja navigacije */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* senka ispod navigacije */
+  }
+</style>

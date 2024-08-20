@@ -1,9 +1,9 @@
 <nav
-  class="fixed w-full flex items-center justify-between px-2 py-3 navbar-expand-lg bg-blueGray-800"
+  class="fixed w-full flex items-center justify-between px-2 py-3 navbar-expand-lg bg-blueGray-800 shadow-lg"
   style="height: 70px; font-size: 20px;"
 >
   <button
-    class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+    class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none hover:text-yellow-500"
     type="button"
     (click)="setNavbarOpen()"
   >
@@ -18,7 +18,7 @@
       <ul class="flex flex-col lg:flex-row list-none mr-auto">
         <li class="flex items-center">
           <a
-            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold"
+            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300"
             [routerLink]="['/pocetna']"
             style="font-size: 20px;"
           >
@@ -27,7 +27,7 @@
         </li>
         <li class="flex items-center">
           <a
-            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold"
+            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300"
             [routerLink]="['/dodaj_oglas']"
             style="font-size: 20px;"
           >
@@ -36,7 +36,7 @@
         </li>
         <li class="flex items-center">
           <a
-            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold"
+            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300"
             [routerLink]="['/oglasi']"
             style="font-size: 20px;"
           >
@@ -45,7 +45,7 @@
         </li>
         <li class="flex items-center">
           <a
-            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold"
+            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300"
             (click)="navigateToProfile()"
             [routerLink]="['/profil']"
             style="font-size: 20px;"
@@ -55,7 +55,7 @@
         </li>
         <li class="flex items-center">
           <a
-            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold"
+            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300"
             [routerLink]="['/pocetna']"
             (click)="logout()"
             style="font-size: 20px;"
@@ -68,17 +68,22 @@
   </div>
 </nav>
 
-
-
-
 <style>
-  a:hover{
-  color: rgb(255, 232, 60);
-}
-:host {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
-</style>
+  a:hover {
+    color: rgb(255, 232, 60);
+  }
+  nav {
+    background-color: #2d3748; /* boja navigacije */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* senka ispod navigacije */
+  }
+  button:hover i {
+    transform: scale(1.1); /* efekat na dugme za mobilni meni */
+    transition: transform 0.2s ease-in-out;
+  }
+  :host {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+</style> 

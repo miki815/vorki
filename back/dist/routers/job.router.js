@@ -13,4 +13,7 @@ jobRouter.route('/getJobsWithUserInfo').get((req, res) => new job_controller_1.J
 jobRouter.route('/getJobsWithUserInfo2').get((req, res) => new job_controller_1.JobController().getJobsWithUserInfo2(req, res));
 jobRouter.route('/requestForAgreement').post((req, res) => new job_controller_1.JobController().requestForAgreement(req, res));
 jobRouter.route('/updateJob').post((req, res) => new job_controller_1.JobController().updateJob(req, res));
+jobRouter.route('/getJobRequests/:idMaster').get((req, res) => new job_controller_1.JobController().getJobRequests(req, res));
+jobRouter.route('/updateAgreement').post((req, res) => new job_controller_1.JobController().updateAgreement(req, res));
+jobRouter.route('/getJobRequestsForUser/:idUser').get((req, res) => new job_controller_1.JobController().getJobRequestsForUser(req, res));
 exports.default = jobRouter;

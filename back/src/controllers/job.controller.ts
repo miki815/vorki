@@ -83,4 +83,33 @@ export class JobController {
             res.json({ message: "Job updated" });
         });
     }
+
+    getJobRequests = (req: express.Request, res: express.Response) => {
+        var sql = 'SELECT agreements.*, job.title, user.username FROM agreements JOIN job ON agreements.idJob = job.id JOIN user ON agreements.idUser = user.id WHERE agreements.idMaster = ?;';
+        console.log("Getting job requests for master " + req.params.idMaster);
+        connection.query(sql, [req.params.idMaster], (err, requests) => {
+            if (err) { res.json({ error: 1, message: "Fatal error: " + err }); return; }
+            res.json(requests);
+        });
+    }
+
+    updateAgreement = (req: express.Request, res: express.Response) => {
+        const { idAgreements, status, startTime } = req.body;
+        console.log("Updating agreement " + idAgreements + " to " + status);
+        var sql = 'UPDATE agreements SET currentStatus = ?, startTime = ? WHERE idAgreements = ?';
+        connection.query(sql, [status, startTime, idAgreements], (err, info) => {
+            if (err) { console.log(err); res.json({ error: 1, message: "Fatal error: " + err }); return; }
+            console.log('Agreement ' + idAgreements + ' updated');
+            res.json({ message: "0" });
+        });
+    }
+
+    getJobRequestsForUser = (req: express.Request, res: express.Response) => {
+        var sql = 'SELECT agreements.*, job.title, user.username FROM agreements JOIN job ON agreements.idJob = job.id JOIN user ON agreements.idMaster = user.id WHERE agreements.idUser = ?;';
+        console.log("Getting job requests for user " + req.params.idUser);
+        connection.query(sql, [req.params.idUser], (err, requests) => {
+            if (err) { res.json({ error: 1, message: "Fatal error: " + err }); return; }
+            res.json(requests);
+        });
+    }
 }

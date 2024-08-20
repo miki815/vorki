@@ -18,10 +18,11 @@ export class MainNavbarComponent implements OnInit {
   }
   logout(){
     this.cookieService.delete('token', '/');
-    window.location.reload(); 
+    // window.location.reload(); 
+    this.router.navigate(['/autentikacija/prijava']);
   }
   navigateToProfile() {
-    var id = this.cookieService.get('token');
+    // var id = this.cookieService.get('token');
     this.router.navigate(['/profil',  this.cookieService.get('token')]);
   }
 }

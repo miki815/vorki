@@ -50,3 +50,23 @@ button:hover{
   border-radius: 5px; 
   color: #1e293b;
 }
+
+#declineBtn{
+  background-color: red;
+  margin: 5px;
+  color: white;
+}
+
+#declineBtn:hover{
+  background-color: #d12a2a;
+}
+
+#acceptBtn{
+  background-color: green;
+  margin: 5px;
+  color: white;
+}
+
+#acceptBtn:hover{
+  background-color: #2a9d2a;
+}

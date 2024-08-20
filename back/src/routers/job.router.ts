@@ -32,5 +32,16 @@ jobRouter.route('/updateJob').post(
     (req, res) => new JobController().updateJob(req, res)
 )
 
+jobRouter.route('/getJobRequests/:idMaster').get(
+    (req, res) => new JobController().getJobRequests(req, res)
+)
+
+jobRouter.route('/updateAgreement').post(
+    (req, res) => new JobController().updateAgreement(req, res)
+)
+
+jobRouter.route('/getJobRequestsForUser/:idUser').get(
+    (req, res) => new JobController().getJobRequestsForUser(req, res)
+)
 
 export default jobRouter;

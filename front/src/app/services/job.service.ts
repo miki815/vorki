@@ -37,4 +37,16 @@ export class JobService {
   updateJob(data) {
     return this.http.post(`${this.uri}/jobs/updateJob`, data);
   }
+
+  getJobRequests(idMaster) {
+    return this.http.get(`${this.uri}/jobs/getJobRequests/${idMaster}`);
+  }
+
+  updateAgreement(data) {
+    return this.http.post(`${this.uri}/jobs/updateAgreement`, data);
+  }
+
+  getJobRequestsForUser(idUser) {
+    return this.http.get(`${this.uri}/jobs/getJobRequestsForUser/${idUser}`);
+  }
 }

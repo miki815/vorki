@@ -19,11 +19,22 @@ app.use((0, cors_1.default)());
 app.use(body_parser_1.default.json({ limit: '100mb' }));
 app.use(body_parser_1.default.urlencoded({ limit: '100mb', extended: true }));
 app.post('/subscribe', (req, res) => {
-    console.log('subscribe');
     const subscription = req.body;
-    res.status(201).json({});
+    if (!subscription || !subscription.endpoint || !subscription.keys || !subscription.keys.p256dh || !subscription.keys.auth) {
+        console.error('Invalid subscription object:', subscription);
+        return res.status(400).json({ error: 'Invalid subscription object' });
+    }
+    console.log("Subscription: " + subscription);
     const payload = JSON.stringify({ title: 'Push Test', body: 'Push notification test' });
-    web_push_1.default.sendNotification(subscription, payload).catch(error => console.error(error));
+    web_push_1.default.sendNotification(subscription, payload)
+        .then(() => {
+        console.log('Notification sent successfully');
+        res.status(200).json({ message: '0' });
+    })
+        .catch(error => {
+        console.error('Error sending notification:', error);
+        res.status(500).json({ message: 'Error sending notification', error: error.message });
+    });
 });
 const mysql = require('mysql2');
 const connection = mysql.createConnection({

@@ -98,6 +98,42 @@ class JobController {
                 res.json({ message: "Job updated" });
             });
         };
+        this.getJobRequests = (req, res) => {
+            var sql = 'SELECT agreements.*, job.title, user.username FROM agreements JOIN job ON agreements.idJob = job.id JOIN user ON agreements.idUser = user.id WHERE agreements.idMaster = ?;';
+            console.log("Getting job requests for master " + req.params.idMaster);
+            server_1.connection.query(sql, [req.params.idMaster], (err, requests) => {
+                if (err) {
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    return;
+                }
+                res.json(requests);
+            });
+        };
+        this.updateAgreement = (req, res) => {
+            const { idAgreements, status, startTime } = req.body;
+            console.log("Updating agreement " + idAgreements + " to " + status);
+            var sql = 'UPDATE agreements SET currentStatus = ?, startTime = ? WHERE idAgreements = ?';
+            server_1.connection.query(sql, [status, startTime, idAgreements], (err, info) => {
+                if (err) {
+                    console.log(err);
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    return;
+                }
+                console.log('Agreement ' + idAgreements + ' updated');
+                res.json({ message: "0" });
+            });
+        };
+        this.getJobRequestsForUser = (req, res) => {
+            var sql = 'SELECT agreements.*, job.title, user.username FROM agreements JOIN job ON agreements.idJob = job.id JOIN user ON agreements.idMaster = user.id WHERE agreements.idUser = ?;';
+            console.log("Getting job requests for user " + req.params.idUser);
+            server_1.connection.query(sql, [req.params.idUser], (err, requests) => {
+                if (err) {
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    return;
+                }
+                res.json(requests);
+            });
+        };
     }
 }
 exports.JobController = JobController;

@@ -38,6 +38,7 @@ export class SingleJobLongComponent implements OnInit {
   endTime: Date = new Date();
   additionalInfo: string = "";
   numberOfJobs: number = 0;
+  requestMsg: string = "Rezerviši termin";
   ph: string = "https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80"
 
 
@@ -47,7 +48,7 @@ export class SingleJobLongComponent implements OnInit {
     this.job = history.state.job;
     this.idUser = this.job.idUser;
     this.userService.getUserById({ id: this.idUser }).subscribe((message: any) => {
-      console.log(message['message'])
+      console.log("User: ", message['message'])
       this.photo = message['message'].photo;
       this.username = message['message'].username;
       this.phoneNumber = message['message'].phone;
@@ -56,8 +57,9 @@ export class SingleJobLongComponent implements OnInit {
       this.jobId = params.get('id');
     });
     this.getComments();
-    this.userService.getGalleryById({idUser: this.cookie}).subscribe((message: any) => {
+    this.userService.getGalleryById({idUser: this.job.idUser}).subscribe((message: any) => {
       var imgs =  message['message'];
+      console.log(imgs);
       imgs.forEach(element => {
         this.galleryRef.add(new ImageItem({ src: element.urlPhoto, thumb: element.urlPhoto }))
         this.numberOfPhotos += 1;
@@ -183,6 +185,8 @@ export class SingleJobLongComponent implements OnInit {
     let formattedEndDate = this.formatDateTime(this.endDate, this.endTime);
     const data = { idUser: this.cookie, idJob: this.job.id, idMaster: this.job.idUser, startDate: this.startDate, endDate: formattedEndDate, additionalInfo: this.additionalInfo }
     this.jobService.requestForAgreement(data).subscribe((message: any) => {
+      this.isRequest = false;
+      this.requestMsg = "Zahtev poslat!";
       console.log("Job - userRequestForAgreement: END")
     })
   }
