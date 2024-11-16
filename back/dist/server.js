@@ -10,6 +10,7 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const user_router_1 = __importDefault(require("./routers/user.router"));
 const job_router_1 = __importDefault(require("./routers/job.router"));
 const web_push_1 = __importDefault(require("web-push"));
+require('dotenv').config();
 const publicVapidKey = 'BLrt-N6o0uHdZQa46XzurPIuZq822yuJBOuaVV4C-jVBURwIZsepPODSxZUaH0Bpl9s3HxGHpmxSjEgonCuu6rI';
 const privateVapidKey = 'ahyu0EjJIGTv_i6UHTaIBDb02H2xoLaBy7eMD6LCrBY';
 web_push_1.default.setVapidDetails('mailto:mmilenkovic815@gmail.com', publicVapidKey, privateVapidKey);
@@ -38,10 +39,11 @@ app.post('/subscribe', (req, res) => {
 });
 const mysql = require('mysql2');
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'vorki'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    port: process.env.DB_PORT
 });
 exports.connection = connection;
 connection.connect((err) => {
@@ -53,5 +55,5 @@ connection.connect((err) => {
 });
 app.use('/users', user_router_1.default);
 app.use('/jobs', job_router_1.default);
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/', (req, res) => express_1.default.static("dist/notus-angular"));
 app.listen(4000, () => console.log(`Express server running on port 4000`));
