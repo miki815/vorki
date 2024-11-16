@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -9,7 +9,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class MainNavbarComponent implements OnInit {
   navbarOpen = false;
 
-  constructor( private router: Router,private cookieService: CookieService) { }
+  constructor( private router: Router,private cookieService: CookieService, private route: ActivatedRoute) { }
 
   ngOnInit(): void { }
 
@@ -24,5 +24,9 @@ export class MainNavbarComponent implements OnInit {
   navigateToProfile() {
     // var id = this.cookieService.get('token');
     this.router.navigate(['/profil',  this.cookieService.get('token')]);
+  }
+
+  navigateToJobListing() {
+    this.router.navigate(['/oglasi']);
   }
 }

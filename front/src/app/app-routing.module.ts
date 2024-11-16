@@ -29,6 +29,7 @@ import { SingleJobLongComponent } from "./views/single-job-long/single-job-long.
 import { CategoriesChoiceComponent } from "./views/categories-choice/categories-choice.component";
 import { CalendarComponent } from "./components/calendar/calendar.component";
 import { JobSettingsComponent } from "./views/job-settings/job-settings.component";
+import { JobCardsComponent } from "./views/job-cards/job-cards.component";
 
 const routes: Routes = [
   // admin views
@@ -52,24 +53,26 @@ const routes: Routes = [
       { path: "registracija", component: RegisterComponent },
       { path: "zaboravljena_lozinka", component: ForgottenPasswordComponent },
       { path: 'promena_zaboravljene_lozinke/:reset_token', component: ForgottenPasswordChangeComponent },
-      { path: "", redirectTo: "login", pathMatch: "full" },
+      { path: "", redirectTo: "prijava", pathMatch: "full" },
       //{ path: "dodaj_oglas", component: AdvertisementComponent },
 
     ],
   },
   // no layout views
-  {path: "kalendar", component: CalendarComponent},
+  { path: "kalendar", component: CalendarComponent },
   { path: "profil/:id", component: ProfileComponent },
-  { path: "podesavanje_profila", component: ProfileSettingsComponent, canActivate: [authGuard]},
-  { path: "podesavanje_oglasa/:jobId", component: JobSettingsComponent, canActivate: [authGuard]},
-  { path: "pocetna", component: LandingComponent},
-  { path: "oglasi", component: JobListingComponent, canActivate: [authGuard]},
+  { path: "podesavanje_profila", component: ProfileSettingsComponent, canActivate: [authGuard] },
+  { path: "podesavanje_oglasa/:jobId", component: JobSettingsComponent, canActivate: [authGuard] },
+  { path: "pocetna", component: LandingComponent },
+  { path: "oglasi", component: JobListingComponent, canActivate: [authGuard] },
   // { path: "oglasi/:id", component: JobListingComponent, canActivate: [authGuard]},
   { path: "izbor-kategorije", component: CategoriesChoiceComponent },
   { path: "dodaj_oglas", component: AdvertisementComponent, canActivate: [authGuard] },
   { path: 'oglasi/:id', component: SingleJobLongComponent },
   { path: 'oglasi/:idKorisnik', component: SingleJobLongComponent },
-  { path: "", component: IndexComponent },
+  { path: 'kategorija/:idK', component: JobCardsComponent },
+  // { path: "", component: IndexComponent },
+  { path: "", component: AuthComponent, children: [{ path: "", component: LoginComponent }] },
   { path: "**", redirectTo: "", pathMatch: "full" },
 ];
 

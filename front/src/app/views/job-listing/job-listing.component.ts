@@ -25,41 +25,46 @@ export class JobListingComponent implements OnInit {
   cookie: string = '';
   userType: string = '';
 
-  constructor(private jobService: JobService, private router: Router,  private userService: UserService, private cookieService: CookieService, private route: ActivatedRoute) {
+  constructor(private jobService: JobService, private router: Router, private userService: UserService, private cookieService: CookieService, private route: ActivatedRoute) {
   }
 
 
   ngOnInit(): void {
     console.log("JobListing - ngOnInit: START")
 
-    this.cookie =  this.cookieService.get("token");
+    // let state = this.router.getCurrentNavigation().extras.state;
+    // if (state) {
+    //   console.log(state.category);
+    // }
+    this.selectedProfession = sessionStorage.getItem('category');
+    this.cookie = this.cookieService.get("token");
     this.route.paramMap.subscribe(params => {
       this.idUser = params.get('id');
       this.getCities();
       this.getCraftmen();
       this.getJobs();
-    });  
+    });
 
     console.log("JobListing - ngOnInit: END")
   }
 
-  getCities(){
+  getCities() {
     console.log("JobListing - getCities: START")
 
     fetch('assets/city.json')
-    .then(response => response.json())
-    .then(cities => {
-      this.cities = cities;
-      this.cities.sort((a, b) => a.city.localeCompare(b.city)); 
-    })
-    .catch(error => {
-      console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradiva):', error);
-    });
+      .then(response => response.json())
+      .then(cities => {
+        this.cities = cities;
+        this.cities.sort((a, b) => a.city.localeCompare(b.city));
+      })
+      .catch(error => {
+        console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradiva):', error);
+      });
 
     console.log("JobListing - getCities: END")
   }
 
-  getCraftmen(){
+  getCraftmen() {
     console.log("JobListing - getCraftmen: START")
 
     fetch('assets/craftsmen.json')
@@ -76,29 +81,30 @@ export class JobListingComponent implements OnInit {
     console.log("JobListing - getCraftmen: END")
   }
 
-  getJobs(){
+  getJobs() {
     console.log("JobListing - getJobs: START")
 
     this.jobService.getJobsWithUserInfo2().subscribe((jobs: any) => {
       this.userService.getUserById({ id: this.cookie }).subscribe((me: any) => {
         this.userService.getUserById({ id: this.idUser }).subscribe((user: any) => {
           console.log("Jobs: ", jobs)
-        //   if(this.idUser && me['message'].type == user['message'].type && this.cookie!=this.idUser){
-        //     this.router.navigate(["/oglasi/"])
-        //     return;
-        //   }
-        //   var type = me['message'].type ? 0 : 1;
-        //   jobs = jobs.filter(job => job.type == type);
-        //   if(this.idUser){
-        //     jobs = jobs.filter(job => job.idUser == this.idUser);
-        //   }
+          //   if(this.idUser && me['message'].type == user['message'].type && this.cookie!=this.idUser){
+          //     this.router.navigate(["/oglasi/"])
+          //     return;
+          //   }
+          //   var type = me['message'].type ? 0 : 1;
+          //   jobs = jobs.filter(job => job.type == type);
+          //   if(this.idUser){
+          //     jobs = jobs.filter(job => job.idUser == this.idUser);
+          //   }
           this.jobs = jobs;
           this.allJobs = jobs;
-          this.userType =  me['message'].type;
+          this.userType = me['message'].type;
+          if(this.selectedProfession != null) this.filterJobs();
         })
       })
-      });
-     
+    });
+
     console.log("JobListing - getJobs: END")
   }
 
@@ -128,7 +134,7 @@ export class JobListingComponent implements OnInit {
     this.currentPage = 1;
     if (this.selectedSort === 'rate') this.jobs = this.allJobs.sort((a, b) => b.avgRate - a.avgRate);
     if (this.selectedSort === 'city') this.jobs = this.allJobs.sort((a, b) => a.city.localeCompare(b.city));
-   //if (this.selectedSort === 'name') this.jobs = this.allJobs.sort((a, b) => a.name.localeCompare(b.name));
+    //if (this.selectedSort === 'name') this.jobs = this.allJobs.sort((a, b) => a.name.localeCompare(b.name));
   }
 
 

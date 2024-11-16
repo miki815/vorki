@@ -13,25 +13,19 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     console.log("Subscribe to notifications")
+
     // if ('serviceWorker' in navigator) {
-    //   console.log('Service workers are supported.');
-    // } else {
-    //   console.log('Service workers are not supported.');
+    //   navigator.serviceWorker.register('/ngsw-worker.js')
+    //     .then(reg => {
+    //       console.log('Service Worker registered', reg);
+    //     //  this.subscribeToNotifications();
+    //     })
+    //     .catch(err => console.error('Service Worker registration failed', err));
     // }
-    this.subscribeToNotifications();
 
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/ngsw-worker.js')
-        .then(reg => {
-          console.log('Service Worker registered', reg);
-          this.subscribeToNotifications();
-        })
-        .catch(err => console.error('Service Worker registration failed', err));
-    }
-
-    Notification.requestPermission().then(permission => {
-      console.log(permission);
-    });
+    // Notification.requestPermission().then(permission => {
+    //   console.log(permission);
+    // });
 
   }
 

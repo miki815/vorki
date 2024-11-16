@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "src/app/services/user.service";
 import { CookieService } from 'ngx-cookie-service';
+import { ActivatedRoute, Router } from "@angular/router";
 
 
 @Component({
@@ -19,7 +20,7 @@ export class LandingComponent implements OnInit {
   msg: string = "";
   sentMsg: string = "";
 
-  constructor(private userService: UserService, private cookieService: CookieService) { }
+  constructor(private userService: UserService, private cookieService: CookieService, private router: Router, private route: ActivatedRoute) { }
   login: number = 1;
   ngOnInit(): void {
     this.login = this.cookieService.get('token') ? 1 : 0;

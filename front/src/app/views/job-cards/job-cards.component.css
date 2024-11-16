@@ -1,0 +1,10 @@
+button {
+    background-color: #1e293b;
+    color: #ffe83c;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #ffe83c;
+    color: #1e293b;
+}

@@ -1,12 +1,13 @@
-<div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg overflow-hidden border-2 border-blueGray-600 relative">
+<div
+    class="max-w-lg mx-auto bg-white shadow-lg rounded-lg overflow-hidden border-2 border-blueGray-600 bg-nice relative">
     <div class="px-4 py-2 flex items-center flex-wrap">
         <img [src]="imageSrc" alt="Profile Picture" class="w-16 h-16 rounded-full mr-4">
-        <div class="flex-grow"> 
+        <div class="flex-grow">
             <center>
-                <h2 class="font-semibold text-gray-800">{{ job.title }}</h2>
+                <h1 class="font-semibold text-gray-800">{{ job.title }}</h1>
                 <p class="text-gray-600"><i class="fas fa-map-marker-alt mr-1"></i> {{ job.city }}
                 </p>
-                    <p> <i class="fas fa-briefcase mr-1"></i>{{ job.profession }}</p>
+                <p> <i class="fas fa-briefcase mr-1"></i>{{ job.profession }}</p>
             </center>
         </div>
         <div class="avg-rate">
@@ -14,9 +15,12 @@
         </div>
     </div>
     <div class="px-4 py-2">
-        <center><p class="text-gray-700">{{ shortDescription }}</p></center>
+        <center>
+            <p class="text-gray-700">{{ shortDescription }}</p>
+        </center>
     </div>
-    <button class="block mx-auto align-middle border-2 px-4 py-2 mb-1 bg-nice text-black rounded-lg" (click)="locateToJob()">
+    <button class="block mx-auto align-middle border-2 px-4 py-2 mb-1 bg-nice text-black rounded-lg justify-center"
+        (click)="locateToJob()">
         Prikaži detalje
     </button>
 </div>
@@ -48,7 +52,14 @@
         }
     }
 
+    button {
+        background-color: #1e293b;
+        color: #ffe83c;
+        margin: 5px auto;
+    }
+
     button:hover {
-        background-color: rgb(255, 232, 60);
+        background-color: #ffe83c;
+        color: #1e293b;
     }
 </style>
