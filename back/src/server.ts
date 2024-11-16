@@ -61,5 +61,5 @@ export { connection };
 app.use('/users', userRouter);
 app.use('/jobs', jobRouter);
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/', (req, res) => express.static("dist/notus-angular"));
 app.listen(4000, () => console.log(`Express server running on port 4000`));
