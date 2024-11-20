@@ -7,8 +7,8 @@ import { Injectable } from '@angular/core';
 export class UserService {
 
   constructor(private http: HttpClient) { }
-  uri = 'https://vorki.rs';
-
+  uri = 'http://127.0.0.1:4000'
+  // uri = 'https://vorki.rs';
 
   login(data) {
     return this.http.post(`${this.uri}/users/login`, data);
@@ -74,23 +74,23 @@ export class UserService {
     return this.http.post(`${this.uri}/users/updateUser`, data);
   }
 
-  forgotPasswordRequest(data) {
+  forgotPasswordRequest(data){
     return this.http.post(`${this.uri}/users/forgotPasswordRequest`, data);
   }
 
-  tokenValidation(data) {
+  tokenValidation(data){
     return this.http.post(`${this.uri}/users/tokenValidation`, data);
   }
 
-  changeForgottenPassword(data) {
+  changeForgottenPassword(data){
     return this.http.post(`${this.uri}/users/changeForgottenPassword`, data);
   }
 
-  getTop5masters() {
+  getTop5masters(){
     return this.http.get(`${this.uri}/users/getTop5masters`);
   }
 
-  support(data) {
+  support(data){
     return this.http.post(`${this.uri}/users/support`, data);
   }
 }

@@ -11,8 +11,8 @@ import * as bcrypt from 'bcryptjs';
   styleUrl: '../register/register.component.css'
 
 })
-export class LoginComponent{
-  constructor(private userService: UserService, private router: Router, private http: HttpClient,private cookieService: CookieService) { }
+export class LoginComponent {
+  constructor(private userService: UserService, private router: Router, private http: HttpClient, private cookieService: CookieService) { }
 
   email: string = null;
   password: string = null;
@@ -23,27 +23,27 @@ export class LoginComponent{
     return await bcrypt.hash(plainPassword, salt);
   }
 
- 
 
-  submit(){
+
+  submit() {
     console.log("Login - submit: START")
 
-    if(!this.verifyRequest()) return;
+    if (!this.verifyRequest()) return;
 
     // SEND
-    const data = { email: this.email,password: this.password}
-      this.userService.login(data).subscribe((response: any) => {
-        if (response['error'] == "0") {
-          this.cookieService.set('token', JSON.stringify(response['id']), 30, '/');
-          this.router.navigate(["pocetna"]);
-        } else { this.message = response['message'];}
-      })
-      console.log("Login - submit: END")
+    const data = { email: this.email, password: this.password }
+    this.userService.login(data).subscribe((response: any) => {
+      if (response['error'] == "0") {
+        this.cookieService.set('token', JSON.stringify(response['id']), 30, '/');
+        this.router.navigate(["pocetna"]);
+      } else { this.message = response['message']; }
+    })
+    console.log("Login - submit: END")
   }
 
-  verifyRequest(){
-    if(!this.email || !this.password){ this.message = "Niste uneli sve podatke."; return false; }
+  verifyRequest() {
+    if (!this.email || !this.password) { this.message = "Niste uneli sve podatke."; return false; }
     return true;
   }
-  
+
 }

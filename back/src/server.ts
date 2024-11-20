@@ -21,34 +21,13 @@ const pinoHttp = require('pino-http');
 
 const app = express();
 
-const transport = pino.transport({
-  targets: [{
-    level: 'warn',
-    target: 'pino/file',
-    options: {
-      destination: 'pino.log'
-    }
-    /*
-  }, {
-    level: 'info',
-    target: 'pino-elasticsearch',
-    options: {
-      node: 'http://localhost:9200'
-    }
-    */
-  }, {
-    level: 'info',
-    target: 'pino-pretty'
-  }]
-})
-
-const logger = pino(transport)
-
 app.use(cors());
 app.use(pino);
 //app.use(bodyParser.json());
 app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
+const logger = require('./logger');
+
 
 app.post('/subscribe', (req, res) => {
   const subscription = req.body;
@@ -86,17 +65,17 @@ connection.connect((err) => {
     return;
   }
   console.log('db connection ok');
-  logger.info('hello world')
-  logger.error('this is at error level')
-  logger.info('the answer is %d', 42)
-  logger.info({ obj: 42 }, 'hello world')
-  logger.info({ obj: 42, b: 2 }, 'hello world')
-  logger.info({ nested: { obj: 42 } }, 'nested')
-  logger.warn('WARNING!')
-  setImmediate(() => {
-    logger.info('after setImmediate')
-  })
-  logger.error(new Error('an error'))
+  // logger.info('hello world')
+  // logger.error('this is at error level')
+  // logger.info('the answer is %d', 42)
+  // logger.info({ obj: 42 }, 'hello world')
+  // logger.info({ obj: 42, b: 2 }, 'hello world')
+  // logger.info({ nested: { obj: 42 } }, 'nested')
+  // logger.warn('WARNING!')
+  // setImmediate(() => {
+  //   logger.info('after setImmediate')
+  // })
+  // logger.error(new Error('an error'))
 });
 
 export { connection };

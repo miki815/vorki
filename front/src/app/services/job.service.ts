@@ -7,7 +7,8 @@ import { Injectable } from '@angular/core';
 export class JobService {
 
   constructor(private http: HttpClient) { }
-  uri = 'https://vorki.rs';
+  // uri = 'http://vorki.rs';
+  uri = 'http://localhost:4000';
 
   insertJob(data) {
     return this.http.post(`${this.uri}/jobs/insertJob`, data);

@@ -21,32 +21,12 @@ const pinoHttp = require('pino-http');
 // const { join } = require('node:path')
 // const file = join(tmpdir(), `pino-${process.pid}-example`)
 const app = (0, express_1.default)();
-const transport = pino.transport({
-    targets: [{
-            level: 'warn',
-            target: 'pino/file',
-            options: {
-                destination: 'pino.log'
-            }
-            /*
-          }, {
-            level: 'info',
-            target: 'pino-elasticsearch',
-            options: {
-              node: 'http://localhost:9200'
-            }
-            */
-        }, {
-            level: 'info',
-            target: 'pino-pretty'
-        }]
-});
-const logger = pino(transport);
 app.use((0, cors_1.default)());
 app.use(pino);
 //app.use(bodyParser.json());
 app.use(body_parser_1.default.json({ limit: '100mb' }));
 app.use(body_parser_1.default.urlencoded({ limit: '100mb', extended: true }));
+const logger = require('./logger');
 app.post('/subscribe', (req, res) => {
     const subscription = req.body;
     if (!subscription || !subscription.endpoint || !subscription.keys || !subscription.keys.p256dh || !subscription.keys.auth) {
@@ -80,17 +60,17 @@ connection.connect((err) => {
         return;
     }
     console.log('db connection ok');
-    logger.info('hello world');
-    logger.error('this is at error level');
-    logger.info('the answer is %d', 42);
-    logger.info({ obj: 42 }, 'hello world');
-    logger.info({ obj: 42, b: 2 }, 'hello world');
-    logger.info({ nested: { obj: 42 } }, 'nested');
-    logger.warn('WARNING!');
-    setImmediate(() => {
-        logger.info('after setImmediate');
-    });
-    logger.error(new Error('an error'));
+    // logger.info('hello world')
+    // logger.error('this is at error level')
+    // logger.info('the answer is %d', 42)
+    // logger.info({ obj: 42 }, 'hello world')
+    // logger.info({ obj: 42, b: 2 }, 'hello world')
+    // logger.info({ nested: { obj: 42 } }, 'nested')
+    // logger.warn('WARNING!')
+    // setImmediate(() => {
+    //   logger.info('after setImmediate')
+    // })
+    // logger.error(new Error('an error'))
 });
 app.use('/users', user_router_1.default);
 app.use('/jobs', job_router_1.default);
