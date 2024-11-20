@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
     })
       .then(sub => {
         console.log("Subscription successful", sub);
-        this.http.post('http://localhost:4000/subscribe', sub).subscribe();
+        this.http.post('https://vorki.rs/subscribe', sub).subscribe();
       })
       .catch(err => {
         console.error('Subscription failed:', err);
