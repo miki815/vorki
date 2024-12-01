@@ -137,7 +137,7 @@ export class ProfileComponent implements OnInit {
   // Pages
   calendar() { this.router.navigate(["/kalendar"]); }
   settings() { this.router.navigate(["/podesavanje_profila"]); }
-  jobs1() { this.router.navigate(['/oglasi'], { queryParams: { idKorisnik: this.idUser } }); } // TODO: Razmisliti sta treba ovde
+  jobs1() { this.router.navigate(['/oglasi'], { queryParams: { idU: this.idUser } }); } // TODO: Razmisliti sta treba ovde
   instagram1() { window.location.href = this.instagram; }
   facebook1() { window.location.href = this.facebook; }
 

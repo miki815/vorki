@@ -69,7 +69,7 @@ const routes: Routes = [
   { path: "izbor-kategorije", component: CategoriesChoiceComponent },
   { path: "dodaj_oglas", component: AdvertisementComponent, canActivate: [authGuard] },
   { path: 'oglasi/:id', component: SingleJobLongComponent },
-  { path: 'oglasi/:idKorisnik', component: SingleJobLongComponent },
+  { path: 'oglasi/:idU', component: JobListingComponent, canActivate: [authGuard] },
   { path: 'kategorija/:idK', component: JobCardsComponent },
   // { path: "", component: IndexComponent },
   { path: "", component: AuthComponent, children: [{ path: "", component: LoginComponent }] },

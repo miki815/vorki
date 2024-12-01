@@ -2,11 +2,12 @@
 
 <main class="profile-page full-page">
   <section class="relative block h-500-px">
-    <div class="absolute top-0 w-full h-full bg-center bg-cover image-container" style="background-image: url({{backPhoto}})">
+    <div class="absolute top-0 w-full h-full bg-center bg-cover image-container"
+      style="background-image: url({{backPhoto}})">
       <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
     </div>
   </section>
-  
+
   <section class="relative py-16 bg-blueGray-200">
     <div class="container mx-auto px-4" style="display: flex; flex-direction: row;">
       <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
@@ -14,26 +15,27 @@
           <div class="flex flex-wrap justify-center">
             <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
               <div class="relative im">
-                <img src = "{{photo}}" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"/>
+                <img src="{{photo}}"
+                  class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px" />
               </div>
             </div>
             <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center c">
               <div class="flex justify-center py-4 lg:pt-4 pt-8">
                 <div class="mr-4 p-3 text-center">
                   <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                  {{jobNumber}}
+                    {{jobNumber}}
                   </span>
                   <span class="text-sm text-blueGray-400">Broj poslova</span>
                 </div>
                 <div class="mr-4 p-3 text-center">
                   <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                  {{userRate}}
+                    {{userRate}}
                   </span>
                   <span class="text-sm text-blueGray-400">Ocena</span>
                 </div>
                 <div class="mr-4 p-3 text-center">
                   <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                  {{userRateLen}}
+                    {{userRateLen}}
                   </span>
                   <span class="text-sm text-blueGray-400">Broj ocena </span>
                 </div>
@@ -64,38 +66,43 @@
                   Potvrdi
                 </button>
               </div> -->
-              <div class="py-3 px-3 mt-0 sm:mt-16" style="display: flex; flex-direction: column; align-items: center;" *ngIf="cookie==idUser">            
+              <div class="py-3 px-3 mt-0 sm:mt-16" style="display: flex; flex-direction: column; align-items: center;"
+                *ngIf="cookie==idUser">
                 <div style="display: flex; flex-direction: row;">
-                  <button class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                  type="button" (click) = "calendar()"> Kalendar
+                  <button
+                    class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                    type="button" (click)="calendar()"> Kalendar
                   </button>
-                  <button class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                  type="button"(click) = "settings()">
-                  Podešavanja
+                  <button
+                    class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                    type="button" (click)="settings()">
+                    Podešavanja
                   </button>
-                  <button  class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                  type="button"
-                  (click) = "jobs1()" >
+                  <button
+                    class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                    type="button" (click)="jobs1()">
                     <div *ngIf="idUser==cookie"> Moji oglasi</div>
                     <div *ngIf="idUser!=cookie"> Svi oglasi</div>
                   </button>
                 </div>
               </div>
-            <div class="py-3 px-3 mt-0 sm:mt-16" style="display: flex; flex-direction: column; align-items: center;" *ngIf="cookie!=idUser">            
-              <div style="display: flex; flex-direction: row;">
-                <button  class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                type="button"(click) = "oglasi()">
-                Svi oglasi
-                </button>
+              <div class="py-3 px-3 mt-0 sm:mt-16" style="display: flex; flex-direction: column; align-items: center;"
+                *ngIf="cookie!=idUser">
+                <div style="display: flex; flex-direction: row;">
+                  <button
+                    class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                    type="button" (click)="oglasi()">
+                    Svi oglasi
+                  </button>
+                </div>
               </div>
-          </div>
             </div>
             <div class="w-full lg:w-4/12 px-4 lg:order-1">
               <div class="text-center mt-12">
                 <h3 class="text-3xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2 sm:text-xl">
-                 {{firstname}}&nbsp;{{lastname}}
+                  {{firstname}}&nbsp;{{lastname}}
                 </h3>
-                <div  class="text-md leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
+                <div class="text-md leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                   <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
                   {{location}}
                 </div>
@@ -108,18 +115,19 @@
                   {{phone}}
                 </div>
                 <div class="mb-2 text-blueGray-600">
-                  <button class="bg-lightBlue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                  type="button" *ngIf="facebook" (click) = "facebook1()">
-                  <i class="fab fa-facebook-f"></i>
+                  <button
+                    class="bg-lightBlue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                    type="button" *ngIf="facebook" (click)="facebook1()">
+                    <i class="fab fa-facebook-f"></i>
                   </button>
                   <button class="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                  type="button" *ngIf="instagram" (click) = "instagram1()">
-                  <i class="fab fa-instagram"></i>
-                 </button>
+                    type="button" *ngIf="instagram" (click)="instagram1()">
+                    <i class="fab fa-instagram"></i>
+                  </button>
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
         <!-- <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
@@ -212,114 +220,102 @@
     </div>
   </section>
 
-<!-- MAJSTOR -->
+  <!-- MAJSTOR -->
   <div class="flex justify-center" *ngIf="type == '0'">
-    <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden justify-center">
-      <thead class="bg-gray-800">
-        <tr>
-          <th class="py-3 px-6 text-left">Korisnik</th>
-          <th class="py-3 px-6 text-left">Datum</th>
-          <th class="py-3 px-6 text-left">Posao</th>
-          <th class="py-3 px-6 text-left">Dodatne Informacije</th>
-          <th class="py-3 px-6 text-left">Vreme Dolaska</th>
-          <th class="py-3 px-6 text-center">Prihvati</th>
-          <th class="py-3 px-6 text-center">Odbij</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr 
-          *ngFor="let request of jobRequests" 
-          class="border-b border-gray-200 hover:bg-gray-100"
-        >
-          <td class="py-3 px-6 text-left">{{ request.username }}</td>
-          <td class="py-3 px-6 text-left">{{ request.startTime }}</td>
-          <td class="py-3 px-6 text-left">{{ request.title }}</td>
-          <td class="py-3 px-6 text-left">{{ request.additionalInfo }}</td>
-          <td class="py-3 px-6 text-left" *ngIf="request.currentStatus=='pending'">
-            <input
-              type="time"
-              [(ngModel)]="request.endTime"
-              lang="en-GB"
-              class="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </td>
-          <td class="py-3 px-6 text-left" *ngIf="request.currentStatus=='accepted'">{{ request.startTime }}</td>
+    <div class="overflow-x-auto w-full">
+      <table class="w-full bg-white shadow-md rounded-lg overflow-hidden justify-center">
+        <thead class="bg-gray-800">
+          <tr>
+            <th class="py-3 px-6 text-left">Korisnik</th>
+            <th class="py-3 px-6 text-left">Datum</th>
+            <th class="py-3 px-6 text-left">Posao</th>
+            <th class="py-3 px-6 text-left">Dodatne Informacije</th>
+            <th class="py-3 px-6 text-left">Vreme Dolaska</th>
+            <th class="py-3 px-6 text-center">Prihvati</th>
+            <th class="py-3 px-6 text-center">Odbij</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let request of jobRequests" class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-6 text-left">{{ request.username }}</td>
+            <td class="py-3 px-6 text-left">{{ request.startTime }}</td>
+            <td class="py-3 px-6 text-left">{{ request.title }}</td>
+            <td class="py-3 px-6 text-left">{{ request.additionalInfo }}</td>
+            <td class="py-3 px-6 text-left" *ngIf="request.currentStatus=='pending'">
+              <input type="time" [(ngModel)]="request.endTime" lang="en-GB"
+                class="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </td>
+            <td class="py-3 px-6 text-left" *ngIf="request.currentStatus=='accepted'">{{ request.startTime }}</td>
 
-          <td class="py-3 px-6 text-center" *ngIf="request.currentStatus=='pending'">
-            <button 
-              class="bg-green-500 text-white px-3 py-1 rounded-md text-sm" 
-              id="acceptBtn"
-              (click)="acceptRequest(request)"
-            >
-              Prihvati
-            </button>
-          </td>
-          <td class="py-3 px-6 text-center" *ngIf="request.currentStatus=='accepted'">Posao prihvaćen</td>
-          <td class="py-3 px-6 text-center" *ngIf="request.currentStatus=='pending'">
-            <button 
-              class="bg-red-500 text-white px-3 py-1 rounded-md text-sm" 
-              id="declineBtn"
-              (click)="declineRequest(request)"
-            >
-              Odbij
-            </button>
-          </td>
-          <td class="py-3 px-6 text-center" *ngIf="request.currentStatus=='accepted'">
-            <button 
-              class="bg-red-500 text-white px-3 py-1 rounded-md text-sm" 
-              id="declineBtn"
-              (click)="cancelRequest(request)"
-            >
-              Otkaži
-            </button>
-          </td>        </tr>
-      </tbody>
-    </table>
+            <td class="py-3 px-6 text-center" *ngIf="request.currentStatus=='pending'">
+              <button class="bg-green-500 text-white px-3 py-1 rounded-md text-sm" id="acceptBtn"
+                (click)="acceptRequest(request)">
+                Prihvati
+              </button>
+            </td>
+            <td class="py-3 px-6 text-center" *ngIf="request.currentStatus=='accepted'">Posao prihvaćen</td>
+            <td class="py-3 px-6 text-center" *ngIf="request.currentStatus=='pending'">
+              <button class="bg-red-500 text-white px-3 py-1 rounded-md text-sm" id="declineBtn"
+                (click)="declineRequest(request)">
+                Odbij
+              </button>
+            </td>
+            <td class="py-3 px-6 text-center" *ngIf="request.currentStatus=='accepted'">
+              <button class="bg-red-500 text-white px-3 py-1 rounded-md text-sm" id="declineBtn"
+                (click)="cancelRequest(request)">
+                Otkaži
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-  
+
+
 
   <!-- KORISNIK -->
-  <div class="flex justify-center" *ngIf="type=='1'">
-    <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden justify-center">
-      <thead class="bg-gray-800">
-        <tr>
-          <th class="py-3 px-6 text-left">Majstor</th>
-          <th class="py-3 px-6 text-left">Datum</th>
-          <th class="py-3 px-6 text-left">Posao</th>
-          <th class="py-3 px-6 text-left">Dodatne Informacije</th>
-          <th class="py-3 px-6 text-left">Vreme Dolaska</th>
-          <th class="py-3 px-6 text-center">Status</th>
-          <th class="py-3 px-6 text-center">Otkaži</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr 
-          *ngFor="let request of jobRequests" 
-          class="border-b border-gray-200 hover:bg-gray-100"
-        >
-          <td class="py-3 px-6 text-left">{{ request.username }}</td>
-          <td class="py-3 px-6 text-left">{{ request.startTime }}</td>
-          <td class="py-3 px-6 text-left">{{ request.title }}</td>
-          <td class="py-3 px-6 text-left">{{ request.additionalInfo }}</td>
-          <td class="py-3 px-6 text-left" *ngIf="request.currentStatus!='accepted'">-</td>
-          <td class="py-3 px-6 text-left" *ngIf="request.currentStatus=='accepted'">{{ request.startTime }}</td>
-          <td class="py-3 px-6 text-center bg-green-500 text-white" *ngIf="request.currentStatus=='accepted'">Posao prihvaćen</td>
-          <td class="py-3 px-6 text-center bg-red-500 text-white" *ngIf="request.currentStatus=='declined'">Posao odbijen</td>
-          <td class="py-3 px-6 text-center bg-yellow-500 text-white" *ngIf="request.currentStatus=='pending'">Čeka se odgovor majstora</td>
-
-          <td class="py-3 px-6 text-center">
-            <button 
-              class="bg-red-500 text-white px-3 py-1 rounded-md text-sm" 
-              id="declineBtn"
-              (click)="cancelRequest(request)"
-            >
-              Otkaži
-            </button>
-          </td>  
+  <div class="flex justify-center" *ngIf="type=='1'" style="width: 100%;">
+    <div class="overflow-x-auto w-full">
+      <table class="w-full bg-white shadow-md rounded-lg overflow-hidden justify-center">
+        <thead class="bg-gray-800">
+          <tr>
+            <th class="py-3 px-6 text-left">Majstor</th>
+            <th class="py-3 px-6 text-left">Datum</th>
+            <th class="py-3 px-6 text-left">Posao</th>
+            <th class="py-3 px-6 text-left">Dodatne Informacije</th>
+            <th class="py-3 px-6 text-left">Vreme Dolaska</th>
+            <th class="py-3 px-6 text-center">Status</th>
+            <th class="py-3 px-6 text-center">Otkaži</th>
           </tr>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <tr *ngFor="let request of jobRequests" class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-6 text-left">{{ request.username }}</td>
+            <td class="py-3 px-6 text-left">{{ request.startTime }}</td>
+            <td class="py-3 px-6 text-left">{{ request.title }}</td>
+            <td class="py-3 px-6 text-left">{{ request.additionalInfo }}</td>
+            <td class="py-3 px-6 text-left" *ngIf="request.currentStatus!='accepted'">-</td>
+            <td class="py-3 px-6 text-left" *ngIf="request.currentStatus=='accepted'">{{ request.startTime }}</td>
+            <td class="py-3 px-6 text-center bg-green-500 text-white" *ngIf="request.currentStatus=='accepted'">Posao
+              prihvaćen</td>
+            <td class="py-3 px-6 text-center bg-red-500 text-white" *ngIf="request.currentStatus=='declined'">Posao
+              odbijen</td>
+            <td class="py-3 px-6 text-center bg-yellow-500 text-white" *ngIf="request.currentStatus=='pending'">Čeka se
+              odgovor majstora</td>
+
+            <td class="py-3 px-6 text-center">
+              <button class="bg-red-500 text-white px-3 py-1 rounded-md text-sm" id="declineBtn"
+                (click)="cancelRequest(request)">
+                Otkaži
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+
 
 </main>
 

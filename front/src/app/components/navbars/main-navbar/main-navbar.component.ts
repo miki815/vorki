@@ -9,21 +9,21 @@ import { CookieService } from 'ngx-cookie-service';
 export class MainNavbarComponent implements OnInit {
   navbarOpen = false;
 
-  constructor( private router: Router,private cookieService: CookieService, private route: ActivatedRoute) { }
+  constructor(private router: Router, private cookieService: CookieService, private route: ActivatedRoute) { }
 
   ngOnInit(): void { }
 
-  setNavbarOpen() {
-    this.navbarOpen = !this.navbarOpen;
+  toggleMenu() {
+    document.querySelector('.navbar').classList.toggle('active');
   }
-  logout(){
+
+  logout() {
     this.cookieService.delete('token', '/');
-    // window.location.reload(); 
     this.router.navigate(['/autentikacija/prijava']);
   }
+
   navigateToProfile() {
-    // var id = this.cookieService.get('token');
-    this.router.navigate(['/profil',  this.cookieService.get('token')]);
+    this.router.navigate(['/profil', this.cookieService.get('token')]);
   }
 
   navigateToJobListing() {

@@ -1,7 +1,8 @@
 <app-auth-navbar *ngIf="login==0"></app-auth-navbar>
-<app-main-navbar *ngIf="login==1"></app-main-navbar>
 
 <main>
+  <app-main-navbar *ngIf="login==1"></app-main-navbar>
+
   <!-- INTRO TEXT -->
   <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
     <div class="absolute top-0 w-full h-full bg-center bg-cover" id="introImgDiv">
@@ -126,7 +127,6 @@
     <div class="top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20">
       <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
         version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-        <polygon class="text-red-500 fill-current" points="2560 0 2560 100 0 100"></polygon>
       </svg>
     </div>
 
@@ -311,7 +311,6 @@
     <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20">
       <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
         version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-        <polygon class="text-red-500 fill-current" points="2560 0 2560 100 0 100"></polygon>
       </svg>
     </div>
 
@@ -324,11 +323,10 @@
           </p>
         </div>
       </div>
-       <div class="flex flex-wrap mt-12 justify-center">
+      <div class="flex flex-wrap mt-12 justify-center">
         <div class="w-full lg:w-3/12 px-4 text-center">
           <div
-            class="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center"
-          >
+            class="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
             <i class="fas fa-medal text-xl"></i>
           </div>
           <h6 class="text-xl mt-5 font-semibold text-white">
@@ -340,8 +338,7 @@
         </div>
         <div class="w-full lg:w-3/12 px-4 text-center">
           <div
-            class="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center"
-          >
+            class="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
             <i class="fas fa-handshake text-xl"></i>
           </div>
           <h5 class="text-xl mt-5 font-semibold text-white">
@@ -353,8 +350,7 @@
         </div>
         <div class="w-full lg:w-3/12 px-4 text-center">
           <div
-            class="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center"
-          >
+            class="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
             <i class="fas fa-lightbulb text-xl"></i>
           </div>
           <h5 class="text-xl mt-5 font-semibold text-white">Ideje</h5>
@@ -362,11 +358,11 @@
             Uvek smo spremni da čujemo vaše ideje i predloge kako bismo unapredili našu platformu.
           </p>
         </div>
-      </div> 
+      </div>
     </div>
   </section>
-  <section class="relative block py-24 lg:pt-0 bg-blueGray-800">
-    <div class="container mx-auto px-4">
+  <section class="relative block py-24 lg:pt-0 bg-blueGray-800 mt-20">
+    <div class="container mx-auto px-4 bg-blueGray-800">
       <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48">
         <div class="w-full lg:w-6/12 px-4">
           <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200">

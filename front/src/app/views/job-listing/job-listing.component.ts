@@ -24,6 +24,7 @@ export class JobListingComponent implements OnInit {
   idUser: string = '';
   cookie: string = '';
   userType: string = '';
+  idU: string = '';
 
   constructor(private jobService: JobService, private router: Router, private userService: UserService, private cookieService: CookieService, private route: ActivatedRoute) {
   }
@@ -31,15 +32,10 @@ export class JobListingComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("JobListing - ngOnInit: START")
-
-    // let state = this.router.getCurrentNavigation().extras.state;
-    // if (state) {
-    //   console.log(state.category);
-    // }
-    this.selectedProfession = sessionStorage.getItem('category');
     this.cookie = this.cookieService.get("token");
-    this.route.paramMap.subscribe(params => {
-      this.idUser = params.get('id');
+    // this.selectedProfession = sessionStorage.getItem('category');
+    this.route.queryParamMap.subscribe(params => {
+      this.idUser = params.get('idU');
       this.getCities();
       this.getCraftmen();
       this.getJobs();
@@ -83,28 +79,16 @@ export class JobListingComponent implements OnInit {
 
   getJobs() {
     console.log("JobListing - getJobs: START")
-
     this.jobService.getJobsWithUserInfo2().subscribe((jobs: any) => {
-      this.userService.getUserById({ id: this.cookie }).subscribe((me: any) => {
-        this.userService.getUserById({ id: this.idUser }).subscribe((user: any) => {
-          console.log("Jobs: ", jobs)
-          //   if(this.idUser && me['message'].type == user['message'].type && this.cookie!=this.idUser){
-          //     this.router.navigate(["/oglasi/"])
-          //     return;
-          //   }
-          //   var type = me['message'].type ? 0 : 1;
-          //   jobs = jobs.filter(job => job.type == type);
-          //   if(this.idUser){
-          //     jobs = jobs.filter(job => job.idUser == this.idUser);
-          //   }
-          this.jobs = jobs;
-          this.allJobs = jobs;
-          this.userType = me['message'].type;
-          if(this.selectedProfession != null) this.filterJobs();
-        })
+      this.userService.getUserById({ id: this.cookie }).subscribe((user: any) => {
+        this.allJobs = this.jobs = jobs // TODO: Pogledaj
+        // if (this.idUser === this.cookie) {
+        //   this.jobs = this.allJobs.filter(job => job.idUser === this.idUser);
+        // } else {
+        //   this.allJobs = this.jobs = jobs.filter(job => job.type !== user['message'].type);
+        // }
       })
     });
-
     console.log("JobListing - getJobs: END")
   }
 

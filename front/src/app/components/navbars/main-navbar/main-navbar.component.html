@@ -1,90 +1,102 @@
-<nav
-  class="fixed w-full flex items-center justify-between px-2 py-3 navbar-expand-lg bg-blueGray-800 shadow-lg"
-  style="height: 70px; font-size: 20px;"
->
-  <button
-    class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none hover:text-yellow-500"
-    type="button"
-    (click)="setNavbarOpen()"
-  >
-    <i class="text-white fas fa-bars"></i>
-  </button>
-  <div class="container" style="width: 100%; display: flex;">
-    <div
-      class="lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none"
-      [ngClass]="{ 'hidden': !navbarOpen, 'block': navbarOpen }"
-      id="example-navbar-warning"
-    >
-      <ul class="flex flex-col lg:flex-row list-none mr-auto">
-        <li class="flex items-center">
-          <a
-            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300"
-            [routerLink]="['/pocetna']"
-            style="font-size: 20px;"
-          >
-            Početna strana
-          </a>
-        </li>
-        <li class="flex items-center">
-          <a
-            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300"
-            [routerLink]="['/dodaj_oglas']"
-            style="font-size: 20px;"
-          >
-            Dodaj oglas
-          </a>
-        </li>
-        <li class="flex items-center">
-          <a
-            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300"
-            (click)="navigateToJobListing()"
-            [routerLink]="['/oglasi']"
-            style="font-size: 20px;"
-          >
-            Svi oglasi
-          </a>
-        </li>
-        <li class="flex items-center">
-          <a
-            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300"
-            (click)="navigateToProfile()"
-            [routerLink]="['/profil']"
-            style="font-size: 20px;"
-          >
-            Profil
-          </a>
-        </li>
-        <li class="flex items-center">
-          <a
-            class="lg:text-white text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300"
-            [routerLink]="['/pocetna']"
-            (click)="logout()"
-            style="font-size: 20px;"
-          >
-            Odjava
-          </a>
-        </li>
-      </ul>
-    </div>
+<style>
+  .burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .burger {
+      display: flex;
+    }
+
+    .navbar.active .nav-links {
+      display: flex;
+    }
+  }
+</style>
+
+<nav class="navbar">
+  <div class="burger" (click)="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <div class="nav-links">
+    <a [routerLink]="['/pocetna']"
+      class="lg:text-white text-blueGray-100 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300">
+      Početna strana
+    </a>
+    <a [routerLink]="['/dodaj_oglas']"
+      class="lg:text-white text-blueGray-100 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300">
+      Dodaj oglas
+    </a>
+    <a [routerLink]="['/oglasi']" (click)="navigateToJobListing()"
+      class="lg:text-white text-blueGray-100 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300">
+      Svi oglasi
+    </a>
+    <a [routerLink]="['/profil']" (click)="navigateToProfile()"
+      class="lg:text-white text-blueGray-100 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300">
+      Profil
+    </a>
+    <a [routerLink]="['/pocetna']" (click)="logout()"
+      class="lg:text-white text-blueGray-100 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300">
+      Odjava
+    </a>
+
   </div>
 </nav>
+
+
 
 <style>
   a:hover {
     color: rgb(255, 232, 60);
   }
+
   nav {
-    background-color: #2d3748; /* boja navigacije */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* senka ispod navigacije */
+    background-color: #2d3748;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
+
   button:hover i {
-    transform: scale(1.1); /* efekat na dugme za mobilni meni */
+    transform: scale(1.1);
     transition: transform 0.2s ease-in-out;
   }
+
   :host {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
   }
-</style> 
+</style>
