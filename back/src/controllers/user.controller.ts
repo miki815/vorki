@@ -17,9 +17,9 @@ export class UserController {
     }
 
     login = (req: express.Request, res: express.Response) => {
+        console.log("Login");
         const { email, password } = req.body;
         var sql = 'SELECT * FROM user WHERE email = ?';
-        console.log("Login: " + email + " " + password);
 
         connection.query(sql, [email, password], async (err, user) => {
             if (err) {

@@ -65,7 +65,7 @@ connection.connect((err) => {
     return;
   }
   console.log('db connection ok');
-  // logger.info('hello world')
+  logger.info('hello world')
   // logger.error('this is at error level')
   // logger.info('the answer is %d', 42)
   // logger.info({ obj: 42 }, 'hello world')
@@ -84,4 +84,5 @@ app.use('/users', userRouter);
 app.use('/jobs', jobRouter);
 
 app.use('/', express.static("dist/notus-angular"));
+
 app.listen(4000, () => console.log(`Express server running on port 4000`));

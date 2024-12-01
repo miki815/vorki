@@ -22,9 +22,9 @@ const moment = require('moment');
 class UserController {
     constructor() {
         this.login = (req, res) => {
+            console.log("Login");
             const { email, password } = req.body;
             var sql = 'SELECT * FROM user WHERE email = ?';
-            console.log("Login: " + email + " " + password);
             server_1.connection.query(sql, [email, password], (err, user) => __awaiter(this, void 0, void 0, function* () {
                 if (err) {
                     res.json({ error: 1, message: "Fatal error: " + err });
