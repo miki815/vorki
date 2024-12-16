@@ -11,19 +11,9 @@ const privateVapidKey = 'ahyu0EjJIGTv_i6UHTaIBDb02H2xoLaBy7eMD6LCrBY';
 
 webPush.setVapidDetails('mailto:mmilenkovic815@gmail.com', publicVapidKey, privateVapidKey);
 
-// const pino = require('pino-http')()
-const pino = require('pino');
-const pinoHttp = require('pino-http');
-// const { tmpdir } = require('node:os')
-// const { join } = require('node:path')
-
-// const file = join(tmpdir(), `pino-${process.pid}-example`)
-
 const app = express();
 
 app.use(cors());
-app.use(pino);
-//app.use(bodyParser.json());
 app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
 const logger = require('./logger');
@@ -51,38 +41,33 @@ app.post('/subscribe', (req, res) => {
 
 const mysql = require('mysql2');
 
-const connection = mysql.createConnection({
+const pool = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-  port: process.env.DB_PORT
+  port: process.env.DB_PORT,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
 });
 
-connection.connect((err) => {
+pool.getConnection((err, connection) => {
   if (err) {
     console.error('db connection fail: ', err);
     return;
   }
   console.log('db connection ok');
-  logger.info('hello world')
-  // logger.error('this is at error level')
-  // logger.info('the answer is %d', 42)
-  // logger.info({ obj: 42 }, 'hello world')
-  // logger.info({ obj: 42, b: 2 }, 'hello world')
-  // logger.info({ nested: { obj: 42 } }, 'nested')
-  // logger.warn('WARNING!')
-  // setImmediate(() => {
-  //   logger.info('after setImmediate')
-  // })
-  // logger.error(new Error('an error'))
+  logger.info('db connection ok')
+  connection.release();
 });
 
-export { connection };
+export { pool };
 
+logger.info('hello world')
 app.use('/users', userRouter);
 app.use('/jobs', jobRouter);
 
 app.use('/', express.static("dist/notus-angular"));
 
-app.listen(4000, () => console.log(`Express server running on port 4000`));
+app.listen(4000, () => logger.info(`Express server running on port 4000`));
