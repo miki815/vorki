@@ -14,28 +14,30 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     console.log("Subscribe to notifications")
 
-    // if ('serviceWorker' in navigator) {
-    //   navigator.serviceWorker.register('/ngsw-worker.js')
-    //     .then(reg => {
-    //       console.log('Service Worker registered', reg);
-    //     //  this.subscribeToNotifications();
-    //     })
-    //     .catch(err => console.error('Service Worker registration failed', err));
-    // }
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/ngsw-worker.js')
+        .then(reg => {
+          console.log('Service Worker registered', reg);
+        this.subscribeToNotifications();
+        })
+        .catch(err => console.error('Service Worker registration failed', err));
+    }
+    else console.error('Service Worker not supported');
 
-    // Notification.requestPermission().then(permission => {
-    //   console.log(permission);
-    // });
+    Notification.requestPermission().then(permission => {
+      console.log(permission);
+    });
 
   }
 
   subscribeToNotifications() {
+    console.log("subscribeToNotifications called");
     this.swPush.requestSubscription({
       serverPublicKey: this.VAPID_PUBLIC_KEY
     })
       .then(sub => {
         console.log("Subscription successful", sub);
-        this.http.post('https://vorki.rs/subscribe', sub).subscribe();
+        this.http.post('http://localhost:4000/subscribe', sub).subscribe();
       })
       .catch(err => {
         console.error('Subscription failed:', err);

@@ -20,6 +20,7 @@ app.use(body_parser_1.default.json({ limit: '100mb' }));
 app.use(body_parser_1.default.urlencoded({ limit: '100mb', extended: true }));
 const logger = require('./logger');
 app.post('/subscribe', (req, res) => {
+    console.log("Subscribe called");
     const subscription = req.body;
     if (!subscription || !subscription.endpoint || !subscription.keys || !subscription.keys.p256dh || !subscription.keys.auth) {
         console.error('Invalid subscription object:', subscription);
