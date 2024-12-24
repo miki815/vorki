@@ -1,0 +1,122 @@
+<main>
+    <!-- NAVBAR -->
+    <app-main-navbar></app-main-navbar>
+
+    <!-- CONTACT SECTION -->
+    <section class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75 bg-blueGray-400">
+        <div class="absolute top-0 w-full h-full bg-center bg-cover" id="contactBackground">
+            <span class="w-full h-full absolute opacity-75 bg-black"></span>
+        </div>
+        <div class="container relative mx-auto">
+            <div class="items-center flex flex-wrap">
+                <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+                    <div class="pr-12">
+                        <h1 class="text-white font-semibold text-5xl">Kontaktirajte nas</h1>
+                        <p class="mt-4 text-lg text-blueGray-200 text-justify">
+                            Ako imate bilo kakvih pitanja, sugestija ili vam je potrebna pomoć, slobodno nas
+                            kontaktirajte. Naš tim je tu da vam pomogne u najkraćem mogućem roku.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="pb-10 bg-blueGray-200 mt-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center">
+                <div class="w-full lg:w-8/12 px-4">
+                    <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                        <div class="px-4 py-5 flex-auto">
+                            <h2 class="text-2xl font-semibold text-center mb-6">Pošaljite nam poruku</h2>
+                            <form>
+                                <div class="flex flex-wrap -mx-3 mb-6">
+                                    <div class="w-full lg:w-6/12 px-3 mb-6 lg:mb-0">
+                                        <label
+                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                            for="name">
+                                            Ime i Prezime
+                                        </label>
+                                        <input
+                                            class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                                            id="name" type="text" placeholder="Vaše ime">
+                                    </div>
+                                    <div class="w-full lg:w-6/12 px-3">
+                                        <label
+                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                            for="email">
+                                            Email
+                                        </label>
+                                        <input
+                                            class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                                            id="email" type="email" placeholder="Vaš email">
+                                    </div>
+                                </div>
+                                <div class="mb-6">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                        for="message">
+                                        Poruka
+                                    </label>
+                                    <textarea
+                                        class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white h-48 resize-none"
+                                        id="message" placeholder="Vaša poruka"></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <button
+                                        class="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150"
+                                        type="button" (click)="subscribe()">
+                                        Pošalji poruku
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT INFO -->
+    <section class="relative py-5">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap items-center">
+                <div class="w-full md:w-6/12 ml-auto mr-auto px-4">
+                    <h3 class="text-3xl font-semibold mb-6">Naši kontakt podaci</h3>
+                    <ul class="list-none">
+                        <li class="py-2">
+                            <div class="flex items-center">
+                                <span
+                                    class="text-white text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full bg-blueGray-700 mr-3">
+                                    <i class="fas fa-phone-alt"></i>
+                                </span>
+                                <span class="text-black font-bold">Dane</span>
+                                <span class="text-blueGray-800"> &nbsp; +381658020404</span>
+                            </div>
+                        </li>
+                        <li class="py-2">
+                            <div class="flex items-center">
+                                <span
+                                    class="text-white text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full bg-blueGray-700 mr-3">
+                                    <i class="fas fa-phone-alt"></i>
+                                </span>
+                                <span class="text-black font-bold">Mihailo</span>
+                                <span class="text-blueGray-800"> &nbsp; +381600411177</span>
+                            </div>
+                        </li>
+                        <li class="py-2">
+                            <div class="flex items-center">
+                                <span
+                                    class="text-white text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full bg-blueGray-700 mr-3">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <span class="text-blueGray-800">kontakt&#64;vorki.rs</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<app-footer></app-footer>

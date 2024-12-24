@@ -33,7 +33,7 @@ export class JobListingComponent implements OnInit {
   ngOnInit(): void {
     console.log("JobListing - ngOnInit: START")
     this.cookie = this.cookieService.get("token");
-    // this.selectedProfession = sessionStorage.getItem('category');
+    this.selectedProfession = sessionStorage.getItem('category');
     this.route.queryParamMap.subscribe(params => {
       this.idUser = params.get('idU');
       this.getCities();
@@ -82,6 +82,7 @@ export class JobListingComponent implements OnInit {
     this.jobService.getJobsWithUserInfo2().subscribe((jobs: any) => {
       this.userService.getUserById({ id: this.cookie }).subscribe((user: any) => {
         this.allJobs = this.jobs = jobs // TODO: Pogledaj
+        this.filterJobs();
         // if (this.idUser === this.cookie) {
         //   this.jobs = this.allJobs.filter(job => job.idUser === this.idUser);
         // } else {

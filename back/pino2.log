@@ -45,3 +45,31 @@
 {"level":30,"time":1734449528316,"pid":6416,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
 {"level":30,"time":1734449528321,"pid":6416,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
 {"level":30,"time":1734449528340,"pid":6416,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1734661027482,"pid":16128,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1734661027486,"pid":16128,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1734661027588,"pid":16128,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1734804069908,"pid":14644,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1734804069912,"pid":14644,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1734804069943,"pid":14644,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1734804208424,"pid":12044,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1734804208432,"pid":12044,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1734804373867,"pid":25196,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1734804373871,"pid":25196,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1734804746543,"pid":23504,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1734804746548,"pid":23504,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1734804746578,"pid":23504,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1734805895723,"pid":9480,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1734805895728,"pid":9480,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1734805895752,"pid":9480,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1734806993337,"pid":16560,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1734806993341,"pid":16560,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1734806993366,"pid":16560,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1734807234525,"pid":16212,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1734807234529,"pid":16212,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1734807234559,"pid":16212,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1734807496854,"pid":22680,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1734807496858,"pid":22680,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1734807496879,"pid":22680,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1734906968377,"pid":22984,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1734906968382,"pid":22984,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1734906968475,"pid":22984,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}

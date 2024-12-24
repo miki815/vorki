@@ -27,7 +27,7 @@ export class MainNavbarComponent implements OnInit {
   }
 
   navigateToJobListing() {
-    this.router.navigate(['/oglasi']);
+    this.router.navigate(['/izbor-kategorije']);
   }
 
   navigateToAddJob() {

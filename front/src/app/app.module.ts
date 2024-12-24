@@ -69,6 +69,7 @@ import { CalendarComponent } from "./components/calendar/calendar.component";
 import { RecurrenceEditorModule, ScheduleModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from "@syncfusion/ej2-angular-schedule";
 import { JobSettingsComponent } from "./views/job-settings/job-settings.component";
 import { JobCardsComponent } from "./views/job-cards/job-cards.component";
+import { ContactComponent } from "./views/contact/contact.component";
 
 
 
@@ -120,7 +121,8 @@ import { JobCardsComponent } from "./views/job-cards/job-cards.component";
     ForgottenPasswordChangeComponent,
     CalendarComponent,
     JobSettingsComponent,
-    JobCardsComponent
+    JobCardsComponent,
+    ContactComponent
   ],
   imports: [
     FormsModule,

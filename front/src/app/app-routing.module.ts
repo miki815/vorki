@@ -30,6 +30,7 @@ import { CategoriesChoiceComponent } from "./views/categories-choice/categories-
 import { CalendarComponent } from "./components/calendar/calendar.component";
 import { JobSettingsComponent } from "./views/job-settings/job-settings.component";
 import { JobCardsComponent } from "./views/job-cards/job-cards.component";
+import { ContactComponent } from "./views/contact/contact.component";
 
 const routes: Routes = [
   // admin views
@@ -60,6 +61,7 @@ const routes: Routes = [
   },
   // no layout views
   { path: "kalendar", component: CalendarComponent },
+  { path: 'kontakt', component: ContactComponent },
   { path: "profil/:id", component: ProfileComponent },
   { path: "podesavanje_profila", component: ProfileSettingsComponent, canActivate: [authGuard] },
   { path: "podesavanje_oglasa/:jobId", component: JobSettingsComponent, canActivate: [authGuard] },

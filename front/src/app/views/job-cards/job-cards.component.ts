@@ -29,8 +29,8 @@ export class JobCardsComponent {
       .then(response => response.json())
       .then(professions => {
         if (idK == '1') this.categories = professions.craftsmen;
-        else if (idK == '2') this.categories = professions.craftsmen2;
-        else if (idK == '3') this.categories = professions.craftsmen3;
+        else if (idK == '2') this.categories = professions.services;
+        else if (idK == '3') this.categories = professions.transport;
         this.categories.sort((a, b) => a.localeCompare(b));
         this.allCategories = this.categories;
       })
