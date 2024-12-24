@@ -8,10 +8,13 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class MainNavbarComponent implements OnInit {
   navbarOpen = false;
+  login: number = 1;
 
   constructor(private router: Router, private cookieService: CookieService, private route: ActivatedRoute) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.login = this.cookieService.get('token') ? 1 : 0;
+  }
 
   toggleMenu() {
     document.querySelector('.navbar').classList.toggle('active');
@@ -22,8 +25,17 @@ export class MainNavbarComponent implements OnInit {
     this.router.navigate(['/autentikacija/prijava']);
   }
 
+  navigate_to_login() {
+    this.router.navigate(['/autentikacija/prijava']);
+  }
+
+  navigate_to_register() {
+    this.router.navigate(['/autentikacija/registracija']);
+  }
+
   navigateToProfile() {
-    this.router.navigate(['/profil', this.cookieService.get('token')]);
+    if(this.login == 1) this.router.navigate(['/profil', this.cookieService.get('token')]);
+    else this.router.navigate(['/autentikacija/prijava']);
   }
 
   navigateToJobListing() {
@@ -31,6 +43,7 @@ export class MainNavbarComponent implements OnInit {
   }
 
   navigateToAddJob() {
-    this.router.navigate(['/dodaj_oglas']);
+    if(this.login == 1) this.router.navigate(['/dodaj_oglas']);
+    else this.router.navigate(['/autentikacija/prijava']);
   }
 }

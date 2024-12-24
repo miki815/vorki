@@ -68,9 +68,17 @@
       class="lg:text-white text-blueGray-100 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300">
       Profil
     </a>
-    <a [routerLink]="['/pocetna']" (click)="logout()"
+    <a [routerLink]="['/pocetna']" (click)="logout()" *ngIf="login==1"
       class="lg:text-white text-blueGray-100 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300">
       Odjava
+    </a>
+    <a [routerLink]="['/pocetna']" (click)="navigate_to_register()" *ngIf="login==0"
+      class="lg:text-white text-blueGray-100 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300">
+      Registracija
+    </a>
+    <a [routerLink]="['/pocetna']" (click)="navigate_to_login()" *ngIf="login==0"
+      class="lg:text-white text-blueGray-100 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300">
+      Prijava
     </a>
 
   </div>

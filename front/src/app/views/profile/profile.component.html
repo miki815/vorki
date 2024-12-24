@@ -27,13 +27,13 @@
                   </span>
                   <span class="text-sm text-blueGray-400">Broj poslova</span>
                 </div>
-                <div class="mr-4 p-3 text-center">
+                <div class="mr-4 p-3 text-center" *ngIf="type=='0'">
                   <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
                     {{userRate}}
                   </span>
                   <span class="text-sm text-blueGray-400">Ocena</span>
                 </div>
-                <div class="mr-4 p-3 text-center">
+                <div class="mr-4 p-3 text-center" *ngIf="type=='0'">
                   <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
                     {{userRateLen}}
                   </span>
@@ -69,7 +69,7 @@
               <div class="py-3 px-3 mt-0 sm:mt-16" style="display: flex; flex-direction: column; align-items: center;"
                 *ngIf="cookie==idUser">
                 <div style="display: flex; flex-direction: row;">
-                  <button
+                  <button 
                     class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
                     type="button" (click)="calendar()"> Kalendar
                   </button>
@@ -81,8 +81,8 @@
                   <button
                     class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
                     type="button" (click)="jobs1()">
-                    <div *ngIf="idUser==cookie"> Moji oglasi</div>
-                    <div *ngIf="idUser!=cookie"> Svi oglasi</div>
+                    <div *ngIf="type=='0'"> Moji oglasi</div>
+                    <div *ngIf="type=='1'"> Svi oglasi</div>
                   </button>
                 </div>
               </div>

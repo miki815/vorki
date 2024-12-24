@@ -1,2 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/@syncfusion/ej2-material-theme/styles/material.css";
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857;
+    color: #333;
+}

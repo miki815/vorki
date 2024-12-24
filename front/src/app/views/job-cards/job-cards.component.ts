@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-job-cards',
@@ -10,11 +11,13 @@ export class JobCardsComponent {
   categories = [];
   idK: string | null = null;
   allCategories = [];
+  login: number = 1;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private cookieService: CookieService) { }
 
   ngOnInit(): void {
     console.log("JobCards - ngOnInit: START")
+    this.login = this.cookieService.get('token') ? 1 : 0;
     this.route.paramMap.subscribe(params => {
       this.idK = params.get('idK');
       this.getCraftmen(this.idK);
@@ -42,8 +45,12 @@ export class JobCardsComponent {
   }
 
   categoryChoice(category) {
-    sessionStorage.setItem('category', category);
-    this.router.navigate(['/oglasi']);
+    if (this.login == 1) {
+      sessionStorage.setItem('category', category);
+      this.router.navigate(['/oglasi']);
+    } else{
+      this.router.navigate(['/autentikacija/prijava']);
+    }
     // this.router.navigate(['/oglasi'], { state: { category: category } });
   }
 

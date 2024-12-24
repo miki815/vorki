@@ -74,7 +74,8 @@ const routes: Routes = [
   { path: 'oglasi/:idU', component: JobListingComponent, canActivate: [authGuard] },
   { path: 'kategorija/:idK', component: JobCardsComponent },
   // { path: "", component: IndexComponent },
-  { path: "", component: AuthComponent, children: [{ path: "", component: LoginComponent }] },
+  // { path: "", component: AuthComponent, children: [{ path: "", component: LoginComponent }] },
+  { path: "", component: LandingComponent },
   { path: "**", redirectTo: "", pathMatch: "full" },
 ];
 
