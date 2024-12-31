@@ -1259,6 +1259,21 @@ select {
   background-color: rgba(2, 132, 199, var(--tw-bg-opacity));
 }
 
+.bg-plava {
+  --tw-bg-opacity: 1;
+  background-color: #274153;
+}
+
+.bg-zuta {
+  --tw-bg-opacity: 1;
+  background-color: #efca21;
+}
+
+.bg-siva{
+  --tw-bg-opacity: 1;
+  background-color: #e2e8f0;
+}
+
 .bg-teal-200 {
   --tw-bg-opacity: 1;
   background-color: rgba(153, 246, 228, var(--tw-bg-opacity));
@@ -3232,6 +3247,11 @@ select {
 .text-blueGray-100 {
   --tw-text-opacity: 1;
   color: rgba(241, 245, 249, var(--tw-text-opacity));
+}
+
+.text-zuta {
+  --tw-bg-opacity: 1;
+  color: #efca21;
 }
 
 .text-blueGray-200 {
