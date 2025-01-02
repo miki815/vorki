@@ -261,11 +261,12 @@ export class UserController {
             if (err) {
                 res.json({ error: 1, message: message });
                 console.log('updateUser failed');
+                logger.error('updateUser failed: ' + err);
                 return;
             }
             res.json({ error: 0, message: message });
-
             console.log('updateUser success');
+            logger.info('updateUser with id ' + idUser + ' success');
         });
     }
 
