@@ -1,13 +1,11 @@
-
-
 <div class="container mx-auto px-4 h-full">
   <div class="flex content-center items-center justify-center h-full">
     <div class="w-full lg:w-6/12 px-4">
       <div class="relative flex flex-col min-w-0 w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
-        
+
         <!-- HEADER -->
-        <div class="rounded-t mb-0 px-6 py-6" >
-          <div class="text-center mb-3" >
+        <div class="rounded-t mb-0 px-6 py-6">
+          <div class="text-center mb-3">
             <h1 class="text-blueGray-600 text-xl font-bold">Registracija</h1>
           </div>
           <hr class="mt-6 border-b-1 border-blueGray-300" />
@@ -16,146 +14,142 @@
         <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
           <!-- FROM -->
           <form>
-          <!-- USERNAME -->
+            <!-- USERNAME -->
             <div class="relative w-full mb-3">
-              <input [(ngModel)]="username"
-                name="username"
-                type="text"
+              <input [(ngModel)]="username" name="username" type="text"
                 class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full"
-                placeholder="Korisničko ime"
-                maxlength="30"/>
+                placeholder="Korisničko ime" maxlength="30" />
             </div>
-          <!-- EMAIL -->
+            <!-- EMAIL -->
             <div class="relative w-full mb-3">
-              <input [(ngModel)]="email"
-                name="email"
-                type="email"
+              <input [(ngModel)]="email" name="email" type="email"
                 class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full"
-                placeholder="Email"/>
+                placeholder="Email" />
             </div>
-          <!-- NAME -->
+            <!-- NAME -->
             <div class="relative w-full mb-3">
-              <input [(ngModel)]="name"
-                name="name"
-                type="text"
+              <input [(ngModel)]="name" name="name" type="text"
                 class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full"
-                placeholder="Ime"/>
+                placeholder="Ime" />
             </div>
-          <!-- SURNAME -->
+            <!-- SURNAME -->
             <div class="relative w-full mb-3">
-              <input [(ngModel)]="surname"
-                name="surname"
-                type="text"
+              <input [(ngModel)]="surname" name="surname" type="text"
                 class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full"
-                placeholder="Prezime"/>
+                placeholder="Prezime" />
             </div>
-          <!-- BIRTHDAY -->
+            <!-- BIRTHDAY -->
             <div class="relative w-full mb-3">
               <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
                 Datum rođenja
               </label>
-              <input [(ngModel)]="birthday"
-                name="birthday"
-                type="date"
-                class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full"/>
+              <input [(ngModel)]="birthday" name="birthday" type="date"
+                class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full" />
             </div>
-          <!-- TELEPHONE -->
+            <!-- TELEPHONE -->
             <div class="relative w-full mb-3">
               <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
                 Broj telefona
               </label>
-              <input  [(ngModel)]="telephone"
-                name="telephone"
-                type="text"
+              <input [(ngModel)]="telephone" name="telephone" type="text"
                 class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full"
-                placeholder="+381XXXXXXXXX"/>
+                placeholder="+381XXXXXXXXX" />
             </div>
-          <!-- LOCATION -->
+            <!-- LOCATION -->
             <div class="relative w-full mb-3">
               <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
                 Mesto
               </label>
-              <select [(ngModel)]="location"
-                name="location"  
-                style="margin-bottom: 10px;" class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full">
-                <option *ngFor="let city of cities" >{{ city.city }}</option>
+              <select [(ngModel)]="location" name="location" style="margin-bottom: 10px;"
+                class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full">
+                <option *ngFor="let city of cities">{{ city.city }}</option>
               </select>
             </div>
-          <!-- TYPE -->
+            <!-- TYPE -->
             <div class="relative w-full mb-3">
               <div style="display: flex; flex-direction: row; justify-content: space-around;">
-               <div style="display: flex; flex-direction: row; align-items: center;">
+                <div style="display: flex; flex-direction: row; align-items: center;">
                   <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" style="margin-right: 10px;">
                     Korisnik
                   </label>
-                  <input [(ngModel)]="type"
-                    name="type"
-                    value="1"
-                    type="radio"
+                  <input [(ngModel)]="type" name="type" value="1" type="radio"
                     class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full"
-                    style="width: 10%;"/>
-               </div>
+                    style="width: 10%;" />
+                </div>
 
-               <div style="display: flex; flex-direction: row; align-items: center;">
-                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"style="margin-right: 10px;">
-                  Majstor
-                </label>
-                <input [(ngModel)]="type"
-                name="type"
-                value="0"
-                type="radio"
-                class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full"
-                style="width: 10%;"/>
-               </div>
+                <div style="display: flex; flex-direction: row; align-items: center;">
+                  <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" style="margin-right: 10px;">
+                    Majstor
+                  </label>
+                  <input [(ngModel)]="type" name="type" value="0" type="radio"
+                    class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full"
+                    style="width: 10%;" />
+                </div>
               </div>
             </div>
-          <!-- PASSWORD -->
-            <div class="relative w-full mb-3">
-              <input [(ngModel)]="password"
-                name="password"
-                type="password"
-                class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full"
-                placeholder="Lozinka"/>
-            </div> 
-          <!-- PASSWORD1 -->
-            <div class="relative w-full mb-3">
-              <input [(ngModel)]="password1"
-                name="password1"
-                type="password"
-                class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full"
-                placeholder="Ponovite lozinku"/>
+            <!-- PROFESSIONS -->
+            <div class="relative w-full mb-3" *ngIf="type == 0">
+              <label for="professions" class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Poslovi kojima se bavite:</label>
+              <div class="dropdown" #dropdown >
+                <input type="text" name="profess" placeholder="Pretraži zanimanja..." [(ngModel)]="searchTerm"
+                  (focus)="showProfessions()" (input)="filterProfessions()"
+                  class="search-input" />
+                <div class="dropdown-menu" *ngIf="isDropdownVisible">
+                  <button class="close-btn" (click)="hideProfessions()">×</button>
+                  <div *ngFor="let profession of filteredProfessions" class="dropdown-item"
+                    (click)="toggleSelection(profession)">
+                    <input type="checkbox" [checked]="selectedProfessions.includes(profession)" />
+                    {{ profession }}
+                  </div>
+                </div>
+              </div>
+              <div class="selected-professions">
+                <p *ngFor="let profession of selectedProfessions" class="selected-item">
+                  {{ profession }}
+                </p>
+              </div>
             </div>
-          <!-- POLICY -->
+            <!-- PASSWORD -->
+            <div class="relative w-full mb-3">
+              <input [(ngModel)]="password" name="password" type="password"
+                class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full"
+                placeholder="Lozinka" />
+            </div>
+            <!-- PASSWORD1 -->
+            <div class="relative w-full mb-3">
+              <input [(ngModel)]="password1" name="password1" type="password"
+                class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full"
+                placeholder="Ponovite lozinku" />
+            </div>
+            <!-- POLICY -->
             <div>
               <label class="inline-flex items-center cursor-pointer">
-                <input [(ngModel)]="policy"
-                  name="policy"
-                  id="customCheckLogin"
-                  type="checkbox"
-                  class="form-checkbox border-0 text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150 rounded"/>
-                  &nbsp; Slažem se sa 
-                  <a href="javascript:void(0)" class="text-red-600">
-                    <!-- TODO -->
-                    &nbsp; Politikom privatnosti
-                  </a>
+                <input [(ngModel)]="policy" name="policy" id="customCheckLogin" type="checkbox"
+                  class="form-checkbox border-0 text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150 rounded" />
+                &nbsp; Slažem se sa
+                <a href="javascript:void(0)" class="text-red-600">
+                  <!-- TODO -->
+                  &nbsp; Politikom privatnosti
+                </a>
               </label>
             </div>
-          <!-- SUBMIT -->
+            <!-- SUBMIT -->
             <div class="text-center mt-6">
-              <button class="text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                type="button"
-                (click) = "submit()">
+              <button
+                class="text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                type="button" (click)="submit()">
                 Registruj se
               </button>
             </div>
-          <!-- LOGIN -->
-            Imate profil? Prijavite se <a [routerLink]="['/autentikacija/prijava']" class="text-blueGray-800 ovde" > <u>ovde.</u></a>
-          <!-- MESSAGE -->
+            <!-- LOGIN -->
+            Imate profil? Prijavite se <a [routerLink]="['/autentikacija/prijava']" class="text-blueGray-800 ovde">
+              <u>ovde.</u></a>
+            <!-- MESSAGE -->
             <div *ngIf="message" class="message">
               {{message}}
             </div>
           </form>
         </div>
       </div>
+    </div>
   </div>
-</div>

@@ -1,0 +1,5737 @@
+[
+  {
+    "curCity": "Beograd",
+    "lat": 44.8178131,
+    "lon": 20.4568974
+  },
+  {
+    "curCity": "Beograd Vozdovac",
+    "lat": 44.7779408,
+    "lon": 20.4734682
+  },
+  {
+    "curCity": "Beograd Čukarica",
+    "lat": 44.7716947,
+    "lon": 20.4154022
+  },
+  {
+    "curCity": "Beograd Zvezdara",
+    "lat": 44.7715475,
+    "lon": 20.526875336626098
+  },
+  {
+    "curCity": "Beograd Palilula",
+    "lat": 44.8114529,
+    "lon": 20.4783364
+  },
+  {
+    "curCity": "Novi Beograd",
+    "lat": 44.8133048,
+    "lon": 20.4183382
+  },
+  {
+    "curCity": "Beograd Zemun",
+    "lat": 44.8444,
+    "lon": 20.4123996
+  },
+  {
+    "curCity": "Beograd Rakovica",
+    "lat": 44.7463363,
+    "lon": 20.4403105
+  },
+  {
+    "curCity": "Kaluđerica",
+    "lat": 44.7557801,
+    "lon": 20.5579418
+  },
+  {
+    "curCity": "Rušanj",
+    "lat": 44.6819321,
+    "lon": 20.4406779
+  },
+  {
+    "curCity": "Borča",
+    "lat": 44.8773292,
+    "lon": 20.4570078
+  },
+  {
+    "curCity": "Ovča",
+    "lat": 44.8755249,
+    "lon": 20.5445353
+  },
+  {
+    "curCity": "Padinska Skela",
+    "lat": 44.9404297,
+    "lon": 20.4299693
+  },
+  {
+    "curCity": "Beli Potok",
+    "lat": 44.7055101,
+    "lon": 20.5189561
+  },
+  {
+    "curCity": "Vrčin",
+    "lat": 44.6639616,
+    "lon": 20.5910154
+  },
+  {
+    "curCity": "Zuce",
+    "lat": 44.6962878,
+    "lon": 20.5535852
+  },
+  {
+    "curCity": "Pinosava",
+    "lat": 44.6951252,
+    "lon": 20.490007
+  },
+  {
+    "curCity": "Ripanj",
+    "lat": 44.6390298,
+    "lon": 20.5204337
+  },
+  {
+    "curCity": "Ralja",
+    "lat": 44.5717706,
+    "lon": 20.5612432
+  },
+  {
+    "curCity": "Mali Požarevac",
+    "lat": 44.5629122,
+    "lon": 20.6542807
+  },
+  {
+    "curCity": "Ostružnica",
+    "lat": 44.7285552,
+    "lon": 20.3191998
+  },
+  {
+    "curCity": "Sremčica",
+    "lat": 44.6719378,
+    "lon": 20.3954404
+  },
+  {
+    "curCity": "Umka",
+    "lat": 44.6785303,
+    "lon": 20.3050863
+  },
+  {
+    "curCity": "Mala Moštanica",
+    "lat": 44.6382474,
+    "lon": 20.3059866
+  },
+  {
+    "curCity": "Velika Mostanica",
+    "lat": 44.6652795,
+    "lon": 20.3535927
+  },
+  {
+    "curCity": "Surčin",
+    "lat": 44.7910362,
+    "lon": 20.2701685
+  },
+  {
+    "curCity": "Dobanovci",
+    "lat": 44.8275822,
+    "lon": 20.2228552
+  },
+  {
+    "curCity": "Boljevci",
+    "lat": 44.7225323,
+    "lon": 20.2165034
+  },
+  {
+    "curCity": "Jakovo",
+    "lat": 44.754108,
+    "lon": 20.2602481
+  },
+  {
+    "curCity": "Ugrinovci",
+    "lat": 44.8757344,
+    "lon": 20.1867706
+  },
+  {
+    "curCity": "Bečmen",
+    "lat": 44.7806827,
+    "lon": 20.2031325
+  },
+  {
+    "curCity": "Progar",
+    "lat": 44.7182286,
+    "lon": 20.1589682
+  },
+  {
+    "curCity": "Petrovcic",
+    "lat": 44.7941067,
+    "lon": 20.1443218
+  },
+  {
+    "curCity": "Smederevo",
+    "lat": 44.6651048,
+    "lon": 20.9271115
+  },
+  {
+    "curCity": "Grocka",
+    "lat": 44.6709248,
+    "lon": 20.7170219
+  },
+  {
+    "curCity": "Boleč",
+    "lat": 44.7285345,
+    "lon": 20.6041947
+  },
+  {
+    "curCity": "Begaljica",
+    "lat": 44.6315983,
+    "lon": 20.6955489
+  },
+  {
+    "curCity": "Leštane",
+    "lat": 44.7305962,
+    "lon": 20.5755409
+  },
+  {
+    "curCity": "Lipe",
+    "lat": 44.6409954,
+    "lon": 20.9992927
+  },
+  {
+    "curCity": "Radinac",
+    "lat": 44.6266965,
+    "lon": 20.9670138
+  },
+  {
+    "curCity": "Mihajlovac",
+    "lat": 44.3702151,
+    "lon": 22.4942396
+  },
+  {
+    "curCity": "Mala Krsna",
+    "lat": 44.5854168,
+    "lon": 21.0079206
+  },
+  {
+    "curCity": "Osipaonica",
+    "lat": 44.543562,
+    "lon": 21.0520033
+  },
+  {
+    "curCity": "Saraorci",
+    "lat": 44.4890744,
+    "lon": 21.0829759
+  },
+  {
+    "curCity": "Golobok",
+    "lat": 44.4516501,
+    "lon": 21.0059783
+  },
+  {
+    "curCity": "Lozovik",
+    "lat": 44.4677494,
+    "lon": 21.1007233
+  },
+  {
+    "curCity": "Miloševac",
+    "lat": 44.4408242,
+    "lon": 21.1103902
+  },
+  {
+    "curCity": "Krnjevo",
+    "lat": 44.4092503,
+    "lon": 21.0482186
+  },
+  {
+    "curCity": "Velika Plana",
+    "lat": 44.3324574,
+    "lon": 21.075786
+  },
+  {
+    "curCity": "Lugavcina",
+    "lat": 44.5250726,
+    "lon": 21.0734642
+  },
+  {
+    "curCity": "Skobalj",
+    "lat": 44.564607,
+    "lon": 21.0327656
+  },
+  {
+    "curCity": "Veliko Orašje",
+    "lat": 44.3712415,
+    "lon": 21.0887509
+  },
+  {
+    "curCity": "Staro Selo",
+    "lat": 43.0972662,
+    "lon": 21.5523905
+  },
+  {
+    "curCity": "Markovac",
+    "lat": 45.1479025,
+    "lon": 21.4757515
+  },
+  {
+    "curCity": "Donja Livadica",
+    "lat": 44.3556933,
+    "lon": 21.1388107
+  },
+  {
+    "curCity": "Rakinac",
+    "lat": 44.2646653,
+    "lon": 21.0619451
+  },
+  {
+    "curCity": "Vodanj",
+    "lat": 44.609444,
+    "lon": 20.852222
+  },
+  {
+    "curCity": "Vranovo",
+    "lat": 44.5998002,
+    "lon": 20.9950668
+  },
+  {
+    "curCity": "Vinča",
+    "lat": 44.7607748,
+    "lon": 20.6183498
+  },
+  {
+    "curCity": "Mladenovac",
+    "lat": 44.4401166,
+    "lon": 20.6941535
+  },
+  {
+    "curCity": "Vlaška",
+    "lat": 43.9865749,
+    "lon": 21.3580582
+  },
+  {
+    "curCity": "Selevac",
+    "lat": 44.4962741,
+    "lon": 20.8719177
+  },
+  {
+    "curCity": "Velika Krsna",
+    "lat": 44.4796572,
+    "lon": 20.8124316
+  },
+  {
+    "curCity": "Kovačevac",
+    "lat": 43.9385542,
+    "lon": 21.1963736
+  },
+  {
+    "curCity": "Ratari",
+    "lat": 44.649045,
+    "lon": 20.100731
+  },
+  {
+    "curCity": "Jagnjilo",
+    "lat": 44.3759874,
+    "lon": 20.7284976
+  },
+  {
+    "curCity": "Pružatovac",
+    "lat": 44.4154628,
+    "lon": 20.6285413
+  },
+  {
+    "curCity": "Velika Ivanča",
+    "lat": 44.4259017,
+    "lon": 20.5796709
+  },
+  {
+    "curCity": "Koraćica",
+    "lat": 44.4445158,
+    "lon": 20.6060227
+  },
+  {
+    "curCity": "Smederevska Palanka",
+    "lat": 44.3658207,
+    "lon": 20.9579781
+  },
+  {
+    "curCity": "Azanja",
+    "lat": 44.4339252,
+    "lon": 20.875859
+  },
+  {
+    "curCity": "Banicina",
+    "lat": 44.2874781,
+    "lon": 20.9373352
+  },
+  {
+    "curCity": "Kusadak",
+    "lat": 44.3997222,
+    "lon": 20.8033333
+  },
+  {
+    "curCity": "Meljak",
+    "lat": 44.62314,
+    "lon": 20.36919
+  },
+  {
+    "curCity": "Vranić",
+    "lat": 44.5941837,
+    "lon": 20.3086441
+  },
+  {
+    "curCity": "Umčari",
+    "lat": 44.583471,
+    "lon": 20.734909
+  },
+  {
+    "curCity": "Kolari",
+    "lat": 44.584444,
+    "lon": 20.901389
+  },
+  {
+    "curCity": "Drugovac",
+    "lat": 44.5469944,
+    "lon": 20.8336889
+  },
+  {
+    "curCity": "Šepšin",
+    "lat": 44.5421372,
+    "lon": 20.7041099
+  },
+  {
+    "curCity": "Sopot",
+    "lat": 43.229843,
+    "lon": 22.565343
+  },
+  {
+    "curCity": "Rogača",
+    "lat": 44.450020249999994,
+    "lon": 20.534095366032552
+  },
+  {
+    "curCity": "Sibnica",
+    "lat": 44.462715,
+    "lon": 20.4541347
+  },
+  {
+    "curCity": "Barajevo",
+    "lat": 44.578035,
+    "lon": 20.4160478
+  },
+  {
+    "curCity": "Beljina",
+    "lat": 44.5197531,
+    "lon": 20.3954042
+  },
+  {
+    "curCity": "Veliki Borak",
+    "lat": 44.539384,
+    "lon": 20.350484
+  },
+  {
+    "curCity": "Obrenovac",
+    "lat": 43.0378033,
+    "lon": 22.7209344
+  },
+  {
+    "curCity": "Barič",
+    "lat": 44.6515602,
+    "lon": 20.2583617
+  },
+  {
+    "curCity": "Zabrežje",
+    "lat": 44.6829787,
+    "lon": 20.2017785
+  },
+  {
+    "curCity": "Draževac",
+    "lat": 44.575829,
+    "lon": 20.231348
+  },
+  {
+    "curCity": "Stubline",
+    "lat": 44.5716802,
+    "lon": 20.1511549
+  },
+  {
+    "curCity": "Grabovac",
+    "lat": 44.600491,
+    "lon": 20.085394
+  },
+  {
+    "curCity": "Skela",
+    "lat": 44.67981,
+    "lon": 20.0522615
+  },
+  {
+    "curCity": "Lazarevac",
+    "lat": 44.3815176,
+    "lon": 20.261033
+  },
+  {
+    "curCity": "Vreoci",
+    "lat": 44.4433333,
+    "lon": 20.2819444
+  },
+  {
+    "curCity": "Dudovica",
+    "lat": 44.2971582,
+    "lon": 20.2640633
+  },
+  {
+    "curCity": "Junkovac",
+    "lat": 44.2587438,
+    "lon": 20.7669531
+  },
+  {
+    "curCity": "Veliki Crljeni",
+    "lat": 44.4733323,
+    "lon": 20.2894082
+  },
+  {
+    "curCity": "Stepojevac",
+    "lat": 44.4967343,
+    "lon": 20.3103624
+  },
+  {
+    "curCity": "Barosevac",
+    "lat": 44.398097,
+    "lon": 20.3709535
+  },
+  {
+    "curCity": "Rudovci",
+    "lat": 44.3800988,
+    "lon": 20.4050622
+  },
+  {
+    "curCity": "Mirosaljci",
+    "lat": 44.4347365,
+    "lon": 20.4077783
+  },
+  {
+    "curCity": "Požarevac",
+    "lat": 44.6199926,
+    "lon": 21.1854
+  },
+  {
+    "curCity": "Brezane",
+    "lat": 44.654693,
+    "lon": 21.0762669
+  },
+  {
+    "curCity": "Bradarac",
+    "lat": 44.6871773,
+    "lon": 21.2303404
+  },
+  {
+    "curCity": "Dubravica",
+    "lat": 44.6950034,
+    "lon": 21.0776643
+  },
+  {
+    "curCity": "Kostolac",
+    "lat": 44.7149424,
+    "lon": 21.1710906
+  },
+  {
+    "curCity": "Kličevac",
+    "lat": 44.7590275,
+    "lon": 21.2905477
+  },
+  {
+    "curCity": "Veliko Gradište",
+    "lat": 44.7629166,
+    "lon": 21.5161946
+  },
+  {
+    "curCity": "Majilovac",
+    "lat": 44.6930977,
+    "lon": 21.3592372
+  },
+  {
+    "curCity": "Braničevo",
+    "lat": 44.7046175,
+    "lon": 21.5371565
+  },
+  {
+    "curCity": "Golubac",
+    "lat": 44.6531108,
+    "lon": 21.6305205
+  },
+  {
+    "curCity": "Dobra",
+    "lat": 44.6354209,
+    "lon": 21.9080139
+  },
+  {
+    "curCity": "Bratinac",
+    "lat": 44.6430004,
+    "lon": 21.2527793
+  },
+  {
+    "curCity": "Topolovnik",
+    "lat": 44.7191584,
+    "lon": 21.4442505
+  },
+  {
+    "curCity": "Vinci",
+    "lat": 44.7111946,
+    "lon": 21.6055621
+  },
+  {
+    "curCity": "Brnjica",
+    "lat": 43.2845431,
+    "lon": 20.1925863
+  },
+  {
+    "curCity": "Kučevo",
+    "lat": 44.4782165,
+    "lon": 21.6693022
+  },
+  {
+    "curCity": "Neresnica",
+    "lat": 44.4417049,
+    "lon": 21.7291282
+  },
+  {
+    "curCity": "Srednjevo",
+    "lat": 44.6456705,
+    "lon": 21.4891071
+  },
+  {
+    "curCity": "Rabrovo",
+    "lat": 44.5768334,
+    "lon": 21.5131923
+  },
+  {
+    "curCity": "Duboka",
+    "lat": 44.0705323,
+    "lon": 21.2734788
+  },
+  {
+    "curCity": "Voluja",
+    "lat": 44.4865666,
+    "lon": 21.7772103
+  },
+  {
+    "curCity": "Klenje",
+    "lat": 43.238817,
+    "lon": 22.363985
+  },
+  {
+    "curCity": "Petrovac Na Mlavi",
+    "lat": 44.367709500000004,
+    "lon": 21.407670364715564
+  },
+  {
+    "curCity": "Ranovac",
+    "lat": 44.44363,
+    "lon": 21.4747335
+  },
+  {
+    "curCity": "Melnica",
+    "lat": 44.3918032,
+    "lon": 21.5324467
+  },
+  {
+    "curCity": "Veliko Laole",
+    "lat": 44.3173146,
+    "lon": 21.4348898
+  },
+  {
+    "curCity": "Burovac",
+    "lat": 44.27295,
+    "lon": 21.3545607
+  },
+  {
+    "curCity": "Šetonje",
+    "lat": 44.2729178,
+    "lon": 21.4743516
+  },
+  {
+    "curCity": "Malo Crniće",
+    "lat": 44.560257,
+    "lon": 21.290565
+  },
+  {
+    "curCity": "Smoljinac",
+    "lat": 44.6057378,
+    "lon": 21.3463162
+  },
+  {
+    "curCity": "Bozevac",
+    "lat": 44.54213,
+    "lon": 21.3948737
+  },
+  {
+    "curCity": "Veliko Selo",
+    "lat": 44.8109124,
+    "lon": 20.5981221
+  },
+  {
+    "curCity": "Rašanac",
+    "lat": 44.4623211,
+    "lon": 21.3651147
+  },
+  {
+    "curCity": "Krepoljin",
+    "lat": 44.2613255,
+    "lon": 21.6030763
+  },
+  {
+    "curCity": "Osanica",
+    "lat": 44.2803153,
+    "lon": 21.6690321
+  },
+  {
+    "curCity": "Vukovac",
+    "lat": 44.2565207,
+    "lon": 21.7371434
+  },
+  {
+    "curCity": "Žagubica",
+    "lat": 44.1973536,
+    "lon": 21.7856065
+  },
+  {
+    "curCity": "Laznica",
+    "lat": 44.2410381,
+    "lon": 21.8084521
+  },
+  {
+    "curCity": "Suvi Do",
+    "lat": 43.2984525,
+    "lon": 21.9563757
+  },
+  {
+    "curCity": "Aleksandrovac",
+    "lat": 43.4586105,
+    "lon": 21.0465876
+  },
+  {
+    "curCity": "Vlaški Do",
+    "lat": 44.4855747,
+    "lon": 21.210815
+  },
+  {
+    "curCity": "Poljana",
+    "lat": 44.5339327,
+    "lon": 21.2004988
+  },
+  {
+    "curCity": "Simićevo",
+    "lat": 44.3975259,
+    "lon": 21.2089952
+  },
+  {
+    "curCity": "Žabari",
+    "lat": 44.3565446,
+    "lon": 21.2148809
+  },
+  {
+    "curCity": "Porodin",
+    "lat": 43.4049171,
+    "lon": 21.5852195
+  },
+  {
+    "curCity": "Valjevo",
+    "lat": 44.2708719,
+    "lon": 19.8863297
+  },
+  {
+    "curCity": "Brankovina",
+    "lat": 44.3529767,
+    "lon": 19.8993916
+  },
+  {
+    "curCity": "Rajković",
+    "lat": 44.2269774,
+    "lon": 20.0064393
+  },
+  {
+    "curCity": "Dračić",
+    "lat": 44.2217426,
+    "lon": 19.9023137
+  },
+  {
+    "curCity": "Divčibare",
+    "lat": 44.1047561,
+    "lon": 19.9916368
+  },
+  {
+    "curCity": "Lelić",
+    "lat": 44.2141587,
+    "lon": 19.827967
+  },
+  {
+    "curCity": "Poćuta",
+    "lat": 44.2083133,
+    "lon": 19.7281073
+  },
+  {
+    "curCity": "Pećka",
+    "lat": 45.2624978795388,
+    "lon": 19.84506777555218
+  },
+  {
+    "curCity": "Ub",
+    "lat": 44.456203,
+    "lon": 20.0737772
+  },
+  {
+    "curCity": "Radljevo",
+    "lat": 44.4960532,
+    "lon": 20.1708789
+  },
+  {
+    "curCity": "Brgule",
+    "lat": 44.5213794,
+    "lon": 20.1995255
+  },
+  {
+    "curCity": "Pambukovica",
+    "lat": 44.4428228,
+    "lon": 19.9219328
+  },
+  {
+    "curCity": "Banjani",
+    "lat": 44.5366345,
+    "lon": 19.9798544
+  },
+  {
+    "curCity": "Popučke",
+    "lat": 44.2977965,
+    "lon": 19.9679693
+  },
+  {
+    "curCity": "Divci",
+    "lat": 43.3325274,
+    "lon": 19.673726
+  },
+  {
+    "curCity": "Slovac",
+    "lat": 44.3471725,
+    "lon": 20.0932089
+  },
+  {
+    "curCity": "Lajkovac",
+    "lat": 44.3698615,
+    "lon": 20.1658213
+  },
+  {
+    "curCity": "Bogovadja",
+    "lat": 44.3279219,
+    "lon": 20.2008667
+  },
+  {
+    "curCity": "Jabučje",
+    "lat": 43.9991126,
+    "lon": 20.9901952
+  },
+  {
+    "curCity": "Ljig",
+    "lat": 44.225332,
+    "lon": 20.2399384
+  },
+  {
+    "curCity": "Mionica",
+    "lat": 44.252921,
+    "lon": 20.084082
+  },
+  {
+    "curCity": "Gornja Toplica",
+    "lat": 44.222059,
+    "lon": 20.1548843
+  },
+  {
+    "curCity": "Brezde",
+    "lat": 44.1904886,
+    "lon": 20.070047
+  },
+  {
+    "curCity": "Slavkovica",
+    "lat": 44.1694159,
+    "lon": 20.2473301
+  },
+  {
+    "curCity": "Belanovica",
+    "lat": 44.2485297,
+    "lon": 20.3963097
+  },
+  {
+    "curCity": "Pricevic",
+    "lat": 44.2799588,
+    "lon": 19.7729201
+  },
+  {
+    "curCity": "Kamenica",
+    "lat": 43.8875321,
+    "lon": 19.9205303
+  },
+  {
+    "curCity": "Osečina",
+    "lat": 44.372776,
+    "lon": 19.6007285
+  },
+  {
+    "curCity": "Komirić",
+    "lat": 44.4274479,
+    "lon": 19.5459541
+  },
+  {
+    "curCity": "Stave",
+    "lat": 44.3529825,
+    "lon": 19.4883973
+  },
+  {
+    "curCity": "Šabac",
+    "lat": 44.7571535,
+    "lon": 19.6953972
+  },
+  {
+    "curCity": "Mačvanski Pričinović",
+    "lat": 44.84974,
+    "lon": 19.631134
+  },
+  {
+    "curCity": "Drenovac",
+    "lat": 43.9976616,
+    "lon": 20.7967329
+  },
+  {
+    "curCity": "Orid",
+    "lat": 44.711925,
+    "lon": 19.7979033
+  },
+  {
+    "curCity": "Debeljača",
+    "lat": 45.0689128,
+    "lon": 20.5995487
+  },
+  {
+    "curCity": "Provo",
+    "lat": 44.669566,
+    "lon": 19.910427
+  },
+  {
+    "curCity": "Koceljeva",
+    "lat": 44.4679915,
+    "lon": 19.8203527
+  },
+  {
+    "curCity": "Svileuva",
+    "lat": 44.5213889,
+    "lon": 19.8280556
+  },
+  {
+    "curCity": "Kamenica",
+    "lat": 43.8875321,
+    "lon": 19.9205303
+  },
+  {
+    "curCity": "Cerovac",
+    "lat": 44.0932258,
+    "lon": 20.8627796
+  },
+  {
+    "curCity": "Vladimirci",
+    "lat": 44.6158293,
+    "lon": 19.7851041
+  },
+  {
+    "curCity": "Draginje",
+    "lat": 44.5314036,
+    "lon": 19.7605044
+  },
+  {
+    "curCity": "Donje Crniljevo",
+    "lat": 44.4677778,
+    "lon": 19.6255556
+  },
+  {
+    "curCity": "Varna",
+    "lat": 44.679141,
+    "lon": 19.651504
+  },
+  {
+    "curCity": "Metlić",
+    "lat": 44.5745323,
+    "lon": 19.6381846
+  },
+  {
+    "curCity": "Tekeriš",
+    "lat": 44.552778,
+    "lon": 19.524444
+  },
+  {
+    "curCity": "Dobrić",
+    "lat": 44.702242,
+    "lon": 19.579309
+  },
+  {
+    "curCity": "Loznica",
+    "lat": 44.5309221,
+    "lon": 19.2237478
+  },
+  {
+    "curCity": "Korenita",
+    "lat": 44.504199,
+    "lon": 19.3018587
+  },
+  {
+    "curCity": "Tršić",
+    "lat": 44.4958165,
+    "lon": 19.2704649
+  },
+  {
+    "curCity": "Petlovača",
+    "lat": 44.7271403,
+    "lon": 19.4512787
+  },
+  {
+    "curCity": "Lipolist",
+    "lat": 44.697828,
+    "lon": 19.501014
+  },
+  {
+    "curCity": "Prnjavor Mačvanski",
+    "lat": 44.6965335,
+    "lon": 19.3770188
+  },
+  {
+    "curCity": "Lešnica",
+    "lat": 44.6525,
+    "lon": 19.31
+  },
+  {
+    "curCity": "Jadranska Lešnica",
+    "lat": 44.5991667,
+    "lon": 19.3536111
+  },
+  {
+    "curCity": "Brezjak",
+    "lat": 43.5629685,
+    "lon": 20.7435069
+  },
+  {
+    "curCity": "Ribari",
+    "lat": 43.4183875,
+    "lon": 20.9947496
+  },
+  {
+    "curCity": "Draginac",
+    "lat": 43.053128,
+    "lon": 22.435196
+  },
+  {
+    "curCity": "Zavlaka",
+    "lat": 44.4554446,
+    "lon": 19.4834196
+  },
+  {
+    "curCity": "Bela Crkva",
+    "lat": 44.9001235,
+    "lon": 21.4230044
+  },
+  {
+    "curCity": "Krupanj",
+    "lat": 44.365632,
+    "lon": 19.3628418
+  },
+  {
+    "curCity": "Zajaca",
+    "lat": 44.456944,
+    "lon": 19.244444
+  },
+  {
+    "curCity": "Banja Koviljača",
+    "lat": 44.5138269,
+    "lon": 19.1585984
+  },
+  {
+    "curCity": "Donja Borina",
+    "lat": 44.43698,
+    "lon": 19.1686974
+  },
+  {
+    "curCity": "Mali Zvornik",
+    "lat": 44.3736328,
+    "lon": 19.1069253
+  },
+  {
+    "curCity": "Uzovnica",
+    "lat": 44.2459418,
+    "lon": 19.3416603
+  },
+  {
+    "curCity": "Ljubovija",
+    "lat": 44.1880511,
+    "lon": 19.3761034
+  },
+  {
+    "curCity": "Radalj",
+    "lat": 44.4038889,
+    "lon": 19.1833333
+  },
+  {
+    "curCity": "Velika Reka",
+    "lat": 44.2675789,
+    "lon": 19.2336167
+  },
+  {
+    "curCity": "Donja Orovica",
+    "lat": 44.2218924,
+    "lon": 19.4870963
+  },
+  {
+    "curCity": "Drlace",
+    "lat": 44.1478174,
+    "lon": 19.4821501
+  },
+  {
+    "curCity": "Bogatić",
+    "lat": 44.8343025,
+    "lon": 19.4795213
+  },
+  {
+    "curCity": "Zminjak",
+    "lat": 44.754722,
+    "lon": 19.470556
+  },
+  {
+    "curCity": "Majur",
+    "lat": 44.7708247,
+    "lon": 19.6547859
+  },
+  {
+    "curCity": "Štitar",
+    "lat": 44.7911369,
+    "lon": 19.5943382
+  },
+  {
+    "curCity": "Crna Bara",
+    "lat": 45.9735278,
+    "lon": 20.2763122
+  },
+  {
+    "curCity": "Glušci",
+    "lat": 44.890556,
+    "lon": 19.548333
+  },
+  {
+    "curCity": "Klenje",
+    "lat": 43.238817,
+    "lon": 22.363985
+  },
+  {
+    "curCity": "Badovinci",
+    "lat": 44.7856888,
+    "lon": 19.3713367
+  },
+  {
+    "curCity": "Dublje",
+    "lat": 43.6111065,
+    "lon": 20.9426081
+  },
+  {
+    "curCity": "Banovo Polje",
+    "lat": 44.9102876,
+    "lon": 19.4478575
+  },
+  {
+    "curCity": "Leskovac",
+    "lat": 42.9951304,
+    "lon": 21.9464271
+  },
+  {
+    "curCity": "Manojlovce",
+    "lat": 43.014292,
+    "lon": 22.014678
+  },
+  {
+    "curCity": "Vučje",
+    "lat": 42.8649674,
+    "lon": 21.9111809
+  },
+  {
+    "curCity": "Miroševce",
+    "lat": 42.8658936,
+    "lon": 21.8392108
+  },
+  {
+    "curCity": "Bojnik",
+    "lat": 43.012738,
+    "lon": 21.7213107
+  },
+  {
+    "curCity": "Kosančić",
+    "lat": 45.5305049,
+    "lon": 19.4546031
+  },
+  {
+    "curCity": "Vlasotince",
+    "lat": 42.9652346,
+    "lon": 22.1281077
+  },
+  {
+    "curCity": "Svođe",
+    "lat": 42.977321,
+    "lon": 22.265618
+  },
+  {
+    "curCity": "Sastav Reka",
+    "lat": 42.9021392,
+    "lon": 22.3462251
+  },
+  {
+    "curCity": "Crna Trava",
+    "lat": 42.8095195,
+    "lon": 22.2990322
+  },
+  {
+    "curCity": "Grdelica",
+    "lat": 42.900543,
+    "lon": 22.0716509
+  },
+  {
+    "curCity": "Velika Grabovnica",
+    "lat": 42.924626,
+    "lon": 22.011355
+  },
+  {
+    "curCity": "Predejane",
+    "lat": 42.8324918,
+    "lon": 22.1403994
+  },
+  {
+    "curCity": "Ruplje",
+    "lat": 42.83947,
+    "lon": 22.225479
+  },
+  {
+    "curCity": "Lebane",
+    "lat": 42.9180249,
+    "lon": 21.7374692
+  },
+  {
+    "curCity": "Turekovac",
+    "lat": 42.984296,
+    "lon": 21.881553
+  },
+  {
+    "curCity": "Bosnjace",
+    "lat": 42.946349,
+    "lon": 21.827152
+  },
+  {
+    "curCity": "Orane",
+    "lat": 42.9840198,
+    "lon": 21.6281279
+  },
+  {
+    "curCity": "Medvedja",
+    "lat": 42.842162,
+    "lon": 21.5845267
+  },
+  {
+    "curCity": "Sijarinska Banja",
+    "lat": 42.775726,
+    "lon": 21.6051424
+  },
+  {
+    "curCity": "Tulare",
+    "lat": 43.2245658,
+    "lon": 21.3752263
+  },
+  {
+    "curCity": "Lece",
+    "lat": 42.9090327,
+    "lon": 21.5329748
+  },
+  {
+    "curCity": "Razgojna",
+    "lat": 43.117094,
+    "lon": 21.955017
+  },
+  {
+    "curCity": "Brestovac",
+    "lat": 44.0377005,
+    "lon": 22.0934064
+  },
+  {
+    "curCity": "Vranje",
+    "lat": 42.5558337,
+    "lon": 21.8976673
+  },
+  {
+    "curCity": "Vlase",
+    "lat": 42.6948649,
+    "lon": 21.8672939
+  },
+  {
+    "curCity": "Sveti Ilija",
+    "lat": 42.5732641,
+    "lon": 21.8048267
+  },
+  {
+    "curCity": "Vladičin Han",
+    "lat": 42.7058676,
+    "lon": 22.0586214
+  },
+  {
+    "curCity": "Priboj Vranjski",
+    "lat": 42.6145693,
+    "lon": 22.022632
+  },
+  {
+    "curCity": "Stubal",
+    "lat": 43.6910786,
+    "lon": 20.8734846
+  },
+  {
+    "curCity": "Lepenica",
+    "lat": 44.00309795272407,
+    "lon": 20.90599464989212
+  },
+  {
+    "curCity": "Džep",
+    "lat": 42.768215,
+    "lon": 22.08834
+  },
+  {
+    "curCity": "Bujanovac",
+    "lat": 42.4598455,
+    "lon": 21.7671276
+  },
+  {
+    "curCity": "Ristovac",
+    "lat": 42.4686111,
+    "lon": 21.8427778
+  },
+  {
+    "curCity": "Biljaca",
+    "lat": 42.3553965,
+    "lon": 21.7505603
+  },
+  {
+    "curCity": "Preševo",
+    "lat": 42.3095217,
+    "lon": 21.6490102
+  },
+  {
+    "curCity": "Klenike",
+    "lat": 42.389722,
+    "lon": 21.888889
+  },
+  {
+    "curCity": "Trgovište",
+    "lat": 43.6894727,
+    "lon": 21.8289888
+  },
+  {
+    "curCity": "Donji Stajevac",
+    "lat": 42.4011111,
+    "lon": 22.1597222
+  },
+  {
+    "curCity": "Muhovac",
+    "lat": 42.569166,
+    "lon": 21.7540454
+  },
+  {
+    "curCity": "Surdulica",
+    "lat": 42.6919329,
+    "lon": 22.1701473
+  },
+  {
+    "curCity": "Jelašnica",
+    "lat": 43.2936941,
+    "lon": 22.0571888
+  },
+  {
+    "curCity": "Vlasina Okruglica",
+    "lat": 42.6692917,
+    "lon": 22.3250995
+  },
+  {
+    "curCity": "Vlasina Rid",
+    "lat": 42.7252904,
+    "lon": 22.3259555
+  },
+  {
+    "curCity": "Klisura",
+    "lat": 43.2142734,
+    "lon": 21.8428225
+  },
+  {
+    "curCity": "Bozica",
+    "lat": 42.6156383,
+    "lon": 22.3999794
+  },
+  {
+    "curCity": "Gornja Lisina",
+    "lat": 42.5577778,
+    "lon": 22.3633333
+  },
+  {
+    "curCity": "Bosilegrad",
+    "lat": 42.4996561,
+    "lon": 22.4732689
+  },
+  {
+    "curCity": "Vranjska Banja",
+    "lat": 42.5469074,
+    "lon": 22.0016973
+  },
+  {
+    "curCity": "Kriva Feja",
+    "lat": 42.5594337,
+    "lon": 22.1750868
+  },
+  {
+    "curCity": "Donja Ljubata",
+    "lat": 42.4985697,
+    "lon": 22.3438535
+  },
+  {
+    "curCity": "Korbevac",
+    "lat": 42.5896499,
+    "lon": 22.0131719
+  },
+  {
+    "curCity": "Bistar",
+    "lat": 42.3744444,
+    "lon": 22.4394444
+  },
+  {
+    "curCity": "Donje Tlamino",
+    "lat": 42.36,
+    "lon": 22.4258333
+  },
+  {
+    "curCity": "Reljan",
+    "lat": 42.3098195,
+    "lon": 21.7366337
+  },
+  {
+    "curCity": "Oraovica",
+    "lat": 42.324072,
+    "lon": 21.662095
+  },
+  {
+    "curCity": "Bujanovac",
+    "lat": 42.4598455,
+    "lon": 21.7671276
+  },
+  {
+    "curCity": "Niš",
+    "lat": 43.3211301,
+    "lon": 21.8959232
+  },
+  {
+    "curCity": "Lalinac",
+    "lat": 43.3417255,
+    "lon": 21.7862955
+  },
+  {
+    "curCity": "Gornja Toponica",
+    "lat": 43.4014361,
+    "lon": 21.807955
+  },
+  {
+    "curCity": "Gornji Matejevac",
+    "lat": 43.3650197,
+    "lon": 21.9682163
+  },
+  {
+    "curCity": "Niška Banja",
+    "lat": 43.2933122,
+    "lon": 22.0072312
+  },
+  {
+    "curCity": "Jelašnica",
+    "lat": 43.2936941,
+    "lon": 22.0571888
+  },
+  {
+    "curCity": "Malča",
+    "lat": 43.3326322,
+    "lon": 22.0285545
+  },
+  {
+    "curCity": "Guševac",
+    "lat": 43.3920993,
+    "lon": 22.2763903
+  },
+  {
+    "curCity": "Medoševac",
+    "lat": 43.3250282,
+    "lon": 21.8629678
+  },
+  {
+    "curCity": "Žitkovac",
+    "lat": 43.5094647,
+    "lon": 21.6949039
+  },
+  {
+    "curCity": "Trupale",
+    "lat": 43.3566633,
+    "lon": 21.8039631
+  },
+  {
+    "curCity": "Tešica",
+    "lat": 43.4514156,
+    "lon": 21.7431952
+  },
+  {
+    "curCity": "Gredetin",
+    "lat": 43.5042718,
+    "lon": 21.5970267
+  },
+  {
+    "curCity": "Kulina",
+    "lat": 44.1276309,
+    "lon": 20.6145517
+  },
+  {
+    "curCity": "Veliko Bonjince",
+    "lat": 43.013269,
+    "lon": 22.261229
+  },
+  {
+    "curCity": "Korman",
+    "lat": 44.0503674,
+    "lon": 20.9907102
+  },
+  {
+    "curCity": "Ljuberadja",
+    "lat": 43.025714,
+    "lon": 22.384696
+  },
+  {
+    "curCity": "Grejac",
+    "lat": 43.4208481,
+    "lon": 21.7426791
+  },
+  {
+    "curCity": "Aleksinac",
+    "lat": 43.5405235,
+    "lon": 21.70884
+  },
+  {
+    "curCity": "Rutevac",
+    "lat": 43.5938668,
+    "lon": 21.620803
+  },
+  {
+    "curCity": "Katun",
+    "lat": 43.4936098,
+    "lon": 21.7849225
+  },
+  {
+    "curCity": "Aleksinacki Rudnik",
+    "lat": 43.5565829,
+    "lon": 21.6914287
+  },
+  {
+    "curCity": "Subotinac",
+    "lat": 43.6026338,
+    "lon": 21.6926994
+  },
+  {
+    "curCity": "Luzane",
+    "lat": 43.4792344,
+    "lon": 21.7220959
+  },
+  {
+    "curCity": "Mozgovo",
+    "lat": 43.6572078,
+    "lon": 21.6634584
+  },
+  {
+    "curCity": "Soko Banja",
+    "lat": 44.7630936,
+    "lon": 17.2033878
+  },
+  {
+    "curCity": "Čitluk",
+    "lat": 43.5939349,
+    "lon": 21.272291
+  },
+  {
+    "curCity": "Jošanica",
+    "lat": 43.7282282,
+    "lon": 21.7731199
+  },
+  {
+    "curCity": "Šarbanovac",
+    "lat": 43.7051435,
+    "lon": 21.8783244
+  },
+  {
+    "curCity": "Dugo Polje",
+    "lat": 43.628403,
+    "lon": 21.9462633
+  },
+  {
+    "curCity": "Gadžin Han",
+    "lat": 43.2235312,
+    "lon": 22.0324274
+  },
+  {
+    "curCity": "Gornji Barbes",
+    "lat": 43.1988824,
+    "lon": 21.951263
+  },
+  {
+    "curCity": "Donji Dušnik",
+    "lat": 43.1630331,
+    "lon": 22.1099705
+  },
+  {
+    "curCity": "Zaplanjska Toponica",
+    "lat": 43.1595521,
+    "lon": 21.9193208
+  },
+  {
+    "curCity": "Lički Hanovi",
+    "lat": 43.1094936,
+    "lon": 22.14736688159509
+  },
+  {
+    "curCity": "Ravna Dubrava",
+    "lat": 43.0769759,
+    "lon": 22.1895074
+  },
+  {
+    "curCity": "Novo Selo",
+    "lat": 43.5655688,
+    "lon": 21.9209632
+  },
+  {
+    "curCity": "Mramor",
+    "lat": 43.3118742,
+    "lon": 21.7816243
+  },
+  {
+    "curCity": "Merošina",
+    "lat": 43.2828198,
+    "lon": 21.7203782
+  },
+  {
+    "curCity": "Donje Medurovo",
+    "lat": 43.2973698,
+    "lon": 21.8233236
+  },
+  {
+    "curCity": "Pukovac",
+    "lat": 43.166401,
+    "lon": 21.8550913
+  },
+  {
+    "curCity": "Jovanovac",
+    "lat": 44.0496889,
+    "lon": 20.951035
+  },
+  {
+    "curCity": "Popovac",
+    "lat": 43.333339,
+    "lon": 21.8291463
+  },
+  {
+    "curCity": "Pirot",
+    "lat": 43.1547342,
+    "lon": 22.5865039
+  },
+  {
+    "curCity": "Crnokliste",
+    "lat": 43.2341667,
+    "lon": 22.4671912
+  },
+  {
+    "curCity": "Krupač",
+    "lat": 43.12479415,
+    "lon": 22.697451052853644
+  },
+  {
+    "curCity": "Bela Palanka",
+    "lat": 43.2179542,
+    "lon": 22.3112654
+  },
+  {
+    "curCity": "Sićevo",
+    "lat": 43.3411244,
+    "lon": 22.0843369
+  },
+  {
+    "curCity": "Ostrovica",
+    "lat": 43.3135527,
+    "lon": 22.1245669
+  },
+  {
+    "curCity": "Crvena Reka",
+    "lat": 43.2714265,
+    "lon": 22.2338374
+  },
+  {
+    "curCity": "Dolac",
+    "lat": 43.2005704,
+    "lon": 20.5023338
+  },
+  {
+    "curCity": "Babin Kal",
+    "lat": 43.293913,
+    "lon": 22.378658
+  },
+  {
+    "curCity": "Dimitrovgrad",
+    "lat": 43.0157433,
+    "lon": 22.7781993
+  },
+  {
+    "curCity": "Gradina",
+    "lat": 43.4265739,
+    "lon": 19.3407996
+  },
+  {
+    "curCity": "Sukovo",
+    "lat": 43.04929065,
+    "lon": 22.662815897314367
+  },
+  {
+    "curCity": "Smilovci",
+    "lat": 43.0841809,
+    "lon": 22.8510626
+  },
+  {
+    "curCity": "Kamenica",
+    "lat": 43.8875321,
+    "lon": 19.9205303
+  },
+  {
+    "curCity": "Poganovo",
+    "lat": 42.9702933,
+    "lon": 22.6654763
+  },
+  {
+    "curCity": "Babusnica",
+    "lat": 43.067962,
+    "lon": 22.411508
+  },
+  {
+    "curCity": "Strelac",
+    "lat": 42.984226,
+    "lon": 22.46183
+  },
+  {
+    "curCity": "Zvonce",
+    "lat": 42.9318973,
+    "lon": 22.5741231
+  },
+  {
+    "curCity": "Temska",
+    "lat": 43.2622573,
+    "lon": 22.545029
+  },
+  {
+    "curCity": "Svrljig",
+    "lat": 43.4140419,
+    "lon": 22.1230473
+  },
+  {
+    "curCity": "Palilula",
+    "lat": 44.8114529,
+    "lon": 20.4783364
+  },
+  {
+    "curCity": "Prekonoga",
+    "lat": 43.3950801,
+    "lon": 22.1016184
+  },
+  {
+    "curCity": "Niševac",
+    "lat": 43.4590741,
+    "lon": 22.1002936
+  },
+  {
+    "curCity": "Burdimo",
+    "lat": 43.4123588,
+    "lon": 22.2364185
+  },
+  {
+    "curCity": "Prokuplje",
+    "lat": 43.2343484,
+    "lon": 21.5884422
+  },
+  {
+    "curCity": "Velika Plana",
+    "lat": 44.3324574,
+    "lon": 21.075786
+  },
+  {
+    "curCity": "Donja Rečica",
+    "lat": 43.2937902,
+    "lon": 21.4926418
+  },
+  {
+    "curCity": "Džigolj",
+    "lat": 43.3331367,
+    "lon": 21.5646445
+  },
+  {
+    "curCity": "Dubovo",
+    "lat": 43.0018281,
+    "lon": 20.3391963
+  },
+  {
+    "curCity": "Žitni Potok",
+    "lat": 43.0902065,
+    "lon": 21.5752094
+  },
+  {
+    "curCity": "Dobri Do",
+    "lat": 43.214254,
+    "lon": 22.633681
+  },
+  {
+    "curCity": "Kruševica",
+    "lat": 43.0394917,
+    "lon": 22.1766051
+  },
+  {
+    "curCity": "Doljevac",
+    "lat": 43.1980961,
+    "lon": 21.8332818
+  },
+  {
+    "curCity": "Belotinac",
+    "lat": 43.2653133,
+    "lon": 21.8527187
+  },
+  {
+    "curCity": "Žitoradja",
+    "lat": 43.1889653,
+    "lon": 21.7111439
+  },
+  {
+    "curCity": "Pejkovac",
+    "lat": 43.226145,
+    "lon": 21.732943
+  },
+  {
+    "curCity": "Donje Crnatovo",
+    "lat": 43.152312,
+    "lon": 21.772713
+  },
+  {
+    "curCity": "Malošište",
+    "lat": 43.2371829,
+    "lon": 21.8519469
+  },
+  {
+    "curCity": "Cecina",
+    "lat": 43.199107,
+    "lon": 21.8697238
+  },
+  {
+    "curCity": "Blace",
+    "lat": 43.2955155,
+    "lon": 21.2865967
+  },
+  {
+    "curCity": "Donja Trnava",
+    "lat": 43.4224074,
+    "lon": 21.7800875
+  },
+  {
+    "curCity": "Mala Plana",
+    "lat": 43.2520819,
+    "lon": 21.476282
+  },
+  {
+    "curCity": "Beloljin",
+    "lat": 43.2316209,
+    "lon": 21.4029069
+  },
+  {
+    "curCity": "Gornja Draguša",
+    "lat": 43.279499,
+    "lon": 21.360277
+  },
+  {
+    "curCity": "Barbatovac",
+    "lat": 43.228056,
+    "lon": 21.258889
+  },
+  {
+    "curCity": "Kuršumlija",
+    "lat": 43.1380502,
+    "lon": 21.2717791
+  },
+  {
+    "curCity": "Barlovo",
+    "lat": 43.1772724,
+    "lon": 21.3493345
+  },
+  {
+    "curCity": "Prolom",
+    "lat": 43.0441729,
+    "lon": 21.4009418
+  },
+  {
+    "curCity": "Kuršumlijska Banja",
+    "lat": 43.0578755,
+    "lon": 21.2550485
+  },
+  {
+    "curCity": "Merćez",
+    "lat": 43.2382238,
+    "lon": 21.0655098
+  },
+  {
+    "curCity": "Lukovo",
+    "lat": 42.4871456,
+    "lon": 21.9724304
+  },
+  {
+    "curCity": "Zuc",
+    "lat": 43.202075,
+    "lon": 21.1562884
+  },
+  {
+    "curCity": "Rača",
+    "lat": 44.2253438,
+    "lon": 20.9801511
+  },
+  {
+    "curCity": "Merdare",
+    "lat": 42.9484363,
+    "lon": 21.2572659
+  },
+  {
+    "curCity": "Zaječar",
+    "lat": 43.9030925,
+    "lon": 22.2785536
+  },
+  {
+    "curCity": "Metovnica",
+    "lat": 43.9557068,
+    "lon": 22.1407238
+  },
+  {
+    "curCity": "Gradskovo",
+    "lat": 44.0212588,
+    "lon": 22.3834701
+  },
+  {
+    "curCity": "Veliki Izvor",
+    "lat": 43.9263603,
+    "lon": 22.3314124
+  },
+  {
+    "curCity": "Planinica",
+    "lat": 42.9992018,
+    "lon": 22.6936416
+  },
+  {
+    "curCity": "Lubnica",
+    "lat": 43.8672107,
+    "lon": 22.1959151
+  },
+  {
+    "curCity": "Mali Jasenovac",
+    "lat": 44.0354133,
+    "lon": 22.4497033
+  },
+  {
+    "curCity": "Bor",
+    "lat": 44.0778456,
+    "lon": 22.0991779
+  },
+  {
+    "curCity": "Donja Bela Reka",
+    "lat": 43.5784538,
+    "lon": 19.8890625
+  },
+  {
+    "curCity": "Rgotina",
+    "lat": 44.0078458,
+    "lon": 22.2711874
+  },
+  {
+    "curCity": "Zlot",
+    "lat": 44.0091766,
+    "lon": 21.9853539
+  },
+  {
+    "curCity": "Brestovačka Banja",
+    "lat": 44.0602285,
+    "lon": 22.0439444
+  },
+  {
+    "curCity": "Krivelj",
+    "lat": 44.1296585,
+    "lon": 22.0957981
+  },
+  {
+    "curCity": "Donji Milanovac",
+    "lat": 44.462747,
+    "lon": 22.1523003
+  },
+  {
+    "curCity": "Klokočevac",
+    "lat": 44.3460115,
+    "lon": 22.1798355
+  },
+  {
+    "curCity": "Koprivnica",
+    "lat": 43.1965353,
+    "lon": 20.5677007
+  },
+  {
+    "curCity": "Salaš",
+    "lat": 44.1139575,
+    "lon": 22.3200155
+  },
+  {
+    "curCity": "Sikole",
+    "lat": 44.1754635,
+    "lon": 22.3042282
+  },
+  {
+    "curCity": "Zvezdan",
+    "lat": 43.9009535,
+    "lon": 22.2136375
+  },
+  {
+    "curCity": "Gamzigradska Banja",
+    "lat": 43.9233611,
+    "lon": 22.1737881
+  },
+  {
+    "curCity": "Luka",
+    "lat": 44.1701103,
+    "lon": 22.1838647
+  },
+  {
+    "curCity": "Velika Jasikova",
+    "lat": 44.0826031,
+    "lon": 22.3622083
+  },
+  {
+    "curCity": "Halovo",
+    "lat": 43.9746448,
+    "lon": 22.3995446
+  },
+  {
+    "curCity": "Majdanpek",
+    "lat": 44.4224552,
+    "lon": 21.9359228
+  },
+  {
+    "curCity": "Rudna Glava",
+    "lat": 44.3252703,
+    "lon": 22.0870216
+  },
+  {
+    "curCity": "Negotin",
+    "lat": 44.2271199,
+    "lon": 22.5308921
+  },
+  {
+    "curCity": "Štubik",
+    "lat": 44.2910717,
+    "lon": 22.3528143
+  },
+  {
+    "curCity": "Jabukovac",
+    "lat": 44.3468668,
+    "lon": 22.3809648
+  },
+  {
+    "curCity": "Urovica",
+    "lat": 44.400616,
+    "lon": 22.4028511
+  },
+  {
+    "curCity": "Trnjane",
+    "lat": 44.2243194,
+    "lon": 22.3532645
+  },
+  {
+    "curCity": "Nikolićevo",
+    "lat": 43.9612639,
+    "lon": 22.2387446
+  },
+  {
+    "curCity": "Vražogrnac",
+    "lat": 43.9591016,
+    "lon": 22.3221788
+  },
+  {
+    "curCity": "Brusnik",
+    "lat": 43.3652737,
+    "lon": 20.3485801
+  },
+  {
+    "curCity": "Rajac",
+    "lat": 44.0941731,
+    "lon": 22.5564366
+  },
+  {
+    "curCity": "Bracevac",
+    "lat": 44.0681729,
+    "lon": 22.5039784
+  },
+  {
+    "curCity": "Kobišnica",
+    "lat": 44.1959817,
+    "lon": 22.5912054
+  },
+  {
+    "curCity": "Rogljevo",
+    "lat": 44.1235658,
+    "lon": 22.5655961
+  },
+  {
+    "curCity": "Kladovo",
+    "lat": 44.6093983,
+    "lon": 22.6136517
+  },
+  {
+    "curCity": "Podvrška",
+    "lat": 44.5856829,
+    "lon": 22.5002361
+  },
+  {
+    "curCity": "Mihajlovac",
+    "lat": 44.3702151,
+    "lon": 22.4942396
+  },
+  {
+    "curCity": "Brza Palanka",
+    "lat": 44.4842353,
+    "lon": 22.452723
+  },
+  {
+    "curCity": "Slatina",
+    "lat": 43.1942371,
+    "lon": 19.6921736
+  },
+  {
+    "curCity": "Tekija",
+    "lat": 44.6828281,
+    "lon": 22.4090838
+  },
+  {
+    "curCity": "Sip",
+    "lat": 42.8964,
+    "lon": 22.62
+  },
+  {
+    "curCity": "Velesnica",
+    "lat": 44.5199546,
+    "lon": 22.5523342
+  },
+  {
+    "curCity": "Korbovo",
+    "lat": 44.5266153,
+    "lon": 22.709503
+  },
+  {
+    "curCity": "Prahovo",
+    "lat": 44.2926138,
+    "lon": 22.5859093
+  },
+  {
+    "curCity": "Radujevac",
+    "lat": 44.2653298,
+    "lon": 22.6753363
+  },
+  {
+    "curCity": "Dušanovac",
+    "lat": 44.7863448,
+    "lon": 20.4795043
+  },
+  {
+    "curCity": "Minićevo",
+    "lat": 43.6844163,
+    "lon": 22.29208
+  },
+  {
+    "curCity": "Grljan",
+    "lat": 43.8581033,
+    "lon": 22.2930614
+  },
+  {
+    "curCity": "Grlište",
+    "lat": 43.8165983,
+    "lon": 22.244124
+  },
+  {
+    "curCity": "Lenovac",
+    "lat": 43.8045823,
+    "lon": 22.1651982
+  },
+  {
+    "curCity": "Vratarnica",
+    "lat": 43.7839543,
+    "lon": 22.3086959
+  },
+  {
+    "curCity": "Donje Zuniće",
+    "lat": 43.6226094,
+    "lon": 22.2765857
+  },
+  {
+    "curCity": "Mali Izvor",
+    "lat": 43.7269575,
+    "lon": 22.3115019
+  },
+  {
+    "curCity": "Knjaževac",
+    "lat": 43.5675155,
+    "lon": 22.2556547
+  },
+  {
+    "curCity": "Donja Kamenica",
+    "lat": 43.4881176,
+    "lon": 22.3271541
+  },
+  {
+    "curCity": "Kalna",
+    "lat": 42.8689987,
+    "lon": 22.4445951
+  },
+  {
+    "curCity": "Podvis",
+    "lat": 43.5464265,
+    "lon": 22.1879549
+  },
+  {
+    "curCity": "Beli Potok",
+    "lat": 44.7055101,
+    "lon": 20.5189561
+  },
+  {
+    "curCity": "Vasilj",
+    "lat": 43.569538,
+    "lon": 22.1541026
+  },
+  {
+    "curCity": "Bucje",
+    "lat": 43.5480328,
+    "lon": 21.050692
+  },
+  {
+    "curCity": "Boljevac",
+    "lat": 43.4102779,
+    "lon": 21.5064332
+  },
+  {
+    "curCity": "Lukovo",
+    "lat": 42.4871456,
+    "lon": 21.9724304
+  },
+  {
+    "curCity": "Bogovina",
+    "lat": 43.8936205,
+    "lon": 21.9447168
+  },
+  {
+    "curCity": "Šarbanovac",
+    "lat": 43.7051435,
+    "lon": 21.8783244
+  },
+  {
+    "curCity": "Krivi Vir",
+    "lat": 43.8224228,
+    "lon": 21.7490985
+  },
+  {
+    "curCity": "Sumrakovac",
+    "lat": 43.9387983,
+    "lon": 22.0315393
+  },
+  {
+    "curCity": "Savinac",
+    "lat": 43.003852,
+    "lon": 21.670324
+  },
+  {
+    "curCity": "Osnić",
+    "lat": 43.8823985,
+    "lon": 22.1001865
+  },
+  {
+    "curCity": "Šarbanovac Timok",
+    "lat": 43.9299106,
+    "lon": 22.0885054
+  },
+  {
+    "curCity": "Novi Sad",
+    "lat": 45.2551338,
+    "lon": 19.8451756
+  },
+  {
+    "curCity": "Petrovaradin",
+    "lat": 45.2426175,
+    "lon": 19.8820073
+  },
+  {
+    "curCity": "Rumenka",
+    "lat": 45.2933912,
+    "lon": 19.7410418
+  },
+  {
+    "curCity": "Veternik",
+    "lat": 45.2495309,
+    "lon": 19.756395
+  },
+  {
+    "curCity": "Sremski Karlovci",
+    "lat": 45.18602535,
+    "lon": 19.957137293567165
+  },
+  {
+    "curCity": "Stari Ledinci",
+    "lat": 45.185576,
+    "lon": 19.8037149
+  },
+  {
+    "curCity": "Ledinci",
+    "lat": 45.2115613,
+    "lon": 19.8052203
+  },
+  {
+    "curCity": "Sremska Kamenica",
+    "lat": 45.2232006,
+    "lon": 19.8434089
+  },
+  {
+    "curCity": "Bukovac",
+    "lat": 45.1943284,
+    "lon": 19.8932816
+  },
+  {
+    "curCity": "Kisač",
+    "lat": 45.3478444,
+    "lon": 19.7272454
+  },
+  {
+    "curCity": "Stepanovićevo",
+    "lat": 45.4137131,
+    "lon": 19.6997016
+  },
+  {
+    "curCity": "Zmajevo",
+    "lat": 45.4533871,
+    "lon": 19.6906852
+  },
+  {
+    "curCity": "Sirig",
+    "lat": 45.4401994,
+    "lon": 19.8105722
+  },
+  {
+    "curCity": "Turija",
+    "lat": 45.5376971,
+    "lon": 19.8549648
+  },
+  {
+    "curCity": "Nadalj",
+    "lat": 45.5076291,
+    "lon": 19.9237515
+  },
+  {
+    "curCity": "Bačko Gradište",
+    "lat": 45.5334357,
+    "lon": 20.0270428
+  },
+  {
+    "curCity": "Bečej",
+    "lat": 45.6153745,
+    "lon": 20.0490085
+  },
+  {
+    "curCity": "Radičević",
+    "lat": 45.5852043,
+    "lon": 19.9196818
+  },
+  {
+    "curCity": "Bačko Petrovo Selo",
+    "lat": 45.7069444,
+    "lon": 20.0791667
+  },
+  {
+    "curCity": "Mileševo",
+    "lat": 43.3723647,
+    "lon": 19.7053822
+  },
+  {
+    "curCity": "Žabalj",
+    "lat": 45.3728199,
+    "lon": 20.0637917
+  },
+  {
+    "curCity": "Čenej",
+    "lat": 45.3697869,
+    "lon": 19.8013472
+  },
+  {
+    "curCity": "Bački Jarak",
+    "lat": 45.372111,
+    "lon": 19.8728898
+  },
+  {
+    "curCity": "Temerin",
+    "lat": 45.4073868,
+    "lon": 19.8876546
+  },
+  {
+    "curCity": "Gospođinci",
+    "lat": 45.4022051,
+    "lon": 19.9860024
+  },
+  {
+    "curCity": "Čurug",
+    "lat": 45.4732331,
+    "lon": 20.0717969
+  },
+  {
+    "curCity": "Titel",
+    "lat": 45.2043941,
+    "lon": 20.3060414
+  },
+  {
+    "curCity": "Kać",
+    "lat": 45.3000459,
+    "lon": 19.9420836
+  },
+  {
+    "curCity": "Budisava",
+    "lat": 45.2806643,
+    "lon": 19.9933725
+  },
+  {
+    "curCity": "Kovilj",
+    "lat": 45.2275974,
+    "lon": 20.0223418
+  },
+  {
+    "curCity": "Šajkaš",
+    "lat": 45.2722549,
+    "lon": 20.0897727
+  },
+  {
+    "curCity": "Mošorin",
+    "lat": 45.2999448,
+    "lon": 20.1777606
+  },
+  {
+    "curCity": "Vilovo",
+    "lat": 45.2533595,
+    "lon": 20.1496459
+  },
+  {
+    "curCity": "Gardinovci",
+    "lat": 45.2036398,
+    "lon": 20.135807
+  },
+  {
+    "curCity": "Lok",
+    "lat": 45.2160599,
+    "lon": 20.2083757
+  },
+  {
+    "curCity": "Rakovac",
+    "lat": 45.2087575,
+    "lon": 19.7676517
+  },
+  {
+    "curCity": "Beočin",
+    "lat": 45.2099153,
+    "lon": 19.7209347
+  },
+  {
+    "curCity": "Čerević",
+    "lat": 45.2186356,
+    "lon": 19.6627528
+  },
+  {
+    "curCity": "Banoštor",
+    "lat": 45.2145197,
+    "lon": 19.6156673
+  },
+  {
+    "curCity": "Susek",
+    "lat": 45.2246511,
+    "lon": 19.5346813
+  },
+  {
+    "curCity": "Neštin",
+    "lat": 45.2253351,
+    "lon": 19.4520437
+  },
+  {
+    "curCity": "Lug",
+    "lat": 44.4378937,
+    "lon": 20.6837364
+  },
+  {
+    "curCity": "Bačka Palanka",
+    "lat": 45.2500976,
+    "lon": 19.3897302
+  },
+  {
+    "curCity": "Futog",
+    "lat": 45.2373534,
+    "lon": 19.7064376
+  },
+  {
+    "curCity": "Begeč",
+    "lat": 45.2372383,
+    "lon": 19.6225197
+  },
+  {
+    "curCity": "Gložan",
+    "lat": 45.2778472,
+    "lon": 19.568299
+  },
+  {
+    "curCity": "Čelarevo",
+    "lat": 45.2718195,
+    "lon": 19.5271962
+  },
+  {
+    "curCity": "Bač",
+    "lat": 45.3916793,
+    "lon": 19.2368045
+  },
+  {
+    "curCity": "Karađorđevo",
+    "lat": 45.8577552,
+    "lon": 19.5898493
+  },
+  {
+    "curCity": "Mladenovo",
+    "lat": 45.3043361,
+    "lon": 19.26208
+  },
+  {
+    "curCity": "Obrovac",
+    "lat": 45.3197968,
+    "lon": 19.3513357
+  },
+  {
+    "curCity": "Tovariševo",
+    "lat": 45.355595,
+    "lon": 19.3242439
+  },
+  {
+    "curCity": "Selenča",
+    "lat": 45.4097406,
+    "lon": 19.3005456
+  },
+  {
+    "curCity": "Vajska",
+    "lat": 45.4120269,
+    "lon": 19.112122
+  },
+  {
+    "curCity": "Bodjani",
+    "lat": 45.3887642,
+    "lon": 19.1040539
+  },
+  {
+    "curCity": "Plavna",
+    "lat": 44.2967957,
+    "lon": 22.2603874
+  },
+  {
+    "curCity": "Bačko Novo Selo",
+    "lat": 45.2935927,
+    "lon": 19.1407378
+  },
+  {
+    "curCity": "Nova Gajdobra",
+    "lat": 45.32989,
+    "lon": 19.4364316
+  },
+  {
+    "curCity": "Gajdobra",
+    "lat": 45.3512013,
+    "lon": 19.4452207
+  },
+  {
+    "curCity": "Silbaš",
+    "lat": 45.3929334,
+    "lon": 19.4618119
+  },
+  {
+    "curCity": "Parage",
+    "lat": 45.413835,
+    "lon": 19.4043598
+  },
+  {
+    "curCity": "Vrbas",
+    "lat": 45.568028,
+    "lon": 19.6470089
+  },
+  {
+    "curCity": "Bačko Dobro Polje",
+    "lat": 45.5003693,
+    "lon": 19.6898057
+  },
+  {
+    "curCity": "Kucura",
+    "lat": 45.5194794,
+    "lon": 19.5838376
+  },
+  {
+    "curCity": "Savino Selo",
+    "lat": 45.5047575,
+    "lon": 19.5217037
+  },
+  {
+    "curCity": "Despotovo",
+    "lat": 45.4578901,
+    "lon": 19.5263672
+  },
+  {
+    "curCity": "Pivnice",
+    "lat": 45.4704612,
+    "lon": 19.4595651
+  },
+  {
+    "curCity": "Bački Petrovac",
+    "lat": 45.3600646,
+    "lon": 19.5914331
+  },
+  {
+    "curCity": "Ravno Selo",
+    "lat": 45.4491119,
+    "lon": 19.6223232
+  },
+  {
+    "curCity": "Kulpin",
+    "lat": 45.4009247,
+    "lon": 19.5924038
+  },
+  {
+    "curCity": "Maglić",
+    "lat": 45.3627931,
+    "lon": 19.5320721
+  },
+  {
+    "curCity": "Srbobran",
+    "lat": 45.5484758,
+    "lon": 19.7911219
+  },
+  {
+    "curCity": "Sremska Mitrovica",
+    "lat": 44.9824191,
+    "lon": 19.6136426
+  },
+  {
+    "curCity": "Zasavica",
+    "lat": 44.9454307,
+    "lon": 19.4987239
+  },
+  {
+    "curCity": "Mačvanska Mitrovica",
+    "lat": 44.9666021,
+    "lon": 19.5946213
+  },
+  {
+    "curCity": "Noćaj",
+    "lat": 44.9282539,
+    "lon": 19.5570306
+  },
+  {
+    "curCity": "Salaš Noćajski",
+    "lat": 44.9468486,
+    "lon": 19.5857635
+  },
+  {
+    "curCity": "Ravnje",
+    "lat": 44.9435954,
+    "lon": 19.4294342
+  },
+  {
+    "curCity": "Radenković",
+    "lat": 44.9206366,
+    "lon": 19.4967671
+  },
+  {
+    "curCity": "Ležimir",
+    "lat": 45.1221264,
+    "lon": 19.5692715
+  },
+  {
+    "curCity": "Mandjelos",
+    "lat": 45.0824851,
+    "lon": 19.5977777
+  },
+  {
+    "curCity": "Veliki Radinci",
+    "lat": 45.0455556,
+    "lon": 19.6736111
+  },
+  {
+    "curCity": "Bešenovo",
+    "lat": 45.0822267,
+    "lon": 19.704213
+  },
+  {
+    "curCity": "Grgurevci",
+    "lat": 45.1058235,
+    "lon": 19.6465224
+  },
+  {
+    "curCity": "Bosut",
+    "lat": 44.932235,
+    "lon": 19.3627092
+  },
+  {
+    "curCity": "Laćarak",
+    "lat": 44.9975082,
+    "lon": 19.5649928
+  },
+  {
+    "curCity": "Martinci",
+    "lat": 45.0102365,
+    "lon": 19.4633111
+  },
+  {
+    "curCity": "Kuzmin",
+    "lat": 45.0218413,
+    "lon": 19.4082254
+  },
+  {
+    "curCity": "Kukujevci",
+    "lat": 45.0701411,
+    "lon": 19.339392
+  },
+  {
+    "curCity": "Bacinci",
+    "lat": 45.082688,
+    "lon": 19.3074496
+  },
+  {
+    "curCity": "Erdevik",
+    "lat": 45.1157806,
+    "lon": 19.4100915
+  },
+  {
+    "curCity": "Čalma",
+    "lat": 45.0807024,
+    "lon": 19.5066072
+  },
+  {
+    "curCity": "Divoš",
+    "lat": 45.1102924,
+    "lon": 19.5123224
+  },
+  {
+    "curCity": "Šid",
+    "lat": 45.126371,
+    "lon": 19.2291509
+  },
+  {
+    "curCity": "Vasica",
+    "lat": 45.0956204,
+    "lon": 19.1866039
+  },
+  {
+    "curCity": "Berkasovo",
+    "lat": 45.1488963,
+    "lon": 19.2599231
+  },
+  {
+    "curCity": "Sot",
+    "lat": 45.1588812,
+    "lon": 19.3188329
+  },
+  {
+    "curCity": "Adasevci",
+    "lat": 45.0818899,
+    "lon": 19.221895
+  },
+  {
+    "curCity": "Morović",
+    "lat": 45.00771,
+    "lon": 19.2176399
+  },
+  {
+    "curCity": "Višnjićevo",
+    "lat": 44.9653361,
+    "lon": 19.2886445
+  },
+  {
+    "curCity": "Sremska Rača",
+    "lat": 44.9191887,
+    "lon": 19.2867677
+  },
+  {
+    "curCity": "Jamena",
+    "lat": 44.8840398,
+    "lon": 19.0632106
+  },
+  {
+    "curCity": "Ilinci",
+    "lat": 45.1136326,
+    "lon": 19.1262316
+  },
+  {
+    "curCity": "Batrovci",
+    "lat": 45.0530001,
+    "lon": 19.1320767
+  },
+  {
+    "curCity": "Bingula",
+    "lat": 45.1008682,
+    "lon": 19.4487791
+  },
+  {
+    "curCity": "Bikić Do",
+    "lat": 45.1538642,
+    "lon": 19.291004
+  },
+  {
+    "curCity": "Ljuba",
+    "lat": 45.156202,
+    "lon": 19.3895227
+  },
+  {
+    "curCity": "Molovin",
+    "lat": 45.1828178,
+    "lon": 19.3117044
+  },
+  {
+    "curCity": "Privina Glava",
+    "lat": 45.1383477,
+    "lon": 19.2976249
+  },
+  {
+    "curCity": "Gibarac",
+    "lat": 45.1057581,
+    "lon": 19.264505
+  },
+  {
+    "curCity": "Stara Pazova",
+    "lat": 44.9846077,
+    "lon": 20.1588763
+  },
+  {
+    "curCity": "Banovci Dunav",
+    "lat": 44.9674492,
+    "lon": 20.2804103
+  },
+  {
+    "curCity": "Novi Banovci",
+    "lat": 44.9532153,
+    "lon": 20.2824281
+  },
+  {
+    "curCity": "Stari Banovci",
+    "lat": 44.9822297,
+    "lon": 20.2812604
+  },
+  {
+    "curCity": "Belegiš",
+    "lat": 45.0188292,
+    "lon": 20.3313275
+  },
+  {
+    "curCity": "Surduk",
+    "lat": 45.0724431,
+    "lon": 20.3253675
+  },
+  {
+    "curCity": "Golubinci",
+    "lat": 44.9840388,
+    "lon": 20.0659105
+  },
+  {
+    "curCity": "Šimanovci",
+    "lat": 44.8745083,
+    "lon": 20.0891145
+  },
+  {
+    "curCity": "Vojka",
+    "lat": 44.935625,
+    "lon": 20.1516279
+  },
+  {
+    "curCity": "Krnješevci",
+    "lat": 44.8893072,
+    "lon": 20.1383552
+  },
+  {
+    "curCity": "Inđija",
+    "lat": 45.0478559,
+    "lon": 20.0807338
+  },
+  {
+    "curCity": "Ljukovo",
+    "lat": 45.0204778,
+    "lon": 20.0329596
+  },
+  {
+    "curCity": "Novi Karlovci",
+    "lat": 45.081211,
+    "lon": 20.1792221
+  },
+  {
+    "curCity": "Novi Slankamen",
+    "lat": 45.1257668,
+    "lon": 20.2390854
+  },
+  {
+    "curCity": "Beška",
+    "lat": 45.130612,
+    "lon": 20.0674051
+  },
+  {
+    "curCity": "Krčedin",
+    "lat": 45.1403456,
+    "lon": 20.1327587
+  },
+  {
+    "curCity": "Čortanovci",
+    "lat": 45.1558832,
+    "lon": 20.0180572
+  },
+  {
+    "curCity": "Maradik",
+    "lat": 45.1008678,
+    "lon": 19.9933374
+  },
+  {
+    "curCity": "Krušedol",
+    "lat": 45.119478400000006,
+    "lon": 19.940397264675756
+  },
+  {
+    "curCity": "Stari Slankamen",
+    "lat": 45.1414778,
+    "lon": 20.2585993
+  },
+  {
+    "curCity": "Nova Pazova",
+    "lat": 44.9444762,
+    "lon": 20.2191291
+  },
+  {
+    "curCity": "Ruma",
+    "lat": 45.0078322,
+    "lon": 19.8187834
+  },
+  {
+    "curCity": "Putinci",
+    "lat": 44.9924191,
+    "lon": 19.9724508
+  },
+  {
+    "curCity": "Stejanovci",
+    "lat": 45.0577164,
+    "lon": 19.7234291
+  },
+  {
+    "curCity": "Irig",
+    "lat": 45.0995183,
+    "lon": 19.861045
+  },
+  {
+    "curCity": "Vrdnik",
+    "lat": 45.1216667,
+    "lon": 19.7922222
+  },
+  {
+    "curCity": "Jazak",
+    "lat": 45.1049393,
+    "lon": 19.7653301
+  },
+  {
+    "curCity": "Pećinci",
+    "lat": 44.9090756,
+    "lon": 19.9672065
+  },
+  {
+    "curCity": "Kraljevci",
+    "lat": 44.9773216,
+    "lon": 19.8840155
+  },
+  {
+    "curCity": "Dobrinci",
+    "lat": 44.9536871,
+    "lon": 19.9277783
+  },
+  {
+    "curCity": "Sremski Mihaljevci",
+    "lat": 44.8587944,
+    "lon": 20.0383376
+  },
+  {
+    "curCity": "Subotište",
+    "lat": 44.8447433,
+    "lon": 19.9601368
+  },
+  {
+    "curCity": "Ogar",
+    "lat": 44.7924302,
+    "lon": 19.9466351
+  },
+  {
+    "curCity": "Obrez",
+    "lat": 44.7364579,
+    "lon": 19.9773093
+  },
+  {
+    "curCity": "Asanja",
+    "lat": 44.7551502,
+    "lon": 20.0762748
+  },
+  {
+    "curCity": "Kupinovo",
+    "lat": 44.7066482,
+    "lon": 20.0503493
+  },
+  {
+    "curCity": "Platičevo",
+    "lat": 44.8241319,
+    "lon": 19.7943371
+  },
+  {
+    "curCity": "Budjanovci",
+    "lat": 44.8943618,
+    "lon": 19.8643311
+  },
+  {
+    "curCity": "Nikinci",
+    "lat": 44.8494518,
+    "lon": 19.8230064
+  },
+  {
+    "curCity": "Grabovci",
+    "lat": 44.7671879,
+    "lon": 19.8329433
+  },
+  {
+    "curCity": "Klenak",
+    "lat": 44.787715,
+    "lon": 19.7063361
+  },
+  {
+    "curCity": "Šašinci",
+    "lat": 44.966599,
+    "lon": 19.7416158
+  },
+  {
+    "curCity": "Hrtkovci",
+    "lat": 44.8799832,
+    "lon": 19.7706577
+  },
+  {
+    "curCity": "Popinci",
+    "lat": 44.9280466,
+    "lon": 20.0072723
+  },
+  {
+    "curCity": "Voganj",
+    "lat": 45.0036084,
+    "lon": 19.7549746
+  },
+  {
+    "curCity": "Vitojevci",
+    "lat": 44.7891222,
+    "lon": 19.8185151
+  },
+  {
+    "curCity": "Sibač",
+    "lat": 44.9058129,
+    "lon": 19.9333144
+  },
+  {
+    "curCity": "Dec",
+    "lat": 44.8361417,
+    "lon": 20.1146007
+  },
+  {
+    "curCity": "Prhovo",
+    "lat": 44.8839549,
+    "lon": 20.0021353
+  },
+  {
+    "curCity": "Karlovčić",
+    "lat": 44.8226436,
+    "lon": 20.0441741
+  },
+  {
+    "curCity": "Zrenjanin",
+    "lat": 45.3802683,
+    "lon": 20.3907614
+  },
+  {
+    "curCity": "Mihajlovo",
+    "lat": 45.4718698,
+    "lon": 20.4164002
+  },
+  {
+    "curCity": "Ečka",
+    "lat": 45.3148419,
+    "lon": 20.4461574
+  },
+  {
+    "curCity": "Stajićevo",
+    "lat": 45.2943516,
+    "lon": 20.4568867
+  },
+  {
+    "curCity": "Belo Blato",
+    "lat": 45.2722617,
+    "lon": 20.3737176
+  },
+  {
+    "curCity": "Muzlja",
+    "lat": 45.3484038,
+    "lon": 20.4040736
+  },
+  {
+    "curCity": "Aradac",
+    "lat": 45.3797095,
+    "lon": 20.3014261
+  },
+  {
+    "curCity": "Elemir",
+    "lat": 45.4427544,
+    "lon": 20.2984035
+  },
+  {
+    "curCity": "Taraš",
+    "lat": 45.4665476,
+    "lon": 20.2005346
+  },
+  {
+    "curCity": "Žitište",
+    "lat": 45.4833996,
+    "lon": 20.5519957
+  },
+  {
+    "curCity": "Klek",
+    "lat": 45.4213594,
+    "lon": 20.4797385
+  },
+  {
+    "curCity": "Ravni Topolovac",
+    "lat": 45.4603621,
+    "lon": 20.5687899
+  },
+  {
+    "curCity": "Banatski Dvor",
+    "lat": 45.5237849,
+    "lon": 20.5127277
+  },
+  {
+    "curCity": "Torda",
+    "lat": 45.5862698,
+    "lon": 20.4572131
+  },
+  {
+    "curCity": "Cestereg",
+    "lat": 45.5626043,
+    "lon": 20.5329503
+  },
+  {
+    "curCity": "Banatsko Karađorđevo",
+    "lat": 45.5884532,
+    "lon": 20.5612256
+  },
+  {
+    "curCity": "Aleksandrovo",
+    "lat": 45.6377825,
+    "lon": 20.5915942
+  },
+  {
+    "curCity": "Nova Crnja",
+    "lat": 45.6678337,
+    "lon": 20.6070532
+  },
+  {
+    "curCity": "Vojvoda Stepa",
+    "lat": 45.6847694,
+    "lon": 20.6550975
+  },
+  {
+    "curCity": "Srpska Crnja",
+    "lat": 45.7262466,
+    "lon": 20.6912659
+  },
+  {
+    "curCity": "Radojevo",
+    "lat": 45.7447038,
+    "lon": 20.7894695
+  },
+  {
+    "curCity": "Toba",
+    "lat": 45.6898326,
+    "lon": 20.5578787
+  },
+  {
+    "curCity": "Lukino Selo",
+    "lat": 45.306946,
+    "lon": 20.4265634
+  },
+  {
+    "curCity": "Jaša Tomić",
+    "lat": 45.4465892,
+    "lon": 20.8564493
+  },
+  {
+    "curCity": "Krajišnik",
+    "lat": 45.4524401,
+    "lon": 20.7280972
+  },
+  {
+    "curCity": "Begejci",
+    "lat": 45.5080816,
+    "lon": 20.607218
+  },
+  {
+    "curCity": "Srpski Itebej",
+    "lat": 45.568008,
+    "lon": 20.714305
+  },
+  {
+    "curCity": "Medja",
+    "lat": 45.5356384,
+    "lon": 20.8068073
+  },
+  {
+    "curCity": "Hetin",
+    "lat": 45.6626265,
+    "lon": 20.7891718
+  },
+  {
+    "curCity": "Novi Itebej",
+    "lat": 45.558033,
+    "lon": 20.7016912
+  },
+  {
+    "curCity": "Banatsko Višnjićevo",
+    "lat": 45.4469958,
+    "lon": 20.6816031
+  },
+  {
+    "curCity": "Sečanj",
+    "lat": 45.3684881,
+    "lon": 20.7734307
+  },
+  {
+    "curCity": "Lazarevo",
+    "lat": 45.3871277,
+    "lon": 20.5364856
+  },
+  {
+    "curCity": "Banatski Despotovac",
+    "lat": 45.3644542,
+    "lon": 20.6628611
+  },
+  {
+    "curCity": "Botos",
+    "lat": 45.3095611,
+    "lon": 20.6382744
+  },
+  {
+    "curCity": "Sutjeska",
+    "lat": 44.8468167,
+    "lon": 20.383237
+  },
+  {
+    "curCity": "Neuzina",
+    "lat": 45.3447229,
+    "lon": 20.7122272
+  },
+  {
+    "curCity": "Jarkovac",
+    "lat": 45.2699426,
+    "lon": 20.7643369
+  },
+  {
+    "curCity": "Banatska Dubica",
+    "lat": 45.2739587,
+    "lon": 20.8226665
+  },
+  {
+    "curCity": "Boka",
+    "lat": 45.3560619,
+    "lon": 20.8351016
+  },
+  {
+    "curCity": "Konak",
+    "lat": 45.3163517,
+    "lon": 20.9138254
+  },
+  {
+    "curCity": "Surjan",
+    "lat": 45.3995309,
+    "lon": 20.8743144
+  },
+  {
+    "curCity": "Zlatica",
+    "lat": 44.46548540264776,
+    "lon": 22.096400468425053
+  },
+  {
+    "curCity": "Perlez",
+    "lat": 45.207496,
+    "lon": 20.3813491
+  },
+  {
+    "curCity": "Lukićevo",
+    "lat": 45.3370141,
+    "lon": 20.4966807
+  },
+  {
+    "curCity": "Tomaševac",
+    "lat": 45.2633648,
+    "lon": 20.6223957
+  },
+  {
+    "curCity": "Orlovat",
+    "lat": 45.2436725,
+    "lon": 20.5831276
+  },
+  {
+    "curCity": "Farkaždin",
+    "lat": 45.189364,
+    "lon": 20.4735842
+  },
+  {
+    "curCity": "Knićanin",
+    "lat": 45.187658,
+    "lon": 20.3186927
+  },
+  {
+    "curCity": "Ćenta",
+    "lat": 45.1073687,
+    "lon": 20.3852794
+  },
+  {
+    "curCity": "Melenci",
+    "lat": 45.5166819,
+    "lon": 20.316299
+  },
+  {
+    "curCity": "Kumane",
+    "lat": 45.5400113,
+    "lon": 20.2274206
+  },
+  {
+    "curCity": "Novi Bečej",
+    "lat": 45.5952571,
+    "lon": 20.1343581
+  },
+  {
+    "curCity": "Novo Miloševo",
+    "lat": 45.7213056,
+    "lon": 20.3017485
+  },
+  {
+    "curCity": "Bocar",
+    "lat": 45.7690732,
+    "lon": 20.2813821
+  },
+  {
+    "curCity": "Kikinda",
+    "lat": 45.8300065,
+    "lon": 20.4653054
+  },
+  {
+    "curCity": "Mokrin",
+    "lat": 45.9333774,
+    "lon": 20.4121642
+  },
+  {
+    "curCity": "Nakovo",
+    "lat": 45.874223,
+    "lon": 20.5671278
+  },
+  {
+    "curCity": "Banatsko Veliko Selo",
+    "lat": 45.8202982,
+    "lon": 20.6061719
+  },
+  {
+    "curCity": "Novi Kozarci",
+    "lat": 45.7793709,
+    "lon": 20.6151568
+  },
+  {
+    "curCity": "Rusko Selo",
+    "lat": 45.7588927,
+    "lon": 20.5728583
+  },
+  {
+    "curCity": "Banatska Topola",
+    "lat": 45.6723594,
+    "lon": 20.4644605
+  },
+  {
+    "curCity": "Basaid",
+    "lat": 45.6391562,
+    "lon": 20.4136646
+  },
+  {
+    "curCity": "Čoka",
+    "lat": 45.9411228,
+    "lon": 20.1399443
+  },
+  {
+    "curCity": "Iđos",
+    "lat": 45.8243258,
+    "lon": 20.315176
+  },
+  {
+    "curCity": "Sajan",
+    "lat": 45.8402383,
+    "lon": 20.2799261
+  },
+  {
+    "curCity": "Padej",
+    "lat": 45.826786,
+    "lon": 20.1648756
+  },
+  {
+    "curCity": "Ostojićevo",
+    "lat": 45.8897926,
+    "lon": 20.1676893
+  },
+  {
+    "curCity": "Jazovo",
+    "lat": 45.8929813,
+    "lon": 20.2193922
+  },
+  {
+    "curCity": "Crna Bara",
+    "lat": 45.9735278,
+    "lon": 20.2763122
+  },
+  {
+    "curCity": "Vrbica",
+    "lat": 46.0113697,
+    "lon": 20.3088704
+  },
+  {
+    "curCity": "Novi Kneževac",
+    "lat": 46.0427093,
+    "lon": 20.0933532
+  },
+  {
+    "curCity": "Sanad",
+    "lat": 45.975572,
+    "lon": 20.1045666
+  },
+  {
+    "curCity": "Banatsko Arandjelovo",
+    "lat": 46.0642042,
+    "lon": 20.2427003
+  },
+  {
+    "curCity": "Majdan",
+    "lat": 46.0925963,
+    "lon": 20.264924
+  },
+  {
+    "curCity": "Srpski Krstur",
+    "lat": 46.1269965,
+    "lon": 20.0957423
+  },
+  {
+    "curCity": "Đala",
+    "lat": 46.1547913,
+    "lon": 20.1095533
+  },
+  {
+    "curCity": "Subotica",
+    "lat": 46.1002058,
+    "lon": 19.6653273
+  },
+  {
+    "curCity": "Kelebija",
+    "lat": 46.1523488,
+    "lon": 19.5776048
+  },
+  {
+    "curCity": "Kelebija-granični prelaz",
+    "lat": 46.16590215,
+    "lon": 19.56231984997215
+  },
+  {
+    "curCity": "Bikovo",
+    "lat": 46.0197362,
+    "lon": 19.7590216
+  },
+  {
+    "curCity": "Orom",
+    "lat": 45.9768573,
+    "lon": 19.8333367
+  },
+  {
+    "curCity": "Bajmok",
+    "lat": 45.9668227,
+    "lon": 19.4249265
+  },
+  {
+    "curCity": "Mišićevo",
+    "lat": 45.9950438,
+    "lon": 19.4901008
+  },
+  {
+    "curCity": "Đurđin",
+    "lat": 45.945663,
+    "lon": 19.5389124
+  },
+  {
+    "curCity": "Tavankut",
+    "lat": 46.042579,
+    "lon": 19.5029825
+  },
+  {
+    "curCity": "Ljutovo",
+    "lat": 46.0657925,
+    "lon": 19.5259623
+  },
+  {
+    "curCity": "Mala Bosna",
+    "lat": 46.0404265,
+    "lon": 19.5709644
+  },
+  {
+    "curCity": "Čantavir",
+    "lat": 45.9218656,
+    "lon": 19.7627015
+  },
+  {
+    "curCity": "Višnjevac",
+    "lat": 45.9513874,
+    "lon": 19.7439629
+  },
+  {
+    "curCity": "Novi Zednik",
+    "lat": 45.9408773,
+    "lon": 19.6721045
+  },
+  {
+    "curCity": "Stari Žednik",
+    "lat": 45.9492639,
+    "lon": 19.6298504
+  },
+  {
+    "curCity": "Bačka Topola",
+    "lat": 45.8121657,
+    "lon": 19.6304705
+  },
+  {
+    "curCity": "Karadjordjevo",
+    "lat": 45.8577552,
+    "lon": 19.5898493
+  },
+  {
+    "curCity": "Mali Beograd",
+    "lat": 45.8853706,
+    "lon": 19.6339787
+  },
+  {
+    "curCity": "Njegoševo",
+    "lat": 45.762142,
+    "lon": 19.7534935
+  },
+  {
+    "curCity": "Gunaroš",
+    "lat": 45.7601799,
+    "lon": 19.827813
+  },
+  {
+    "curCity": "Pobeda",
+    "lat": 45.7941088,
+    "lon": 19.8284637
+  },
+  {
+    "curCity": "Mali Idjoš",
+    "lat": 45.7067012,
+    "lon": 19.666121
+  },
+  {
+    "curCity": "Lovćenac",
+    "lat": 45.6814172,
+    "lon": 19.6888114
+  },
+  {
+    "curCity": "Feketić",
+    "lat": 45.6643631,
+    "lon": 19.6980682
+  },
+  {
+    "curCity": "Panonija",
+    "lat": 45.7503869,
+    "lon": 19.5214468
+  },
+  {
+    "curCity": "Bajša",
+    "lat": 45.7769601,
+    "lon": 19.5849187
+  },
+  {
+    "curCity": "Stara Moravica",
+    "lat": 45.8693425,
+    "lon": 19.4666165
+  },
+  {
+    "curCity": "Krivaja",
+    "lat": 45.7932908,
+    "lon": 19.6045545
+  },
+  {
+    "curCity": "Pačir",
+    "lat": 45.8982023,
+    "lon": 19.4411846
+  },
+  {
+    "curCity": "Bački Sokolac",
+    "lat": 45.8499947,
+    "lon": 19.5397732
+  },
+  {
+    "curCity": "Oresković",
+    "lat": 45.87860565,
+    "lon": 20.560961155451217
+  },
+  {
+    "curCity": "Novo Orahovo",
+    "lat": 45.8497589,
+    "lon": 19.7683797
+  },
+  {
+    "curCity": "Tornjoš",
+    "lat": 45.8782275,
+    "lon": 19.8318949
+  },
+  {
+    "curCity": "Senta",
+    "lat": 45.9312407,
+    "lon": 20.0901597
+  },
+  {
+    "curCity": "Gornji Breg",
+    "lat": 45.920517,
+    "lon": 20.0184801
+  },
+  {
+    "curCity": "Kevi",
+    "lat": 45.8512096,
+    "lon": 19.8782241
+  },
+  {
+    "curCity": "Bogaras",
+    "lat": 45.7727617,
+    "lon": 19.8037128
+  },
+  {
+    "curCity": "Horgoš",
+    "lat": 46.152713,
+    "lon": 19.9655907
+  },
+  {
+    "curCity": "Horgoš Granični Prelaz",
+    "lat": 46.17286445,
+    "lon": 19.9744083530508
+  },
+  {
+    "curCity": "Palić",
+    "lat": 46.1022848,
+    "lon": 19.7634537
+  },
+  {
+    "curCity": "Hajdukovo",
+    "lat": 46.1066044,
+    "lon": 19.8219481
+  },
+  {
+    "curCity": "Bački Vinogradi",
+    "lat": 46.1233884,
+    "lon": 19.8564574
+  },
+  {
+    "curCity": "Male Pijace",
+    "lat": 46.0720463,
+    "lon": 19.9210496
+  },
+  {
+    "curCity": "Martonoš",
+    "lat": 46.1134321,
+    "lon": 20.0567934
+  },
+  {
+    "curCity": "Kanjiža",
+    "lat": 46.0644447,
+    "lon": 20.0516482
+  },
+  {
+    "curCity": "Adorjan",
+    "lat": 46.0054437,
+    "lon": 20.0380428
+  },
+  {
+    "curCity": "Tresnjevac",
+    "lat": 45.9796162,
+    "lon": 19.9871083
+  },
+  {
+    "curCity": "Totovo Selo",
+    "lat": 45.9635873,
+    "lon": 19.9194944
+  },
+  {
+    "curCity": "Ada",
+    "lat": 45.7969129,
+    "lon": 20.133407
+  },
+  {
+    "curCity": "Mol",
+    "lat": 45.7638971,
+    "lon": 20.130055
+  },
+  {
+    "curCity": "Utrine",
+    "lat": 45.8110142,
+    "lon": 19.8999892
+  },
+  {
+    "curCity": "Sombor",
+    "lat": 45.7727397,
+    "lon": 19.1147036
+  },
+  {
+    "curCity": "Conoplja",
+    "lat": 45.812126,
+    "lon": 19.248848
+  },
+  {
+    "curCity": "Svetozar Miletić",
+    "lat": 45.8533938,
+    "lon": 19.2048515
+  },
+  {
+    "curCity": "Aleksa Santic",
+    "lat": 45.9259224,
+    "lon": 19.3353395
+  },
+  {
+    "curCity": "Crvenka",
+    "lat": 45.6585062,
+    "lon": 19.4562036
+  },
+  {
+    "curCity": "Kljajićevo",
+    "lat": 45.7703765,
+    "lon": 19.2776627
+  },
+  {
+    "curCity": "Telečka",
+    "lat": 45.7952488,
+    "lon": 19.3808096
+  },
+  {
+    "curCity": "Sivac",
+    "lat": 45.7032662,
+    "lon": 19.3822068
+  },
+  {
+    "curCity": "Nova Crvenka",
+    "lat": 45.6951693,
+    "lon": 19.4878645
+  },
+  {
+    "curCity": "Krusčić",
+    "lat": 45.6153513,
+    "lon": 19.3680989
+  },
+  {
+    "curCity": "Kula",
+    "lat": 45.6101491,
+    "lon": 19.5301174
+  },
+  {
+    "curCity": "Lipar",
+    "lat": 45.7064812,
+    "lon": 19.5546121
+  },
+  {
+    "curCity": "Ruski Krstur",
+    "lat": 45.5625734,
+    "lon": 19.4201714
+  },
+  {
+    "curCity": "Lalić",
+    "lat": 45.5198425,
+    "lon": 19.3677289
+  },
+  {
+    "curCity": "Stapar",
+    "lat": 44.3174465,
+    "lon": 19.7395116
+  },
+  {
+    "curCity": "Bački Brestovac",
+    "lat": 45.6161513,
+    "lon": 19.2701805
+  },
+  {
+    "curCity": "Doroslovo",
+    "lat": 45.6074896,
+    "lon": 19.1879637
+  },
+  {
+    "curCity": "Srpski Miletić",
+    "lat": 45.559439,
+    "lon": 19.2035291
+  },
+  {
+    "curCity": "Bogojevo",
+    "lat": 45.5302367,
+    "lon": 19.1302139
+  },
+  {
+    "curCity": "Odzaci",
+    "lat": 45.5058662,
+    "lon": 19.2597368
+  },
+  {
+    "curCity": "Bački Gracac",
+    "lat": 45.5552073,
+    "lon": 19.3245845
+  },
+  {
+    "curCity": "Ratkovo",
+    "lat": 45.4542427,
+    "lon": 19.3363581
+  },
+  {
+    "curCity": "Deronje",
+    "lat": 45.4543171,
+    "lon": 19.2206219
+  },
+  {
+    "curCity": "Karavukovo",
+    "lat": 45.4976668,
+    "lon": 19.1960432
+  },
+  {
+    "curCity": "Apatin",
+    "lat": 45.6712544,
+    "lon": 18.9817862
+  },
+  {
+    "curCity": "Kupušina",
+    "lat": 45.7377766,
+    "lon": 19.0126598
+  },
+  {
+    "curCity": "Prigrevica",
+    "lat": 45.6776078,
+    "lon": 19.0854039
+  },
+  {
+    "curCity": "Sonta",
+    "lat": 45.5933853,
+    "lon": 19.096404
+  },
+  {
+    "curCity": "Svilojevo",
+    "lat": 45.6476825,
+    "lon": 19.0671319
+  },
+  {
+    "curCity": "Bezdan",
+    "lat": 45.8501704,
+    "lon": 18.925943
+  },
+  {
+    "curCity": "Bački Monostor",
+    "lat": 45.7937186,
+    "lon": 18.9339346
+  },
+  {
+    "curCity": "Kolut",
+    "lat": 45.8910436,
+    "lon": 18.9251663
+  },
+  {
+    "curCity": "Bački Breg",
+    "lat": 45.9201462,
+    "lon": 18.9321379
+  },
+  {
+    "curCity": "Ridjica",
+    "lat": 45.991571,
+    "lon": 19.1062079
+  },
+  {
+    "curCity": "Gakovo",
+    "lat": 45.9006097,
+    "lon": 19.0611893
+  },
+  {
+    "curCity": "Rastina",
+    "lat": 45.9596206,
+    "lon": 19.0363537
+  },
+  {
+    "curCity": "Stanišić",
+    "lat": 45.9385555,
+    "lon": 19.1645788
+  },
+  {
+    "curCity": "Pančevo",
+    "lat": 44.8705686,
+    "lon": 20.6399643
+  },
+  {
+    "curCity": "Jabuka",
+    "lat": 44.9471243,
+    "lon": 20.595162
+  },
+  {
+    "curCity": "Glogonj",
+    "lat": 44.9865352,
+    "lon": 20.5255532
+  },
+  {
+    "curCity": "Sefkerin",
+    "lat": 45.0044137,
+    "lon": 20.4858976
+  },
+  {
+    "curCity": "Opovo",
+    "lat": 45.0487194,
+    "lon": 20.4331827
+  },
+  {
+    "curCity": "Baranda",
+    "lat": 45.0827888,
+    "lon": 20.4462371
+  },
+  {
+    "curCity": "Sakule",
+    "lat": 45.1452359,
+    "lon": 20.4818833
+  },
+  {
+    "curCity": "Idvor",
+    "lat": 45.1903495,
+    "lon": 20.5131341
+  },
+  {
+    "curCity": "Kovačica",
+    "lat": 45.111874,
+    "lon": 20.6201585
+  },
+  {
+    "curCity": "Kačarevo",
+    "lat": 44.9665856,
+    "lon": 20.6995481
+  },
+  {
+    "curCity": "Crepaja",
+    "lat": 45.0092297,
+    "lon": 20.6372859
+  },
+  {
+    "curCity": "Padina",
+    "lat": 45.1220499,
+    "lon": 20.726906
+  },
+  {
+    "curCity": "Uzdin",
+    "lat": 45.2076453,
+    "lon": 20.6200177
+  },
+  {
+    "curCity": "Kovin",
+    "lat": 44.7412405,
+    "lon": 20.9781361
+  },
+  {
+    "curCity": "Bavanište",
+    "lat": 44.8172426,
+    "lon": 20.8755889
+  },
+  {
+    "curCity": "Gaj",
+    "lat": 44.7959786,
+    "lon": 21.0666655
+  },
+  {
+    "curCity": "Dubovac",
+    "lat": 44.7957843,
+    "lon": 21.2068951
+  },
+  {
+    "curCity": "Deliblato",
+    "lat": 44.8404632,
+    "lon": 21.0417114
+  },
+  {
+    "curCity": "Mramorak",
+    "lat": 44.8796306,
+    "lon": 20.9730845
+  },
+  {
+    "curCity": "Dolovo",
+    "lat": 44.9017205,
+    "lon": 20.8772434
+  },
+  {
+    "curCity": "Skorenovac",
+    "lat": 44.7645546,
+    "lon": 20.9047181
+  },
+  {
+    "curCity": "Pločica",
+    "lat": 44.7242392,
+    "lon": 20.8841521
+  },
+  {
+    "curCity": "Omoljica",
+    "lat": 44.7607631,
+    "lon": 20.7310487
+  },
+  {
+    "curCity": "Starčevo",
+    "lat": 44.8100472,
+    "lon": 20.6998149
+  },
+  {
+    "curCity": "Ivanovo",
+    "lat": 44.7394943,
+    "lon": 20.6971952
+  },
+  {
+    "curCity": "Banatski Brestovac",
+    "lat": 44.7266366,
+    "lon": 20.8084452
+  },
+  {
+    "curCity": "Vršac",
+    "lat": 45.1211263,
+    "lon": 21.2960485
+  },
+  {
+    "curCity": "Alibunar",
+    "lat": 45.0800389,
+    "lon": 20.966524
+  },
+  {
+    "curCity": "Banatsko Novo Selo",
+    "lat": 44.9906809,
+    "lon": 20.7847751
+  },
+  {
+    "curCity": "Vladimirovac",
+    "lat": 45.0318784,
+    "lon": 20.8654002
+  },
+  {
+    "curCity": "Devojački Bunar",
+    "lat": 44.9898769,
+    "lon": 20.9470942
+  },
+  {
+    "curCity": "Banatski Karlovac",
+    "lat": 45.0500316,
+    "lon": 21.0176284
+  },
+  {
+    "curCity": "Nikolinci",
+    "lat": 45.0531497,
+    "lon": 21.066206
+  },
+  {
+    "curCity": "Crvena Crkva",
+    "lat": 44.9003106,
+    "lon": 21.3663975
+  },
+  {
+    "curCity": "Banatska Palanka",
+    "lat": 44.8444157,
+    "lon": 21.3321355
+  },
+  {
+    "curCity": "Banatska Subotica",
+    "lat": 44.9830758,
+    "lon": 21.3447805
+  },
+  {
+    "curCity": "Dupljaja",
+    "lat": 44.9270869,
+    "lon": 21.2772448
+  },
+  {
+    "curCity": "Kajtasovo",
+    "lat": 44.8749568,
+    "lon": 21.2565362
+  },
+  {
+    "curCity": "Uljma",
+    "lat": 45.0421647,
+    "lon": 21.1577974
+  },
+  {
+    "curCity": "Ritisevo",
+    "lat": 45.0661225,
+    "lon": 21.2297971
+  },
+  {
+    "curCity": "Vlajkovac",
+    "lat": 45.0715512,
+    "lon": 21.1998313
+  },
+  {
+    "curCity": "Pavliš",
+    "lat": 45.1051066,
+    "lon": 21.239666
+  },
+  {
+    "curCity": "Veliko Središte",
+    "lat": 45.1799547,
+    "lon": 21.4008613
+  },
+  {
+    "curCity": "Gudurica",
+    "lat": 45.166488,
+    "lon": 21.4435023
+  },
+  {
+    "curCity": "Kuštilj",
+    "lat": 45.0344523,
+    "lon": 21.3782767
+  },
+  {
+    "curCity": "Vatin",
+    "lat": 45.2329055,
+    "lon": 21.245349
+  },
+  {
+    "curCity": "Vojvodinci",
+    "lat": 45.0164548,
+    "lon": 21.3463647
+  },
+  {
+    "curCity": "Bela Crkva",
+    "lat": 44.9001235,
+    "lon": 21.4230044
+  },
+  {
+    "curCity": "Izbište",
+    "lat": 45.0219542,
+    "lon": 21.1823642
+  },
+  {
+    "curCity": "Straža",
+    "lat": 44.9745511,
+    "lon": 21.3013127
+  },
+  {
+    "curCity": "Jasenovo",
+    "lat": 44.9363425,
+    "lon": 21.3010159
+  },
+  {
+    "curCity": "Grebenac",
+    "lat": 44.9017998,
+    "lon": 21.2347359
+  },
+  {
+    "curCity": "Vračev Gaj",
+    "lat": 44.8789227,
+    "lon": 21.3672443
+  },
+  {
+    "curCity": "Kusić",
+    "lat": 44.8774425,
+    "lon": 21.4815305
+  },
+  {
+    "curCity": "Samoš",
+    "lat": 45.2031678,
+    "lon": 20.7750094
+  },
+  {
+    "curCity": "Seleuš",
+    "lat": 45.1300996,
+    "lon": 20.9149613
+  },
+  {
+    "curCity": "Ilandža",
+    "lat": 45.1683183,
+    "lon": 20.9213127
+  },
+  {
+    "curCity": "Novi Kozjak",
+    "lat": 45.1829366,
+    "lon": 20.8636279
+  },
+  {
+    "curCity": "Dobrica",
+    "lat": 45.2148861,
+    "lon": 20.8472215
+  },
+  {
+    "curCity": "Plandište",
+    "lat": 45.2295217,
+    "lon": 21.1225158
+  },
+  {
+    "curCity": "Lokve",
+    "lat": 45.1525333,
+    "lon": 21.031596
+  },
+  {
+    "curCity": "Janošik",
+    "lat": 45.1717767,
+    "lon": 21.0088008
+  },
+  {
+    "curCity": "Jermenovci",
+    "lat": 45.1851675,
+    "lon": 21.0429556
+  },
+  {
+    "curCity": "Margita",
+    "lat": 45.2154255,
+    "lon": 21.1740065
+  },
+  {
+    "curCity": "Veliki Gaj",
+    "lat": 45.2902802,
+    "lon": 21.1759999
+  },
+  {
+    "curCity": "Velika Greda",
+    "lat": 45.2410145,
+    "lon": 21.0282517
+  },
+  {
+    "curCity": "Barice",
+    "lat": 45.1815096,
+    "lon": 21.0821572
+  },
+  {
+    "curCity": "Kupinik",
+    "lat": 45.2908363,
+    "lon": 21.1372649
+  },
+  {
+    "curCity": "Hajdučica",
+    "lat": 45.249244,
+    "lon": 20.9600765
+  },
+  {
+    "curCity": "Stari Lec",
+    "lat": 45.2845046,
+    "lon": 20.9627317
+  },
+  {
+    "curCity": "Miletićevo",
+    "lat": 45.3037058,
+    "lon": 21.0647276
+  },
+  {
+    "curCity": "Kruščica",
+    "lat": 44.9280034,
+    "lon": 21.4747269
+  },
+  {
+    "curCity": "Užice",
+    "lat": 43.8564957,
+    "lon": 19.840273
+  },
+  {
+    "curCity": "Lunovo Selo",
+    "lat": 43.8818427,
+    "lon": 19.9380699
+  },
+  {
+    "curCity": "Karan",
+    "lat": 43.918941,
+    "lon": 19.9069981
+  },
+  {
+    "curCity": "Sevojno",
+    "lat": 43.8455418,
+    "lon": 19.8976765
+  },
+  {
+    "curCity": "Ravni",
+    "lat": 43.7212519,
+    "lon": 19.912480391284056
+  },
+  {
+    "curCity": "Sirogojno",
+    "lat": 43.6857067,
+    "lon": 19.879625
+  },
+  {
+    "curCity": "Rožanstvo",
+    "lat": 43.7205552,
+    "lon": 19.8346844
+  },
+  {
+    "curCity": "Ljubiš",
+    "lat": 43.6173961,
+    "lon": 19.8552754
+  },
+  {
+    "curCity": "Požega",
+    "lat": 43.1534229,
+    "lon": 20.4210476
+  },
+  {
+    "curCity": "Ježevica",
+    "lat": 43.8247837,
+    "lon": 20.4195057
+  },
+  {
+    "curCity": "Gornja Dobrinja",
+    "lat": 43.9624881,
+    "lon": 20.0782013
+  },
+  {
+    "curCity": "Jelen Do",
+    "lat": 43.8930526,
+    "lon": 20.1191854
+  },
+  {
+    "curCity": "Arilje",
+    "lat": 43.7505484,
+    "lon": 20.1003115
+  },
+  {
+    "curCity": "Kruščica",
+    "lat": 44.9280034,
+    "lon": 21.4747269
+  },
+  {
+    "curCity": "Brekovo",
+    "lat": 43.6435041,
+    "lon": 20.0132819
+  },
+  {
+    "curCity": "Divljaka",
+    "lat": 43.67000318174036,
+    "lon": 19.89517886113768
+  },
+  {
+    "curCity": "Roge",
+    "lat": 43.7756416,
+    "lon": 19.9818139
+  },
+  {
+    "curCity": "Bioska",
+    "lat": 43.8648387,
+    "lon": 19.6528798
+  },
+  {
+    "curCity": "Kremna",
+    "lat": 43.8502197,
+    "lon": 19.5800524
+  },
+  {
+    "curCity": "Mokra Gora",
+    "lat": 43.7897531,
+    "lon": 19.5031247
+  },
+  {
+    "curCity": "Šljivovica",
+    "lat": 43.8169413,
+    "lon": 19.6659619
+  },
+  {
+    "curCity": "Bajina Bašta",
+    "lat": 43.9712226,
+    "lon": 19.5660149
+  },
+  {
+    "curCity": "Mitrovac",
+    "lat": 43.9222111,
+    "lon": 19.4243291
+  },
+  {
+    "curCity": "Zlodol",
+    "lat": 43.9453634,
+    "lon": 19.6850915
+  },
+  {
+    "curCity": "Kostojevići",
+    "lat": 44.0079509,
+    "lon": 19.6868268
+  },
+  {
+    "curCity": "Rogačica",
+    "lat": 44.0383298,
+    "lon": 19.6295435
+  },
+  {
+    "curCity": "Perućac",
+    "lat": 43.9568074,
+    "lon": 19.447155
+  },
+  {
+    "curCity": "Kaluđerske Bare",
+    "lat": 43.8915448,
+    "lon": 19.5583478
+  },
+  {
+    "curCity": "Bačevci",
+    "lat": 44.1678336,
+    "lon": 19.9042642
+  },
+  {
+    "curCity": "Kosjerić",
+    "lat": 43.9971574,
+    "lon": 19.9071184
+  },
+  {
+    "curCity": "Seča Reka",
+    "lat": 44.011121,
+    "lon": 19.8360707
+  },
+  {
+    "curCity": "Varda",
+    "lat": 44.0446088,
+    "lon": 19.7509056
+  },
+  {
+    "curCity": "Ražana",
+    "lat": 44.0700911,
+    "lon": 19.9196599
+  },
+  {
+    "curCity": "Prijepolje",
+    "lat": 43.389209,
+    "lon": 19.6493525
+  },
+  {
+    "curCity": "Brodarevo",
+    "lat": 43.230478,
+    "lon": 19.7183576
+  },
+  {
+    "curCity": "Jabuka",
+    "lat": 44.9471243,
+    "lon": 20.595162
+  },
+  {
+    "curCity": "Aljinovici",
+    "lat": 43.3353333,
+    "lon": 19.8466569
+  },
+  {
+    "curCity": "Čajetina",
+    "lat": 43.7504753,
+    "lon": 19.7165358
+  },
+  {
+    "curCity": "Bela Zemlja",
+    "lat": 43.8091131,
+    "lon": 19.7886769
+  },
+  {
+    "curCity": "Mačkat",
+    "lat": 43.792561,
+    "lon": 19.7803537
+  },
+  {
+    "curCity": "Gostilje",
+    "lat": 43.6565165,
+    "lon": 19.8378669
+  },
+  {
+    "curCity": "Jablanica",
+    "lat": 43.4529825,
+    "lon": 21.2688387
+  },
+  {
+    "curCity": "Zlatibor",
+    "lat": 43.6742413,
+    "lon": 19.612463324021284
+  },
+  {
+    "curCity": "Draglica",
+    "lat": 43.5928871,
+    "lon": 19.7474098
+  },
+  {
+    "curCity": "Kokin Brod",
+    "lat": 43.5140447,
+    "lon": 19.7992868
+  },
+  {
+    "curCity": "Jasenovo",
+    "lat": 44.9363425,
+    "lon": 21.3010159
+  },
+  {
+    "curCity": "Nova Varoš",
+    "lat": 43.4597045,
+    "lon": 19.8154494
+  },
+  {
+    "curCity": "Bozetici",
+    "lat": 43.4490086,
+    "lon": 19.9676202
+  },
+  {
+    "curCity": "Bistrica",
+    "lat": 43.4679641,
+    "lon": 19.6567329
+  },
+  {
+    "curCity": "Priboj",
+    "lat": 43.060706,
+    "lon": 21.924246
+  },
+  {
+    "curCity": "Sastavci",
+    "lat": 43.389666545866085,
+    "lon": 21.97435231845068
+  },
+  {
+    "curCity": "Banja Kod Priboja",
+    "lat": 43.5457592,
+    "lon": 19.5598536
+  },
+  {
+    "curCity": "Čačak",
+    "lat": 43.8914332,
+    "lon": 20.3491624
+  },
+  {
+    "curCity": "Trbušani",
+    "lat": 43.924893,
+    "lon": 20.3256573
+  },
+  {
+    "curCity": "Kamenica",
+    "lat": 43.8875321,
+    "lon": 19.9205303
+  },
+  {
+    "curCity": "Mrčajevci",
+    "lat": 43.8670549,
+    "lon": 20.5296713
+  },
+  {
+    "curCity": "Mojsinje",
+    "lat": 43.8854907,
+    "lon": 20.4719066
+  },
+  {
+    "curCity": "Preljina",
+    "lat": 43.9013757,
+    "lon": 20.4178774
+  },
+  {
+    "curCity": "Bresnica",
+    "lat": 42.5694103,
+    "lon": 21.9620014
+  },
+  {
+    "curCity": "Gornja Trepca",
+    "lat": 43.9493568,
+    "lon": 20.4846175
+  },
+  {
+    "curCity": "Trnava",
+    "lat": 43.857647,
+    "lon": 20.391097
+  },
+  {
+    "curCity": "Ježevica",
+    "lat": 43.8247837,
+    "lon": 20.4195057
+  },
+  {
+    "curCity": "Zablaće",
+    "lat": 43.8432239,
+    "lon": 20.4479607
+  },
+  {
+    "curCity": "Slatina",
+    "lat": 43.1942371,
+    "lon": 19.6921736
+  },
+  {
+    "curCity": "Goričani",
+    "lat": 43.7952299,
+    "lon": 20.5319023
+  },
+  {
+    "curCity": "Guča",
+    "lat": 43.7772932,
+    "lon": 20.2269416
+  },
+  {
+    "curCity": "Goračići",
+    "lat": 43.7934332,
+    "lon": 20.3276681
+  },
+  {
+    "curCity": "Kaona",
+    "lat": 43.7113568,
+    "lon": 20.4068295
+  },
+  {
+    "curCity": "Kotraža",
+    "lat": 43.7042885,
+    "lon": 20.2323381
+  },
+  {
+    "curCity": "Lučani",
+    "lat": 43.8602275,
+    "lon": 20.1365353
+  },
+  {
+    "curCity": "Ovčar Banja",
+    "lat": 43.8980556,
+    "lon": 20.1858333
+  },
+  {
+    "curCity": "Markovica",
+    "lat": 43.8543049,
+    "lon": 20.2151012
+  },
+  {
+    "curCity": "Ivanjica",
+    "lat": 43.5816675,
+    "lon": 20.2304548
+  },
+  {
+    "curCity": "Bukovica",
+    "lat": 43.5018964,
+    "lon": 21.3176921
+  },
+  {
+    "curCity": "Prilicki Kiseljak",
+    "lat": 43.6320406,
+    "lon": 20.1532229
+  },
+  {
+    "curCity": "Brezova",
+    "lat": 43.4937791,
+    "lon": 20.5004883
+  },
+  {
+    "curCity": "Vionica",
+    "lat": 43.4438428,
+    "lon": 20.3560614
+  },
+  {
+    "curCity": "Medjurečje",
+    "lat": 43.5275043,
+    "lon": 20.2243026
+  },
+  {
+    "curCity": "Bratljevo",
+    "lat": 43.5011039,
+    "lon": 20.1623755
+  },
+  {
+    "curCity": "Kovilje",
+    "lat": 43.4147121,
+    "lon": 20.148797
+  },
+  {
+    "curCity": "Kušići",
+    "lat": 43.5025327,
+    "lon": 20.1045353
+  },
+  {
+    "curCity": "Bele Vode",
+    "lat": 44.7504778,
+    "lon": 20.4060418
+  },
+  {
+    "curCity": "Gornji Milanovac",
+    "lat": 44.0243159,
+    "lon": 20.4600377
+  },
+  {
+    "curCity": "Brđani",
+    "lat": 43.9688686,
+    "lon": 20.4133745
+  },
+  {
+    "curCity": "Takovo",
+    "lat": 44.0440849,
+    "lon": 20.3870953
+  },
+  {
+    "curCity": "Bersici",
+    "lat": 44.04626475,
+    "lon": 20.299032860807998
+  },
+  {
+    "curCity": "Gornji Banjani",
+    "lat": 44.1022304,
+    "lon": 20.2648961
+  },
+  {
+    "curCity": "Brezna",
+    "lat": 43.5666039,
+    "lon": 20.6814978
+  },
+  {
+    "curCity": "Pranjani",
+    "lat": 44.0102717,
+    "lon": 20.2082248
+  },
+  {
+    "curCity": "Šilopaj",
+    "lat": 44.1164335,
+    "lon": 20.4079595
+  },
+  {
+    "curCity": "Boljkovci",
+    "lat": 44.1434202,
+    "lon": 20.3448058
+  },
+  {
+    "curCity": "Rudnik",
+    "lat": 44.1407115,
+    "lon": 20.4983279
+  },
+  {
+    "curCity": "Ugrinovci",
+    "lat": 44.8757344,
+    "lon": 20.1867706
+  },
+  {
+    "curCity": "Vračevšnica",
+    "lat": 44.0404417,
+    "lon": 20.6195965
+  },
+  {
+    "curCity": "Kragujevac",
+    "lat": 44.0130251,
+    "lon": 20.91925
+  },
+  {
+    "curCity": "Grosnica",
+    "lat": 43.9474631,
+    "lon": 20.8822715
+  },
+  {
+    "curCity": "Ilićevo",
+    "lat": 44.0222503,
+    "lon": 20.946237
+  },
+  {
+    "curCity": "Divostin",
+    "lat": 44.0284599,
+    "lon": 20.8346982
+  },
+  {
+    "curCity": "Bare",
+    "lat": 43.1731212,
+    "lon": 19.7495595
+  },
+  {
+    "curCity": "Gornja Sabanta",
+    "lat": 43.9403853,
+    "lon": 21.006309
+  },
+  {
+    "curCity": "Erdec",
+    "lat": 43.9717235,
+    "lon": 20.8972621
+  },
+  {
+    "curCity": "Marsic",
+    "lat": 44.0234804,
+    "lon": 20.974617
+  },
+  {
+    "curCity": "Jovanovac",
+    "lat": 44.0496889,
+    "lon": 20.951035
+  },
+  {
+    "curCity": "Malo Krcmare",
+    "lat": 44.1456926,
+    "lon": 20.9224319
+  },
+  {
+    "curCity": "Veliko Krčmare",
+    "lat": 44.1547148,
+    "lon": 20.8954382
+  },
+  {
+    "curCity": "Male Pčelice",
+    "lat": 43.9967694,
+    "lon": 20.8671096
+  },
+  {
+    "curCity": "Bukurovac",
+    "lat": 43.244038,
+    "lon": 22.341277
+  },
+  {
+    "curCity": "Lapovo",
+    "lat": 44.1854337,
+    "lon": 21.1047905
+  },
+  {
+    "curCity": "Lapovo Selo",
+    "lat": 44.1575699,
+    "lon": 21.1007174
+  },
+  {
+    "curCity": "Korman",
+    "lat": 44.0503674,
+    "lon": 20.9907102
+  },
+  {
+    "curCity": "Resnik",
+    "lat": 44.7134673,
+    "lon": 20.4571192
+  },
+  {
+    "curCity": "Badnjevac",
+    "lat": 44.1358991,
+    "lon": 20.9886073
+  },
+  {
+    "curCity": "Batočina",
+    "lat": 44.1545512,
+    "lon": 21.0801314
+  },
+  {
+    "curCity": "Brzan",
+    "lat": 44.1245636,
+    "lon": 21.1146926
+  },
+  {
+    "curCity": "Zirovnica",
+    "lat": 44.1163379,
+    "lon": 21.0225105
+  },
+  {
+    "curCity": "Gruza",
+    "lat": 43.9062813,
+    "lon": 20.7035928
+  },
+  {
+    "curCity": "Dragobraca",
+    "lat": 43.9771407,
+    "lon": 20.8252064
+  },
+  {
+    "curCity": "Guberevac",
+    "lat": 44.5377553,
+    "lon": 20.4648976
+  },
+  {
+    "curCity": "Knić",
+    "lat": 43.9265587,
+    "lon": 20.7198412
+  },
+  {
+    "curCity": "Bumbarevo Brdo",
+    "lat": 43.9055958,
+    "lon": 20.6277145
+  },
+  {
+    "curCity": "Toponica",
+    "lat": 44.5166117,
+    "lon": 21.2698419
+  },
+  {
+    "curCity": "Zabojnica",
+    "lat": 43.9973838,
+    "lon": 20.7499552
+  },
+  {
+    "curCity": "Arandjelovac",
+    "lat": 44.3072663,
+    "lon": 20.5570451
+  },
+  {
+    "curCity": "Bukovik",
+    "lat": 44.3296811,
+    "lon": 20.5177402
+  },
+  {
+    "curCity": "Ranilovic",
+    "lat": 44.3972855,
+    "lon": 20.5208895
+  },
+  {
+    "curCity": "Arandjelovac",
+    "lat": 44.3072663,
+    "lon": 20.5570451
+  },
+  {
+    "curCity": "Banja",
+    "lat": 43.1581645,
+    "lon": 20.546447
+  },
+  {
+    "curCity": "Darosava",
+    "lat": 44.338573,
+    "lon": 20.4576021
+  },
+  {
+    "curCity": "Vencane",
+    "lat": 44.4069897,
+    "lon": 20.4672668
+  },
+  {
+    "curCity": "Stojnik",
+    "lat": 44.515533,
+    "lon": 20.496353
+  },
+  {
+    "curCity": "Orašac",
+    "lat": 44.5819945,
+    "lon": 20.0369218
+  },
+  {
+    "curCity": "Jelovik",
+    "lat": 44.2538372,
+    "lon": 20.4861974
+  },
+  {
+    "curCity": "Topola",
+    "lat": 44.2544752,
+    "lon": 20.6797215
+  },
+  {
+    "curCity": "Belosavci",
+    "lat": 44.328345,
+    "lon": 20.6903911
+  },
+  {
+    "curCity": "Natalinci",
+    "lat": 44.2538261,
+    "lon": 20.8048401
+  },
+  {
+    "curCity": "Donja Satornja",
+    "lat": 44.1948424,
+    "lon": 20.6060212
+  },
+  {
+    "curCity": "Jarmenovci",
+    "lat": 44.184839,
+    "lon": 20.5443639
+  },
+  {
+    "curCity": "Desimirovac",
+    "lat": 44.0754732,
+    "lon": 20.8825469
+  },
+  {
+    "curCity": "Čumić",
+    "lat": 44.1377164,
+    "lon": 20.7880504
+  },
+  {
+    "curCity": "Stragari",
+    "lat": 44.1508915,
+    "lon": 20.6624834
+  },
+  {
+    "curCity": "Lužnice",
+    "lat": 44.106343,
+    "lon": 20.8165834
+  },
+  {
+    "curCity": "Jagodina",
+    "lat": 43.9794256,
+    "lon": 21.2607688
+  },
+  {
+    "curCity": "Siokovac",
+    "lat": 43.9776658,
+    "lon": 21.1791895
+  },
+  {
+    "curCity": "Bagrdan",
+    "lat": 44.067872,
+    "lon": 21.1770124
+  },
+  {
+    "curCity": "Jovac",
+    "lat": 43.9038334,
+    "lon": 21.3165272
+  },
+  {
+    "curCity": "Raševica",
+    "lat": 43.8391727,
+    "lon": 21.3225223
+  },
+  {
+    "curCity": "Potočac",
+    "lat": 43.814124,
+    "lon": 21.3269027
+  },
+  {
+    "curCity": "Vojska",
+    "lat": 44.0905426,
+    "lon": 21.2109663
+  },
+  {
+    "curCity": "Svilajnac",
+    "lat": 44.2333085,
+    "lon": 21.1947272
+  },
+  {
+    "curCity": "Sedlare",
+    "lat": 44.19851,
+    "lon": 21.2938577
+  },
+  {
+    "curCity": "Plažane",
+    "lat": 44.1450101,
+    "lon": 21.4120944
+  },
+  {
+    "curCity": "Despotovac",
+    "lat": 44.0954702,
+    "lon": 21.4366052
+  },
+  {
+    "curCity": "Stenjevac",
+    "lat": 44.0870928,
+    "lon": 21.5363105
+  },
+  {
+    "curCity": "Bobovo",
+    "lat": 44.2363,
+    "lon": 21.2737436
+  },
+  {
+    "curCity": "Končarevo",
+    "lat": 43.9753406,
+    "lon": 21.3145461
+  },
+  {
+    "curCity": "Ribare",
+    "lat": 44.0087492,
+    "lon": 21.2852648
+  },
+  {
+    "curCity": "Glogovac",
+    "lat": 44.0417453,
+    "lon": 21.3126819
+  },
+  {
+    "curCity": "Veliki Popović",
+    "lat": 44.1169582,
+    "lon": 21.357761
+  },
+  {
+    "curCity": "Medvedja",
+    "lat": 42.842162,
+    "lon": 21.5845267
+  },
+  {
+    "curCity": "Kušiljevo",
+    "lat": 44.2867939,
+    "lon": 21.2097198
+  },
+  {
+    "curCity": "Krušar",
+    "lat": 44.2114311,
+    "lon": 22.0743618
+  },
+  {
+    "curCity": "Supska",
+    "lat": 43.9739789,
+    "lon": 21.3741606
+  },
+  {
+    "curCity": "Ćuprija",
+    "lat": 43.9335612,
+    "lon": 21.3712355
+  },
+  {
+    "curCity": "Senje",
+    "lat": 43.9660443,
+    "lon": 21.4832441
+  },
+  {
+    "curCity": "Senjski Rudnik",
+    "lat": 43.9961298,
+    "lon": 21.5712428
+  },
+  {
+    "curCity": "Ravna Reka",
+    "lat": 42.6841184,
+    "lon": 21.9426949
+  },
+  {
+    "curCity": "Mijatovac",
+    "lat": 43.9519558,
+    "lon": 21.3314757
+  },
+  {
+    "curCity": "Resavica",
+    "lat": 44.039525,
+    "lon": 21.5812259
+  },
+  {
+    "curCity": "Bigrenica",
+    "lat": 44.0179169,
+    "lon": 21.4645905
+  },
+  {
+    "curCity": "Jasenovo",
+    "lat": 44.9363425,
+    "lon": 21.3010159
+  },
+  {
+    "curCity": "Kolare",
+    "lat": 43.9071949,
+    "lon": 21.2452181
+  },
+  {
+    "curCity": "Plana",
+    "lat": 43.1521311,
+    "lon": 19.8162272
+  },
+  {
+    "curCity": "Trešnjevica",
+    "lat": 43.867506,
+    "lon": 21.3230093
+  },
+  {
+    "curCity": "Busilovac",
+    "lat": 43.7979718,
+    "lon": 21.4807262
+  },
+  {
+    "curCity": "Paraćin",
+    "lat": 43.8636301,
+    "lon": 21.4099615
+  },
+  {
+    "curCity": "Popovac",
+    "lat": 43.333339,
+    "lon": 21.8291463
+  },
+  {
+    "curCity": "Donja Mutnica",
+    "lat": 43.8519008,
+    "lon": 21.5607537
+  },
+  {
+    "curCity": "Sikirica",
+    "lat": 43.7802745,
+    "lon": 21.4185371
+  },
+  {
+    "curCity": "Drenovac",
+    "lat": 43.9976616,
+    "lon": 20.7967329
+  },
+  {
+    "curCity": "Donje Vidovo",
+    "lat": 43.8005375,
+    "lon": 21.3694699
+  },
+  {
+    "curCity": "Svojnovo",
+    "lat": 43.7987352,
+    "lon": 21.3058826
+  },
+  {
+    "curCity": "Rekovac",
+    "lat": 43.8625569,
+    "lon": 21.0945991
+  },
+  {
+    "curCity": "Glavinci",
+    "lat": 43.9246474,
+    "lon": 21.2512865
+  },
+  {
+    "curCity": "Dragoševac",
+    "lat": 43.8874303,
+    "lon": 21.2155952
+  },
+  {
+    "curCity": "Belusic",
+    "lat": 43.7857285,
+    "lon": 21.1463888
+  },
+  {
+    "curCity": "Prevešt",
+    "lat": 43.7568337,
+    "lon": 21.0399121
+  },
+  {
+    "curCity": "Dragovo",
+    "lat": 43.7865757,
+    "lon": 21.1030241
+  },
+  {
+    "curCity": "Oparić",
+    "lat": 43.7495834,
+    "lon": 21.1169778
+  },
+  {
+    "curCity": "Miloševo",
+    "lat": 44.1054509,
+    "lon": 21.1564226
+  },
+  {
+    "curCity": "Strižilo",
+    "lat": 44.0674427,
+    "lon": 21.109135
+  },
+  {
+    "curCity": "Majur",
+    "lat": 44.7708247,
+    "lon": 19.6547859
+  },
+  {
+    "curCity": "Novo Lanište",
+    "lat": 44.0403555,
+    "lon": 21.2348023
+  },
+  {
+    "curCity": "Dragocvet",
+    "lat": 43.9372433,
+    "lon": 21.2146535
+  },
+  {
+    "curCity": "Bunar",
+    "lat": 43.9192851,
+    "lon": 21.1468781
+  },
+  {
+    "curCity": "Kraljevo",
+    "lat": 43.7234519,
+    "lon": 20.6870792
+  },
+  {
+    "curCity": "Mataruška Banja",
+    "lat": 43.6893066,
+    "lon": 20.6093678
+  },
+  {
+    "curCity": "Samaila",
+    "lat": 43.7776853,
+    "lon": 20.5594714
+  },
+  {
+    "curCity": "Adrani",
+    "lat": 43.7654372,
+    "lon": 20.6285647
+  },
+  {
+    "curCity": "Lađevci",
+    "lat": 43.8163883,
+    "lon": 20.6080277
+  },
+  {
+    "curCity": "Vitanovac",
+    "lat": 43.7272614,
+    "lon": 20.7995794
+  },
+  {
+    "curCity": "Vitkovac",
+    "lat": 43.7913426,
+    "lon": 20.7896137
+  },
+  {
+    "curCity": "Sirča",
+    "lat": 43.7465089,
+    "lon": 20.7227096
+  },
+  {
+    "curCity": "Vrnjačka Banja",
+    "lat": 43.6221774,
+    "lon": 20.8929353
+  },
+  {
+    "curCity": "Ratina",
+    "lat": 43.7025449,
+    "lon": 20.7489862
+  },
+  {
+    "curCity": "Vrba",
+    "lat": 43.6918201,
+    "lon": 20.7839724
+  },
+  {
+    "curCity": "Podunavci",
+    "lat": 43.6684092,
+    "lon": 20.831238
+  },
+  {
+    "curCity": "Novo Selo",
+    "lat": 43.5655688,
+    "lon": 21.9209632
+  },
+  {
+    "curCity": "Vrnjci",
+    "lat": 43.6412399,
+    "lon": 20.9208941
+  },
+  {
+    "curCity": "Čukojevac",
+    "lat": 43.7154933,
+    "lon": 20.8307302
+  },
+  {
+    "curCity": "Zica",
+    "lat": 43.6938046,
+    "lon": 20.6507389
+  },
+  {
+    "curCity": "Rudno",
+    "lat": 43.4148433,
+    "lon": 20.4825124
+  },
+  {
+    "curCity": "Novi Pazar",
+    "lat": 43.1363535,
+    "lon": 20.5112273
+  },
+  {
+    "curCity": "Dezeva",
+    "lat": 43.2041809,
+    "lon": 20.4804141
+  },
+  {
+    "curCity": "Lukare",
+    "lat": 43.0720928,
+    "lon": 20.4716317
+  },
+  {
+    "curCity": "Delimede",
+    "lat": 43.102632,
+    "lon": 20.2992146
+  },
+  {
+    "curCity": "Sopoćani",
+    "lat": 43.1180463,
+    "lon": 20.37396320874233
+  },
+  {
+    "curCity": "Ribarice",
+    "lat": 44.5563889,
+    "lon": 19.4597222
+  },
+  {
+    "curCity": "Sjenica",
+    "lat": 43.2729348,
+    "lon": 19.9991727
+  },
+  {
+    "curCity": "Štavalj",
+    "lat": 43.2740496,
+    "lon": 20.1227045
+  },
+  {
+    "curCity": "Duga Poljana",
+    "lat": 43.2509958,
+    "lon": 20.2270585
+  },
+  {
+    "curCity": "Ugao",
+    "lat": 43.0532421,
+    "lon": 20.0571783
+  },
+  {
+    "curCity": "Tutin",
+    "lat": 42.9903848,
+    "lon": 20.3366918
+  },
+  {
+    "curCity": "Crkvine",
+    "lat": 44.3922425,
+    "lon": 20.6491674
+  },
+  {
+    "curCity": "Konarevo",
+    "lat": 43.6988747,
+    "lon": 20.6110191
+  },
+  {
+    "curCity": "Bogutovac",
+    "lat": 43.6505926,
+    "lon": 20.5543681
+  },
+  {
+    "curCity": "Ušće",
+    "lat": 43.4683624,
+    "lon": 20.6150281
+  },
+  {
+    "curCity": "Studenica",
+    "lat": 43.4975797,
+    "lon": 20.4223202
+  },
+  {
+    "curCity": "Jošanicka Banja",
+    "lat": 43.3893167,
+    "lon": 20.7497022
+  },
+  {
+    "curCity": "Brvenik",
+    "lat": 43.3515575,
+    "lon": 20.6330299
+  },
+  {
+    "curCity": "Raška",
+    "lat": 43.2869592,
+    "lon": 20.6141348
+  },
+  {
+    "curCity": "Rudnica",
+    "lat": 43.2698312,
+    "lon": 20.695281
+  },
+  {
+    "curCity": "Kopaonik",
+    "lat": 43.2689885,
+    "lon": 20.826741
+  },
+  {
+    "curCity": "Kruševac",
+    "lat": 43.58264,
+    "lon": 21.3264811
+  },
+  {
+    "curCity": "Parunovac",
+    "lat": 43.5690068,
+    "lon": 21.3670204
+  },
+  {
+    "curCity": "Djunis",
+    "lat": 43.5917681,
+    "lon": 21.5093422
+  },
+  {
+    "curCity": "Zdravinje",
+    "lat": 43.4885673,
+    "lon": 21.4547814
+  },
+  {
+    "curCity": "Veliki Siljegovac",
+    "lat": 43.5176611,
+    "lon": 21.5287614
+  },
+  {
+    "curCity": "Ribarska Banja",
+    "lat": 43.4258493,
+    "lon": 21.5146468
+  },
+  {
+    "curCity": "Dvorane",
+    "lat": 43.5051552,
+    "lon": 21.4006773
+  },
+  {
+    "curCity": "Veliko Golovode",
+    "lat": 43.545688,
+    "lon": 21.3530946
+  },
+  {
+    "curCity": "Čitluk",
+    "lat": 43.5939349,
+    "lon": 21.272291
+  },
+  {
+    "curCity": "Velika Lomnica",
+    "lat": 43.4955547,
+    "lon": 21.3435558
+  },
+  {
+    "curCity": "Ćićevac",
+    "lat": 43.7202753,
+    "lon": 21.441026
+  },
+  {
+    "curCity": "Stalać",
+    "lat": 43.6794358,
+    "lon": 21.4140364
+  },
+  {
+    "curCity": "Vitosevac",
+    "lat": 43.7460466,
+    "lon": 21.5830149
+  },
+  {
+    "curCity": "Pojate",
+    "lat": 43.74213,
+    "lon": 21.455456
+  },
+  {
+    "curCity": "Ražanj",
+    "lat": 43.6724063,
+    "lon": 21.5489925
+  },
+  {
+    "curCity": "Brus",
+    "lat": 43.3843467,
+    "lon": 21.0313889
+  },
+  {
+    "curCity": "Gornji Stepos",
+    "lat": 43.5071887,
+    "lon": 21.2961745
+  },
+  {
+    "curCity": "Kupci",
+    "lat": 43.45825,
+    "lon": 21.2371822
+  },
+  {
+    "curCity": "Razbojna",
+    "lat": 43.3446829,
+    "lon": 21.1662876
+  },
+  {
+    "curCity": "Lepenac",
+    "lat": 43.348585,
+    "lon": 21.084035
+  },
+  {
+    "curCity": "Brzeće",
+    "lat": 43.3011453,
+    "lon": 20.8853747
+  },
+  {
+    "curCity": "Blazevo",
+    "lat": 43.2348408,
+    "lon": 20.9109521
+  },
+  {
+    "curCity": "Milentija",
+    "lat": 43.4350543,
+    "lon": 20.9941274
+  },
+  {
+    "curCity": "Zlatari",
+    "lat": 43.3877458,
+    "lon": 21.1586862
+  },
+  {
+    "curCity": "Grasevci",
+    "lat": 43.3620507,
+    "lon": 20.9913133
+  },
+  {
+    "curCity": "Aleksandrovac",
+    "lat": 43.4586105,
+    "lon": 21.0465876
+  },
+  {
+    "curCity": "Pepeljevac",
+    "lat": 43.5647826,
+    "lon": 21.2543821
+  },
+  {
+    "curCity": "Laćisled",
+    "lat": 43.4991041,
+    "lon": 21.1620892
+  },
+  {
+    "curCity": "Velika Vrbnica",
+    "lat": 43.4897628,
+    "lon": 20.9685445
+  },
+  {
+    "curCity": "Gornji Stupanj",
+    "lat": 43.471717,
+    "lon": 21.1842319
+  },
+  {
+    "curCity": "Trnavci",
+    "lat": 43.4307059,
+    "lon": 21.1216664
+  },
+  {
+    "curCity": "Rataje",
+    "lat": 42.4872222,
+    "lon": 21.8775
+  },
+  {
+    "curCity": "Ploča",
+    "lat": 44.5231956,
+    "lon": 19.2358103
+  },
+  {
+    "curCity": "Ples",
+    "lat": 43.4841707,
+    "lon": 20.9178436
+  },
+  {
+    "curCity": "Šljivovo",
+    "lat": 43.4116086,
+    "lon": 21.0805789
+  },
+  {
+    "curCity": "Trstenik",
+    "lat": 43.620214,
+    "lon": 20.9984448
+  },
+  {
+    "curCity": "Stopanja",
+    "lat": 43.5807175,
+    "lon": 21.1499249
+  },
+  {
+    "curCity": "Počekovina",
+    "lat": 43.5931046,
+    "lon": 21.0842228
+  },
+  {
+    "curCity": "Medvedja",
+    "lat": 42.842162,
+    "lon": 21.5845267
+  },
+  {
+    "curCity": "Velika Drenova",
+    "lat": 43.6273811,
+    "lon": 21.1304508
+  },
+  {
+    "curCity": "Milutovac",
+    "lat": 43.6748579,
+    "lon": 21.1206586
+  },
+  {
+    "curCity": "Globoder",
+    "lat": 43.5641607,
+    "lon": 21.1782074
+  },
+  {
+    "curCity": "Jasika",
+    "lat": 43.6158077,
+    "lon": 21.2987168
+  },
+  {
+    "curCity": "Bela Voda",
+    "lat": 43.6169084,
+    "lon": 21.196661
+  },
+  {
+    "curCity": "Konjuh",
+    "lat": 43.6432184,
+    "lon": 21.1805785
+  },
+  {
+    "curCity": "Kukljin",
+    "lat": 43.6044484,
+    "lon": 21.2342119
+  },
+  {
+    "curCity": "Kaonik",
+    "lat": 43.5593744,
+    "lon": 21.4964451
+  },
+  {
+    "curCity": "Padež",
+    "lat": 43.6643822,
+    "lon": 21.2855569
+  },
+  {
+    "curCity": "Donji Krcin",
+    "lat": 43.7353458,
+    "lon": 21.1833085
+  },
+  {
+    "curCity": "Ribare",
+    "lat": 44.0087492,
+    "lon": 21.2852648
+  },
+  {
+    "curCity": "Varvarin",
+    "lat": 43.7253546,
+    "lon": 21.3681739
+  },
+  {
+    "curCity": "Bosnjane",
+    "lat": 43.6645135,
+    "lon": 21.3647304
+  },
+  {
+    "curCity": "Bačina",
+    "lat": 43.726417,
+    "lon": 21.2972513
+  },
+  {
+    "curCity": "Obrez",
+    "lat": 44.7364579,
+    "lon": 19.9773093
+  },
+  {
+    "curCity": "Dasnica",
+    "lat": 43.4156492,
+    "lon": 21.7171148
+  },
+  {
+    "curCity": "Osreci",
+    "lat": 43.4181994,
+    "lon": 20.9359337
+  },
+  {
+    "curCity": "Kriva Reka",
+    "lat": 44.1317101,
+    "lon": 20.3932857
+  },
+  {
+    "curCity": "Brezovica",
+    "lat": 43.7498622,
+    "lon": 20.4070615
+  },
+  {
+    "curCity": "Gracanica",
+    "lat": 44.2461828,
+    "lon": 19.394989
+  },
+  {
+    "curCity": "Kosovo Polje",
+    "lat": 43.80090225,
+    "lon": 19.287814909318506
+  },
+  {
+    "curCity": "Banjska",
+    "lat": 44.8037068265581,
+    "lon": 20.485697357869356
+  },
+  {
+    "curCity": "Sočanica",
+    "lat": 44.843411,
+    "lon": 17.9317154
+  },
+  {
+    "curCity": "Kosovska Mitrovica",
+    "lat": 44.921922173111405,
+    "lon": 19.752583143626207
+  },
+  {
+    "curCity": "Zvecan",
+    "lat": 44.0945833,
+    "lon": 19.712
+  },
+  {
+    "curCity": "Brestac",
+    "lat": 44.8610082,
+    "lon": 19.9035458
+  }
+]

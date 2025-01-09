@@ -40,6 +40,9 @@ export class SingleJobLongComponent implements OnInit {
   numberOfJobs: number = 0;
   requestMsg: string = "Rezerviši termin";
   ph: string = "https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80"
+  cities: any[] = [];
+  coordinates: any[] = [];
+  index: number = 0;
 
 
   constructor(private jobService: JobService, private route: ActivatedRoute, private cookieService: CookieService, private userService: UserService, private gallery: Gallery) { }
@@ -57,8 +60,8 @@ export class SingleJobLongComponent implements OnInit {
       this.jobId = params.get('id');
     });
     this.getComments();
-    this.userService.getGalleryById({idUser: this.job.idUser}).subscribe((message: any) => {
-      var imgs =  message['message'];
+    this.userService.getGalleryById({ idUser: this.job.idUser }).subscribe((message: any) => {
+      var imgs = message['message'];
       console.log(imgs);
       imgs.forEach(element => {
         this.galleryRef.add(new ImageItem({ src: element.urlPhoto, thumb: element.urlPhoto }))
@@ -69,27 +72,29 @@ export class SingleJobLongComponent implements OnInit {
 
     this.map = L.map('map').setView([0, 0], 2);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
+      maxZoom: 19,
     }).addTo(this.map);
     fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + this.job.city)
-        .then(response => response.json())
-        .then(data => {
-            if (data.length > 0) {
-                var lat = parseFloat(data[0].lat);
-                var lon = parseFloat(data[0].lon);
-                L.marker([lat, lon]).addTo(this.map)
-                    .bindPopup('' + this.job.city)
-                    .openPopup();
-                    this.map.setView([lat, lon], 8);
-            } 
-        })
-        .catch(error => {
-            console.error('Greška pri pretrazi grada:', error);
-        });
+      .then(response => response.json())
+      .then(data => {
+        if (data.length > 0) {
+          var lat = parseFloat(data[0].lat);
+          var lon = parseFloat(data[0].lon);
+          L.marker([lat, lon]).addTo(this.map)
+            .bindPopup('' + this.job.city)
+            .openPopup();
+          this.map.setView([lat, lon], 8);
+        }
+      })
+      .catch(error => {
+        console.error('Greška pri pretrazi grada:', error);
+      });
     // this.jobService.getJobById(this.jobId).subscribe((job: any) => {
     //   // getJobById returns array of one element
     //   this.job = job[0];
     // });
+    this.getCitiesCoordinates();
+    this.getCities();
   }
 
   addComment() {
@@ -117,7 +122,7 @@ export class SingleJobLongComponent implements OnInit {
 
   getComments() {
     console.log("Job - getComments: START")
-    this.userService.getCommentsByJobId({jobId: this.job.id}).subscribe((info: any) => {
+    this.userService.getCommentsByJobId({ jobId: this.job.id }).subscribe((info: any) => {
       this.comments = info['message'];
       this.comments.forEach(comment => {
         this.userService.getUserById({ id: comment.idCommentator }).subscribe((message: any) => {
@@ -162,7 +167,7 @@ export class SingleJobLongComponent implements OnInit {
     this.visibleComments = 3;
   }
 
-  showRequestForm(){
+  showRequestForm() {
     this.isRequest = true;
   }
 
@@ -175,11 +180,11 @@ export class SingleJobLongComponent implements OnInit {
     const hours = ('0' + time.getHours()).slice(-2);
     const minutes = ('0' + time.getMinutes()).slice(-2);
     const seconds = ('0' + time.getSeconds()).slice(-2);
-    
+
     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
   }
 
-  userRequestForAgreement(){
+  userRequestForAgreement() {
     console.log("Job - userRequestForAgreement: START")
     // let formattedStartDate = this.formatDateTime(this.startDate, this.startTime);
     let formattedEndDate = this.formatDateTime(this.endDate, this.endTime);
@@ -191,5 +196,126 @@ export class SingleJobLongComponent implements OnInit {
     })
   }
 
+  calculateDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c; // in km unit
+  }
 
+
+  getCities() {
+    console.log('Calculations - getCities: START')
+    fetch('assets/city.json')
+      .then(response => response.json())
+      .then(cities => {
+        this.cities = cities;
+      })
+      .catch(error => {
+        console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradiva):', error);
+      });
+    console.log('Calculations - getCities: END')
+  }
+
+  getCitiesCoordinatesFromOpenstreet() {
+    console.log('Calculations - getCitiesCoordinates: START');
+    if (this.index < this.cities.length) {
+      const curCity = this.cities[this.index].city;
+      console.log(`City: ${curCity}, Index: ${this.index}`);
+
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('Request timed out')), 5000)
+      );
+
+      const fetchPromise = fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${curCity}, Serbia`)
+        .then(response => response.json())
+        .then(data => {
+          console.log('Data received:', data);
+          if (data.length > 0) {
+            const lat = parseFloat(data[0].lat);
+            const lon = parseFloat(data[0].lon);
+            this.coordinates.push({ curCity, lat, lon });
+            console.log(`City: ${curCity}, Lat: ${lat}, Lon: ${lon}`);
+          } else {
+            console.log(`No data found for ${curCity}, skipping...`);
+          }
+        })
+        .catch(error => {
+          console.error(`Error fetching data for ${curCity}:`, error);
+        });
+
+      Promise.race([fetchPromise, timeoutPromise])
+        .finally(() => {
+          this.index += 1;
+          setTimeout(() => this.getCitiesCoordinatesFromOpenstreet(), 2000);
+        });
+    } else {
+      console.log('Calculations - getCitiesCoordinates: END');
+      // save to local file
+      const dataStr = JSON.stringify(this.coordinates, null, 2);
+      const blob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'cityCoordinates.json';
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+  }
+
+  getCitiesCoordinates() {
+    console.log('GetCitiesCoordinates: START');
+    fetch('assets/cityCoordinates.json')
+      .then(response => response.json())
+      .then(crds => {
+        this.coordinates = crds;
+        console.log('Coordinates:', this.coordinates);
+      })
+      .catch(error => {
+        console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje koordinata):', error);
+      });
+    console.log('GetCitiesCoordinates: END');
+  }
+
+  calculateDistancesSync(cities) {
+    const distances = [];
+    const n = cities.length * (cities.length - 1) / 2;
+    for (let i = 0; i < cities.length; i++) {
+      for (let j = i + 1; j < cities.length; j++) {
+        const city1 = cities[i];
+        const city2 = cities[j];
+        console.log('Progress:', distances.length, '/', n);
+        const distance = this.calculateDistance(city1.lat, city1.lon, city2.lat, city2.lon);
+        distances.push({
+          city1: city1.curCity,
+          city2: city2.curCity,
+          distance: distance.toFixed(2) 
+        });
+      }
+    }
+    return distances;
+  }
+
+  saveDistancesToFile(distances) {
+  const jsonData = JSON.stringify(distances, null, 2);
+  const blob = new Blob([jsonData], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'cityDistances.json';
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+processCities() {
+  console.log('Proces računanja rastojanja je započet...');
+  const distances = this.calculateDistancesSync(this.coordinates);
+  console.log('Rastojanja su izračunata:', distances);
+  this.saveDistancesToFile(distances);
+}
 }

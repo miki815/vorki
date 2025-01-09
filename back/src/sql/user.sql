@@ -112,6 +112,12 @@ CREATE TABLE subscriptions (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP -- Datum poslednje izmene
 );
 
+CREATE TABLE distances (
+    id SERIAL PRIMARY KEY,
+    city1 VARCHAR(255),
+    city2 VARCHAR(255),
+    distance FLOAT
+);
 
 INSERT INTO user (username, firstname, lastname, password, birthday, phone, location, type, email, photo)
 VALUES 
