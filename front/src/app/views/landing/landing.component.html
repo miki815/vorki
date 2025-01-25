@@ -123,11 +123,18 @@
             class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-blueGray-700">
             <img alt="..." src="assets/img/dane1.jpg" class="w-full align-middle rounded-t-lg" />
             <blockquote class="relative p-8 mb-4">
-              <h4 class="text-xl font-bold text-white">Učinimo svaki posao mogućim</h4>
+              <h4 class="text-xl font-bold text-white">Budi uvek prvi obavešten</h4>
               <p class="text-md font-light mt-2 text-white">
-                Šta god da vam je potrebno, mi smo tu da vam pomognemo. Širok spektar usluga i kvalitetnih
-                majstora potrudiće se da vaš problem bude rešen brzo i efikasno.
+                <!-- Šta god da vam je potrebno, mi smo tu da vam pomognemo. Širok spektar usluga i kvalitetnih
+                majstora potrudiće se da vaš problem bude rešen brzo i efikasno. -->
+                Jednim klikom besplatno se pretplati i obezbedi sebi da ti stigne notifikacija svaki put kada dobiješ
+                zahtev za novi posao ili se pojavi oglas koji odgovara tvom području rada.
               </p>
+              <button
+                class="bg-zuta hover:bg-blue-600 font-bold py-2 px-6 rounded-lg shadow-md transition-all justify-center mt-4"
+                (click)="subscribeToNotifications()" [disabled]="isSubscribed">
+                {{ isSubscribed ? 'Već ste pretplaćeni' : 'Pretplati se' }}
+              </button>
             </blockquote>
           </div>
         </div>

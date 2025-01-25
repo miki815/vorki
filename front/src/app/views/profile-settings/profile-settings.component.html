@@ -1,197 +1,154 @@
 <app-main-navbar></app-main-navbar>
 
-<main class="profile-page bg-blueGray-200">
+<main class="profile-page bg-plava">
   <section class="relative block h-500-px">
-    <div
-      class="absolute top-0 w-full h-full bg-center bg-cover image-container"
-      style="
-        background-image: url({{backPhoto}})"
-    >
-      <span
-        id="blackOverlay"
-        class="w-full h-full absolute opacity-50 bg-black"
-      ></span>
+    <div class="absolute top-0 w-full h-full bg-center bg-cover image-container" style="
+        background-image: url({{backPhoto}})">
+      <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
       <div class="overlay1">
         <label for="fileInput1" style="color: white;font-size: xx-large;">Izmeni</label>
-        <input #fileInput1 id="fileInput1" type="file" (change)="loadPhoto($event,1)" class="hidden" accept=".jpg, .jpeg, .png">
+        <input #fileInput1 id="fileInput1" type="file" (change)="loadPhoto($event,1)" class="hidden"
+          accept=".jpg, .jpeg, .png">
       </div>
     </div>
-    <div
-      class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
-      style="transform: translateZ(0); display: flex; justify-content: center; margin-bottom: 5px;"
-    >
+    <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
+      style="transform: translateZ(0); display: flex; justify-content: center; margin-bottom: 5px;">
     </div>
   </section>
   <section class="relative">
-    <div
-    class="relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg bg-blueGray-200 border-0"
-  >
-   
-    <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-      <form>
-        <div style="display: flex; flex-direction: row; justify-content: end;">
-         
-           <div class="image-container" style="margin-top: 5px;">
-            <img src="{{photo}}" style="border-radius: 50%; height: 100px; width: 100px; object-fit: cover;">
-            <div class="overlay">
+    <div class="relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg bg-plava border-0">
+
+      <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+        <form>
+          <div style="display: flex; flex-direction: row; justify-content: end;">
+
+            <div class="image-container" style="margin-top: 5px;">
+              <img src="{{photo}}" style="border-radius: 50%; height: 100px; width: 100px; object-fit: cover;">
+              <div class="overlay">
                 <label for="fileInput2" style="color: white;">Izmeni</label>
-                <input #fileInput2 id="fileInput2" type="file" (change)="loadPhoto($event,0)" class="hidden" accept=".jpg, .jpeg, .png">
-            </div>
+                <input #fileInput2 id="fileInput2" type="file" (change)="loadPhoto($event,0)" class="hidden"
+                  accept=".jpg, .jpeg, .png">
+              </div>
 
-        </div>
-        </div>
-       
-        <div class="flex flex-wrap">
-          <div class="w-full lg:w-6/12 px-4">
-            <div class="relative w-full mb-3">
-              <label
-                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Korisničko ime
-              </label>
-              <input
-                type="text"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                value="{{username}}"
-                [(ngModel)]="username"
-                name="username"
-              />
-            </div>
-          </div>
-          <div class="w-full lg:w-6/12 px-4">
-            <div class="relative w-full mb-3">
-              <label
-                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Email
-              </label>
-              <input
-                type="text"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                value="{{email}}"
-                [(ngModel)]="email"
-                name="email"
-              />
-            </div>
-          </div>
-          <div class="w-full lg:w-6/12 px-4">
-            <div class="relative w-full mb-3">
-              <label
-                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Ime
-              </label>
-              <input
-                type="text"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                value="{{firstname}}"
-                [(ngModel)]="firstname"
-                name="firstname"
-              />
-            </div>
-          </div>
-          <div class="w-full lg:w-6/12 px-4">
-            <div class="relative w-full mb-3">
-              <label
-                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Prezime
-              </label>
-              <input
-                type="text"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                value="{{lastname}}"
-                [(ngModel)]="lastname"
-                name="lastname"
-              />
-            </div>
-          </div>
-          <div class="w-full lg:w-6/12 px-4">
-            <div class="relative w-full mb-3">
-              <label
-                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Datum rođenja 
-              </label>
-              <input
-                type="date"
-                value="{{birthdayDate}}"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                [(ngModel)]="birthdayDate"
-                name="birthdayDate"
-                />
-            </div>
-          </div>
-        </div>
-  
-        <hr class="mt-6 border-b-1 border-blueGray-300" />
-  
-        <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
-          Kontakt
-        </h6>
-        <div class="flex flex-wrap">
-  
-          <div class="w-full lg:w-6/12 px-4">
-            <div class="relative w-full mb-3">
-              <label
-                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Mesto
-              </label>
-              <select [(ngModel)]="location"
-              name="location"
-              style="margin-bottom: 10px;"
-              class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
-                <option *ngFor="let grad of gradovi" [ngValue]="grad.city">{{ grad.city }}</option>
-              </select>
-            </div>
-          </div>
-          <div class="w-full lg:w-6/12 px-4">
-            <div class="relative w-full mb-3">
-              <label
-                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Mobilni telefon
-              </label>
-              <input
-                type="text"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                value="{{phone}}"
-                [(ngModel)]="phone"
-                name="phone"
-              />
             </div>
           </div>
 
-        </div>
-         <div style="width: 100%;display: flex; justify-content: center;">
-          <div style="display: flex; flex-direction: column;margin-bottom: 20px;">
-            <button
-            style="margin-top: 5px;  background-color: rgb(255, 232, 60); color:rgb(30, 41, 59); "
-            (click) = "update()"
-            class="active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-            type="button"
-          >
-            Izmeni informacije
-        </button>
+          <div class="flex flex-wrap">
+            <div class="w-full lg:w-6/12 px-4">
+              <div class="relative w-full mb-3">
+                <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="grid-password">
+                  Korisničko ime
+                </label>
+                <input type="text"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  value="{{username}}" [(ngModel)]="username" name="username" />
+              </div>
+            </div>
+            <div class="w-full lg:w-6/12 px-4">
+              <div class="relative w-full mb-3">
+                <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="grid-password">
+                  Email
+                </label>
+                <input type="text"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  value="{{email}}" [(ngModel)]="email" name="email" />
+              </div>
+            </div>
+            <div class="w-full lg:w-6/12 px-4">
+              <div class="relative w-full mb-3">
+                <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="grid-password">
+                  Ime
+                </label>
+                <input type="text"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  value="{{firstname}}" [(ngModel)]="firstname" name="firstname" />
+              </div>
+            </div>
+            <div class="w-full lg:w-6/12 px-4">
+              <div class="relative w-full mb-3">
+                <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="grid-password">
+                  Prezime
+                </label>
+                <input type="text"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  value="{{lastname}}" [(ngModel)]="lastname" name="lastname" />
+              </div>
+            </div>
+            <div class="w-full lg:w-6/12 px-4">
+              <div class="relative w-full mb-3">
+                <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="grid-password">
+                  Datum rođenja
+                </label>
+                <input type="date" value="{{birthdayDate}}"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  [(ngModel)]="birthdayDate" name="birthdayDate" />
+              </div>
+            </div>
+            <div class="w-full lg:w-6/12 px-4">
+              <div class="relative w-full mb-3">
+                <label htmlFor="grid-password"
+                  class="block uppercase text-white text-xs font-bold mb-2">Zelim da primam zahteve u krugu
+                  od:</label>
+                <select id="distanceFilter" name="distanceFilter" [(ngModel)]="selectedDistance" class="border-0
+                  px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow
+                  focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                  <option *ngFor="let opt of distanceOptions" [value]="opt.value">
+                    {{ opt.label }}
+                  </option>
+                </select>
+              </div>
+            </div>
           </div>
-           
-        
-         </div>
-        <hr class="mt-6 border-b-1 border-blueGray-300" />
-  
-        <!-- <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+
+          <hr class="mt-6 border-b-1 border-blueGray-300" />
+
+          <h6 class="text-white text-sm mt-3 mb-6 font-bold uppercase">
+            Kontakt
+          </h6>
+          <div class="flex flex-wrap">
+
+            <div class="w-full lg:w-6/12 px-4">
+              <div class="relative w-full mb-3">
+                <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="grid-password">
+                  Mesto
+                </label>
+                <select [(ngModel)]="location" name="location" style="margin-bottom: 10px;"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                  <option *ngFor="let grad of gradovi" [ngValue]="grad.city">{{ grad.city }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="w-full lg:w-6/12 px-4">
+              <div class="relative w-full mb-3">
+                <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="grid-password">
+                  Mobilni telefon
+                </label>
+                <input type="text"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  value="{{phone}}" [(ngModel)]="phone" name="phone" />
+              </div>
+            </div>
+
+          </div>
+          <div style="width: 100%;display: flex; justify-content: center;">
+            <div style="display: flex; flex-direction: column;margin-bottom: 20px;">
+              <button style="margin-top: 5px;"
+                (click)="update()"
+                class="active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                type="button">
+                Izmeni informacije
+              </button>
+            </div>
+
+
+          </div>
+          <hr class="mt-6 border-b-1 border-blueGray-300" />
+
+          <!-- <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
           Slike
         </h6> -->
-        <div class="flex flex-wrap">
-          <!-- <div class="w-full lg:w-6/12 px-4">
+          <div class="flex flex-wrap">
+            <!-- <div class="w-full lg:w-6/12 px-4">
             <div class="relative w-full mb-3">
               <label
                 class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -222,142 +179,123 @@
               </button>   
         </div>
           </div> -->
-          <div class="w-full lg:w-3/12"></div>
+            <div class="w-full lg:w-3/12"></div>
 
-          <div class="w-full lg:w-6/12 px-4" style="display: flex; justify-content: center;">
-            
-            <div class="relative w-full mb-3">
-              <label
-                class="block uppercase text-blueGray-600 text-xs font-bold mb-2 py-5"
-                htmlFor="grid-password"
-              >
-               Promena lozinke
-              </label>
-             
-                <input
-                type="password"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                placeholder="Stara lozinka"
-                style="margin-bottom: 10px;"
-                name = "oldPassword"
-                [(ngModel)]="oldPassword"
+            <div class="w-full lg:w-6/12 px-4" style="display: flex; justify-content: center;">
 
-                  />
-                <input
-                  type="password"
+              <div class="relative w-full mb-3">
+                <label class="block uppercase text-white text-xs font-bold mb-2 py-5" htmlFor="grid-password">
+                  Promena lozinke
+                </label>
+
+                <input type="password"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  placeholder="Stara lozinka" style="margin-bottom: 10px;" name="oldPassword"
+                  [(ngModel)]="oldPassword" />
+                <input type="password"
                   class=" border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  placeholder="Stara lozinka"
-                  style="margin-bottom: 10px;"
-                  name = "password"
-                  [(ngModel)]="password"
-  
-                />
-                <input
-                type="password"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                placeholder="Ponovite staru lozinku"
-                style="margin-bottom: 10px;"
-                name = "password1"
-                [(ngModel)]="password1"
-              />
-             
-              
-            </div>
-          </div>
+                  placeholder="Stara lozinka" style="margin-bottom: 10px;" name="password" [(ngModel)]="password" />
+                <input type="password"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  placeholder="Ponovite staru lozinku" style="margin-bottom: 10px;" name="password1"
+                  [(ngModel)]="password1" />
 
-          <div class="w-full lg:w-3/12"></div>
+
+              </div>
+            </div>
+
+            <div class="w-full lg:w-3/12"></div>
+
+            <div style="width: 100%;display: flex; justify-content: center;">
+              <div style="display: flex; flex-direction: column;margin-bottom: 20px;">
+                <button style="margin-top: 5px;"
+                  (click)="newPass()"
+                  class="bg-red-600 active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                  type="button">
+                  Potvrdi
+                </button>
+              </div>
+
+
+            </div>
+
+
+          </div>
 
           <div style="width: 100%;display: flex; justify-content: center;">
             <div style="display: flex; flex-direction: column;margin-bottom: 20px;">
-              <button
-              style="margin-top: 5px;  background-color: rgb(255, 232, 60); color:rgb(30, 41, 59); "
-              (click) = "newPass()"
-              class="bg-red-600 active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-              type="button"
-            >
-              Potvrdi
-            </button>
-            </div>
-             
-          
-           </div>
-          
-      
-        </div>
+              <div *ngIf="message" [ngClass]="{'error-message': err === 1, 'success-message': err === 0}"
+                style="width: 100%; text-align: center; margin-top: 20px; color: white; padding: 10px; border-radius: 5px;">
+                {{message}}
+              </div>
 
-        <div style="width: 100%;display: flex; justify-content: center;">
-          <div style="display: flex; flex-direction: column;margin-bottom: 20px;">
-          <div *ngIf="message" [ngClass]="{'error-message': err === 1, 'success-message': err === 0}" 
-          style="width: 100%; text-align: center; margin-top: 20px; color: white; padding: 10px; border-radius: 5px;">
-            {{message}}
+            </div>
+
+
           </div>
-      
-          </div>
-           
-        
-         </div>
-      </form>
+        </form>
+      </div>
     </div>
-  </div>
   </section>
 
   <app-footer></app-footer>
 
 
-<style>
-  .image-container {
-    position: relative;
-    display: inline-block;
-}
+  <style>
+    .image-container {
+      position: relative;
+      display: inline-block;
+    }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Zatamnjenje sa 50% providnosti */
-    opacity: 0; /* Početno stanje - nevidljivo */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    transition: opacity 0.3s; /* Efekat prelaza */
-}
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Zatamnjenje sa 50% providnosti */
+      opacity: 0;
+      /* Početno stanje - nevidljivo */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      transition: opacity 0.3s;
+      /* Efekat prelaza */
+    }
 
-.overlay1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    opacity: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.3s; 
-}
+    .overlay1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.3s;
+    }
 
-.image-container:hover .overlay{
-    opacity: 1; 
-}
+    .image-container:hover .overlay {
+      opacity: 1;
+    }
 
-.image-container:hover .overlay1{
-    opacity: 1;
-}
+    .image-container:hover .overlay1 {
+      opacity: 1;
+    }
 
-input[type="file"].hidden {
-    display: none;
-}
+    input[type="file"].hidden {
+      display: none;
+    }
 
-.error-message {
-  background-color: rgb(239, 114, 114);
-}
+    .error-message {
+      background-color: rgb(239, 114, 114);
+    }
 
-.success-message {
-  background-color: rgb(59, 185, 109);
-}
-
-
-</style>
+    .success-message {
+      background-color: rgb(59, 185, 109);
+    }
+  </style>

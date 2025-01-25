@@ -4,10 +4,12 @@ import bodyParser from 'body-parser'
 import userRouter from './routers/user.router';
 import jobRouter from './routers/job.router';
 import webPush from 'web-push';
+import { log } from 'console';
+import { connection } from 'mongoose';
 
 require('dotenv').config();
-const publicVapidKey = 'BLrt-N6o0uHdZQa46XzurPIuZq822yuJBOuaVV4C-jVBURwIZsepPODSxZUaH0Bpl9s3HxGHpmxSjEgonCuu6rI';
-const privateVapidKey = 'ahyu0EjJIGTv_i6UHTaIBDb02H2xoLaBy7eMD6LCrBY';
+const publicVapidKey = 'BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg';
+const privateVapidKey = 'R9O8MXmoFsxCDEl1SHnxCZrtLsc85TcVaHoPo1kSyIs';
 
 webPush.setVapidDetails('mailto:mmilenkovic815@gmail.com', publicVapidKey, privateVapidKey);
 
@@ -57,6 +59,8 @@ app.post('/subscribe', (req, res) => {
     console.error('Invalid subscription object:', subscription);
     return res.status(400).json({ error: 'Invalid subscription object' });
   }
+  logger.info('Subscription object details: ' + JSON.stringify(subscription));
+  logger.info('Subscription object details: ' + subscription.endpoint);
   // Provera da li subskripcija već postoji
   pool.getConnection((err, connection) => {
     if (err) {
@@ -111,16 +115,76 @@ app.post('/subscribe', (req, res) => {
   });
 });
 
+app.post('/save-subscription', (req, res) => {
+  const { user_id, endpoint, p256dh, auth } = req.body;
+
+  if (!endpoint || !p256dh || !auth) {
+    return res.status(400).json({ error: 'Missing subscription data' });
+  }
+  pool.getConnection((err, connection) => {
+
+    const query = `
+      INSERT INTO subscriptions (user_id, endpoint, p256dh, auth)
+      VALUES (?, ?, ?, ?)
+      ON DUPLICATE KEY UPDATE updated_at = CURRENT_TIMESTAMP;
+    `;
+    const values = [user_id, endpoint, p256dh, auth];
+
+    connection.query(query, values, (err) => {
+      if (err) {
+        logger(req, res).error('Database error:', err);
+        return res.status(500).json({ error: 'Failed to save subscription' });
+      }
+      logger.info('Subscription saved successfully, user_id:' + user_id);
+      res.status(200).json({ message: 'Subscription saved successfully' });
+    });
+  });
+});
+
+app.post('/trigger-event', (req, res) => {
+  const { eventData } = req.body;
+  pool.getConnection((err, connection) => {
+
+    const query = `SELECT endpoint, p256dh, auth FROM subscriptions`;
+    connection.query(query, (err, results) => {
+      if (err) {
+        logger(req, res).error('Database error:', err);
+        return res.status(500).json({ error: 'Failed to fetch subscriptions' });
+      }
+
+      const payload = JSON.stringify({ title: 'Poruka', body: 'Miki Miki Miki' });
+
+      results.forEach((subscription) => {
+        const pushSubscription = {
+          endpoint: subscription.endpoint,
+          keys: {
+            p256dh: subscription.p256dh,
+            auth: subscription.auth,
+          },
+        };
+
+        webPush
+          .sendNotification(pushSubscription, payload)
+          .then(() => logger.info('Notification sent successfully'))
+          .catch((err) => logger.error('Notification error:', err));
+      });
+
+      res.status(200).json({ message: 'Notifications triggered' });
+    });
+  });
+});
+
 function sendTestNotification(subscription, res) {
-  const payload = JSON.stringify({ title: 'Push Test', body: 'Push notification test' });
+  logger.info('Sending test notification...');
+  const payload = JSON.stringify({ title: 'Push Test', body: 'Push notification testtt' });
   webPush
     .sendNotification(subscription, payload)
     .then(() => {
-      console.log('Notification sent successfully');
+      logger.info('Notification sent successfully');
       res.status(200).json({ message: 'Subscription saved and notification sent successfully' });
     })
     .catch((error) => {
-      console.error('Error sending notification:', error);
+      logger.error('Failed to send notification:', error);
       res.status(500).json({ error: 'Failed to send notification', details: error.message });
     });
 }

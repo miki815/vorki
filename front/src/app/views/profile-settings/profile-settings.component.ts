@@ -6,7 +6,8 @@ import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-profile-settings',
-  templateUrl: './profile-settings.component.html'
+  templateUrl: './profile-settings.component.html',
+  styleUrl: './profile-settings.component.css'
 })
 export class ProfileSettingsComponent {
 
@@ -48,14 +49,18 @@ export class ProfileSettingsComponent {
   gradovi: any;
 
   numberOfPhotos: number = 0;
-
   err: number = 0;
-
   message: string = "";
-
   imgIndex: number = 0;
   newphoto: string = "";
 
+  distanceOptions: any[] = [
+    { label: '5 km', value: 5 },
+    { label: '20 km', value: 20 },
+    { label: '50 km', value: 50 },
+    { label: 'Sve zahteve', value: 1000 }
+  ];
+  selectedDistance: number = 50;
 
 
   ngOnInit(): void {
@@ -112,9 +117,14 @@ export class ProfileSettingsComponent {
       }
 
     })
-
     console.log("ProfileSettings - getUser: END")
   }
+
+  // onDistanceChange() {
+  //   // const distanceElement = document.getElementById('distanceFilter') as HTMLSelectElement;
+  //   // this.selectedDistance = parseInt(distanceElement.value);
+  //   console.log('Selected distance:', this.selectedDistance);
+  // }  
 
   update() {
     console.log("ProfileSettings - update: START")
@@ -139,7 +149,8 @@ export class ProfileSettingsComponent {
           location: this.location,
           phone: this.phone,
           photo: this.photo,
-          backPhoto: this.backPhoto
+          backPhoto: this.backPhoto,
+          distance: this.selectedDistance
         }
         this.userService.updateUser(data).subscribe((message: any) => {
           if (message.error) {

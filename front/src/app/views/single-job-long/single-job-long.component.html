@@ -5,22 +5,22 @@ crossorigin=""/>
 integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
 crossorigin=""></script>
 
-<main class="profile-page">
+<main class="profile-page bg-zuta">
     <section class="relative block h-500-px">
         <div class="absolute top-0 w-full h-full bg-center bg-cover" style="background-image: url({{ph}});">
             <span class="w-full h-full absolute opacity-50 bg-black"></span>
         </div>
-        <div class="absolute bottom-0 left-0 right-0 w-full pointer-events-none overflow-hidden h-70-px" style="transform: translateZ(0)">
+        <!-- <div class="absolute bottom-0 left-0 right-0 w-full pointer-events-none overflow-hidden h-70-px" style="transform: translateZ(0)">
             <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
                 <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
             </svg>
-        </div>
+        </div> -->
     </section>
     
 
-    <section class="relative py-16 bg-blueGray-200">
+    <section class="relative py-16">
         <div class="container mx-auto px-4" style="width: 100%;display: flex; flex-direction: row; justify-content: space-between;">
-            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded-lg -mt-64" style="height: fit-content; margin-right: 20px;">
+            <div class="relative flex flex-col min-w-0 break-words bg-plava w-full mb-6 rounded-lg -mt-64" style="height: fit-content; margin-right: 20px;">
                 <div class="px-6">
 
                     <div class="flex flex-wrap justify-center">
@@ -36,24 +36,24 @@ crossorigin=""></script>
                             <div class="flex justify-center py-4 lg:pt-4 pt-8">
 
                                 <div class="mr-4 p-3 text-center">
-                                    <span class="text-xl font-bold block uppercase text-blueGray-700">
+                                    <span class="text-xl font-bold block uppercase text-white">
                                         {{numberOfJobs}}
                                     </span>
-                                    <span class="text-sm text-blueGray-500">Odrađenih poslova</span>
+                                    <span class="text-sm text-white">Odrađenih poslova</span>
                                 </div>
                                 
                                 <div class="mr-4 p-3 text-center">
-                                    <span class="text-xl font-bold block uppercase text-blueGray-700">
+                                    <span class="text-xl font-bold block uppercase text-white">
                                         {{job.avgRate.toFixed(2)}}
                                     </span>
-                                    <span class="text-sm text-blueGray-500">Ocena</span>
+                                    <span class="text-sm text-white">Ocena</span>
                                 </div>
 
                                 <div class="lg:mr-4 p-3 text-center">
-                                    <span class="text-xl font-bold block uppercase text-blueGray-700">
+                                    <span class="text-xl font-bold block uppercase text-white">
                                         {{comments.length}}
                                     </span>
-                                    <span class="text-sm text-blueGray-500">Broj pitanja</span>
+                                    <span class="text-sm text-white">Broj pitanja</span>
                                 </div>
                             </div>
 
@@ -112,17 +112,17 @@ crossorigin=""></script>
                                     <!-- <app-calendar></app-calendar> -->
 
                                     <button style="margin-top: 5px;"
-                                        class="bg-emerald-200 text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                                        class="bg-zuta text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
                                         type="button">
                                         Kalendar majstora
                                     </button>
                                     <button style="margin-top: 5px;"
-                                        class="bg-emerald-200 text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                                        class="bg-zuta text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
                                         type="button" [disabled]="requestMsg=='Zahtev poslat!'" (click)="showRequestForm()">
                                         {{requestMsg}}
                                     </button>
                                     <button style="margin-top: 5px;"
-                                        class="bg-emerald-200 text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                                        class="bg-zuta text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
                                         type="button">
                                         Oceni majstora
                                     </button>
@@ -132,18 +132,18 @@ crossorigin=""></script>
 
                         <div class="w-full lg:w-4/12 px-4 lg:order-1">
                             <div class="text-center mt-12">
-                                <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+                                <h3 class="text-4xl font-semibold leading-normal mb-2 text-white mb-2">
                                     {{job.username}} 
                                 </h3>
-                                <div class="text-md leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
+                                <div class="text-md leading-normal mt-0 mb-2 text-white font-bold uppercase">
                                     <i class="fas  fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
                                     {{ job.city }}
                                 </div>
-                                <div class="mb-2 text-blueGray-600">
+                                <div class="mb-2 text-white">
                                     <i class="fas fa-user mr-2 text-lg text-blueGray-400"></i>
                                     {{job.profession}}
                                 </div>
-                                <div class="mb-2 text-blueGray-600">
+                                <div class="mb-2 text-white">
                                     <i class="fas fa-phone mr-2 text-lg text-blueGray-400"></i>
                                     {{phoneNumber}}
                                 </div>
@@ -152,45 +152,46 @@ crossorigin=""></script>
                     </div>
 
                 </div>
-                <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded">
+                <div class="relative flex flex-col min-w-0 break-words bg-plava w-full mb-6 rounded">
                     <hr>
-                    <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 text-center"> Opis posla </h3>
-                    <p class="text-lg mb-2 text-blueGray-700 ml-5 text-center">{{job.description}}</p>
+                    <h3 class="text-4xl font-semibold leading-normal mb-2 text-white text-center"> Opis posla </h3>
+                    <p class="text-lg mb-2 text-white ml-5 text-center">{{job.description}}</p>
                 </div>
             </div>
         </div>
     </section> 
 
-    <section class="relative py-16 bg-blueGray-200">
-        <div class="container mx-auto px-4" style="width: 100%; display: flex; flex-direction: row; justify-content: space-between;">
-            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded-lg">
+    <section class="relative bg-plava">
+        <div class="container mx-auto px-4" style="display: flex; flex-direction: row; justify-content: space-between;">
+            <div class="relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg">
                 <!-- Galerija -->
                 <div style="display: flex; flex-direction: column; gap: 20px;">
                     <div class="rounded-t mb-0 px-4 border-0">
                         <div class="flex flex-wrap items-center">
-                            <div class="relative w-full px-4 max-w-full flex-grow flex-1" style="color: rgb(255, 232, 60); background-color: rgb(30, 41, 59);">
-                                <h3 class="text-4xl font-semibold leading-normal mb-2 text-center">Galerija</h3>
+                            <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                                <h3 class="text-4xl font-semibold leading-normal mb-2 text-center text-white">Galerija</h3>
                             </div>
                         </div>
                     </div>
-                    <gallery id="{{galleryId}}" *ngIf="imagesLoaded" style="background-color: white; width: 100% !important; height: 650px !important; object-fit: cover;" (indexChange)="onIndexChange($event)"></gallery>
+                    <gallery id="{{galleryId}}" *ngIf="imagesLoaded" style="background-color: #274153; width: 100% !important; height: 500px !important; object-fit: cover;" (indexChange)="onIndexChange($event)"></gallery>
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="relative py-16 bg-blueGray-200">
-        <div class="container mx-auto px-4" style="width: 100%; display: flex; flex-direction: row; justify-content: space-between;">
-            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded-lg">
-                <!-- Pitanja -->
-                <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-2 shadow-lg rounded">
-                    <div class="rounded-t mb-0 px-4 border-0" style="margin-top: 15px;">
-                        <div class="flex flex-wrap items-center">
-                            <div class="relative w-full px-4 max-w-full flex-grow flex-1" style="color: rgb(255, 232, 60); background-color: rgb(30, 41, 59);">
-                                <h3 class="text-4xl font-semibold leading-normal mb-2 text-center">Pitanja</h3>
-                            </div>
-                        </div>
+    <hr>
+    <section class="relative py-16 bg-plava">
+        <div class="container mx-auto px-4" style="width: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+            <div class="rounded-t mb-0 px-4 border-0 bg-plava" style="margin-top: 15px;">
+                <div class="flex flex-wrap items-center">
+                    <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                        <h3 class="text-4xl text-white font-semibold leading-normal mb-2 text-center">Pitanja</h3>
                     </div>
+                </div>
+            </div>
+            <div class="relative flex flex-col min-w-0 break-words bg-zuta w-full mb-6 rounded-lg">
+                <!-- Pitanja -->
+                <div class="relative flex flex-col min-w-0 break-words w-full mb-2 shadow-lg rounded">
+              
                     <div class="block w-full overflow-x-auto">
                         <table class="items-center w-full bg-transparent border-collapse">
                             <tbody>
@@ -212,7 +213,7 @@ crossorigin=""></script>
                                         </button>
                                     </div>
                                 </tr>
-                                <tr style="display: flex; flex-direction: row; justify-content: space-between;">
+                                <tr style="display: flex; flex-direction: row; justify-content: space-between; padding: 20px;">
                                     <input style="width: 100%;" name="comment" type="text" [(ngModel)]="comment" class="ml-2 border placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Unesite pitanje" [disabled]="cookie === idUser" maxlength="200" />
                                     <button class="px-4 ml-2 bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="addComment()">
                                         Pošalji

@@ -291,31 +291,33 @@ export class SingleJobLongComponent implements OnInit {
         const city2 = cities[j];
         console.log('Progress:', distances.length, '/', n);
         const distance = this.calculateDistance(city1.lat, city1.lon, city2.lat, city2.lon);
-        distances.push({
-          city1: city1.curCity,
-          city2: city2.curCity,
-          distance: distance.toFixed(2) 
-        });
+        if (distance < 50) {
+          distances.push({
+            city1: city1.curCity,
+            city2: city2.curCity,
+            distance: distance.toFixed(2)
+          });
+        }
       }
     }
     return distances;
   }
 
   saveDistancesToFile(distances) {
-  const jsonData = JSON.stringify(distances, null, 2);
-  const blob = new Blob([jsonData], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = 'cityDistances.json';
-  link.click();
-  URL.revokeObjectURL(url);
-}
+    const jsonData = JSON.stringify(distances, null, 2);
+    const blob = new Blob([jsonData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'cityDistances.json';
+    link.click();
+    URL.revokeObjectURL(url);
+  }
 
-processCities() {
-  console.log('Proces računanja rastojanja je započet...');
-  const distances = this.calculateDistancesSync(this.coordinates);
-  console.log('Rastojanja su izračunata:', distances);
-  this.saveDistancesToFile(distances);
-}
+  processCities() {
+    console.log('Proces računanja rastojanja je započet...');
+    const distances = this.calculateDistancesSync(this.coordinates);
+    console.log('Rastojanja su izračunata:', distances);
+    this.saveDistancesToFile(distances);
+  }
 }

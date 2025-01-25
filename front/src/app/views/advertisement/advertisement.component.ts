@@ -37,7 +37,8 @@ export class AdvertisementComponent implements OnInit {
     fetch('assets/craftsmen.json')
     .then(response => response.json())
     .then(professions => {
-      this.professions = professions.craftsmen;
+      this.professions = [...professions.craftsmen, ...professions.services, ...professions.transport];
+      this.professions.sort((a, b) => a.localeCompare(b));
     })
     .catch(error => {
       console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):', error);

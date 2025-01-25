@@ -25,7 +25,8 @@ CREATE TABLE user (
     backPhoto LONGTEXT,
     facebook VARCHAR(255),
     instagram VARCHAR(255),
-    type INT NOT NULL
+    type INT NOT NULL,
+    distance INT DEFAULT 0
 );
 
 

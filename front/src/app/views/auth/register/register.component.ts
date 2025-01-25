@@ -82,7 +82,8 @@ export class RegisterComponent implements OnInit {
             location: this.location,
             type: this.type,
             email: this.email.toLowerCase(),
-            backPhoto: backPhoto
+            backPhoto: backPhoto,
+            selectedProfessions: this.selectedProfessions
           }
 
           this.userService.register(data).subscribe((response: any) => {
