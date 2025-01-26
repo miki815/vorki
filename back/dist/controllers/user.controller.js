@@ -86,7 +86,7 @@ class UserController {
                                     logger.info('Profession ' + profession + ' added to user ' + idUser);
                             });
                         });
-                        res.json({ error: 0 });
+                        res.json({ error: 0, idUser: idUser });
                     });
                 });
             });

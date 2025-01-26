@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, HostListener } from "@angular/core";
 import { Router } from "@angular/router";
 import { UserService } from "src/app/services/user.service";
 import * as bcrypt from 'bcryptjs';
+import { NotificationService } from "src/app/services/notification.service";
 
 @Component({
   selector: "app-register",
@@ -10,7 +11,7 @@ import * as bcrypt from 'bcryptjs';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private userService: UserService, private router: Router, private elementRef: ElementRef) { }
+  constructor(private userService: UserService, private router: Router, private elementRef: ElementRef, private notificationService: NotificationService) { }
 
   username: string = null;
   name: string = null;
@@ -22,6 +23,7 @@ export class RegisterComponent implements OnInit {
   password: string = null;
   password1: string = null;
   policy: boolean = null;
+  notification: boolean = null;
   email: string = null;
   message: string = null;
   cities: any;
@@ -30,6 +32,7 @@ export class RegisterComponent implements OnInit {
   selectedProfessions: string[] = [];
   searchTerm: string = '';
   isDropdownVisible: boolean = false
+  idUser: string = null;
 
   ngOnInit(): void {
     console.log('Register - ngOnInit: START')
@@ -88,6 +91,10 @@ export class RegisterComponent implements OnInit {
 
           this.userService.register(data).subscribe((response: any) => {
             if (response['error'] == "0") {
+              if (this.notification) {
+                this.idUser = response['idUser'];
+                this.notificationService.subscribeToNotifications(this.idUser);
+              }
               this.router.navigate(["/autentikacija/prijava"]);
             } else {
               this.message = response['message'];
@@ -162,11 +169,11 @@ export class RegisterComponent implements OnInit {
 
   showProfessions() {
     this.isDropdownVisible = true;
-    this.filteredProfessions = this.professions; 
+    this.filteredProfessions = this.professions;
   }
 
   hideProfessions() {
     this.isDropdownVisible = false;
-    this.filteredProfessions = []; 
+    this.filteredProfessions = [];
   }
 }

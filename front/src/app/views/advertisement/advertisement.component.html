@@ -5,8 +5,7 @@
   <div class="container mx-auto px-4 h-full">
     <div class="flex content-center items-center justify-center">
       <div class="w-full lg:w-6/12 px-4">
-        <div
-          class="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg bg-plava border-0 mt-10">
+        <div class="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg bg-plava border-0 mt-10">
           <div class="rounded-t mb-0 px-6 py-6">
             <div class="btn-wrapper text-center">
               <h2 class="text-white text-xl font-bold">Dodavanje oglasa</h2>
@@ -31,7 +30,7 @@
                 <select
                   class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   [(ngModel)]="selectedProfession" name="selectedProfession" id="proffesion">
-                  <option *ngFor="let profession of professions" [value]="selectedProfession">{{ profession }}</option>
+                  <option *ngFor="let profession of professions" [value]="profession">{{ profession }}</option>
                 </select><br><br>
               </div>
 
@@ -64,8 +63,8 @@
                   Dodaj oglas
                 </button>
               </div>
-              <div *ngIf="poruka"
-                style="width: 100%; text-align: center; margin-top: 20px; background-color: rgb(239, 114, 114); color: white; padding: 10px; border-radius: 5px; ">
+              <div *ngIf="poruka" [ngStyle]="{'background-color': bgcolor}"
+                style="width: 100%; text-align: center; margin-top: 20px; color: white; padding: 10px; border-radius: 5px; ">
                 {{poruka}}
               </div>
             </form>

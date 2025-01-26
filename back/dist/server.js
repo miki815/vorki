@@ -10,6 +10,7 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const user_router_1 = __importDefault(require("./routers/user.router"));
 const job_router_1 = __importDefault(require("./routers/job.router"));
 const web_push_1 = __importDefault(require("web-push"));
+const subscription_router_1 = __importDefault(require("./routers/subscription.router"));
 require('dotenv').config();
 const publicVapidKey = 'BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg';
 const privateVapidKey = 'R9O8MXmoFsxCDEl1SHnxCZrtLsc85TcVaHoPo1kSyIs';
@@ -104,20 +105,41 @@ app.post('/save-subscription', (req, res) => {
     if (!endpoint || !p256dh || !auth) {
         return res.status(400).json({ error: 'Missing subscription data' });
     }
+    // Dohvatanje konekcije iz pool-a
     pool.getConnection((err, connection) => {
-        const query = `
-      INSERT INTO subscriptions (user_id, endpoint, p256dh, auth)
-      VALUES (?, ?, ?, ?)
-      ON DUPLICATE KEY UPDATE updated_at = CURRENT_TIMESTAMP;
-    `;
-        const values = [user_id, endpoint, p256dh, auth];
-        connection.query(query, values, (err) => {
+        if (err) {
+            console.error('Greška prilikom dohvatanja konekcije:', err);
+            return res.status(500).json({ error: 'Greška na serveru.' });
+        }
+        // Provera da li pretplata već postoji
+        connection.query('SELECT * FROM subscriptions WHERE endpoint = ?', [endpoint], (err, results) => {
             if (err) {
-                logger(req, res).error('Database error:', err);
-                return res.status(500).json({ error: 'Failed to save subscription' });
+                console.error('Greška prilikom pretrage pretplate:', err);
+                connection.release(); // Oslobađanje konekcije
+                return res.status(500).json({ error: 'Greška na serveru.' });
             }
-            logger.info('Subscription saved successfully, user_id:' + user_id);
-            res.status(200).json({ message: 'Subscription saved successfully' });
+            if (results.length > 0) {
+                // Pretplata već postoji
+                connection.release(); // Oslobađanje konekcije
+                logger.info('Korisnik je vec pretplacen.');
+                return res.status(200).json({ message: 'Korisnik je već pretplaćen.' });
+            }
+            // Ako pretplata ne postoji, sačuvajte je
+            logger.info('Čuvanje pretplate...');
+            const query = `
+          INSERT INTO subscriptions (user_id, endpoint, p256dh, auth)
+          VALUES (?, ?, ?, ?)
+        `;
+            const values = [user_id, endpoint, p256dh, auth];
+            connection.query(query, values, (err) => {
+                connection.release(); // Oslobađanje konekcije
+                if (err) {
+                    console.error('Greška prilikom čuvanja pretplate:', err);
+                    return res.status(500).json({ error: 'Failed to save subscription' });
+                }
+                console.info('Pretplata uspešno sačuvana, user_id:', user_id);
+                res.status(200).json({ message: 'Pretplata uspešno sačuvana.' });
+            });
         });
     });
 });
@@ -165,5 +187,6 @@ function sendTestNotification(subscription, res) {
 logger.info('hello world');
 app.use('/users', user_router_1.default);
 app.use('/jobs', job_router_1.default);
+app.use('/subscriptions', subscription_router_1.default);
 app.use('/', express_1.default.static("dist/notus-angular"));
 app.listen(4000, () => logger.info(`Express server running on port 4000`));

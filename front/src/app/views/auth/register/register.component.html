@@ -127,10 +127,17 @@
                 <input [(ngModel)]="policy" name="policy" id="customCheckLogin" type="checkbox"
                   class="form-checkbox border-0 text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150 rounded" />
                 &nbsp; Slažem se sa
-                <a href="javascript:void(0)" class="text-red-600">
-                  <!-- TODO -->
+                <a href="assets/uslovi.pdf" class="text-red-600">
                   &nbsp; Politikom privatnosti
                 </a>
+              </label>
+            </div>
+            <!-- NOTIFICATIONS -->
+            <div>
+              <label class="inline-flex items-center cursor-pointer">
+                <input [(ngModel)]="notification" name="notification" id="customCheckLogin" type="checkbox"
+                  class="form-checkbox border-0 text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150 rounded" />
+                &nbsp; Želim da dobijam obaveštenja o novim poslovima
               </label>
             </div>
             <!-- SUBMIT -->

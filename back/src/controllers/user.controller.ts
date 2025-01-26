@@ -77,7 +77,7 @@ export class UserController {
                             });
                         });
 
-                        res.json({ error: 0 });
+                        res.json({ error: 0, idUser: idUser });
                     });
             });
 

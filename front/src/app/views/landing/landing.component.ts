@@ -24,8 +24,8 @@ export class LandingComponent implements OnInit {
   isSubscribed: boolean = false;
   userId: string = "";
   readonly VAPID_PUBLIC_KEY = "BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg";
-  // uri = 'http://127.0.0.1:4000'
-  uri: string = 'https://vorki.rs';
+  uri = 'http://127.0.0.1:4000'
+  // uri: string = 'https://vorki.rs';
 
   constructor(private userService: UserService, private cookieService: CookieService, private router: Router, private route: ActivatedRoute, private swPush: SwPush, private http: HttpClient) { }
   login: number = 1;

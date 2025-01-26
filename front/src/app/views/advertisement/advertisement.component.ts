@@ -19,6 +19,7 @@ export class AdvertisementComponent implements OnInit {
   selectedCity: string = "Beograd";
   selectedProfession: string = "Vodoinstalater";
   poruka: string = null;
+  bgcolor: string = "rgb(239, 114, 114)";
 
   constructor(private jobService: JobService, private router: Router,private userService: UserService, private http: HttpClient, private cookieService: CookieService) {
    
@@ -51,7 +52,11 @@ export class AdvertisementComponent implements OnInit {
 
 
     // Provera
-    if (!this.description || !this.title) { this.poruka = "Niste uneli sve podatke."; return; }
+    if (!this.description || !this.title) { 
+      this.poruka = "Niste uneli sve podatke."; 
+      this.bgcolor = "rgb(239, 114, 114)";
+      return; 
+    }
 
     this.userService.getUserById({id: this.cookieService.get('token')}).subscribe((message: any) => {
       //Pakovanje
@@ -63,14 +68,15 @@ export class AdvertisementComponent implements OnInit {
         id: JSON.parse(this.cookieService.get('token')),
         type: message['message'].type
       }
-      // console.log(data);
-
       //Slanje
       this.jobService.insertJob(data).subscribe((message: any) => {
         if(message['message'] == 0) {
           console.log("Insert job - submit: PASS")
-        }
-        
+          this.poruka = "Uspešno ste dodali oglas: " + this.title;
+          this.description = null;
+          this.title = null;
+          this.bgcolor = "rgb(42, 138, 42)";
+        }  
       })
     
     })
