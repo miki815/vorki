@@ -102,6 +102,7 @@ app.post('/subscribe', (req, res) => {
 });
 app.post('/save-subscription', (req, res) => {
     const { user_id, endpoint, p256dh, auth } = req.body;
+    console.log('Subscription data:', req.body);
     if (!endpoint || !p256dh || !auth) {
         return res.status(400).json({ error: 'Missing subscription data' });
     }

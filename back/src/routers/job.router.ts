@@ -44,4 +44,8 @@ jobRouter.route('/getJobRequestsForUser/:idUser').get(
     (req, res) => new JobController().getJobRequestsForUser(req, res)
 )
 
+jobRouter.route('/getMastersCount').post(
+    (req, res) => new JobController().getMastersCount(req, res)
+)
+
 export default jobRouter;

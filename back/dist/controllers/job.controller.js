@@ -134,6 +134,18 @@ class JobController {
                 res.json(requests);
             });
         };
+        this.getMastersCount = (req, res) => {
+            const { jobsArray } = req.body;
+            var sql = 'SELECT profession, COUNT(*) AS count FROM job WHERE profession IN(?) GROUP BY profession;';
+            server_1.pool.query(sql, [jobsArray], (err, masters) => {
+                if (err) {
+                    res.json({ error: 1, message: "Fatal error: " + err });
+                    return;
+                }
+                console.log(masters);
+                res.json(masters);
+            });
+        };
     }
 }
 exports.JobController = JobController;

@@ -76,7 +76,6 @@ export class UserController {
                                 else logger.info('Profession ' + profession + ' added to user ' + idUser);
                             });
                         });
-
                         res.json({ error: 0, idUser: idUser });
                     });
             });

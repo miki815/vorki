@@ -96,3 +96,21 @@
 {"level":30,"time":1737851665633,"pid":21240,"hostname":"DESKTOP-9KL4NAD","msg":"Notification sent successfully"}
 {"level":30,"time":1737851665633,"pid":21240,"hostname":"DESKTOP-9KL4NAD","msg":"Notification sent successfully"}
 {"level":30,"time":1737855235189,"pid":21240,"hostname":"DESKTOP-9KL4NAD","msg":"Čuvanje pretplate..."}
+{"level":30,"time":1737855333435,"pid":18896,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1737855333454,"pid":18896,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1737855333573,"pid":18896,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1737855390252,"pid":18896,"hostname":"DESKTOP-9KL4NAD","msg":"Čuvanje pretplate..."}
+{"level":30,"time":1737981949399,"pid":15916,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1737981949408,"pid":15916,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1737981949496,"pid":15916,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1737981993286,"pid":15916,"hostname":"DESKTOP-9KL4NAD","msg":"Korisnik je vec pretplacen."}
+{"level":30,"time":1737982207645,"pid":6520,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1737982207668,"pid":6520,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1737982207776,"pid":6520,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1737982256076,"pid":6520,"hostname":"DESKTOP-9KL4NAD","msg":"Korisnik je vec pretplacen."}
+{"level":30,"time":1737982468519,"pid":6520,"hostname":"DESKTOP-9KL4NAD","msg":"selected professions: "}
+{"level":30,"time":1737982468661,"pid":6520,"hostname":"DESKTOP-9KL4NAD","msg":"idUser reg: 7"}
+{"level":30,"time":1737982468714,"pid":6520,"hostname":"DESKTOP-9KL4NAD","msg":"Korisnik je vec pretplacen."}
+{"level":30,"time":1737984227308,"pid":23164,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1737984227315,"pid":23164,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1737984227351,"pid":23164,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}

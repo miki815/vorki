@@ -7,8 +7,8 @@ import { Injectable } from '@angular/core';
 export class JobService {
 
   constructor(private http: HttpClient) { }
-  uri = 'https://vorki.rs';
-  // uri = 'http://localhost:4000';
+  // uri = 'https://vorki.rs';
+  uri = 'http://localhost:4000';
 
   insertJob(data) {
     return this.http.post(`${this.uri}/jobs/insertJob`, data);
@@ -49,5 +49,9 @@ export class JobService {
 
   getJobRequestsForUser(idUser) {
     return this.http.get(`${this.uri}/jobs/getJobRequestsForUser/${idUser}`);
+  }
+
+  getMastersCount(data) {
+    return this.http.post(`${this.uri}/jobs/getMastersCount`, data);
   }
 }
