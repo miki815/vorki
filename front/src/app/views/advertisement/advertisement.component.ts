@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { CookieService } from "ngx-cookie-service";
 import { JobService } from "src/app/services/job.service";
+import { NotificationService } from "src/app/services/notification.service";
 import { UserService } from "src/app/services/user.service";
 
 
@@ -21,44 +22,41 @@ export class AdvertisementComponent implements OnInit {
   poruka: string = null;
   bgcolor: string = "rgb(239, 114, 114)";
 
-  constructor(private jobService: JobService, private router: Router,private userService: UserService, private http: HttpClient, private cookieService: CookieService) {
-   
+  constructor(private jobService: JobService, private router: Router, private userService: UserService, private http: HttpClient, private cookieService: CookieService, private notificationService: NotificationService) {
+
   }
 
   ngOnInit(): void {
     fetch('assets/city.json')
-    .then(response => response.json())
-    .then(cities => {
-      this.cities = cities;
-    })
-    .catch(error => {
-      console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradova):', error);
-    });
+      .then(response => response.json())
+      .then(cities => {
+        this.cities = cities;
+      })
+      .catch(error => {
+        console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradova):', error);
+      });
 
     fetch('assets/craftsmen.json')
-    .then(response => response.json())
-    .then(professions => {
-      this.professions = [...professions.craftsmen, ...professions.services, ...professions.transport];
-      this.professions.sort((a, b) => a.localeCompare(b));
-    })
-    .catch(error => {
-      console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):', error);
-    });
-   }
+      .then(response => response.json())
+      .then(professions => {
+        this.professions = [...professions.craftsmen, ...professions.services, ...professions.transport];
+        this.professions.sort((a, b) => a.localeCompare(b));
+      })
+      .catch(error => {
+        console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):', error);
+      });
+  }
 
   insertJob() {
     console.log("Insert job - submit: START")
-
-
-
     // Provera
-    if (!this.description || !this.title) { 
-      this.poruka = "Niste uneli sve podatke."; 
+    if (!this.description || !this.title) {
+      this.poruka = "Niste uneli sve podatke.";
       this.bgcolor = "rgb(239, 114, 114)";
-      return; 
+      return;
     }
 
-    this.userService.getUserById({id: this.cookieService.get('token')}).subscribe((message: any) => {
+    this.userService.getUserById({ id: this.cookieService.get('token') }).subscribe((message: any) => {
       //Pakovanje
       const data = {
         description: this.description,
@@ -69,20 +67,24 @@ export class AdvertisementComponent implements OnInit {
         type: message['message'].type
       }
       //Slanje
+      console.log(data);
       this.jobService.insertJob(data).subscribe((message: any) => {
-        if(message['message'] == 0) {
+        if (message['message'] == 0) {
           console.log("Insert job - submit: PASS")
           this.poruka = "Uspešno ste dodali oglas: " + this.title;
           this.description = null;
           this.title = null;
           this.bgcolor = "rgb(42, 138, 42)";
-        }  
+          this.notificationService.newJobNotification({ user_id: this.cookieService.get('token') }).subscribe((message: any) => {
+            console.log("Notification sent");
+          });
+        }
       })
-    
+
     })
 
 
-   
+
 
   }
 

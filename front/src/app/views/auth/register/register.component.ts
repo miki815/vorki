@@ -33,6 +33,8 @@ export class RegisterComponent implements OnInit {
   searchTerm: string = '';
   isDropdownVisible: boolean = false
   idUser: string = null;
+  filteredCities: any;
+  searchQuery = '';
 
   ngOnInit(): void {
     console.log('Register - ngOnInit: START')
@@ -50,6 +52,7 @@ export class RegisterComponent implements OnInit {
       .then(response => response.json())
       .then(cities => {
         this.cities = cities.sort((a, b) => a.city.localeCompare(b.city));
+        this.filteredCities = this.cities;
         this.location = this.cities[0].city;
       })
       .catch(error => {
@@ -135,6 +138,15 @@ export class RegisterComponent implements OnInit {
     console.log('Search term:', this.searchTerm)
     this.filteredProfessions = this.professions.filter((profession) =>
       profession.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
+
+  filterCities() {
+    console.log('Register - filterCities: START')
+    console.log('Search query:', this.searchQuery)
+    console.log('Cities:', this.cities[0])
+    this.filteredCities = this.cities.filter(city =>
+      city.city.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
   }
 

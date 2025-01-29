@@ -320,4 +320,9 @@ export class SingleJobLongComponent implements OnInit {
     console.log('Rastojanja su izračunata:', distances);
     this.saveDistancesToFile(distances);
   }
+
+  callPhoneNumber(phoneNumber: string): void {
+    console.log('Calling phone number:', phoneNumber);
+    window.location.href = `tel:${phoneNumber}`;
+  }
 }

@@ -8,8 +8,11 @@ export class JobController {
 
     insertJob = (req: express.Request, res: express.Response) => {
         const { description, title, city, profession, id, type } = req.body;
+        console.log("data received: " + description + " " + title + " " + city + " " + profession + " " + id + " " + type);
         var sql = 'INSERT INTO job (idUser, title, description, city, profession, type) VALUES (?, ?, ?, ?, ?, ?)';
-        pool.query(sql, [id, title, description, city, profession, type], (err, user) => {
+        pool.query(sql, [id, title, description, city, profession, type], (err, job) => {
+            if(err) console.log(err);
+            else console.log(job);
             if (err) { res.json({ error: 1, message: "Fatal error: " + err }); return; }
             console.log('User ' + id + ' added job: ' + title);
             res.json({ message: "0" });

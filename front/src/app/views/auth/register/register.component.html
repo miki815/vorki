@@ -60,10 +60,19 @@
               <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
                 Mesto
               </label>
-              <select [(ngModel)]="location" name="location" style="margin-bottom: 10px;"
-                class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full">
-                <option *ngFor="let city of cities">{{ city.city }}</option>
-              </select>
+              <div class="flex items-center space-x-4 w-full mb-3">
+                <div class="relative w-3/4">
+                  <select [(ngModel)]="location" name="location" style="margin-bottom: 10px;"
+                    class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full">
+                    <option *ngFor="let city of filteredCities">{{ city.city }}</option>
+                  </select>
+                </div>
+                <div class="relative w-1/4">
+                  <input [(ngModel)]="searchQuery" name="searchQ" (input)="filterCities()"
+                    placeholder="Pretraži..."
+                    class="border-0 px-3 py-2 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full mb-2" />
+                </div>
+              </div>
             </div>
             <!-- TYPE -->
             <div class="relative w-full mb-3">
@@ -89,11 +98,11 @@
             </div>
             <!-- PROFESSIONS -->
             <div class="relative w-full mb-3" *ngIf="type == 0">
-              <label for="professions" class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Poslovi kojima se bavite:</label>
-              <div class="dropdown" #dropdown >
+              <label for="professions" class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Poslovi kojima
+                se bavite:</label>
+              <div class="dropdown" #dropdown>
                 <input type="text" name="profess" placeholder="Pretraži zanimanja..." [(ngModel)]="searchTerm"
-                  (focus)="showProfessions()" (input)="filterProfessions()"
-                  class="search-input" />
+                  (focus)="showProfessions()" (input)="filterProfessions()" class="search-input" />
                 <div class="dropdown-menu" *ngIf="isDropdownVisible">
                   <button class="close-btn" (click)="hideProfessions()">×</button>
                   <div *ngFor="let profession of filteredProfessions" class="dropdown-item"

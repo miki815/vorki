@@ -1,9 +1,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-crossorigin=""/>
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-crossorigin=""></script>
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
 <main class="profile-page bg-zuta">
     <section class="relative block h-500-px">
@@ -16,18 +14,22 @@ crossorigin=""></script>
             </svg>
         </div> -->
     </section>
-    
+
 
     <section class="relative py-16">
-        <div class="container mx-auto px-4" style="width: 100%;display: flex; flex-direction: row; justify-content: space-between;">
-            <div class="relative flex flex-col min-w-0 break-words bg-plava w-full mb-6 rounded-lg -mt-64" style="height: fit-content; margin-right: 20px;">
+        <div class="container mx-auto px-4"
+            style="width: 100%;display: flex; flex-direction: row; justify-content: space-between;">
+            <div class="relative flex flex-col min-w-0 break-words bg-plava w-full mb-6 rounded-lg -mt-64"
+                style="height: fit-content; margin-right: 20px;">
                 <div class="px-6">
 
                     <div class="flex flex-wrap justify-center">
 
                         <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
                             <div class="relative im">
-                                <img [src]="job.photo" class="rounded-full h-auto align-middle absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px" />
+                                <img [src]="job.photo"
+                                    class="rounded-full h-auto align-middle absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
+                                    style="border-radius: 50%; height: 100px; width: 100px; object-fit: cover;" />
                             </div>
                         </div>
 
@@ -41,7 +43,7 @@ crossorigin=""></script>
                                     </span>
                                     <span class="text-sm text-white">Odrađenih poslova</span>
                                 </div>
-                                
+
                                 <div class="mr-4 p-3 text-center">
                                     <span class="text-xl font-bold block uppercase text-white">
                                         {{job.avgRate.toFixed(2)}}
@@ -62,38 +64,26 @@ crossorigin=""></script>
                                 *ngIf="isRequest==true">
                                 <div style="display: flex; flex-direction: row; padding: 3px; ">
                                     <div class="relative w-full mb-3 margin-5" style="margin-right: 10px;">
-                                        <label
-                                          class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                                          htmlFor="grid-password"
-                                        >
-                                          Predlog termina
+                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                            htmlFor="grid-password">
+                                            Predlog termina
                                         </label>
-                                        <input
-                                          [(ngModel)]="startDate"
-                                          name="startDate"
-                                          type="date"
-                                          class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                          maxlength="50"
-                                        />
-                                      </div>
-                                <!-- </div>
+                                        <input [(ngModel)]="startDate" name="startDate" type="date"
+                                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                            maxlength="50" />
+                                    </div>
+                                    <!-- </div>
 
                                 <div style="display: flex; flex-direction: row; padding: 3px; "> -->
                                     <div class="relative w-full mb-3">
-                                        <label
-                                          class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                                          htmlFor="additionalInfo"
-                                        >
-                                          Dodatne informacije
+                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                            htmlFor="additionalInfo">
+                                            Dodatne informacije
                                         </label>
-                                        <textarea
-                                          [(ngModel)]="additionalInfo"
-                                          name="additionalInfo"
-                                          type="date"
-                                          class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                          maxlength="255"
-                                        ></textarea>
-                                      </div>
+                                        <textarea [(ngModel)]="additionalInfo" name="additionalInfo" type="date"
+                                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                            maxlength="255"></textarea>
+                                    </div>
                                 </div>
 
                                 <button style="margin-top: 5px;" (click)="userRequestForAgreement()"
@@ -118,7 +108,8 @@ crossorigin=""></script>
                                     </button>
                                     <button style="margin-top: 5px;"
                                         class="bg-zuta text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                                        type="button" [disabled]="requestMsg=='Zahtev poslat!'" (click)="showRequestForm()">
+                                        type="button" [disabled]="requestMsg=='Zahtev poslat!'"
+                                        (click)="showRequestForm()">
                                         {{requestMsg}}
                                     </button>
                                     <button style="margin-top: 5px;"
@@ -133,7 +124,7 @@ crossorigin=""></script>
                         <div class="w-full lg:w-4/12 px-4 lg:order-1">
                             <div class="text-center mt-12">
                                 <h3 class="text-4xl font-semibold leading-normal mb-2 text-white mb-2">
-                                    {{job.username}} 
+                                    {{job.username}}
                                 </h3>
                                 <div class="text-md leading-normal mt-0 mb-2 text-white font-bold uppercase">
                                     <i class="fas  fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
@@ -144,8 +135,10 @@ crossorigin=""></script>
                                     {{job.profession}}
                                 </div>
                                 <div class="mb-2 text-white">
-                                    <i class="fas fa-phone mr-2 text-lg text-blueGray-400"></i>
-                                    {{phoneNumber}}
+                                    <button (click)="callPhoneNumber(phoneNumber)">
+                                        <i class="fas fa-phone mr-2 text-lg text-blueGray-400"></i>
+                                        {{phoneNumber}}
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -159,7 +152,7 @@ crossorigin=""></script>
                 </div>
             </div>
         </div>
-    </section> 
+    </section>
 
     <section class="relative bg-plava">
         <div class="container mx-auto px-4" style="display: flex; flex-direction: row; justify-content: space-between;">
@@ -169,18 +162,22 @@ crossorigin=""></script>
                     <div class="rounded-t mb-0 px-4 border-0">
                         <div class="flex flex-wrap items-center">
                             <div class="relative w-full px-4 max-w-full flex-grow flex-1">
-                                <h3 class="text-4xl font-semibold leading-normal mb-2 text-center text-white">Galerija</h3>
+                                <h3 class="text-4xl font-semibold leading-normal mb-2 text-center text-white">Galerija
+                                </h3>
                             </div>
                         </div>
                     </div>
-                    <gallery id="{{galleryId}}" *ngIf="imagesLoaded" style="background-color: #274153; width: 100% !important; height: 500px !important; object-fit: cover;" (indexChange)="onIndexChange($event)"></gallery>
+                    <gallery id="{{galleryId}}" *ngIf="imagesLoaded"
+                        style="background-color: #274153; width: 100% !important; height: 500px !important; object-fit: cover;"
+                        (indexChange)="onIndexChange($event)"></gallery>
                 </div>
             </div>
         </div>
     </section>
     <hr>
     <section class="relative py-16 bg-plava">
-        <div class="container mx-auto px-4" style="width: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="container mx-auto px-4"
+            style="width: 100%; display: flex; flex-direction: column; justify-content: space-between;">
             <div class="rounded-t mb-0 px-4 border-0 bg-plava" style="margin-top: 15px;">
                 <div class="flex flex-wrap items-center">
                     <div class="relative w-full px-4 max-w-full flex-grow flex-1">
@@ -191,31 +188,51 @@ crossorigin=""></script>
             <div class="relative flex flex-col min-w-0 break-words bg-zuta w-full mb-6 rounded-lg">
                 <!-- Pitanja -->
                 <div class="relative flex flex-col min-w-0 break-words w-full mb-2 shadow-lg rounded">
-              
+
                     <div class="block w-full overflow-x-auto">
                         <table class="items-center w-full bg-transparent border-collapse">
                             <tbody>
-                                <tr style="display: flex; flex-direction: row; align-items: center; padding: 10px;" *ngFor="let comm of comments.slice(0, visibleComments)" class="border-t-0 px-6 align-middle border-l-0 border-r-0 whitespace-nowrap text-left">
-                                    <img alt="..." [src]="comm.photo" class="shadow-xl rounded-full border-none" style="width: 30px; height: 30px; margin: 5px;" />
-                                    <i>{{comm.username}} {{comm.dateC | date: 'dd.MM.yyyy'}}:</i> &nbsp; &nbsp; {{comm.comment}}
+                                <tr style="display: flex; flex-direction: row; align-items: center; padding: 10px;"
+                                    *ngFor="let comm of comments.slice(0, visibleComments)"
+                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 whitespace-nowrap text-left">
+                                    <img alt="..." [src]="comm.photo" class="shadow-xl rounded-full border-none"
+                                        style="width: 30px; height: 30px; margin: 5px;" />
+                                    <i>{{comm.username}} {{comm.dateC | date: 'dd.MM.yyyy'}}:</i> &nbsp; &nbsp;
+                                    {{comm.comment}}
                                     <br>
-                                    <div style="width: 100%; display: flex; justify-content: flex-end; color: rgb(30, 41, 59);" *ngIf="comm.idCommentator == cookie">
-                                        <i class='fas fa-trash-alt' style='font-size: 24px;' (click)="deleteComment(comm.id)"></i>
+                                    <div style="width: 100%; display: flex; justify-content: flex-end; color: rgb(30, 41, 59);"
+                                        *ngIf="comm.idCommentator == cookie">
+                                        <i class='fas fa-trash-alt' style='font-size: 24px;'
+                                            (click)="deleteComment(comm.id)"></i>
                                     </div>
                                 </tr>
                                 <tr>
-                                    <div style="background-color: white;" class="relative w-full px-4 max-w-full flex-grow flex-1 text-center">
-                                        <button style="margin: 10px; background-color: rgb(255, 232, 60); color: rgb(30, 41, 59);" (click)="more()" class="text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+                                    <div style="background-color: white;"
+                                        class="relative w-full px-4 max-w-full flex-grow flex-1 text-center">
+                                        <button
+                                            style="margin: 10px; background-color: rgb(255, 232, 60); color: rgb(30, 41, 59);"
+                                            (click)="more()"
+                                            class="text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                            type="button">
                                             Prikaži više
                                         </button>
-                                        <button style="margin: 10px; background-color: rgb(255, 232, 60); color: rgb(30, 41, 59);" (click)="less()" class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+                                        <button
+                                            style="margin: 10px; background-color: rgb(255, 232, 60); color: rgb(30, 41, 59);"
+                                            (click)="less()"
+                                            class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                            type="button">
                                             Prikaži manje
                                         </button>
                                     </div>
                                 </tr>
-                                <tr style="display: flex; flex-direction: row; justify-content: space-between; padding: 20px;">
-                                    <input style="width: 100%;" name="comment" type="text" [(ngModel)]="comment" class="ml-2 border placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Unesite pitanje" [disabled]="cookie === idUser" maxlength="200" />
-                                    <button class="px-4 ml-2 bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="addComment()">
+                                <tr
+                                    style="display: flex; flex-direction: row; justify-content: space-between; padding: 20px;">
+                                    <input style="width: 100%;" name="comment" type="text" [(ngModel)]="comment"
+                                        class="ml-2 border placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                        placeholder="Unesite pitanje" [disabled]="cookie === idUser" maxlength="200" />
+                                    <button
+                                        class="px-4 ml-2 bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                        type="button" (click)="addComment()">
                                         Pošalji
                                     </button>
                                 </tr>
@@ -231,7 +248,7 @@ crossorigin=""></script>
 </main>
 <app-footer></app-footer>
 
-  
+
 <style>
     @media screen and (max-width: 1025px) {
         .c {
@@ -239,14 +256,14 @@ crossorigin=""></script>
         }
     }
 
-    #map{
-        height: 400px; 
-        border-radius: 2%; 
-        margin-left: 5px; 
+    #map {
+        height: 400px;
+        border-radius: 2%;
+        margin-left: 5px;
         margin-right: 5px;
     }
 
-    i:hover{
+    i:hover {
         color: rgb(255, 232, 60);
     }
 

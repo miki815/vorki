@@ -6,8 +6,13 @@ class JobController {
     constructor() {
         this.insertJob = (req, res) => {
             const { description, title, city, profession, id, type } = req.body;
+            console.log("data received: " + description + " " + title + " " + city + " " + profession + " " + id + " " + type);
             var sql = 'INSERT INTO job (idUser, title, description, city, profession, type) VALUES (?, ?, ?, ?, ?, ?)';
-            server_1.pool.query(sql, [id, title, description, city, profession, type], (err, user) => {
+            server_1.pool.query(sql, [id, title, description, city, profession, type], (err, job) => {
+                if (err)
+                    console.log(err);
+                else
+                    console.log(job);
                 if (err) {
                     res.json({ error: 1, message: "Fatal error: " + err });
                     return;

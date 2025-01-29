@@ -86,7 +86,7 @@ export class SubscriptionController {
                                     logger(req, res).error('Database error:', err);
                                     return res.status(500).json({ error: 'Failed to fetch subscriptions' });
                                 }
-                                const payload = JSON.stringify({ title: 'Poruka', body: 'Miki Miki Miki' });
+                                const payload = JSON.stringify({ title: 'Nov posao', body: 'Korisnik trazi majstora' });
                                 results.forEach((subscription) => {
                                     const pushSubscription = {
                                         endpoint: subscription.endpoint,

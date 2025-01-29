@@ -114,3 +114,20 @@
 {"level":30,"time":1737984227308,"pid":23164,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
 {"level":30,"time":1737984227315,"pid":23164,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
 {"level":30,"time":1737984227351,"pid":23164,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1738007756485,"pid":17892,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1738007756490,"pid":17892,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1738007756550,"pid":17892,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1738008034217,"pid":7944,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1738008034226,"pid":7944,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1738008034272,"pid":7944,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1738009040116,"pid":12812,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1738009040121,"pid":12812,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1738009040220,"pid":12812,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1738009118349,"pid":12616,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1738009118357,"pid":12616,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1738009118383,"pid":12616,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1738009229543,"pid":12616,"hostname":"DESKTOP-9KL4NAD","msg":"Korisnik je vec pretplacen."}
+{"level":30,"time":1738009312066,"pid":12616,"hostname":"DESKTOP-9KL4NAD","msg":"Čuvanje pretplate..."}
+{"level":30,"time":1738076113935,"pid":12384,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1738076113941,"pid":12384,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1738076114007,"pid":12384,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}

@@ -11,8 +11,8 @@ import { NotificationService } from "src/app/services/notification.service";
 })
 export class ContactComponent {
   readonly VAPID_PUBLIC_KEY = "BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg";
-  uri = 'http://127.0.0.1:4000'
-  // uri: string = 'https://vorki.rs';
+  //uri = 'http://127.0.0.1:4000'
+  uri: string = 'https://vorki.rs';
   userId: string;
   constructor(private swPush: SwPush, private http: HttpClient, private notificationService: NotificationService, private cookieService: CookieService) { }
 

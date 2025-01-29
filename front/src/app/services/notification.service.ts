@@ -8,8 +8,8 @@ import { SwPush } from "@angular/service-worker";
 })
 export class NotificationService {
   private vapidPublicKey = 'BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg';
-  // uri = 'https://vorki.rs';
-  uri = 'http://127.0.0.1:4000'
+  uri = 'https://vorki.rs';
+  // uri = 'http://127.0.0.1:4000'
   readonly VAPID_PUBLIC_KEY = "BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg";
 
   constructor(private http: HttpClient, private swPush: SwPush) { }
@@ -86,5 +86,9 @@ export class NotificationService {
         });
       })
       .catch((err) => console.error('Failed to subscribe to notifications:', err));
+  }
+
+  newJobNotification(data) {
+    return this.http.post(`${this.uri}/subscriptions/get_related_subscribers`, data)
   }
 }

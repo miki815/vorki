@@ -210,27 +210,45 @@ export class ProfileComponent implements OnInit {
           }
         }
         this.jobRequests = response;
+        for (let i = 0; i < this.jobRequests.length; i++) {
+          console.log(this.jobRequests[i].startTime);
+        }
       });
     }
     else {
       this.jobService.getJobRequestsForUser(this.idUser).subscribe((response: any) => {
         console.log(response);
-        for (let i = 0; i < response.length; i++) {
-          const date = new Date(response[i].startTime);
-          if (response[i].currentStatus === 'pending') {
-            response[i].startTime = date.toLocaleDateString('sr-RS', {
-              day: '2-digit',
-              month: '2-digit',
-              year: 'numeric'
-            });
-          }
-          else {
-            response[i].startTime = date.getHours() + ':' + date.getMinutes();
-          }
-        }
+        // for (let i = 0; i < response.length; i++) {
+        //   const date = new Date(response[i].startTime);
+          // if (response[i].currentStatus === 'pending') {
+            // response[i].startTime = date.toLocaleDateString('sr-RS', {
+            //   day: '2-digit',
+            //   month: '2-digit',
+            //   year: 'numeric'
+            // });
+          // }
+          // else {
+          //   response[i].startTime = date.getHours() + ':' + date.getMinutes();
+          // }
+        // }
         this.jobRequests = response;
+        for (let i = 0; i < this.jobRequests.length; i++) {
+          console.log(this.jobRequests[i].startTime);
+        }
       });
     }
+  }
+
+  extractHoursAndMinutes(startTime: string): string {
+    return new Date(startTime).getHours() + ':' + new Date(startTime).getMinutes();
+  }
+
+  extractDate(startTime: string): string {
+    return new Date(startTime).toLocaleDateString('sr-RS', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
   }
 
   /*addComment(){
