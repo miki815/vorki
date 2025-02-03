@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
   // uri = 'http://127.0.0.1:4000'
   uri = 'https://vorki.rs';
+  // uri = environment.uri;
 
   login(data) {
     return this.http.post(`${this.uri}/users/login`, data);

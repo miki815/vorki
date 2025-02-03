@@ -6,6 +6,7 @@ import nodemailer from 'nodemailer'
 import crypto from 'crypto';
 import ResetToken from '../models/reset_token'
 import webPush from 'web-push';
+import { url } from 'inspector';
 
 
 const logger = require('../logger');
@@ -14,7 +15,7 @@ const moment = require('moment');
 export class SubscriptionController {
 
     get_related_subscribers = (req: express.Request, res: express.Response) => {
-        const { user_id } = req.body;
+        const { user_id, job_id, job_title } = req.body;
 
         if (!user_id) {
             return res.status(400).json({ error: 'User ID is required' });
@@ -86,7 +87,7 @@ export class SubscriptionController {
                                     logger(req, res).error('Database error:', err);
                                     return res.status(500).json({ error: 'Failed to fetch subscriptions' });
                                 }
-                                const payload = JSON.stringify({ title: 'Nov posao', body: 'Korisnik trazi majstora' });
+                                const payload = JSON.stringify({ title: job_title, body: 'Korisniku u vašoj blizini je potrebno završiti posao koji bi mogao biti baš za vas!', url: `https://vorki.rs/oglasi/${job_id}` });
                                 results.forEach((subscription) => {
                                     const pushSubscription = {
                                         endpoint: subscription.endpoint,
@@ -114,5 +115,87 @@ export class SubscriptionController {
     }
 
 
+    inform_master_of_job = (req: express.Request, res: express.Response) => {
+        const {job_title, master_id, user_id } = req.body;
+
+        if (!job_title || !master_id || !user_id) {
+            return res.status(400).json({ error: 'Job ID, master ID, and user ID are required' });
+        }
+
+        pool.getConnection((err, connection) => {
+            if (err) {
+                console.error('Database connection error:', err);
+                return res.status(500).json({ error: 'Database connection failed' });
+            }
+
+            const query = `SELECT endpoint, p256dh, auth FROM subscriptions where user_id = ?`;
+            connection.query(query, [master_id], (err, results) => {
+                if (err) {
+                    logger(req, res).error('Database error:', err);
+                    return res.status(500).json({ error: 'Failed to fetch subscriptions' });
+                }
+                const payload = JSON.stringify({ title: 'Novi posao', body: `Korisnik je zainteresovan za vaš oglas`, url: `https://vorki.rs/profil/${master_id}` });
+                results.forEach((subscription) => {
+                    const pushSubscription = {
+                        endpoint: subscription.endpoint,
+                        keys: {
+                            p256dh: subscription.p256dh,
+                            auth: subscription.auth,
+                        },
+                    };
+                    webPush
+                        .sendNotification(pushSubscription, payload)
+                        .then(() => logger.info('Notification sent successfully'))
+                        .catch((err) => logger.error('Notification error:', err));
+                });
+                res.status(200).json({
+                    message: 'Subscribers found',
+                    subscribers: results,
+                });
+            });
+        });
+    }
+
+
+    inform_user_of_master_accept_their_job = (req: express.Request, res: express.Response) => {
+        const { job_title, user_id } = req.body;
+
+        if (!job_title || !user_id) {
+            return res.status(400).json({ error: 'Job ID and user ID are required' });
+        }
+
+        pool.getConnection((err, connection) => {
+            if (err) {
+                console.error('Database connection error:', err);
+                return res.status(500).json({ error: 'Database connection failed' });
+            }
+
+            const query = `SELECT endpoint, p256dh, auth FROM subscriptions where user_id = ?`;
+            connection.query(query, [user_id], (err, results) => {
+                if (err) {
+                    logger(req, res).error('Database error:', err);
+                    return res.status(500).json({ error: 'Failed to fetch subscriptions' });
+                }
+                const payload = JSON.stringify({ title: 'Prihvaćen zahtev za posao!', body: "Pogledajte sve detalje dogovora.", url: `https://vorki.rs/profil/${user_id}` });
+                results.forEach((subscription) => {
+                    const pushSubscription = {
+                        endpoint: subscription.endpoint,
+                        keys: {
+                            p256dh: subscription.p256dh,
+                            auth: subscription.auth,
+                        },
+                    };
+                    webPush
+                        .sendNotification(pushSubscription, payload)
+                        .then(() => logger.info('Notification sent successfully'))
+                        .catch((err) => logger.error('Notification error:', err));
+                });
+                res.status(200).json({
+                    message: 'Subscribers found',
+                    subscribers: results,
+                });
+            });
+        });
+    }
 
 }

@@ -4,6 +4,7 @@ import { UserService } from "src/app/services/user.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { JobService } from "src/app/services/job.service";
 import { end } from "@popperjs/core";
+import { NotificationService } from "src/app/services/notification.service";
 
 
 @Component({
@@ -14,7 +15,7 @@ import { end } from "@popperjs/core";
 })
 
 export class ProfileComponent implements OnInit {
-  constructor(private cookieService: CookieService, private router: Router, private userService: UserService, private route: ActivatedRoute, private jobService: JobService) { }
+  constructor(private cookieService: CookieService, private router: Router, private userService: UserService, private route: ActivatedRoute, private jobService: JobService, private notificationService: NotificationService) { }
 
   email: string = null;
   username: string = null;
@@ -37,6 +38,7 @@ export class ProfileComponent implements OnInit {
   instagram: string = "";
   facebook: string = "";
   jobRequests: Array<any>;
+  myJobRequests: Array<any>;
 
   ngOnInit(): void {
     console.log("Profile - ngOnInit: START")
@@ -137,19 +139,26 @@ export class ProfileComponent implements OnInit {
   // Pages
   calendar() { this.router.navigate(["/kalendar"]); }
   settings() { this.router.navigate(["/podesavanje_profila"]); }
-  jobs1() { this.router.navigate(['/oglasi'], { queryParams: { idU: this.idUser } }); } // TODO: Razmisliti sta treba ovde
+  jobs1() { this.router.navigate(['/oglasi']); } // TODO: Razmisliti sta treba ovde
   instagram1() { window.location.href = this.instagram; }
   facebook1() { window.location.href = this.facebook; }
 
   acceptRequest(request) {
     console.log("Profile - acceptRequest: START");
+    console.log("Start time: " + request.startTime);
+    console.log("End time: " + request.endTime);
     let [hours, minutes] = request.endTime.split(':').map(Number);
+    console.log("Hours: " + hours + " Minutes: " + minutes);
     let [day, month, year] = request.startTime.split('.').map(Number);
+    console.log("Day: " + day + " Month: " + month + " Year: " + year);
     const startDate = new Date(request.startTime);
-    startDate.setFullYear(year, month - 1, day);
     startDate.setHours(hours, minutes);
+    console.log("Start date: " + startDate);
     this.jobService.updateAgreement({ idAgreements: request.idAgreements, status: 'accepted', startTime: this.convertToMySQLDate(startDate) }).subscribe(() => {
-      // TODO: Dodati notifikaciju
+      this.notificationService.inform_user_of_master_accept_their_job({ job_title: request.title, user_id:  request.idUser}).subscribe(() => {
+        console.log("Notification sent");
+        request.currentStatus = 'accepted';
+      });
     });
 
     console.log("Profile - acceptRequest: END");
@@ -192,51 +201,45 @@ export class ProfileComponent implements OnInit {
 
   getJobRequests() {
     console.log("Type " + this.type);
-    if (this.type == '0') {
-      console.log("Master type");
-      this.jobService.getJobRequests(this.idUser).subscribe((response: any) => {
-        console.log(response);
-        for (let i = 0; i < response.length; i++) {
-          const date = new Date(response[i].startTime);
-          if (response[i].currentStatus === 'pending') {
-            response[i].startTime = date.toLocaleDateString('sr-RS', {
-              day: '2-digit',
-              month: '2-digit',
-              year: 'numeric'
-            });
-          }
-          else {
-            response[i].startTime = date.getHours() + ':' + date.getMinutes();
-          }
+    this.jobService.getJobRequestsForUser(this.idUser).subscribe((response: any) => {
+      for (let i = 0; i < response.length; i++) {
+        const date = new Date(response[i].startTime);
+        if (response[i].currentStatus === 'pending') {
+          response[i].startTime = date.toLocaleDateString('sr-RS', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+          });
         }
-        this.jobRequests = response;
-        for (let i = 0; i < this.jobRequests.length; i++) {
-          console.log(this.jobRequests[i].startTime);
+        else {
+          response[i].startTime = date.getHours() + ':' + date.getMinutes();
         }
-      });
-    }
-    else {
-      this.jobService.getJobRequestsForUser(this.idUser).subscribe((response: any) => {
-        console.log(response);
-        // for (let i = 0; i < response.length; i++) {
-        //   const date = new Date(response[i].startTime);
-          // if (response[i].currentStatus === 'pending') {
-            // response[i].startTime = date.toLocaleDateString('sr-RS', {
-            //   day: '2-digit',
-            //   month: '2-digit',
-            //   year: 'numeric'
-            // });
-          // }
-          // else {
-          //   response[i].startTime = date.getHours() + ':' + date.getMinutes();
-          // }
-        // }
-        this.jobRequests = response;
-        for (let i = 0; i < this.jobRequests.length; i++) {
-          console.log(this.jobRequests[i].startTime);
-        }
-      });
-    }
+      }
+      this.myJobRequests = response;
+      for (let i = 0; i < this.jobRequests.length; i++) {
+        console.log(this.jobRequests[i].startTime);
+      }
+    });
+    this.jobService.getJobRequests(this.idUser).subscribe((response: any) => {
+      console.log(response);
+      // for (let i = 0; i < response.length; i++) {
+      //   const date = new Date(response[i].startTime);
+      // if (response[i].currentStatus === 'pending') {
+      // response[i].startTime = date.toLocaleDateString('sr-RS', {
+      //   day: '2-digit',
+      //   month: '2-digit',
+      //   year: 'numeric'
+      // });
+      // }
+      // else {
+      //   response[i].startTime = date.getHours() + ':' + date.getMinutes();
+      // }
+      // }
+      this.jobRequests = response;
+      for (let i = 0; i < this.jobRequests.length; i++) {
+        console.log(this.jobRequests[i].startTime);
+      }
+    });
   }
 
   extractHoursAndMinutes(startTime: string): string {

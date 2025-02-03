@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.JobController = void 0;
 const server_1 = require("../server");
+const logger = require('../logger');
 class JobController {
     constructor() {
         this.insertJob = (req, res) => {
@@ -18,7 +19,8 @@ class JobController {
                     return;
                 }
                 console.log('User ' + id + ' added job: ' + title);
-                res.json({ message: "0" });
+                console.log("Id of the job: " + job.insertId);
+                res.json({ message: "0", job_id: job.insertId });
             });
         };
         this.getJobs = (req, res) => {
@@ -106,6 +108,7 @@ class JobController {
         this.getJobRequests = (req, res) => {
             var sql = 'SELECT agreements.*, job.title, user.username FROM agreements JOIN job ON agreements.idJob = job.id JOIN user ON agreements.idUser = user.id WHERE agreements.idMaster = ?;';
             console.log("Getting job requests for master " + req.params.idMaster);
+            logger.info("Getting job requests for master " + req.params.idMaster);
             server_1.pool.query(sql, [req.params.idMaster], (err, requests) => {
                 if (err) {
                     res.json({ error: 1, message: "Fatal error: " + err });
@@ -149,6 +152,19 @@ class JobController {
                 }
                 console.log(masters);
                 res.json(masters);
+            });
+        };
+        this.getJobGallery = (req, res) => {
+            const idJob = req.params.idJob;
+            const query = 'SELECT urlPhoto FROM gallery WHERE idJob = ?';
+            server_1.pool.query(query, [idJob], (err, results) => {
+                if (err) {
+                    console.error('Error fetching images:', err);
+                    return res.status(500).send('Server error');
+                }
+                console.log('Images fetched successfully');
+                console.log(results);
+                res.json(results);
             });
         };
     }

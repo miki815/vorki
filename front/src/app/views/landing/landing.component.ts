@@ -41,7 +41,7 @@ export class LandingComponent implements OnInit {
   send() {
     console.log('Support - submit: START')
     if (!this.nameAndSurname || !this.contact || !this.message) {
-      this.msg = "Niste uneli sve podatke.";
+      this.msg = "Niste popunili sva polja.";
       return;
     }
     if ((!/^381\d{8,9}$/.test(this.contact.slice(1)) || this.contact[0] != "+")
@@ -52,6 +52,7 @@ export class LandingComponent implements OnInit {
       message: this.message,
       nameAndSurname: this.nameAndSurname
     }
+    console.log(data);
     this.userService.support(data).subscribe((response: any) => {
       if (response['message'] == "0") {
         this.sentMsg = "Naš tim je primio vašu poruku. Odgovorićemo vam u najkraćem roku.";

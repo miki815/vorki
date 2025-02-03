@@ -18,6 +18,7 @@ export class JobListingComponent implements OnInit {
   cities = [];
   selectedCity: string = '';
   professions = [];
+  filteredProfessions = [];
   selectedProfession: string = '';
   selectedSort: string = '';
   id: string = '';
@@ -25,6 +26,8 @@ export class JobListingComponent implements OnInit {
   cookie: string = '';
   userType: string = '';
   idU: string = '';
+  filteredCities: any;
+  searchQuery = '';
 
   constructor(private jobService: JobService, private router: Router, private userService: UserService, private cookieService: CookieService, private route: ActivatedRoute) {
   }
@@ -52,6 +55,7 @@ export class JobListingComponent implements OnInit {
       .then(cities => {
         this.cities = cities;
         this.cities.sort((a, b) => a.city.localeCompare(b.city));
+        this.filteredCities = this.cities;
       })
       .catch(error => {
         console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradiva):', error);
@@ -69,7 +73,7 @@ export class JobListingComponent implements OnInit {
         this.professions = this.professions = [...professions.craftsmen, ...professions.services, ...professions.transport];
         ;
         this.professions.sort((a, b) => a.localeCompare(b));
-
+        this.filteredProfessions = this.professions;
       })
       .catch(error => {
         console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):', error);
@@ -121,6 +125,15 @@ export class JobListingComponent implements OnInit {
     if (this.selectedSort === 'rate') this.jobs = this.allJobs.sort((a, b) => b.avgRate - a.avgRate);
     if (this.selectedSort === 'city') this.jobs = this.allJobs.sort((a, b) => a.city.localeCompare(b.city));
     //if (this.selectedSort === 'name') this.jobs = this.allJobs.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  filterCities() {
+    console.log('Register - filterCities: START')
+    console.log('Search query:', this.searchQuery)
+    console.log('Cities:', this.cities[0])
+    this.filteredCities = this.cities.filter(city =>
+      city.city.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
   }
 
 

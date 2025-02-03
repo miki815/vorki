@@ -50,12 +50,20 @@ CREATE TABLE rate (
     FOREIGN KEY (idRater) REFERENCES user(id)
 );
 
+-- CREATE TABLE gallery (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     idUser INT NOT NULL,
+--     urlPhoto LONGTEXT NOT NULL,
+--     FOREIGN KEY (idUser) REFERENCES user(id)
+-- );
+
 CREATE TABLE gallery (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    idUser INT NOT NULL,
+    idJob INT NOT NULL,
     urlPhoto LONGTEXT NOT NULL,
-    FOREIGN KEY (idUser) REFERENCES user(id)
+    FOREIGN KEY (idJob) REFERENCES job(id)
 );
+
 
 CREATE TABLE job (
     id INT PRIMARY KEY AUTO_INCREMENT,

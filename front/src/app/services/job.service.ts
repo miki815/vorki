@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +11,8 @@ export class JobService {
   constructor(private http: HttpClient) { }
   uri = 'https://vorki.rs';
   // uri = 'http://localhost:4000';
+  // uri = environment.uri;
+  
 
   insertJob(data) {
     return this.http.post(`${this.uri}/jobs/insertJob`, data);
@@ -53,5 +57,9 @@ export class JobService {
 
   getMastersCount(data) {
     return this.http.post(`${this.uri}/jobs/getMastersCount`, data);
+  }
+
+  getJobGallery(idJob) {
+    return this.http.get(`${this.uri}/jobs/getJobGallery/${idJob}`);
   }
 }

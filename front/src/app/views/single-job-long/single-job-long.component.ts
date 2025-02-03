@@ -6,7 +6,8 @@ import { JobService } from 'src/app/services/job.service';
 import { UserService } from 'src/app/services/user.service';
 import * as L from 'leaflet';
 import { CalendarEvent, CalendarView } from 'angular-calendar';
-
+import { NotificationService } from 'src/app/services/notification.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-single-job-long',
@@ -43,9 +44,12 @@ export class SingleJobLongComponent implements OnInit {
   cities: any[] = [];
   coordinates: any[] = [];
   index: number = 0;
+  // uri = 'http://127.0.0.1:4000'
+  uri = 'https://vorki.rs';
+  // uri = environment.uri;
 
 
-  constructor(private jobService: JobService, private route: ActivatedRoute, private cookieService: CookieService, private userService: UserService, private gallery: Gallery) { }
+  constructor(private jobService: JobService, private route: ActivatedRoute, private cookieService: CookieService, private userService: UserService, private gallery: Gallery, private notificationService: NotificationService) { }
   ngOnInit(): void {
     this.cookie = this.cookieService.get("token");
     this.job = history.state.job;
@@ -58,17 +62,27 @@ export class SingleJobLongComponent implements OnInit {
     });
     this.route.paramMap.subscribe(params => {
       this.jobId = params.get('id');
+      this.jobService.getJobGallery(this.jobId).subscribe((imgs: any) => {
+        console.log(imgs);
+        imgs.forEach(element => {
+          console.log(element.urlPhoto)
+          this.images.push(new ImageItem({ src: `${this.uri}${element.urlPhoto}`, thumb: `${this.uri}${element.urlPhoto}` }))
+          this.galleryRef.add(new ImageItem({ src: `${this.uri}${element.urlPhoto}`, thumb: `${this.uri}${element.urlPhoto}` }))
+          this.numberOfPhotos += 1;
+        });
+        if(this.numberOfPhotos > 0) this.imagesLoaded = true;
+      });
     });
     this.getComments();
-    this.userService.getGalleryById({ idUser: this.job.idUser }).subscribe((message: any) => {
-      var imgs = message['message'];
-      console.log(imgs);
-      imgs.forEach(element => {
-        this.galleryRef.add(new ImageItem({ src: element.urlPhoto, thumb: element.urlPhoto }))
-        this.numberOfPhotos += 1;
-      });
-      this.imagesLoaded = true;
-    })
+    // this.userService.getGalleryById({ idUser: this.job.idUser }).subscribe((message: any) => {
+    //   var imgs = message['message'];
+    //   console.log(imgs);
+    //   imgs.forEach(element => {
+    //     this.galleryRef.add(new ImageItem({ src: element.urlPhoto, thumb: element.urlPhoto }))
+    //     this.numberOfPhotos += 1;
+    //   });
+    //   this.imagesLoaded = true;
+    // })
 
     this.map = L.map('map').setView([0, 0], 2);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -93,8 +107,8 @@ export class SingleJobLongComponent implements OnInit {
     //   // getJobById returns array of one element
     //   this.job = job[0];
     // });
-    this.getCitiesCoordinates();
-    this.getCities();
+    // this.getCitiesCoordinates();
+    // this.getCities();
   }
 
   addComment() {
@@ -192,6 +206,9 @@ export class SingleJobLongComponent implements OnInit {
     this.jobService.requestForAgreement(data).subscribe((message: any) => {
       this.isRequest = false;
       this.requestMsg = "Zahtev poslat!";
+      this.notificationService.informMasterOfJob({ user_id: this.cookie, master_id: this.job.idUser, job_title: this.job.title }).subscribe((message: any) => {
+        console.log("Notification sent to master")
+      });
       console.log("Job - userRequestForAgreement: END")
     })
   }

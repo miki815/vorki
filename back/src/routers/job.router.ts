@@ -48,4 +48,8 @@ jobRouter.route('/getMastersCount').post(
     (req, res) => new JobController().getMastersCount(req, res)
 )
 
+jobRouter.route('/getJobGallery/:idJob').get(
+    (req, res) => new JobController().getJobGallery(req, res)
+)
+
 export default jobRouter;

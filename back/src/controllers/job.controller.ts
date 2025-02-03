@@ -2,6 +2,9 @@ import User from '../models/user';
 import Job from '../models/job';
 import express from 'express';
 import { pool } from '../server';
+import multer from 'multer';
+
+const logger = require('../logger');
 
 
 export class JobController {
@@ -15,7 +18,8 @@ export class JobController {
             else console.log(job);
             if (err) { res.json({ error: 1, message: "Fatal error: " + err }); return; }
             console.log('User ' + id + ' added job: ' + title);
-            res.json({ message: "0" });
+            console.log("Id of the job: " + job.insertId);
+            res.json({ message: "0", job_id: job.insertId });
         });
     }
 
@@ -90,6 +94,7 @@ export class JobController {
     getJobRequests = (req: express.Request, res: express.Response) => {
         var sql = 'SELECT agreements.*, job.title, user.username FROM agreements JOIN job ON agreements.idJob = job.id JOIN user ON agreements.idUser = user.id WHERE agreements.idMaster = ?;';
         console.log("Getting job requests for master " + req.params.idMaster);
+        logger.info("Getting job requests for master " + req.params.idMaster);
         pool.query(sql, [req.params.idMaster], (err, requests) => {
             if (err) { res.json({ error: 1, message: "Fatal error: " + err }); return; }
             res.json(requests);
@@ -125,4 +130,20 @@ export class JobController {
             res.json(masters);
         });
     }
+
+    getJobGallery = (req: express.Request, res: express.Response) => {
+        const idJob = req.params.idJob;
+        const query = 'SELECT urlPhoto FROM gallery WHERE idJob = ?';
+      
+        pool.query(query, [idJob], (err, results) => {
+          if (err) {
+            console.error('Error fetching images:', err);
+            return res.status(500).send('Server error');
+          }
+          console.log('Images fetched successfully');
+          console.log(results);
+          res.json(results);
+        });
+      }
+      
 }

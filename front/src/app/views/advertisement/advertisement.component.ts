@@ -21,6 +21,14 @@ export class AdvertisementComponent implements OnInit {
   selectedProfession: string = "Vodoinstalater";
   poruka: string = null;
   bgcolor: string = "rgb(239, 114, 114)";
+  imagePreviews: string[] = [];
+  searchQuery = '';
+  filteredCities: any;
+
+
+  // uri = 'http://127.0.0.1:4000'
+  uri = 'https://vorki.rs';
+  // uri = environment.uri;
 
   constructor(private jobService: JobService, private router: Router, private userService: UserService, private http: HttpClient, private cookieService: CookieService, private notificationService: NotificationService) {
 
@@ -31,6 +39,8 @@ export class AdvertisementComponent implements OnInit {
       .then(response => response.json())
       .then(cities => {
         this.cities = cities;
+        this.cities.sort((a, b) => a.city.localeCompare(b.city));
+        this.filteredCities = this.cities;
       })
       .catch(error => {
         console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradova):', error);
@@ -55,7 +65,6 @@ export class AdvertisementComponent implements OnInit {
       this.bgcolor = "rgb(239, 114, 114)";
       return;
     }
-
     this.userService.getUserById({ id: this.cookieService.get('token') }).subscribe((message: any) => {
       //Pakovanje
       const data = {
@@ -75,17 +84,57 @@ export class AdvertisementComponent implements OnInit {
           this.description = null;
           this.title = null;
           this.bgcolor = "rgb(42, 138, 42)";
-          this.notificationService.newJobNotification({ user_id: this.cookieService.get('token') }).subscribe((message: any) => {
+          this.addPicturesJobInsert(message['job_id']);
+          this.notificationService.newJobNotification({ user_id: this.cookieService.get('token'), job_id: message['job_id'], job_title: this.title }).subscribe((message: any) => {
             console.log("Notification sent");
           });
         }
       })
 
     })
+  }
 
+  onImageChange(event: any) {
+    const files = event.target.files;
+    if (files) {
+      this.imagePreviews = [];
+      Array.from(files).forEach((file: File) => {
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+          this.imagePreviews.push(e.target.result);
+        };
+        reader.readAsDataURL(file);  // Učitavamo sliku kao data URL
+      });
+    }
+  }
 
+  addPicturesJobInsert(jobId) {
+    const formData = new FormData();
+    formData.append('idJob', jobId);
 
+    // Dodaj sve slike u formData
+    const imageFiles = (document.getElementById('images') as HTMLInputElement).files;
+    if (imageFiles) {
+      Array.from(imageFiles).forEach((file: File) => {
+        formData.append('images', file, file.name);
+      });
+    }
 
+    // Pošaljemo POST zahtev na server
+    this.http.post(`${this.uri}/upload`, formData)
+      .subscribe((response: any) => {
+        console.log('Response from server:', response);
+        // Ovdje možeš obraditi odgovor sa servera (spremiti putanje slika u bazu, itd.)
+      });
+  }
+
+  filterCities() {
+    console.log('Register - filterCities: START')
+    console.log('Search query:', this.searchQuery)
+    console.log('Cities:', this.cities[0])
+    this.filteredCities = this.cities.filter(city =>
+      city.city.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
   }
 
 

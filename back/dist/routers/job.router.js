@@ -17,4 +17,5 @@ jobRouter.route('/getJobRequests/:idMaster').get((req, res) => new job_controlle
 jobRouter.route('/updateAgreement').post((req, res) => new job_controller_1.JobController().updateAgreement(req, res));
 jobRouter.route('/getJobRequestsForUser/:idUser').get((req, res) => new job_controller_1.JobController().getJobRequestsForUser(req, res));
 jobRouter.route('/getMastersCount').post((req, res) => new job_controller_1.JobController().getMastersCount(req, res));
+jobRouter.route('/getJobGallery/:idJob').get((req, res) => new job_controller_1.JobController().getJobGallery(req, res));
 exports.default = jobRouter;

@@ -2,19 +2,36 @@
 
 <div class="page-container">
   <div class="flex flex-col lg:flex-row items-center justify-center mt-4 gap-4 w-full" *ngIf="!idUser">
+    <!-- <input [(ngModel)]="searchQuery" name="searchQ" (input)="filterCities()" placeholder="Pretraži..."
+      class="border-0 px-3 py-2 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full mb-2" />
     <select [(ngModel)]="selectedCity" id="city" class="border border-gray-300 rounded-md p-2" (change)="filterJobs()">
       <option value="">Izaberite grad</option>
-      <option *ngFor="let city of cities" [value]="city.city">{{ city.city }}</option>
-    </select>
+      <option *ngFor="let city of filteredCities" [value]="city.city">{{ city.city }}</option>
+    </select> -->
+    <input [(ngModel)]="selectedCity" list="cities" name="citySearch" id="citySearch" placeholder="Izaberite grad..."
+      class="border border-gray-300 rounded-md px-3 py-2 w-full mb-2" (input)="filterJobs()" />
 
-    <select [(ngModel)]="selectedProfession" id="profession" class="border border-gray-300 rounded-md p-2"
+    <datalist id="cities">
+      <option *ngFor="let city of filteredCities" [value]="city.city"></option>
+    </datalist>
+
+    <!-- <select [(ngModel)]="selectedProfession" id="profession" class="border border-gray-300 rounded-md p-2"
       (change)="filterJobs()">
       <option value="">Izaberite profesiju</option>
       <option *ngFor="let profession of professions" [value]="profession">
         {{ profession }}
       </option>
 
-    </select>
+    </select> -->
+    <input [(ngModel)]="selectedProfession" list="professions" name="professionSearch" id="professionSearch"
+      placeholder="Izaberite profesiju..." class="border border-gray-300 rounded-md px-3 py-2 w-full mb-2"
+      (input)="filterJobs()" />
+
+    <datalist id="professions">
+      <option *ngFor="let profession of professions" [value]="profession"></option>
+    </datalist>
+
+
     <select [(ngModel)]="selectedSort" class="border border-gray-300 rounded-md p-2" (change)="sort()">
       <option value="">Sortiranje</option>
       <option value="rate">Ocena</option>
