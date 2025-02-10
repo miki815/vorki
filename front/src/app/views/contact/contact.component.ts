@@ -19,7 +19,7 @@ export class ContactComponent {
   constructor(private swPush: SwPush, private http: HttpClient, private notificationService: NotificationService, private cookieService: CookieService) { }
 
   ngOnInit() {
-    this.userId = this.cookieService.get('token');
+    this.userId = this.cookieService.get('userId');
     // console.log("Subscribe to notifications")
 
     // if ('serviceWorker' in navigator) {

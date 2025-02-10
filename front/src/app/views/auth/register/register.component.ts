@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, HostListener } from "@angular/core";
 import { Router } from "@angular/router";
 import { UserService } from "src/app/services/user.service";
-import * as bcrypt from 'bcryptjs';
+// import * as bcrypt from 'bcryptjs';
 import { NotificationService } from "src/app/services/notification.service";
 
 @Component({
@@ -64,8 +64,9 @@ export class RegisterComponent implements OnInit {
 
 
   async hashPassword(plainPassword: string): Promise<string> {
-    const salt = await bcrypt.genSalt(10);
-    return await bcrypt.hash(plainPassword, salt);
+    // const salt = await bcrypt.genSalt(10);
+    // return await bcrypt.hash(plainPassword, salt);
+    return "hashedPasswordTODO";
   }
 
   submit() {

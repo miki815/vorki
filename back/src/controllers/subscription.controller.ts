@@ -1,6 +1,5 @@
 import User from '../models/user';
 import e, * as express from 'express';
-import bcrypt from 'bcryptjs';
 import { pool } from '../server';
 import nodemailer from 'nodemailer'
 import crypto from 'crypto';
@@ -158,7 +157,7 @@ export class SubscriptionController {
 
 
     inform_user_of_master_accept_their_job = (req: express.Request, res: express.Response) => {
-        const { job_title, user_id } = req.body;
+        const { job_title, user_id, job_status } = req.body;
 
         if (!job_title || !user_id) {
             return res.status(400).json({ error: 'Job ID and user ID are required' });
@@ -176,7 +175,7 @@ export class SubscriptionController {
                     logger(req, res).error('Database error:', err);
                     return res.status(500).json({ error: 'Failed to fetch subscriptions' });
                 }
-                const payload = JSON.stringify({ title: 'Prihvaćen zahtev za posao!', body: "Pogledajte sve detalje dogovora.", url: `https://vorki.rs/profil/${user_id}` });
+                const payload = JSON.stringify({ title: job_title, body: job_status, url: `https://vorki.rs/profil/${user_id}` });
                 results.forEach((subscription) => {
                     const pushSubscription = {
                         endpoint: subscription.endpoint,

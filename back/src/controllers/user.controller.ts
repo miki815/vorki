@@ -5,10 +5,30 @@ import { pool } from '../server';
 import nodemailer from 'nodemailer'
 import crypto from 'crypto';
 import ResetToken from '../models/reset_token'
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
+dotenv.config();
 
+const SECRET_KEY = process.env.JWT_SECRET || 'moj_tajni_kljuc';
 const logger = require('../logger');
 const moment = require('moment');
+const jwt = require('jsonwebtoken');
+function generateToken(user) {
+    return jwt.sign({ id: user.id, username: user.username }, 'tajni_kljuc', { expiresIn: '1h' });
+}
+
+function authenticateToken(req, res, next) {
+    const token = req.headers['authorization']?.split(' ')[1];
+    if (!token) return res.sendStatus(401);
+
+    jwt.verify(token, 'tajni_kljuc', (err, user) => {
+        if (err) return res.sendStatus(403);
+        req.user = user;
+        next();
+    });
+}
+
 
 export class UserController {
 
@@ -21,7 +41,7 @@ export class UserController {
         const { email, password } = req.body;
         var sql = 'SELECT * FROM user WHERE email = ?';
 
-        pool.query(sql, [email, password], async (err, user) => {
+        pool.query(sql, [email], async (err, user) => {
             if (err) {
                 res.json({ error: 1, message: "Fatal error: " + err });
                 logger.error('Login error: ' + err);
@@ -30,7 +50,15 @@ export class UserController {
             if (user.length && (await this.verifyPassword(password, user[0].password))) {
                 console.log('Login success');
                 logger.info('Login success');
-                res.json({ error: 0, id: user[0].id });
+                const token = jwt.sign({ userId: user[0].id } , SECRET_KEY, { expiresIn: '1h' });
+                // res.json({ error: 0, id: user[0].id });
+                console.log(token);
+                res.cookie('httpToken', token, {
+                    httpOnly: true,
+                    //secure: process.env.NODE_ENV === 'production' // Uključi samo u produkciji
+                });
+
+                res.json({ error: 0, message: "Uspešna prijava", token: token, userId: user[0].id });
             } else { res.json({ error: 1, message: "Korisnik sa datim emailom i lozinkom ne postoji." }); }
         });
     }
@@ -487,9 +515,31 @@ export class UserController {
                 res.json({ error: 0 });
             }
         });
-
     }
 
+    verifyUser = (req: express.Request, res: express.Response) => {
+        const { routeId, token } = req.body;
+
+        // const token = req.cookies.token;  // Token dohvatamo iz cookie-ja
+        // console.log("Token: " + token);
+        if (!token) {
+            return res.status(401).json({ authorized: false, message: "No token provided" });
+        }
+        try {
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            console.log(decoded);
+            console.log(routeId);
+            if (decoded.userId == routeId) {  
+                console.log("Authorized user");
+                return res.json({ authorized: true });
+            } else {
+                console.log("Unauthorized user");
+                return res.json({ authorized: false, message: "Unauthorized user" });
+            }
+        } catch (error) {
+            return res.status(401).json({ authorized: false, message: "Invalid token" });
+        }
+    };
 
 
 }

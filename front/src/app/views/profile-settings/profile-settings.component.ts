@@ -76,8 +76,8 @@ export class ProfileSettingsComponent {
   getToken() {
     console.log("ProfileSettings - getToken: START")
 
-    this.cookie = this.cookieService.get("token");
-    this.idUser = this.cookieService.get("token");
+    this.cookie = this.cookieService.get("userId");
+    this.idUser = this.cookieService.get("userId");
     console.log(this.idUser)
 
     console.log("ProfileSettings - getToke: END")

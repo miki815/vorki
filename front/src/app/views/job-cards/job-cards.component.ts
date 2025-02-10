@@ -19,7 +19,7 @@ export class JobCardsComponent {
 
   ngOnInit(): void {
     console.log("JobCards - ngOnInit: START")
-    this.login = this.cookieService.get('token') ? 1 : 0;
+    this.login = this.cookieService.get('userId') ? 1 : 0;
     this.route.paramMap.subscribe(params => {
       this.idK = params.get('idK');
       this.getCraftmen(this.idK);

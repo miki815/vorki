@@ -55,7 +55,7 @@ export class ProfileComponent implements OnInit {
   getToken() {
     console.log("Profile - getToken: START")
     this.route.paramMap.subscribe(params => {
-      this.cookie = this.cookieService.get("token");
+      this.cookie = this.cookieService.get("userId");
       this.idUser = params.get('id');
     });
     console.log("Profile - getToken: END")
@@ -155,7 +155,7 @@ export class ProfileComponent implements OnInit {
     startDate.setHours(hours, minutes);
     console.log("Start date: " + startDate);
     this.jobService.updateAgreement({ idAgreements: request.idAgreements, status: 'accepted', startTime: this.convertToMySQLDate(startDate) }).subscribe(() => {
-      this.notificationService.inform_user_of_master_accept_their_job({ job_title: request.title, user_id:  request.idUser}).subscribe(() => {
+      this.notificationService.inform_user_of_master_accept_their_job({ job_title: 'Prihvacen zahtev za posao!', user_id:  request.idUser, job_status: 'Pogledajte sve detalje dogovora.'}).subscribe(() => {
         console.log("Notification sent");
         request.currentStatus = 'accepted';
       });
@@ -164,15 +164,18 @@ export class ProfileComponent implements OnInit {
     console.log("Profile - acceptRequest: END");
   }
 
-  declineRequest(request) {
+  declineRequest(request) { // odbij
     console.log("Profile - declineRequest: START");
     this.jobService.updateAgreement({ idAgreements: request.idAgreements, status: 'declined', startTime: null }).subscribe(() => {
-      // TODO: Dodati notifikaciju
+      this.notificationService.inform_user_of_master_accept_their_job({ job_title: 'Odbijen zahtev za posao', user_id:  request.idUser, job_status: 'Majstor trenutno ne moze da odradi vas posao.'}).subscribe(() => {
+        console.log("Notification sent");
+        request.currentStatus = 'declined';
+      });
     });
     console.log("Profile - declineRequest: END");
   }
 
-  cancelRequest(request) {
+  cancelRequest(request) { // otkazi
     console.log("Profile - cancelRequest: START");
     const now = new Date();
     const startTime = new Date(request.startTime);
@@ -181,7 +184,10 @@ export class ProfileComponent implements OnInit {
       return;
     }
     this.jobService.updateAgreement({ idAgreements: request.idAgreements, status: 'canceled', startTime: null }).subscribe(() => {
-      // TODO: Dodati notifikaciju
+      this.notificationService.inform_user_of_master_accept_their_job({ job_title: 'Posao otkazan.', user_id:  request.idUser, job_status: 'Nazalost, majstor je otkazao dogovor sa vama.'}).subscribe(() => {
+        console.log("Notification sent");
+        request.currentStatus = 'canceled';
+      });
     });
     console.log("Profile - cancelRequest: END");
   }

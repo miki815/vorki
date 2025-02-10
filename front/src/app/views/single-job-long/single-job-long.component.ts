@@ -51,7 +51,7 @@ export class SingleJobLongComponent implements OnInit {
 
   constructor(private jobService: JobService, private route: ActivatedRoute, private cookieService: CookieService, private userService: UserService, private gallery: Gallery, private notificationService: NotificationService) { }
   ngOnInit(): void {
-    this.cookie = this.cookieService.get("token");
+    this.cookie = this.cookieService.get("userId");
     this.job = history.state.job;
     this.idUser = this.job.idUser;
     this.userService.getUserById({ id: this.idUser }).subscribe((message: any) => {

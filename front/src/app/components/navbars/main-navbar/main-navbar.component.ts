@@ -13,7 +13,8 @@ export class MainNavbarComponent implements OnInit {
   constructor(private router: Router, private cookieService: CookieService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.login = this.cookieService.get('token') ? 1 : 0;
+    this.login = this.cookieService.get('userId') ? 1 : 0;
+    // this.login = 1;
   }
 
   toggleMenu() {
@@ -22,6 +23,7 @@ export class MainNavbarComponent implements OnInit {
 
   logout() {
     this.cookieService.delete('token', '/');
+    this.cookieService.delete('userId', '/');
     this.router.navigate(['/autentikacija/prijava']);
   }
 
@@ -34,7 +36,7 @@ export class MainNavbarComponent implements OnInit {
   }
 
   navigateToProfile() {
-    if(this.login == 1) this.router.navigate(['/profil', this.cookieService.get('token')]);
+    if(this.login == 1) this.router.navigate(['/profil', this.cookieService.get('userId')]);
     else this.router.navigate(['/autentikacija/prijava']);
   }
 

@@ -87,4 +87,8 @@ userRouter.route('/support').post(
     (req, res)=>new UserController().support(req, res)
 )
 
+userRouter.route('/verify-user').post(
+    (req, res)=>new UserController().verifyUser(req, res)
+)
+
 export default userRouter;

@@ -16,6 +16,7 @@ const multer_1 = __importDefault(require("multer"));
 require('dotenv').config();
 const publicVapidKey = 'BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg';
 const privateVapidKey = 'R9O8MXmoFsxCDEl1SHnxCZrtLsc85TcVaHoPo1kSyIs';
+const cookieParser = require('cookie-parser');
 web_push_1.default.setVapidDetails('mailto:mmilenkovic815@gmail.com', publicVapidKey, privateVapidKey);
 // BACKEND IMG STORAGE
 const storage = multer_1.default.diskStorage({
@@ -30,10 +31,14 @@ const storage = multer_1.default.diskStorage({
 const upload = (0, multer_1.default)({ storage });
 // SERVING APP
 const app = (0, express_1.default)();
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)({
+    origin: ['https://vorki.rs', 'http://localhost:4200'],
+    credentials: true
+}));
 app.use(body_parser_1.default.json({ limit: '100mb' }));
 app.use(body_parser_1.default.urlencoded({ limit: '100mb', extended: true }));
 const logger = require('./logger');
+app.use(cookieParser());
 const mysql = require('mysql2');
 const pool = mysql.createPool({
     host: process.env.DB_HOST,

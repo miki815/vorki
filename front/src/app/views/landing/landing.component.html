@@ -14,9 +14,9 @@
               Vaš partner u rešavanju problema.
             </h1>
             <p class="mt-4 text-lg text-blueGray-200 text-justify">
-              Sa Vorkijem, pronalaženje majstora nikada nije bilo lakše. Samo izaberite uslugu koja vam je potrebna
-              i lokaciju, a mi ćemo vam pronaći najbolje majstore u vašem okruženju. Bez čekanja na telefonski
-              poziv ili traženja preporuka - sve je na dohvat ruke.
+              Sa Vorkijem, pronalaženje majstora nikada nije bilo lakše. Izaberite uslugu koja vam je potrebna, 
+              a mi ćemo vam pronaći najbolje majstore u vašem okruženju. Bez čekanja na telefonski
+              poziv ili traženja preporuka - sve je na par klikova.
             </p>
           </div>
         </div>
@@ -67,8 +67,8 @@
               </div>
               <h6 class="text-xl font-bold">Rezervacija</h6>
               <p class="mt-2 mb-4">
-                Uz Vorki, rezervacija majstora je potpuno besplatna. Odaberite vreme koje vam najviše odgovara i
-                sačekajte majstora koji će rešiti vaš problem.
+                Uz Vorki, rezervacija majstora je potpuno besplatna. Odaberite vreme koje vam najviše odgovara, opustite se i pustite
+                majstora da reši vaš problem.
               </p>
             </div>
           </div>
@@ -101,13 +101,13 @@
             <i class="fas fa-user-friends text-xl"></i>
           </div>
           <h3 class="text-3xl mb-2 font-semibold leading-normal text-white">
-            Kreiramo veze, gradimo zajednicu
+            Mreža koja povezuje, zajednica koja inspiriše
           </h3>
           <p class="text-lg leading-relaxed mt-4 mb-4 text-justify text-white">
             Kroz našu platformu, ne samo da pomažemo ljudima da pronađu kvalitetne majstore,
             već gradimo i zajednicu koja se zasniva na poverenju i saradnji.
           </p>
-          <p class="text-lg font-light leading-relaxed mt-0 mb-4 text-justify text-white">
+          <p class="text-lg leading-relaxed mt-0 mb-4 text-justify text-white">
             Kreiramo veze između korisnika
             i majstora, uz otvorenu komunikaciju i međusobno razumevanje.
             Uz našu podršku, zajednica raste i jača, stvarajući dugoročne veze koje prevazilaze samo jedan projekat.
@@ -235,7 +235,7 @@
         <div class="w-full lg:w-6/12 px-4">
           <h2 class="text-4xl font-semibold">Evo naših najboljih majstora</h2>
           <p class="text-lg leading-relaxed m-4">
-            Zahvaljujući vašim ocenama, izdvojili smo najbolje majstore koji su se istakli svojim radom i posvećenošću.
+            Na osnovu vaših ocena, izdvojili smo najbolje majstore koji su se istakli svojim radom i posvećenošću.
           </p>
         </div>
       </div>
@@ -243,7 +243,9 @@
         <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
           <div class="px-6">
             <a [routerLink]="['/profil', topMasters[0].id]">
-              <img alt="..." [src]="topMasters[0].photo" class="shadow-lg rounded-full mx-auto max-w-120-px" />
+              <img alt="..." [src]="topMasters[0].photo" class="object-cover rounded-full shadow-lg mx-auto" style="border-radius: 50%; height: 120px; width: 120px;"
+              />
+              <!-- <img alt="..." [src]="topMasters[0].photo" class="shadow-lg rounded-full mx-auto max-w-120-px" /> -->
             </a>
             <div class="pt-6 text-center">
               <h5 class="text-xl font-bold">{{topMasters[0].username}}</h5>
@@ -268,7 +270,7 @@
         <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
           <div class="px-6">
             <a [routerLink]="['/profil', topMasters[1].id]">
-              <img alt="..." [src]="topMasters[1].photo" class="shadow-lg rounded-full mx-auto max-w-120-px" />
+              <img alt="..." [src]="topMasters[1].photo" class="object-cover rounded-full shadow-lg mx-auto" style="border-radius: 50%; height: 120px; width: 120px;"/>
             </a>
             <div class="pt-6 text-center">
               <h5 class="text-xl font-bold">{{topMasters[1].username}}</h5>
@@ -292,7 +294,7 @@
         <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
           <div class="px-6">
             <a [routerLink]="['/profil', topMasters[2].id]">
-              <img alt="..." [src]="topMasters[2].photo" class="shadow-lg rounded-full mx-auto max-w-120-px" />
+              <img alt="..." [src]="topMasters[2].photo" class="object-cover rounded-full shadow-lg mx-auto" style="border-radius: 50%; height: 120px; width: 120px;"/>
             </a>
             <div class="pt-6 text-center">
               <h5 class="text-xl font-bold">{{topMasters[2].username}}</h5>
@@ -316,7 +318,7 @@
         <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
           <div class="px-6">
             <a [routerLink]="['/profil', topMasters[3].id]">
-              <img alt="..." [src]="topMasters[3].photo" class="shadow-lg rounded-full mx-auto max-w-120-px" />
+              <img alt="..." [src]="topMasters[3].photo" class="object-cover rounded-full shadow-lg mx-auto" style="border-radius: 50%; height: 120px; width: 120px;"/>
             </a>
             <div class="pt-6 text-center">
               <h5 class="text-xl font-bold">{{topMasters[3].username}}</h5>

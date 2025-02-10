@@ -3,7 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { CookieService } from "ngx-cookie-service";
 import { UserService } from "src/app/services/user.service";
-import * as bcrypt from 'bcryptjs';
+// import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector: "app-login",
@@ -18,10 +18,10 @@ export class LoginComponent {
   password: string = null;
   message: string = null;
 
-  async hashPassword(plainPassword: string): Promise<string> {
-    const salt = await bcrypt.genSalt(10);
-    return await bcrypt.hash(plainPassword, salt);
-  }
+  // async hashPassword(plainPassword: string): Promise<string> {
+  //   const salt = await bcrypt.genSalt(10);
+  //   return await bcrypt.hash(plainPassword, salt);
+  // }
 
 
 
@@ -34,7 +34,9 @@ export class LoginComponent {
     const data = { email: this.email, password: this.password }
     this.userService.login(data).subscribe((response: any) => {
       if (response['error'] == "0") {
-        this.cookieService.set('token', JSON.stringify(response['id']), 30, '/');
+        // this.cookieService.set('token', JSON.stringify(response['id']), 30, '/');
+        this.cookieService.set('token', response['token'], 30, '/');
+        this.cookieService.set('userId', response['userId'], 30, '/');
         this.router.navigate(["pocetna"]);
       } else { this.message = response['message']; }
     })

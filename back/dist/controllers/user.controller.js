@@ -17,15 +17,34 @@ const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const server_1 = require("../server");
 const crypto_1 = __importDefault(require("crypto"));
 const reset_token_1 = __importDefault(require("../models/reset_token"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
+const SECRET_KEY = process.env.JWT_SECRET || 'moj_tajni_kljuc';
 const logger = require('../logger');
 const moment = require('moment');
+const jwt = require('jsonwebtoken');
+function generateToken(user) {
+    return jwt.sign({ id: user.id, username: user.username }, 'tajni_kljuc', { expiresIn: '1h' });
+}
+function authenticateToken(req, res, next) {
+    var _a;
+    const token = (_a = req.headers['authorization']) === null || _a === void 0 ? void 0 : _a.split(' ')[1];
+    if (!token)
+        return res.sendStatus(401);
+    jwt.verify(token, 'tajni_kljuc', (err, user) => {
+        if (err)
+            return res.sendStatus(403);
+        req.user = user;
+        next();
+    });
+}
 class UserController {
     constructor() {
         this.login = (req, res) => {
             console.log("Login");
             const { email, password } = req.body;
             var sql = 'SELECT * FROM user WHERE email = ?';
-            server_1.pool.query(sql, [email, password], (err, user) => __awaiter(this, void 0, void 0, function* () {
+            server_1.pool.query(sql, [email], (err, user) => __awaiter(this, void 0, void 0, function* () {
                 if (err) {
                     res.json({ error: 1, message: "Fatal error: " + err });
                     logger.error('Login error: ' + err);
@@ -34,7 +53,14 @@ class UserController {
                 if (user.length && (yield this.verifyPassword(password, user[0].password))) {
                     console.log('Login success');
                     logger.info('Login success');
-                    res.json({ error: 0, id: user[0].id });
+                    const token = jwt.sign({ userId: user[0].id }, SECRET_KEY, { expiresIn: '1h' });
+                    // res.json({ error: 0, id: user[0].id });
+                    console.log(token);
+                    res.cookie('httpToken', token, {
+                        httpOnly: true,
+                        //secure: process.env.NODE_ENV === 'production' // Uključi samo u produkciji
+                    });
+                    res.json({ error: 0, message: "Uspešna prijava", token: token, userId: user[0].id });
                 }
                 else {
                     res.json({ error: 1, message: "Korisnik sa datim emailom i lozinkom ne postoji." });
@@ -517,6 +543,30 @@ class UserController {
                 }
             });
         });
+        this.verifyUser = (req, res) => {
+            const { routeId, token } = req.body;
+            // const token = req.cookies.token;  // Token dohvatamo iz cookie-ja
+            // console.log("Token: " + token);
+            if (!token) {
+                return res.status(401).json({ authorized: false, message: "No token provided" });
+            }
+            try {
+                const decoded = jwt.verify(token, process.env.JWT_SECRET);
+                console.log(decoded);
+                console.log(routeId);
+                if (decoded.userId == routeId) {
+                    console.log("Authorized user");
+                    return res.json({ authorized: true });
+                }
+                else {
+                    console.log("Unauthorized user");
+                    return res.json({ authorized: false, message: "Unauthorized user" });
+                }
+            }
+            catch (error) {
+                return res.status(401).json({ authorized: false, message: "Invalid token" });
+            }
+        };
     }
     verifyPassword(plainPassword, hashedPassword) {
         return __awaiter(this, void 0, void 0, function* () {

@@ -35,7 +35,7 @@ export class JobListingComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("JobListing - ngOnInit: START")
-    this.cookie = this.cookieService.get("token");
+    this.cookie = this.cookieService.get("userId");
     this.selectedProfession = sessionStorage.getItem('category');
     this.route.queryParamMap.subscribe(params => {
       this.idUser = params.get('idU');

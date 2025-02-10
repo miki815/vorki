@@ -65,14 +65,14 @@ export class AdvertisementComponent implements OnInit {
       this.bgcolor = "rgb(239, 114, 114)";
       return;
     }
-    this.userService.getUserById({ id: this.cookieService.get('token') }).subscribe((message: any) => {
+    this.userService.getUserById({ id: this.cookieService.get('userId') }).subscribe((message: any) => {
       //Pakovanje
       const data = {
         description: this.description,
         title: this.title,
         city: this.selectedCity,
         profession: this.selectedProfession,
-        id: JSON.parse(this.cookieService.get('token')),
+        id: JSON.parse(this.cookieService.get('userId')),
         type: message['message'].type
       }
       //Slanje
@@ -85,7 +85,7 @@ export class AdvertisementComponent implements OnInit {
           this.title = null;
           this.bgcolor = "rgb(42, 138, 42)";
           this.addPicturesJobInsert(message['job_id']);
-          this.notificationService.newJobNotification({ user_id: this.cookieService.get('token'), job_id: message['job_id'], job_title: this.title }).subscribe((message: any) => {
+          this.notificationService.newJobNotification({ user_id: this.cookieService.get('userId'), job_id: message['job_id'], job_title: this.title }).subscribe((message: any) => {
             console.log("Notification sent");
           });
         }
@@ -95,27 +95,47 @@ export class AdvertisementComponent implements OnInit {
   }
 
   onImageChange(event: any) {
+    const MAX_SIZE = 2 * 1024 * 1024; // 2MB
+    const MAX_IMAGES = 4;
     const files = event.target.files;
     if (files) {
       this.imagePreviews = [];
-      Array.from(files).forEach((file: File) => {
+      const selectedFiles = Array.from(files).slice(0, MAX_IMAGES);
+
+      selectedFiles.forEach((file: File) => {
+        if (file.size > MAX_SIZE) {
+          alert(`Slika ${file.name} je prevelika! Maksimalna dozvoljena veličina je 2MB.`);
+          return; 
+        }
         const reader = new FileReader();
         reader.onload = (e: any) => {
           this.imagePreviews.push(e.target.result);
         };
-        reader.readAsDataURL(file);  // Učitavamo sliku kao data URL
+        reader.readAsDataURL(file);
       });
     }
   }
 
   addPicturesJobInsert(jobId) {
     const formData = new FormData();
+    const MAX_SIZE = 2 * 1024 * 1024; // 2MB 
+    const MAX_IMAGES = 4;
+
     formData.append('idJob', jobId);
 
     // Dodaj sve slike u formData
     const imageFiles = (document.getElementById('images') as HTMLInputElement).files;
     if (imageFiles) {
+      if (imageFiles.length > MAX_IMAGES) {
+        alert(`Možete poslati najviše ${MAX_IMAGES} slike.`);
+        return;
+      }
+
       Array.from(imageFiles).forEach((file: File) => {
+        if (file.size > MAX_SIZE) {
+          console.warn(`Slika ${file.name} je prevelika (${(file.size / 1024 / 1024).toFixed(2)} MB). Maksimalna dozvoljena veličina je 2MB.`);
+          return;
+        }
         formData.append('images', file, file.name);
       });
     }

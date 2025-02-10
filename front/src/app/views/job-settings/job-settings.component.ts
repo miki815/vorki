@@ -80,7 +80,7 @@ export class JobSettingsComponent {
   getToken() {
     console.log("JobSettings - getToken: START")
     // TODO - Local storage nije bezbedan
-    this.cookie = this.cookieService.get("token");
+    this.cookie = this.cookieService.get("userId");
     console.log("JobSettings - getToken: END")
   }
 

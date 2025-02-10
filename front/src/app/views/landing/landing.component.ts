@@ -30,8 +30,8 @@ export class LandingComponent implements OnInit {
   constructor(private userService: UserService, private cookieService: CookieService, private router: Router, private route: ActivatedRoute, private swPush: SwPush, private http: HttpClient) { }
   login: number = 1;
   ngOnInit(): void {
-    this.login = this.cookieService.get('token') ? 1 : 0;
-    this.userId = this.cookieService.get('token');
+    this.login = this.cookieService.get('userId') ? 1 : 0;
+    this.userId = this.cookieService.get('userId');
     this.userService.getTop5masters().subscribe((data: any) => {
       this.topMasters = data['top5'];
       console.log(this.topMasters);

@@ -21,6 +21,8 @@ declare module 'express-serve-static-core' {
 require('dotenv').config();
 const publicVapidKey = 'BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg';
 const privateVapidKey = 'R9O8MXmoFsxCDEl1SHnxCZrtLsc85TcVaHoPo1kSyIs';
+const cookieParser = require('cookie-parser');
+
 
 webPush.setVapidDetails('mailto:mmilenkovic815@gmail.com', publicVapidKey, privateVapidKey);
 
@@ -42,10 +44,15 @@ const upload = multer({ storage });
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: ['https://vorki.rs', 'http://localhost:4200'],
+  credentials: true 
+}));
 app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
 const logger = require('./logger');
+
+app.use(cookieParser());
 
 const mysql = require('mysql2');
 

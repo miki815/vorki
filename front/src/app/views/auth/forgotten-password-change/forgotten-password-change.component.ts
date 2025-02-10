@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
-import * as bcrypt from 'bcryptjs';
+// import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector: 'app-forgotten-password-change',
@@ -41,8 +41,9 @@ export class ForgottenPasswordChangeComponent implements OnInit {
   }
 
   async hashPassword(plainPassword: string): Promise<string> {
-    const salt = await bcrypt.genSalt(10);
-    return await bcrypt.hash(plainPassword, salt);
+    // const salt = await bcrypt.genSalt(10);
+    // return await bcrypt.hash(plainPassword, salt);
+    return "hashedPasswordTODO";
   }
 
   submit() {

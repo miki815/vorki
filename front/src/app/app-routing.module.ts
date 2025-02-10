@@ -62,7 +62,7 @@ const routes: Routes = [
   // no layout views
   { path: "kalendar", component: CalendarComponent },
   { path: 'kontakt', component: ContactComponent },
-  { path: "profil/:id", component: ProfileComponent },
+  { path: "profil/:id", component: ProfileComponent, canActivate: [authGuard] },
   { path: "podesavanje_profila", component: ProfileSettingsComponent, canActivate: [authGuard] },
   { path: "podesavanje_oglasa/:jobId", component: JobSettingsComponent, canActivate: [authGuard] },
   { path: "pocetna", component: LandingComponent },

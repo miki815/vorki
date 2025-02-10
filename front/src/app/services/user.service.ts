@@ -13,7 +13,7 @@ export class UserService {
   // uri = environment.uri;
 
   login(data) {
-    return this.http.post(`${this.uri}/users/login`, data);
+    return this.http.post(`${this.uri}/users/login`, data, {withCredentials: true});
   }
 
   register(data) {
@@ -76,23 +76,44 @@ export class UserService {
     return this.http.post(`${this.uri}/users/updateUser`, data);
   }
 
-  forgotPasswordRequest(data){
+  forgotPasswordRequest(data) {
     return this.http.post(`${this.uri}/users/forgotPasswordRequest`, data);
   }
 
-  tokenValidation(data){
+  tokenValidation(data) {
     return this.http.post(`${this.uri}/users/tokenValidation`, data);
   }
 
-  changeForgottenPassword(data){
+  changeForgottenPassword(data) {
     return this.http.post(`${this.uri}/users/changeForgottenPassword`, data);
   }
 
-  getTop5masters(){
+  getTop5masters() {
     return this.http.get(`${this.uri}/users/getTop5masters`);
   }
 
-  support(data){
+  support(data) {
     return this.http.post(`${this.uri}/users/support`, data);
+  }
+
+  saveToken(token: string): void {
+    localStorage.setItem('token', token);
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
+  getCurrentUser(): any {
+    const token = this.getToken();
+    if (token) {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload;
+    }
+    return null;
+  }
+
+  verifyUser(data) {
+    return this.http.post(`${this.uri}/users/verify-user`, data, {withCredentials: true});
   }
 }
