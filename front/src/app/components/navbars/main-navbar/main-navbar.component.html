@@ -1,112 +1,110 @@
 <style>
+  .navbar {
+    display: flex;
+    align-items: center;
+    background-color: rgb(30, 41, 59);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 60px;
+    padding: 0 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
 
+  .logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 20px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 10px;
+    font-weight: bold;
+  }
+
+  .separator {
+    color: white;
+  }
 
   .burger {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    margin-left: auto;
   }
 
   .burger div {
     width: 25px;
     height: 3px;
     background-color: white;
-    margin: 4px;
+    margin: 3px;
   }
 
-  .nav-links {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .nav-links a {
-    white-space: nowrap;
-  }
-
+  /* Mobilni uredjaji */
   @media (max-width: 768px) {
+    .burger {
+      display: flex;
+    }
+
     .nav-links {
       display: none;
       flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background-color: rgb(30, 41, 59);
       width: 100%;
-    }
-
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .burger {
-      display: flex;
+      padding: 10px 0;
     }
 
     .navbar.active .nav-links {
       display: flex;
     }
+
+    .separator {
+      display: none;
+    }
   }
 </style>
 
-<nav class="navbar">
+<nav class="navbar" [class.active]="menuOpen">
+  <div class="logo">
+    <img src="assets/img/logo3.png" alt="logo" style="width: 50px; height: 50px; border-radius: 50%;" (click)="navigateToHome()">
+  </div>
+
+  <div class="nav-links">
+    <a [routerLink]="['/pocetna']">POČETNA STRANA</a>
+    <span class="separator">|</span>
+    <a [routerLink]="['/dodaj_oglas']" (click)="navigateToAddJob()">DODAJ OGLAS</a>
+    <span class="separator">|</span>
+    <a [routerLink]="['/oglasi']" (click)="navigateToJobListing()">SVI OGLASI</a>
+    <span class="separator">|</span>
+    <a [routerLink]="['/profil']" (click)="navigateToProfile()">PROFIL</a>
+    <ng-container *ngIf="login == 1">
+      <span class="separator">|</span>
+      <a [routerLink]="['/pocetna']" (click)="logout()">ODJAVA</a>
+    </ng-container>
+    <ng-container *ngIf="login == 0">
+      <span class="separator">|</span>
+      <a [routerLink]="['/pocetna']" (click)="navigate_to_register()">REGISTRACIJA</a>
+      <span class="separator">|</span>
+      <a [routerLink]="['/pocetna']" (click)="navigate_to_login()">PRIJAVA</a>
+    </ng-container>
+  </div>
+
   <div class="burger" (click)="toggleMenu()">
     <div></div>
     <div></div>
     <div></div>
   </div>
-
-  <div class="nav-links">
-    <a [routerLink]="['/pocetna']"
-      class="lg:text-white text-blueGray-100 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300">
-      Početna strana
-    </a>
-    <a [routerLink]="['/dodaj_oglas']" (click)="navigateToAddJob()"
-      class="lg:text-white text-blueGray-100 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300">
-      Dodaj oglas
-    </a>
-    <a [routerLink]="['/oglasi']" (click)="navigateToJobListing()"
-      class="lg:text-white text-blueGray-100 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300">
-      Svi oglasi
-    </a>
-    <a [routerLink]="['/profil']" (click)="navigateToProfile()"
-      class="lg:text-white text-blueGray-100 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300">
-      Profil
-    </a>
-    <a [routerLink]="['/pocetna']" (click)="logout()" *ngIf="login==1"
-      class="lg:text-white text-blueGray-100 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300">
-      Odjava
-    </a>
-    <a [routerLink]="['/pocetna']" (click)="navigate_to_register()" *ngIf="login==0"
-      class="lg:text-white text-blueGray-100 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300">
-      Registracija
-    </a>
-    <a [routerLink]="['/pocetna']" (click)="navigate_to_login()" *ngIf="login==0"
-      class="lg:text-white text-blueGray-100 px-3 py-4 lg:py-2 flex items-center uppercase font-bold hover:text-yellow-500 transition-colors duration-300">
-      Prijava
-    </a>
-
-  </div>
 </nav>
-
-
-
-<style>
-  a:hover {
-    color: rgb(255, 232, 60);
-  }
-
-  nav {
-    background-color: rgb(30, 41, 59);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  button:hover i {
-    transform: scale(1.1);
-    transition: transform 0.2s ease-in-out;
-  }
-
-  :host {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-  }
-</style>

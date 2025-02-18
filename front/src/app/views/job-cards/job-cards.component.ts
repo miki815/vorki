@@ -49,12 +49,8 @@ export class JobCardsComponent {
   }
 
   categoryChoice(category) {
-    if (this.login == 1) {
-      sessionStorage.setItem('category', category);
-      this.router.navigate(['/oglasi']);
-    } else{
-      this.router.navigate(['/autentikacija/prijava']);
-    }
+    sessionStorage.setItem('category', category);
+    this.router.navigate(['/oglasi']);
     // this.router.navigate(['/oglasi'], { state: { category: category } });
   }
 
@@ -78,7 +74,7 @@ export class JobCardsComponent {
 
   initializeCategoriesCount(): void {
     this.categoriesCount = this.categories.reduce((acc, category) => {
-      acc[category] = 0; 
+      acc[category] = 0;
       return acc;
     }, {} as { [profession: string]: number });
   }

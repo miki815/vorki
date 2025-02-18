@@ -52,4 +52,8 @@ jobRouter.route('/getJobGallery/:idJob').get(
     (req, res) => new JobController().getJobGallery(req, res)
 )
 
+jobRouter.route('/changeJobLocationForUser').post(
+    (req, res) => new JobController().changeJobLocationForUser(req, res)
+)
+
 export default jobRouter;

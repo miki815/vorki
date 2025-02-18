@@ -83,7 +83,7 @@ export class RegisterComponent implements OnInit {
             username: this.username,
             firstname: this.name,
             lastname: this.surname,
-            password: hashedPassword,
+            password: this.password,
             birthday: this.birthday,
             phone: this.telephone,
             location: this.location,
@@ -137,17 +137,21 @@ export class RegisterComponent implements OnInit {
   filterProfessions() {
     console.log('Register - filterProfessions: START')
     console.log('Search term:', this.searchTerm)
+    // this.filteredProfessions = this.professions.filter((profession) =>
+    //   profession.toLowerCase().includes(this.searchTerm.toLowerCase())
+    // );
     this.filteredProfessions = this.professions.filter((profession) =>
-      profession.toLowerCase().includes(this.searchTerm.toLowerCase())
+      this.normalizeString(profession).includes(this.normalizeString(this.searchTerm))
     );
   }
 
   filterCities() {
     console.log('Register - filterCities: START')
-    console.log('Search query:', this.searchQuery)
-    console.log('Cities:', this.cities[0])
+    // this.filteredCities = this.cities.filter(city =>
+    //   city.city.toLowerCase().includes(this.searchQuery.toLowerCase())
+    // );
     this.filteredCities = this.cities.filter(city =>
-      city.city.toLowerCase().includes(this.searchQuery.toLowerCase())
+      this.normalizeString(city.city).includes(this.normalizeString(this.searchQuery))
     );
   }
 
@@ -188,5 +192,12 @@ export class RegisterComponent implements OnInit {
   hideProfessions() {
     this.isDropdownVisible = false;
     this.filteredProfessions = [];
+  }
+
+  normalizeString(input: string): string {
+    return input
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
   }
 }

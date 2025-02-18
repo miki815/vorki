@@ -12,8 +12,8 @@ import multer from 'multer'
 
 declare module 'express-serve-static-core' {
   interface Request {
-    files?: Express.Multer.File[]; // Za više fajlova
-    file?: Express.Multer.File;    // Za jedan fajl
+    files?: Express.Multer.File[]; 
+    file?: Express.Multer.File;   
   }
 }
 
@@ -46,7 +46,7 @@ const app = express();
 
 app.use(cors({
   origin: ['https://vorki.rs', 'http://localhost:4200'],
-  credentials: true 
+  credentials: true
 }));
 app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
@@ -65,6 +65,7 @@ const pool = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
+  charset: 'utf8mb4'
 });
 
 pool.getConnection((err, connection) => {

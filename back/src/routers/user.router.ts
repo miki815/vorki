@@ -43,16 +43,8 @@ userRouter.route('/getRateByIdUserAndRater').post(
     (req, res) => new UserController().getRateByIdUserAndRater(req, res)
 )
 
-userRouter.route('/getGalleryById').post(
-    (req, res) => new UserController().getGalleryById(req, res)
-)
-
 userRouter.route('/changePassword').post(
     (req, res) => new UserController().changePassword(req, res)
-)
-
-userRouter.route('/updateGallery').post(
-    (req, res) => new UserController().updateGallery(req, res)
 )
 
 userRouter.route('/getIdByEmail').post(

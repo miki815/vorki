@@ -82,11 +82,11 @@ export class AdvertisementComponent implements OnInit {
           console.log("Insert job - submit: PASS")
           this.poruka = "Uspešno ste dodali oglas: " + this.title;
           this.description = null;
-          this.title = null;
           this.bgcolor = "rgb(42, 138, 42)";
           this.addPicturesJobInsert(message['job_id']);
           this.notificationService.newJobNotification({ user_id: this.cookieService.get('userId'), job_id: message['job_id'], job_title: this.title }).subscribe((message: any) => {
-            console.log("Notification sent");
+            console.log("Notification sent for job title: " + this.title);
+            this.title = null;
           });
         }
       })

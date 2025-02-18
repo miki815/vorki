@@ -53,7 +53,7 @@ export class JobSettingsComponent {
     this.jobId = this.route.snapshot.paramMap.get('jobId')!;
     this.getToken();
     this.getJob();
-    this.userService.getGalleryById({ idUser: this.cookie }).subscribe((message: any) => {
+    this.jobService.getJobGallery(this.job.id).subscribe((message: any) => {
       var imgs = message['message'];
       imgs.forEach(element => {
         this.galleryRef.add(new ImageItem({ src: element.urlPhoto, thumb: element.urlPhoto }))
@@ -188,7 +188,7 @@ export class JobSettingsComponent {
   //   })
   // }
 
-  //  this.userService.getGalleryById({idUser: this.cookie}).subscribe((message: any) => {
+  //  this.userService.getJobGallery(this.job.id).subscribe((message: any) => {
   // var imgs =  message['message'];
   // imgs.forEach(element => {
   //   this.galleryRef.add(new ImageItem({ src: element.urlPhoto, thumb: element.urlPhoto }))

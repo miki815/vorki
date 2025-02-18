@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, AfterViewInit, ElementRef, ViewChildren, QueryList, OnInit } from '@angular/core';
 import { UserService } from "src/app/services/user.service";
 import { CookieService } from 'ngx-cookie-service';
 import { ActivatedRoute, Router } from "@angular/router";
@@ -14,7 +14,7 @@ import { HttpClient } from "@angular/common/http";
 
 
 
-export class LandingComponent implements OnInit {
+export class LandingComponent implements OnInit, AfterViewInit {
   topMasters: any = [];
   nameAndSurname: string = ""
   contact: string = ""
@@ -26,6 +26,26 @@ export class LandingComponent implements OnInit {
   readonly VAPID_PUBLIC_KEY = "BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg";
   uri = 'http://127.0.0.1:4000'
   // uri: string = 'https://vorki.rs';
+
+  @ViewChildren('fadeSection', { read: ElementRef }) sectionsElements!: QueryList<ElementRef>;
+
+  ngAfterViewInit() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target); // opcionalno, ako ne želiš da se ponavlja
+          }
+        });
+      },
+      { threshold: 0.1 } // 10% sekcije mora biti vidljivo
+    );
+
+    this.sectionsElements.forEach((section) => {
+      observer.observe(section.nativeElement);
+    });
+  }
 
   constructor(private userService: UserService, private cookieService: CookieService, private router: Router, private route: ActivatedRoute, private swPush: SwPush, private http: HttpClient) { }
   login: number = 1;

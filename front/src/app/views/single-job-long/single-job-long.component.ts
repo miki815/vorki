@@ -74,15 +74,6 @@ export class SingleJobLongComponent implements OnInit {
       });
     });
     this.getComments();
-    // this.userService.getGalleryById({ idUser: this.job.idUser }).subscribe((message: any) => {
-    //   var imgs = message['message'];
-    //   console.log(imgs);
-    //   imgs.forEach(element => {
-    //     this.galleryRef.add(new ImageItem({ src: element.urlPhoto, thumb: element.urlPhoto }))
-    //     this.numberOfPhotos += 1;
-    //   });
-    //   this.imagesLoaded = true;
-    // })
 
     this.map = L.map('map').setView([0, 0], 2);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

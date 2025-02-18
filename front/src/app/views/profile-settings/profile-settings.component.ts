@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { Gallery, GalleryItem, GalleryRef, GalleryState, ImageItem } from 'ng-gallery';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
+import { JobService } from 'src/app/services/job.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ProfileSettingsComponent {
 
-  constructor(private gallery: Gallery, private cookieService: CookieService, private userService: UserService, private cdr: ChangeDetectorRef) { }
+  constructor(private gallery: Gallery, private cookieService: CookieService, private userService: UserService, private jobService: JobService, private cdr: ChangeDetectorRef) { }
 
 
   // TODO: Obrisati sve prom koje nisu potrebne
@@ -145,7 +146,7 @@ export class ProfileSettingsComponent {
           email: this.email,
           firstname: this.firstname,
           lastname: this.lastname,
-          birthday: this.birthday,
+          //birthday: this.birthday,
           location: this.location,
           phone: this.phone,
           photo: this.photo,
@@ -154,10 +155,13 @@ export class ProfileSettingsComponent {
         }
         this.userService.updateUser(data).subscribe((message: any) => {
           if (message.error) {
-            this.message = "Korisnik sa datim korisničkim imenom ili emailom već postoji"
+            this.message = "Došlo je do greške prilikom izmene podataka.";
             this.err = 1;
             return;
           }
+          this.jobService.changeJobLocationForUser({idUser: this.idUser, location: this.location}).subscribe((message: any) => {
+            console.log("Job location changed for user: ", this.idUser)
+          });
           this.message = "Uspešno ste izmenili podatke"
         })
       })
@@ -284,7 +288,7 @@ export class ProfileSettingsComponent {
   //   this.userService.updateGallery(data).subscribe((message: any) => {
   //   })
   // }
-  /* this.userService.getGalleryById({idUser: this.cookie}).subscribe((message: any) => {
+  /* this.userService.getJobGallery(this.job.id).subscribe((message: any) => {
   var imgs =  message['message'];
   imgs.forEach(element => {
     this.galleryRef.add(new ImageItem({ src: element.urlPhoto, thumb: element.urlPhoto }))

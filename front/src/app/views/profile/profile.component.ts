@@ -309,7 +309,7 @@ export class ProfileComponent implements OnInit {
   }
 
 
-   this.userService.getGalleryById({idUser: this.idUser}).subscribe((message: any) => {
+   this.userService.getJobGallery(this.job.id).subscribe((message: any) => {
       var imgs =  message['message'];
       imgs.forEach(element => {
         this.images.push(new ImageItem({ src: element.urlPhoto, thumb: element.urlPhoto }));

@@ -8,12 +8,12 @@ import { environment } from 'src/environments/environment';
 export class UserService {
 
   constructor(private http: HttpClient) { }
-  // uri = 'http://127.0.0.1:4000'
   uri = 'https://vorki.rs';
+  // uri = 'http://127.0.0.1:4000'
   // uri = environment.uri;
 
   login(data) {
-    return this.http.post(`${this.uri}/users/login`, data, {withCredentials: true});
+    return this.http.post(`${this.uri}/users/login`, data, { withCredentials: true });
   }
 
   register(data) {
@@ -52,16 +52,8 @@ export class UserService {
     return this.http.post(`${this.uri}/users/getRateByIdUserAndRater`, data);
   }
 
-  getGalleryById(data) {
-    return this.http.post(`${this.uri}/users/getGalleryById`, data);
-  }
-
   changePassword(data) {
     return this.http.post(`${this.uri}/users/changePassword`, data);
-  }
-
-  updateGallery(data) {
-    return this.http.post(`${this.uri}/users/updateGallery`, data);
   }
 
   getIdByEmail(data) {
@@ -114,6 +106,6 @@ export class UserService {
   }
 
   verifyUser(data) {
-    return this.http.post(`${this.uri}/users/verify-user`, data, {withCredentials: true});
+    return this.http.post(`${this.uri}/users/verify-user`, data, { withCredentials: true });
   }
 }

@@ -1,31 +1,33 @@
 <main>
   <app-main-navbar></app-main-navbar>
 
+
   <!-- INTRO TEXT -->
-  <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
-    <div class="absolute top-0 w-full h-full bg-center bg-cover" id="introImgDiv">
-      <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
-    </div>
-    <div class="container relative mx-auto">
-      <div class="items-center flex flex-wrap">
-        <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
-          <div class="pr-12">
-            <h1 class="text-white font-semibold text-5xl">
-              Vaš partner u rešavanju problema.
-            </h1>
-            <p class="mt-4 text-lg text-blueGray-200 text-justify">
-              Sa Vorkijem, pronalaženje majstora nikada nije bilo lakše. Izaberite uslugu koja vam je potrebna, 
-              a mi ćemo vam pronaći najbolje majstore u vašem okruženju. Bez čekanja na telefonski
-              poziv ili traženja preporuka - sve je na par klikova.
-            </p>
+  <section #fadeSection class="fade-section">
+    <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
+      <div class="absolute top-0 w-full h-full bg-center bg-cover" id="introImgDiv">
+        <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
+      </div>
+      <div class="container relative mx-auto">
+        <div class="items-center flex flex-wrap">
+          <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+            <div class="pr-12">
+              <h1 class="text-white font-semibold text-5xl">
+                Vaš partner u rešavanju problema.
+              </h1>
+              <p class="mt-4 text-lg text-blueGray-200 text-justify">
+                Sa Vorkijem, pronalaženje majstora nikada nije bilo lakše. Izaberite uslugu koja vam je potrebna,
+                a mi ćemo vam pronaći najbolje majstore u vašem okruženju. Bez čekanja na telefonski
+                poziv ili traženja preporuka - sve je na par klikova.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- TOP AD BANNER -->
-  <!-- <div class="w-full py-10 bg-white">
+    <!-- TOP AD BANNER -->
+    <!-- <div class="w-full py-10 bg-white">
     <div class="container mx-auto px-4">
       <div class="bg-gray-100 p-4 rounded-lg">
         <div class="text-center text-gray-600">
@@ -37,106 +39,110 @@
     </div>
   </div> -->
 
-  <!-- MAIN ADVANTAGES -->
-  <section class="pb-20 bg-plava -mt-24">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-wrap">
-        <!-- PROCENA -->
-        <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
-          <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva">
-            <div class="px-4 py-5 flex-auto">
-              <div
-                class="text-zuta p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-plava">
-                <i class="fas fa-star"></i>
+    <!-- MAIN ADVANTAGES -->
+    <div class="bg-plava -mt-24">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap">
+          <!-- PROCENA -->
+          <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva">
+              <div class="px-4 py-5 flex-auto">
+                <div
+                  class="text-zuta p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-plava">
+                  <i class="fas fa-star"></i>
+                </div>
+                <h6 class="text-xl font-bold">Procena</h6>
+                <p class="mt-2 mb-4">
+                  Lako se odlučite za najbolju ponudu. Pogledajte ocene i komentare dostupnih majstora i izaberite onog
+                  koji vam najviše odgovara.
+                </p>
               </div>
-              <h6 class="text-xl font-bold">Procena</h6>
-              <p class="mt-2 mb-4">
-                Lako se odlučite za najbolju ponudu. Pogledajte ocene i komentare dostupnih majstora i izaberite onog
-                koji vam najviše odgovara.
-              </p>
             </div>
           </div>
-        </div>
-        <!-- REZERVACIJA -->
-        <div class="w-full md:w-4/12 px-4 text-center">
-          <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva">
-            <div class="px-4 py-5 flex-auto">
-              <div
-                class="text-zuta p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-plava">
-                <i class="fas fa-calendar-check"></i>
+          <!-- REZERVACIJA -->
+          <div class="w-full md:w-4/12 px-4 text-center">
+            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva">
+              <div class="px-4 py-5 flex-auto">
+                <div
+                  class="text-zuta p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-plava">
+                  <i class="fas fa-calendar-check"></i>
+                </div>
+                <h6 class="text-xl font-bold">Rezervacija</h6>
+                <p class="mt-2 mb-4">
+                  Uz Vorki, rezervacija majstora je potpuno besplatna. Odaberite vreme koje vam najviše odgovara,
+                  opustite se i pustite
+                  majstora da reši vaš problem.
+                </p>
               </div>
-              <h6 class="text-xl font-bold">Rezervacija</h6>
-              <p class="mt-2 mb-4">
-                Uz Vorki, rezervacija majstora je potpuno besplatna. Odaberite vreme koje vam najviše odgovara, opustite se i pustite
-                majstora da reši vaš problem.
-              </p>
             </div>
           </div>
-        </div>
-        <!-- RECENZIJA -->
-        <div class="pt-6 w-full md:w-4/12 px-4 text-center">
-          <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva">
-            <div class="px-4 py-5 flex-auto">
-              <div
-                class="text-zuta p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-plava">
-                <i class="fas fa-pencil-alt"></i>
+          <!-- RECENZIJA -->
+          <div class="pt-6 w-full md:w-4/12 px-4 text-center">
+            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva">
+              <div class="px-4 py-5 flex-auto">
+                <div
+                  class="text-zuta p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-plava">
+                  <i class="fas fa-pencil-alt"></i>
+                </div>
+                <h6 class="text-xl font-bold">Recenzija</h6>
+                <p class="mt-2 mb-4">
+                  Nakon završenog posla, ocenite majstora i ostavite komentar kako bi pomogli drugim korisnicima da
+                  odaberu najboljeg majstora za svoje potrebe.
+                </p>
               </div>
-              <h6 class="text-xl font-bold">Recenzija</h6>
-              <p class="mt-2 mb-4">
-                Nakon završenog posla, ocenite majstora i ostavite komentar kako bi pomogli drugim korisnicima da
-                odaberu najboljeg majstora za svoje potrebe.
-              </p>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
+  <!-- PLATFORM DESCRIPTION -->
+  <section #fadeSection class="fade-section relative py-12 bg-plava">
 
-
-      <!-- PLATFORM DESCRIPTION LEFT SIDE-->
-      <div class="flex flex-wrap items-center mt-12">
-        <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
-          <div
-            class="text-white p-3 text-center inline-flex items-center justify-center w-16 h-16 shadow-lg rounded-full bg-blueGray-700">
-            <i class="fas fa-user-friends text-xl"></i>
-          </div>
-          <h3 class="text-3xl mb-2 font-semibold leading-normal text-white">
-            Mreža koja povezuje, zajednica koja inspiriše
-          </h3>
-          <p class="text-lg leading-relaxed mt-4 mb-4 text-justify text-white">
-            Kroz našu platformu, ne samo da pomažemo ljudima da pronađu kvalitetne majstore,
-            već gradimo i zajednicu koja se zasniva na poverenju i saradnji.
-          </p>
-          <p class="text-lg leading-relaxed mt-0 mb-4 text-justify text-white">
-            Kreiramo veze između korisnika
-            i majstora, uz otvorenu komunikaciju i međusobno razumevanje.
-            Uz našu podršku, zajednica raste i jača, stvarajući dugoročne veze koje prevazilaze samo jedan projekat.
-          </p>
-          <a [routerLink]="['/autentikacija/registracija']" class="font-bold mt-8 text-white">
-            Pridruži se i postani deo Vorki zajednice!
-          </a>
+    <!-- PLATFORM DESCRIPTION LEFT SIDE-->
+    <div class="flex flex-wrap items-center mt-12">
+      <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
+        <div
+          class="text-white p-3 text-center inline-flex items-center justify-center w-16 h-16 shadow-lg rounded-full bg-blueGray-700">
+          <i class="fas fa-user-friends text-xl"></i>
         </div>
+        <h3 class="text-3xl mb-2 font-semibold leading-normal text-white">
+          Mreža koja povezuje, zajednica koja inspiriše
+        </h3>
+        <p class="text-lg leading-relaxed mt-4 mb-4 text-justify text-white">
+          Kroz našu platformu, ne samo da pomažemo ljudima da pronađu kvalitetne majstore,
+          već gradimo i zajednicu koja se zasniva na poverenju i saradnji.
+        </p>
+        <p class="text-lg leading-relaxed mt-0 mb-4 text-justify text-white">
+          Kreiramo veze između korisnika
+          i majstora, uz otvorenu komunikaciju i međusobno razumevanje.
+          Uz našu podršku, zajednica raste i jača, stvarajući dugoročne veze koje prevazilaze samo jedan projekat.
+        </p>
+        <a [routerLink]="['/autentikacija/registracija']" class="font-bold mt-8 text-white">
+          Pridruži se i postani deo Vorki zajednice!
+        </a>
+      </div>
 
-        <!-- PLATFORM DESCRIPTION RIGHT SIDE -->
-        <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
-          <div
-            class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-blueGray-700">
-            <img alt="..." src="assets/img/dane1.jpg" class="w-full align-middle rounded-t-lg" />
-            <blockquote class="relative p-8 mb-4">
-              <h4 class="text-xl font-bold text-white">Budi uvek prvi obavešten</h4>
-              <p class="text-md font-light mt-2 text-white">
-                <!-- Šta god da vam je potrebno, mi smo tu da vam pomognemo. Širok spektar usluga i kvalitetnih
+      <!-- PLATFORM DESCRIPTION RIGHT SIDE -->
+      <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
+        <div
+          class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-blueGray-700">
+          <img alt="..." src="assets/img/dane1.jpg" class="w-full align-middle rounded-t-lg" />
+          <blockquote class="relative p-8 mb-4">
+            <h4 class="text-xl font-bold text-white">Budi uvek prvi obavešten</h4>
+            <p class="text-md font-light mt-2 text-white">
+              <!-- Šta god da vam je potrebno, mi smo tu da vam pomognemo. Širok spektar usluga i kvalitetnih
                 majstora potrudiće se da vaš problem bude rešen brzo i efikasno. -->
-                Jednim klikom besplatno se pretplati i obezbedi sebi da ti stigne notifikacija svaki put kada dobiješ
-                zahtev za novi posao ili se pojavi oglas koji odgovara tvom području rada.
-              </p>
-              <button
-                class="bg-zuta hover:bg-blue-600 font-bold py-2 px-6 rounded-lg shadow-md transition-all justify-center mt-4"
-                (click)="subscribeToNotifications()" [disabled]="isSubscribed">
-                {{ isSubscribed ? 'Već ste pretplaćeni' : 'Pretplati se' }}
-              </button>
-            </blockquote>
-          </div>
+              Jednim klikom besplatno se pretplati i obezbedi sebi da ti stigne notifikacija svaki put kada dobiješ
+              zahtev za novi posao ili se pojavi oglas koji odgovara tvom području rada.
+            </p>
+            <button
+              class="bg-zuta hover:bg-blue-600 font-bold py-2 px-6 rounded-lg shadow-md transition-all justify-center mt-4"
+              (click)="subscribeToNotifications()" [disabled]="isSubscribed">
+              {{ isSubscribed ? 'Već ste pretplaćeni' : 'Pretplati se' }}
+            </button>
+          </blockquote>
         </div>
       </div>
     </div>
@@ -147,17 +153,17 @@
     <div class="container mx-auto px-4">
       <div class="bg-gray-100 p-4 rounded-lg">
         <!-- <div class="text-center text-gray-600"> -->
-          <!-- Ad Space -->
-          <div class="h-24 flex items-center justify-center border border-dashed border-gray-300">
-            <img src="assets/img/banner.png" alt="Reklama" class="h-full w-full object-contain rounded-lg">
-          </div>
+        <!-- Ad Space -->
+        <div class="h-24 flex items-center justify-center border border-dashed border-gray-300">
+          <img src="assets/img/banner.png" alt="Reklama" class="h-full w-full object-contain rounded-lg">
+        </div>
         <!-- </div> -->
       </div>
     </div>
   </div>
 
   <!-- WHY US -->
-  <section class="relative py-10 bg-zuta">
+  <section #fadeSection class="fade-section relative py-10 bg-zuta">
     <div class="top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20">
       <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
         version="1.1" viewBox="0 0 2560 100" x="0" y="0">
@@ -167,7 +173,7 @@
     <div class="container mx-auto px-4">
       <div class="items-center flex flex-wrap">
         <div class="w-full md:w-4/12 ml-auto mr-auto px-4">
-          <img alt="..." class="max-w-full rounded-lg shadow-lg" src="assets/img/dane4.jpg" />
+          <img alt="..." class="max-w-full rounded-lg shadow-lg" src="assets/img/pocetna13.jpg" />
         </div>
         <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
           <div class="md:pr-12">
@@ -229,7 +235,7 @@
   </section>
 
   <!-- TOP MASTERS -->
-  <section class="pt-20 pb-48 bg-zuta">
+  <section #fadeSection class="fade-section pt-12 pb-20 bg-zuta">
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap justify-center text-center mb-12">
         <div class="w-full lg:w-6/12 px-4">
@@ -243,8 +249,8 @@
         <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
           <div class="px-6">
             <a [routerLink]="['/profil', topMasters[0].id]">
-              <img alt="..." [src]="topMasters[0].photo" class="object-cover rounded-full shadow-lg mx-auto" style="border-radius: 50%; height: 120px; width: 120px;"
-              />
+              <img alt="..." [src]="topMasters[0].photo" class="object-cover rounded-full shadow-lg mx-auto"
+                style="border-radius: 50%; height: 120px; width: 120px;" />
               <!-- <img alt="..." [src]="topMasters[0].photo" class="shadow-lg rounded-full mx-auto max-w-120-px" /> -->
             </a>
             <div class="pt-6 text-center">
@@ -270,7 +276,8 @@
         <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
           <div class="px-6">
             <a [routerLink]="['/profil', topMasters[1].id]">
-              <img alt="..." [src]="topMasters[1].photo" class="object-cover rounded-full shadow-lg mx-auto" style="border-radius: 50%; height: 120px; width: 120px;"/>
+              <img alt="..." [src]="topMasters[1].photo" class="object-cover rounded-full shadow-lg mx-auto"
+                style="border-radius: 50%; height: 120px; width: 120px;" />
             </a>
             <div class="pt-6 text-center">
               <h5 class="text-xl font-bold">{{topMasters[1].username}}</h5>
@@ -294,7 +301,8 @@
         <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
           <div class="px-6">
             <a [routerLink]="['/profil', topMasters[2].id]">
-              <img alt="..." [src]="topMasters[2].photo" class="object-cover rounded-full shadow-lg mx-auto" style="border-radius: 50%; height: 120px; width: 120px;"/>
+              <img alt="..." [src]="topMasters[2].photo" class="object-cover rounded-full shadow-lg mx-auto"
+                style="border-radius: 50%; height: 120px; width: 120px;" />
             </a>
             <div class="pt-6 text-center">
               <h5 class="text-xl font-bold">{{topMasters[2].username}}</h5>
@@ -318,7 +326,8 @@
         <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
           <div class="px-6">
             <a [routerLink]="['/profil', topMasters[3].id]">
-              <img alt="..." [src]="topMasters[3].photo" class="object-cover rounded-full shadow-lg mx-auto" style="border-radius: 50%; height: 120px; width: 120px;"/>
+              <img alt="..." [src]="topMasters[3].photo" class="object-cover rounded-full shadow-lg mx-auto"
+                style="border-radius: 50%; height: 120px; width: 120px;" />
             </a>
             <div class="pt-6 text-center">
               <h5 class="text-xl font-bold">{{topMasters[3].username}}</h5>
@@ -343,12 +352,12 @@
     </div>
   </section>
   <!-- QUESTIONS -->
-  <section class="pb-4 relative block bg-plava">
-    <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20">
+  <section #fadeSection class="fade-section pb-4 relative block bg-plava">
+    <!-- <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20">
       <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
         version="1.1" viewBox="0 0 2560 100" x="0" y="0">
       </svg>
-    </div>
+    </div> -->
 
     <div class="container mx-auto px-4 lg:pt-24 lg:pb-64">
       <div class="flex flex-wrap text-center justify-center">
@@ -400,7 +409,7 @@
 
 
 
-  <section class="relative block py-24 lg:pt-0 bg-plava mt-20">
+  <section #fadeSection class="fade-section relative block py-24 lg:pt-0 bg-plava mt-20">
     <div class="container mx-auto px-4 bg-plava">
       <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48">
         <div class="w-full lg:w-6/12 px-4">

@@ -3,6 +3,8 @@
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
+<app-main-navbar></app-main-navbar>
+
 <main class="profile-page bg-zuta">
     <section class="relative block h-500-px">
         <div class="absolute top-0 w-full h-full bg-center bg-cover" style="background-image: url({{ph}});">
@@ -27,9 +29,11 @@
 
                         <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
                             <div class="relative im">
-                                <img [src]="job.photo"
+                                <img alt="..." [src]="job.photo" class="object-cover rounded-full shadow-lg mx-auto -m-16" style="border-radius: 50%; height: 100px; width: 100px;"/>
+
+                                <!-- <img [src]="job.photo"
                                     class="rounded-full h-auto align-middle absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
-                                    style="border-radius: 50%; height: 100px; width: 100px; object-fit: cover;" />
+                                    style="border-radius: 50%; height: 100px; width: 100px; object-fit: cover;" /> -->
                             </div>
                         </div>
 
@@ -64,7 +68,7 @@
                                 *ngIf="isRequest==true">
                                 <div style="display: flex; flex-direction: row; padding: 3px; ">
                                     <div class="relative w-full mb-3 margin-5" style="margin-right: 10px;">
-                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                        <label class="block uppercase text-xs text-white font-bold mb-2"
                                             htmlFor="grid-password">
                                             Predlog termina
                                         </label>
@@ -76,7 +80,7 @@
 
                                 <div style="display: flex; flex-direction: row; padding: 3px; "> -->
                                     <div class="relative w-full mb-3">
-                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                        <label class="block uppercase text-xs text-white font-bold mb-2"
                                             htmlFor="additionalInfo">
                                             Dodatne informacije
                                         </label>
@@ -87,7 +91,7 @@
                                 </div>
 
                                 <button style="margin-top: 5px;" (click)="userRequestForAgreement()"
-                                    class="bg-red-600 active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                                    class="bg-zuta text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
                                     type="button">
                                     Pošalji zahtev
                                 </button>

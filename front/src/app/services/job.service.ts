@@ -62,4 +62,8 @@ export class JobService {
   getJobGallery(idJob) {
     return this.http.get(`${this.uri}/jobs/getJobGallery/${idJob}`);
   }
+
+  changeJobLocationForUser(data) {
+    return this.http.post(`${this.uri}/jobs/changeJobLocationForUser`, data);
+  }
 }

@@ -9,6 +9,8 @@ import { CookieService } from 'ngx-cookie-service';
 export class MainNavbarComponent implements OnInit {
   navbarOpen = false;
   login: number = 1;
+  menuOpen = false;
+
 
   constructor(private router: Router, private cookieService: CookieService, private route: ActivatedRoute) { }
 
@@ -18,7 +20,8 @@ export class MainNavbarComponent implements OnInit {
   }
 
   toggleMenu() {
-    document.querySelector('.navbar').classList.toggle('active');
+    //document.querySelector('.navbar').classList.toggle('active');
+    this.menuOpen = !this.menuOpen;
   }
 
   logout() {
@@ -33,6 +36,10 @@ export class MainNavbarComponent implements OnInit {
 
   navigate_to_register() {
     this.router.navigate(['/autentikacija/registracija']);
+  }
+
+  navigateToHome() {
+    this.router.navigate(['/']);
   }
 
   navigateToProfile() {

@@ -23,10 +23,10 @@ export class ForgottenPasswordChangeComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.token = params.get('reset_token');
       this.validate();
-    })  
+    })
   }
 
-  validate(){
+  validate() {
     this.userService.tokenValidation({ token: this.token }).subscribe(response => {
       if (response['error'] == '1') {
         this.message = response["message"];
@@ -49,11 +49,11 @@ export class ForgottenPasswordChangeComponent implements OnInit {
   submit() {
     console.log("Zaboravljena lozinka - promena: START")
 
-    if(!this.validateRequest()){return;}
+    if (!this.validateRequest()) { return; }
     this.hashPassword(this.password).then(hashedPassword => {
-      this.userService.changeForgottenPassword({email: this.email, password: hashedPassword}).subscribe(res => {
+      this.userService.changeForgottenPassword({ email: this.email, password: hashedPassword }).subscribe(res => {
         if (res['error'] == '0') {
-          this.messageSucc ='Lozinka promenjena! Molimo Vas da se ulogujete ponovo.';
+          this.messageSucc = 'Lozinka promenjena! Molimo Vas da se ulogujete ponovo.';
           this.password = '';
           this.password2 = '';
           sessionStorage.removeItem('user')
@@ -65,15 +65,19 @@ export class ForgottenPasswordChangeComponent implements OnInit {
     console.log("Zaboravljena lozinka - promena: END")
   }
 
-  validateRequest(){
-    if (this.password == '' || this.password2 == ''){ this.message = "Molimo vas da unesete sva trazena polja."; return false; }
-    if (this.password != this.password2) { this.message = "Lozinke nisu iste."; return false; }
-    if (!this.password.match(/^(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z][a-zA-Z0-9!@#$%^&*]{7,15}$/)) {
-      this.message = "Lozinka mora imati barem \
-      jedno malo slovo, jedno veliko slovo, jedan broj i jedan specijalni (@#$%^&*()\-_=+{};:,<.>) karakter. Lozinka mora\
-      imati najmanje 6 karaktera.";
+  validateRequest() {
+    if (this.password == '' || this.password2 == '') { this.message = "Molimo vas da unesete sva trazena polja."; return false; }
+    if (this.password.length < 8) {
+      this.message = "Lozinka mora imati najmanje 8 karaktera.";
       return false;
     }
+    if (this.password != this.password2) { this.message = "Lozinke nisu iste."; return false; }
+    // if (!this.password.match(/^(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z][a-zA-Z0-9!@#$%^&*]{7,15}$/)) {
+    //   this.message = "Lozinka mora imati barem \
+    //   jedno malo slovo, jedno veliko slovo, jedan broj i jedan specijalni (@#$%^&*()\-_=+{};:,<.>) karakter. Lozinka mora\
+    //   imati najmanje 6 karaktera.";
+    //   return false;
+    // }
     return true;
   }
 }

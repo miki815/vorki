@@ -3254,6 +3254,11 @@ select {
   color: #efca21;
 }
 
+.text-plava {
+  --tw-bg-opacity: 1;
+  color: #274153;
+}
+
 .text-blueGray-200 {
   --tw-text-opacity: 1;
   color: rgba(226, 232, 240, var(--tw-text-opacity));

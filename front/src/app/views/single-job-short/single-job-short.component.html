@@ -1,7 +1,8 @@
 <div
     class="max-w-lg mx-auto bg-white shadow-lg rounded-lg overflow-hidden border-2 border-blueGray-600 bg-nice relative">
     <div class="px-4 py-2 flex items-center flex-wrap">
-        <img [src]="imageSrc" alt="Profile Picture" class="w-16 h-16 rounded-full mr-4">
+        <!-- <img [src]="imageSrc" alt="Profile Picture" class="w-16 h-16 rounded-full mr-4"> -->
+        <img alt="..." [src]="imageSrc" class="w-16 h-16 object-cover rounded-full shadow-lg mx-auto" style="border-radius: 50%;"/>
         <div class="flex-grow">
             <center>
                 <h1 class="font-semibold text-gray-800">{{ job.title }}</h1>
@@ -11,7 +12,7 @@
             </center>
         </div>
         <div class="avg-rate">
-            &#9733;{{ job.avgRate | number:'1.2-2' }}
+            <label class="text-plava">&#9733;{{ job.avgRate | number:'1.2-2' }}</label>
         </div>
     </div>
     <div class="px-4 py-2">
@@ -33,7 +34,6 @@
     .avg-rate {
         margin-left: auto;
         margin-right: 0;
-        color: red;
         padding: 2px 8px;
         border-radius: 4px;
         font-size: 20px;
