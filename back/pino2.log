@@ -541,3 +541,50 @@
 {"level":30,"time":1739838851944,"pid":7928,"hostname":"DESKTOP-9KL4NAD","routeId":"6","msg":"Route ID"}
 {"level":30,"time":1739838851992,"pid":7928,"hostname":"DESKTOP-9KL4NAD","idUser":"6","msg":"Getting job requests for user"}
 {"level":30,"time":1739838851992,"pid":7928,"hostname":"DESKTOP-9KL4NAD","idMaster":"6","msg":"Getting job requests for master"}
+{"level":30,"time":1740061056720,"pid":15596,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1740061056727,"pid":15596,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1740061056780,"pid":15596,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1740061159242,"pid":21428,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1740061159246,"pid":21428,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1740061159277,"pid":21428,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1740061309829,"pid":19432,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1740061309833,"pid":19432,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1740061309862,"pid":19432,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1740061493022,"pid":2372,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1740061493027,"pid":2372,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1740061493064,"pid":2372,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":50,"time":1740061502320,"pid":2372,"hostname":"DESKTOP-9KL4NAD","msg":"Register error: Error: Column 'birthday' cannot be null"}
+{"level":30,"time":1740061707853,"pid":2372,"hostname":"DESKTOP-9KL4NAD","email":"peca@gmail.com","idUser":11,"msg":"User registered"}
+{"level":30,"time":1740061743484,"pid":2372,"hostname":"DESKTOP-9KL4NAD","email":"peca","msg":"Login attempt"}
+{"level":30,"time":1740061743566,"pid":2372,"hostname":"DESKTOP-9KL4NAD","userId":11,"email":"peca","msg":"Login successful"}
+{"level":30,"time":1740061746086,"pid":2372,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDAwNjE3NDMsImV4cCI6MTc0MDA2NTM0M30.Z_Y5nnWnDpnk01Z67MkYMEFhcLxAIVPPp_oUN5X5gHY","msg":"Verifying user for routeId: 11"}
+{"level":30,"time":1740061746091,"pid":2372,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1740061743,"exp":1740065343},"msg":"Decoded token"}
+{"level":30,"time":1740061746091,"pid":2372,"hostname":"DESKTOP-9KL4NAD","routeId":"11","msg":"Route ID"}
+{"level":30,"time":1740061768704,"pid":2372,"hostname":"DESKTOP-9KL4NAD","idUser":"11","username":"peca","email":"peca@gmail.com","firstname":"ime","lastname":"prezime","location":"Aleksandrovac","phone":"+381600411177","distance":50,"msg":"updateUser attempt"}
+{"level":30,"time":1740061768749,"pid":2372,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"User updated"}
+{"level":30,"time":1740061772288,"pid":2372,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDAwNjE3NDMsImV4cCI6MTc0MDA2NTM0M30.Z_Y5nnWnDpnk01Z67MkYMEFhcLxAIVPPp_oUN5X5gHY","msg":"Verifying user for routeId: 11"}
+{"level":30,"time":1740061772289,"pid":2372,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1740061743,"exp":1740065343},"msg":"Decoded token"}
+{"level":30,"time":1740061772289,"pid":2372,"hostname":"DESKTOP-9KL4NAD","routeId":"11","msg":"Route ID"}
+{"level":30,"time":1740061788292,"pid":2372,"hostname":"DESKTOP-9KL4NAD","idUser":"11","username":"peca","email":"peca@gmail.com","firstname":"petar","lastname":"petrovic","location":"Aleksandrovac","phone":"+381600411177","distance":50,"msg":"updateUser attempt"}
+{"level":30,"time":1740061788326,"pid":2372,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"User updated"}
+{"level":30,"time":1740061790075,"pid":2372,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDAwNjE3NDMsImV4cCI6MTc0MDA2NTM0M30.Z_Y5nnWnDpnk01Z67MkYMEFhcLxAIVPPp_oUN5X5gHY","msg":"Verifying user for routeId: 11"}
+{"level":30,"time":1740061790077,"pid":2372,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1740061743,"exp":1740065343},"msg":"Decoded token"}
+{"level":30,"time":1740061790077,"pid":2372,"hostname":"DESKTOP-9KL4NAD","routeId":"11","msg":"Route ID"}
+{"level":30,"time":1740061805112,"pid":2372,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDAwNjE3NDMsImV4cCI6MTc0MDA2NTM0M30.Z_Y5nnWnDpnk01Z67MkYMEFhcLxAIVPPp_oUN5X5gHY","msg":"Verifying user for routeId: 11"}
+{"level":30,"time":1740061805114,"pid":2372,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1740061743,"exp":1740065343},"msg":"Decoded token"}
+{"level":30,"time":1740061805115,"pid":2372,"hostname":"DESKTOP-9KL4NAD","routeId":"11","msg":"Route ID"}
+{"level":30,"time":1740061916362,"pid":2372,"hostname":"DESKTOP-9KL4NAD","idUser":"11","username":"peca","email":"peca@gmail.com","firstname":"---","lastname":"---","location":"Aleksandrovac","phone":"+381600411177","distance":50,"msg":"updateUser attempt"}
+{"level":30,"time":1740061916419,"pid":2372,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"User updated"}
+{"level":30,"time":1740061924770,"pid":2372,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDAwNjE3NDMsImV4cCI6MTc0MDA2NTM0M30.Z_Y5nnWnDpnk01Z67MkYMEFhcLxAIVPPp_oUN5X5gHY","msg":"Verifying user for routeId: 11"}
+{"level":30,"time":1740061924772,"pid":2372,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1740061743,"exp":1740065343},"msg":"Decoded token"}
+{"level":30,"time":1740061924772,"pid":2372,"hostname":"DESKTOP-9KL4NAD","routeId":"11","msg":"Route ID"}
+{"level":30,"time":1740143723243,"pid":2372,"hostname":"DESKTOP-9KL4NAD","email":"mikipres@gmail.com","msg":"Login attempt"}
+{"level":30,"time":1740143723409,"pid":2372,"hostname":"DESKTOP-9KL4NAD","userId":6,"email":"mikipres@gmail.com","msg":"Login successful"}
+{"level":30,"time":1740165015741,"pid":2372,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTc0MDE0MzcyMywiZXhwIjoxNzQwMTQ3MzIzfQ.gpRK_CQg1hyyXDZ95bmtAPOyzLHTMejFkyae9JSlJAQ","msg":"Verifying user for routeId: 6"}
+{"level":30,"time":1740165193439,"pid":2372,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTc0MDE0MzcyMywiZXhwIjoxNzQwMTQ3MzIzfQ.gpRK_CQg1hyyXDZ95bmtAPOyzLHTMejFkyae9JSlJAQ","msg":"Verifying user for routeId: 6"}
+{"level":30,"time":1740167993248,"pid":2372,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTc0MDE0MzcyMywiZXhwIjoxNzQwMTQ3MzIzfQ.gpRK_CQg1hyyXDZ95bmtAPOyzLHTMejFkyae9JSlJAQ","msg":"Verifying user for routeId: 6"}
+{"level":30,"time":1740168204905,"pid":2372,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTc0MDE0MzcyMywiZXhwIjoxNzQwMTQ3MzIzfQ.gpRK_CQg1hyyXDZ95bmtAPOyzLHTMejFkyae9JSlJAQ","msg":"Verifying user for routeId: 6"}
+{"level":30,"time":1740168454230,"pid":2372,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTc0MDE0MzcyMywiZXhwIjoxNzQwMTQ3MzIzfQ.gpRK_CQg1hyyXDZ95bmtAPOyzLHTMejFkyae9JSlJAQ","msg":"Verifying user for routeId: 6"}
+{"level":30,"time":1740168488801,"pid":2372,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTc0MDE0MzcyMywiZXhwIjoxNzQwMTQ3MzIzfQ.gpRK_CQg1hyyXDZ95bmtAPOyzLHTMejFkyae9JSlJAQ","msg":"Verifying user for routeId: 6"}
+{"level":30,"time":1740168712275,"pid":2372,"hostname":"DESKTOP-9KL4NAD","email":"mikipres@gmail.com","msg":"Login attempt"}
+{"level":30,"time":1740168712365,"pid":2372,"hostname":"DESKTOP-9KL4NAD","userId":6,"email":"mikipres@gmail.com","msg":"Login successful"}

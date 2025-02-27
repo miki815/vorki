@@ -26,4 +26,5 @@ userRouter.route('/changeForgottenPassword').post((req, res) => new user_control
 userRouter.route('/getTop5masters').get((req, res) => new user_controller_1.UserController().getTop5masters(req, res));
 userRouter.route('/support').post((req, res) => new user_controller_1.UserController().support(req, res));
 userRouter.route('/verify-user').post((req, res) => new user_controller_1.UserController().verifyUser(req, res));
+userRouter.route('/verify-token').post((req, res) => new user_controller_1.UserController().verifyToken(req, res));
 exports.default = userRouter;
