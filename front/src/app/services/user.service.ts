@@ -8,8 +8,8 @@ import { environment } from 'src/environments/environment';
 export class UserService {
 
   constructor(private http: HttpClient) { }
-  uri = 'https://vorki.rs';
-  // uri = 'http://127.0.0.1:4000'
+  // uri = 'https://vorki.rs';
+  uri = 'http://127.0.0.1:4000'
   // uri = environment.uri;
 
   login(data) {
@@ -107,5 +107,9 @@ export class UserService {
 
   verifyUser(data) {
     return this.http.post(`${this.uri}/users/verify-user`, data, { withCredentials: true });
+  }
+
+  verifyToken(data) {
+    return this.http.post(`${this.uri}/users/verify-token`, data, { withCredentials: true });
   }
 }

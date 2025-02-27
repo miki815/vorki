@@ -1,35 +1,52 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { jwtDecode } from 'jwt-decode';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { UserService } from './services/user.service';
 
-
-export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> => {
   const authService = inject(CookieService);
   const router = inject(Router);
-  const http = inject(HttpClient);
-  const routeId = route.paramMap.get('id');
   const userService = inject(UserService);
   const token = authService.get('token');
 
   if (!token) {
     router.navigate(['/autentikacija/prijava']);
-    return false;
+    return of(false);
   }
 
-  
   if (route.routeConfig?.path === 'profil/:id') {
-    userService.verifyUser({ routeId: routeId, token: token }).subscribe((response: any) => {
-      if (response['authorized'] == true) {
-        return true;
-      } else {
+    const routeId = route.paramMap.get('id');
+    return userService.verifyUser({ routeId: routeId, token: token }).pipe(
+      map((response: any) => {
+        if (response['authorized']) {
+          return true;
+        } else {
+          router.navigate(['/autentikacija/prijava']);
+          return false;
+        }
+      }),
+      catchError(() => {
         router.navigate(['/autentikacija/prijava']);
-        return false;
-      }
-    });
+        return of(false);
+      })
+    );
+  } else {
+    return userService.verifyToken({ token: token }).pipe(
+      map((response: any) => {
+        if (response['authorized']) {
+          return true;
+        } else {
+          router.navigate(['/autentikacija/prijava']);
+          return false;
+        }
+      }),
+      catchError(() => {
+        router.navigate(['/autentikacija/prijava']);
+        return of(false);
+      })
+    );
   }
 };

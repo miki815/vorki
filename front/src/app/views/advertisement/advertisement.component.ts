@@ -23,7 +23,9 @@ export class AdvertisementComponent implements OnInit {
   bgcolor: string = "rgb(239, 114, 114)";
   imagePreviews: string[] = [];
   searchQuery = '';
+  searchQueryProf = '';
   filteredCities: any;
+  filteredProfessions: string[] = [];
 
 
   // uri = 'http://127.0.0.1:4000'
@@ -51,6 +53,7 @@ export class AdvertisementComponent implements OnInit {
       .then(professions => {
         this.professions = [...professions.craftsmen, ...professions.services, ...professions.transport];
         this.professions.sort((a, b) => a.localeCompare(b));
+        this.filteredProfessions = this.professions;
       })
       .catch(error => {
         console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):', error);
@@ -153,11 +156,24 @@ export class AdvertisementComponent implements OnInit {
     console.log('Search query:', this.searchQuery)
     console.log('Cities:', this.cities[0])
     this.filteredCities = this.cities.filter(city =>
-      city.city.toLowerCase().includes(this.searchQuery.toLowerCase())
+      this.normalizeString(city.city).includes(this.normalizeString(this.searchQuery))
     );
   }
 
+  filterProfessions() {
+    console.log('Register - filterProfessions: START')
+    console.log('Search term:', this.searchQueryProf)
+    this.filteredProfessions = this.professions.filter((profession) =>
+      this.normalizeString(profession).includes(this.normalizeString(this.searchQueryProf))
+    );
+  }
 
+  normalizeString(input: string): string {
+    return input
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+  }
 
   test() {
     console.log("Prijava - test: START")

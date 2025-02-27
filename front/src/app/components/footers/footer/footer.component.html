@@ -2,37 +2,29 @@
   <div class="container mx-auto px-4">
     <!-- Gornji deo footera -->
     <div class="flex flex-col items-center text-center">
-      <!-- Logo i navigacija -->
       <div class="mb-6">
         <span class="block uppercase text-white text-sm font-semibold mb-4">
           Vorki
         </span>
-        <ul class="flex flex-wrap justify-center space-x-4">
+        <ul class="footer-menu">
           <li>
             <a class="text-white hover:text-blueGray-300 font-semibold text-sm" [routerLink]="'/pocetna'">
               O nama
             </a>
           </li>
-          <li>
+          <li class="border-l border-white pl-4">
             <a class="text-white hover:text-blueGray-300 font-semibold text-sm" [routerLink]="'/kontakt'">
               Kontakt
             </a>
           </li>
-          <li>
-            <a
-              class="text-white hover:text-blueGray-300 font-semibold text-sm"
-              href="assets/uslovi.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          <li class="border-l border-white pl-4">
+            <a class="text-white hover:text-blueGray-300 font-semibold text-sm" href="assets/uslovi.pdf" target="_blank"
+              rel="noopener noreferrer">
               Uslovi korišćenja
             </a>
           </li>
-          <li>
-            <a
-              class="text-white hover:text-blueGray-300 font-semibold text-sm"
-              [routerLink]="'/politika-privatnosti'"
-            >
+          <li class="border-l border-white pl-4">
+            <a class="text-white hover:text-blueGray-300 font-semibold text-sm" [routerLink]="'/politika-privatnosti'">
               Politika privatnosti
             </a>
           </li>
@@ -53,3 +45,35 @@
     </div>
   </div>
 </footer>
+
+
+<style>
+  @media (max-width: 640px) {
+
+    /* Za mobilne uređaje */
+    .footer-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-menu li {
+      margin-bottom: 10px;
+      border-left: none !important;
+      padding-left: 0 !important;
+    }
+
+  }
+
+  @media (min-width: 641px) {
+
+    /* Za veće ekrane */
+    .footer-menu {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 16px;
+      /* Razmak između stavki */
+    }
+  }
+</style>
