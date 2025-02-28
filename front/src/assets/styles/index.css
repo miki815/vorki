@@ -5,3 +5,7 @@
 @tailwind utilities;
 
 @import "../../../node_modules/angular-calendar/css/angular-calendar.css";
+
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}

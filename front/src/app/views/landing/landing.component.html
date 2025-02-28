@@ -5,20 +5,18 @@
   <!-- INTRO TEXT -->
   <section #fadeSection class="fade-section">
     <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
-      <div class="absolute top-0 w-full h-full bg-center bg-cover" id="introImgDiv">
+      <!-- <div class="absolute top-0 w-full h-full bg-center bg-cover">
         <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
-      </div>
+      </div> -->
       <div class="container relative mx-auto">
         <div class="items-center flex flex-wrap">
           <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
             <div class="pr-12">
-              <h1 class="text-white font-semibold text-5xl">
+              <h1 class="text-blueGray-200 font-semibold text-5xl">
                 Vaš partner u rešavanju problema.
               </h1>
               <p class="mt-4 text-lg text-blueGray-200 text-justify">
-                Sa Vorkijem, pronalaženje majstora nikada nije bilo lakše. Izaberite uslugu koja vam je potrebna,
-                a mi ćemo vam pronaći najbolje majstore u vašem okruženju. Bez čekanja na telefonski
-                poziv ili traženja preporuka - sve je na par klikova.
+                Vorki vam donosi majstore, usluge i prevoz na dohvat ruke. Brzo, jednostavno i bez stresa – pronađite najbolje u svom kraju već sada!
               </p>
             </div>
           </div>
@@ -39,57 +37,69 @@
     </div>
   </div> -->
 
-    <!-- MAIN ADVANTAGES -->
-    <div class="bg-plava -mt-24">
+    <!-- CATEGORIES -->
+    <div class="-mt-24">
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap">
-          <!-- PROCENA -->
+          <!-- USLUGE -->
           <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
-            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva">
-              <div class="px-4 py-5 flex-auto">
+            <div
+              class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva usluge">
+              <div class="px-4 py-5 flex-auto content">
                 <div
-                  class="text-zuta p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-plava">
-                  <i class="fas fa-star"></i>
+                  class="text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blueGray-200 border-blueGray-600 border-solid border-2">
+                  <img src="assets/icons/mowing.png" alt="Ikonica" class="w-8 h-8 object-contain">
                 </div>
-                <h6 class="text-xl font-bold">Procena</h6>
-                <p class="mt-2 mb-4">
-                  Lako se odlučite za najbolju ponudu. Pogledajte ocene i komentare dostupnih majstora i izaberite onog
-                  koji vam najviše odgovara.
+                <h6 class="text-xl font-bold text-blueGray-600">Usluge</h6>
+                <p class="mt-2 mb-4 text-blueGray-600">
+                  Otkrijte širok spektar usluga dostupnih u vašem okruženju. Bilo da vam je potrebna pomoć u domaćinstvu
+                  ili profesionalna usluga, brzo ćete pronaći najbolje ponude na našoj platformi.
                 </p>
               </div>
+              <button class="istrazi-dugme" (click)="category_navigation(2)">
+                Istraži
+              </button>
             </div>
           </div>
-          <!-- REZERVACIJA -->
-          <div class="w-full md:w-4/12 px-4 text-center">
-            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva">
-              <div class="px-4 py-5 flex-auto">
+
+          <!-- MAJSTORI -->
+          <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+            <div
+              class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva majstori">
+              <div class="px-4 py-5 flex-auto content">
                 <div
-                  class="text-zuta p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-plava">
-                  <i class="fas fa-calendar-check"></i>
+                  class="text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blueGray-200 border-blueGray-600 border-solid border-2">
+                  <img src="assets/icons/plumber.png" alt="Ikonica" class="w-8 h-8 object-contain">
                 </div>
-                <h6 class="text-xl font-bold">Rezervacija</h6>
-                <p class="mt-2 mb-4">
-                  Uz Vorki, rezervacija majstora je potpuno besplatna. Odaberite vreme koje vam najviše odgovara,
-                  opustite se i pustite
-                  majstora da reši vaš problem.
+                <h6 class="text-xl font-bold text-blueGray-600">Majstori</h6>
+                <p class="mt-2 mb-4 text-blueGray-600">
+                  Pronađite kvalifikovane i iskusne majstore za sve vrste popravki i renovacija. Naša platforma vam
+                  pomaže da se povežete sa stručnjacima koji će zadovoljiti vaše potrebe u najkraćem mogućem roku.
                 </p>
               </div>
+              <button class="istrazi-dugme" (click)="category_navigation(1)">
+                Istraži
+              </button>
             </div>
           </div>
-          <!-- RECENZIJA -->
-          <div class="pt-6 w-full md:w-4/12 px-4 text-center">
-            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva">
-              <div class="px-4 py-5 flex-auto">
+          <!-- PREVOZ -->
+          <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+            <div
+              class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva prevoz">
+              <div class="px-4 py-5 flex-auto content">
                 <div
-                  class="text-zuta p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-plava">
-                  <i class="fas fa-pencil-alt"></i>
+                  class="text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blueGray-200 border-blueGray-600 border-solid border-2">
+                  <img src="assets/icons/truck.png" alt="Ikonica" class="w-8 h-8 object-contain">
                 </div>
-                <h6 class="text-xl font-bold">Recenzija</h6>
-                <p class="mt-2 mb-4">
-                  Nakon završenog posla, ocenite majstora i ostavite komentar kako bi pomogli drugim korisnicima da
-                  odaberu najboljeg majstora za svoje potrebe.
+                <h6 class="text-xl font-bold text-blueGray-600">Prevoz</h6>
+                <p class="mt-2 mb-4 text-blueGray-600">
+                  Bilo da vam je potreban kamionski ili kombi prevoz, selidba ili odvoženje građevinskog otpada, naša
+                  platforma nudi brze i pouzdane usluge za sve vaše transportne potrebe.
                 </p>
               </div>
+              <button class="istrazi-dugme" (click)="category_navigation(3)">
+                Istraži
+              </button>
             </div>
           </div>
         </div>
@@ -98,33 +108,106 @@
   </section>
 
   <!-- PLATFORM DESCRIPTION -->
-  <section #fadeSection class="fade-section relative py-12 bg-plava">
+  <section #fadeSection class="fade-section relative py-12 background-section">
+    <div class="bg-gray-100">
+      <div class="container mx-auto px-4 py-8">
+        <!-- Header Section -->
+        <div class="text-center mb-8">
+          <h1 class="text-4xl font-bold text-blueGray-600">Mreža koja povezuje, zajednica koja inspiriše</h1>
+          <p class="text-gray-600 mt-2">Kreiramo veze između korisnika i stručnjaka, uz otvorenu komunikaciju i međusobno razumevanje.</p>
+          <p class="text-gray-600 mt-2"><strong>Lako, brzo i sigurno!</strong></p>
+        </div>
 
-    <!-- PLATFORM DESCRIPTION LEFT SIDE-->
+        <!-- Features Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Notifikacije -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="flex items-center justify-center">
+              <img src="assets/icons/bell.png" alt="Notifikacije" class="w-12 h-12 mb-4">
+              <h2 class="text-xl font-semibold text-blueGray-600">Notifikacije</h2>
+            </div>
+            <p class="text-gray-600 mt-2">Pretplatite se na besplatne push
+              notifikacije i budite među prvima koji dobijaju najnovije ponude i obaveštenja.
+            </p>
+          </div>
+
+          <!-- Sve na jednom mestu -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="flex items-center justify-center">
+              <img src="assets/icons/job-search.png" alt="Sve na jednom mestu" class="w-12 h-12 mb-4">
+              <h2 class="text-xl font-semibold text-blueGray-600">Sve na jednom mestu</h2>
+            </div>
+            <p class="text-gray-600 mt-2">Bez obzira da li vam treba majstor, prevoz ili
+              bilo koja druga usluga, lako ćete pronaći odgovarajućeg profesionalca.</p>
+          </div>
+
+          <!-- Bez skrivenih troškova -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="flex items-center justify-center">
+              <img src="assets/icons/free.png" alt="Bez skrivenih troškova" class="w-12 h-12 mb-4">
+              <h2 class="text-xl font-semibold text-blueGray-600">Bez skrivenih troškova</h2>
+            </div>
+            <p class="text-gray-600 mt-2">Aplikacija omogućava besplatnu rezervaciju,
+              dok plaćanje ide direktno majstorima ili pružaocima usluga.</p>
+          </div>
+
+          <!-- Bez čekanja -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="flex items-center justify-center">
+              <img src="assets/icons/lighting.png" alt="Bez čekanja" class="w-12 h-12 mb-4">
+              <h2 class="text-xl font-semibold text-blueGray-600">Bez čekanja</h2>
+            </div>
+            <p class="text-gray-600 mt-2">Vorki vam omogućava da u nekoliko klikova
+              pronađete i angažujete pouzdane pružaoce usluga.</p>
+          </div>
+
+          <!-- Ocene i recenzije -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="flex items-center justify-center">
+              <img src="assets/icons/star.png" alt="Ocene i recenzije" class="w-12 h-12 mb-4">
+              <h2 class="text-xl font-semibold text-blueGray-600">Ocene i recenzije</h2>
+            </div>
+            <p class="text-gray-600 mt-2">Pročitajte iskustva drugih korisnika i
+              izaberite najbolje stručnjake za vaš posao.</p>
+          </div>
+
+          <!-- Provereni stručnjaci -->
+          <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="flex items-center justify-center">
+              <img src="assets/icons/man.png" alt="Provereni stručnjaci" class="w-12 h-12 mb-4">
+              <h2 class="text-xl font-semibold text-blueGray-600">Provereni stručnjaci</h2>
+            </div>
+            <p class="text-gray-600 mt-2">Bez obzira na zadatak, na Vorki platformi ćete pronaći pravog profesionalca za
+              posao. Lako, brzo i sigurno!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLATFORM DESCRIPTION LEFT SIDE
     <div class="flex flex-wrap items-center mt-12">
       <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
         <div
-          class="text-white p-3 text-center inline-flex items-center justify-center w-16 h-16 shadow-lg rounded-full bg-blueGray-700">
+          class="p-3 text-center inline-flex items-center justify-center w-16 h-16 shadow-lg rounded-full bg-blueGray-700">
           <i class="fas fa-user-friends text-xl"></i>
         </div>
-        <h3 class="text-3xl mb-2 font-semibold leading-normal text-white">
+        <h3 class="text-3xl mb-2 font-semibold leading-normal text-black">
           Mreža koja povezuje, zajednica koja inspiriše
         </h3>
-        <p class="text-lg leading-relaxed mt-4 mb-4 text-justify text-white">
+        <p class="text-lg leading-relaxed mt-4 mb-4 text-justify text-black">
           Kroz našu platformu, ne samo da pomažemo ljudima da pronađu kvalitetne majstore,
           već gradimo i zajednicu koja se zasniva na poverenju i saradnji.
         </p>
-        <p class="text-lg leading-relaxed mt-0 mb-4 text-justify text-white">
+        <p class="text-lg leading-relaxed mt-0 mb-4 text-justify text-black">
           Kreiramo veze između korisnika
           i majstora, uz otvorenu komunikaciju i međusobno razumevanje.
           Uz našu podršku, zajednica raste i jača, stvarajući dugoročne veze koje prevazilaze samo jedan projekat.
         </p>
-        <a [routerLink]="['/autentikacija/registracija']" class="font-bold mt-8 text-white">
+        <a [routerLink]="['/autentikacija/registracija']" class="font-bold mt-8 text-black">
           Pridruži se i postani deo Vorki zajednice!
         </a>
       </div>
 
-      <!-- PLATFORM DESCRIPTION RIGHT SIDE -->
       <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
         <div
           class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-blueGray-700">
@@ -132,8 +215,6 @@
           <blockquote class="relative p-8 mb-4">
             <h4 class="text-xl font-bold text-white">Budi uvek prvi obavešten</h4>
             <p class="text-md font-light mt-2 text-white">
-              <!-- Šta god da vam je potrebno, mi smo tu da vam pomognemo. Širok spektar usluga i kvalitetnih
-                majstora potrudiće se da vaš problem bude rešen brzo i efikasno. -->
               Jednim klikom besplatno se pretplati i obezbedi sebi da ti stigne notifikacija svaki put kada dobiješ
               zahtev za novi posao ili se pojavi oglas koji odgovara tvom području rada.
             </p>
@@ -145,7 +226,7 @@
           </blockquote>
         </div>
       </div>
-    </div>
+    </div> -->
   </section>
 
   <!-- MIDDLE AD BANNER -->
@@ -163,7 +244,7 @@
   </div>
 
   <!-- WHY US -->
-  <section #fadeSection class="fade-section relative py-10 bg-zuta">
+  <!-- <section #fadeSection class="fade-section relative py-10 bg-zuta">
     <div class="top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20">
       <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
         version="1.1" viewBox="0 0 2560 100" x="0" y="0">
@@ -232,16 +313,16 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- TOP MASTERS -->
-  <section #fadeSection class="fade-section pt-12 pb-20 bg-zuta">
+  <section #fadeSection class="fade-section pt-12 pb-20 top-masters-background">
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap justify-center text-center mb-12">
         <div class="w-full lg:w-6/12 px-4">
-          <h2 class="text-4xl font-semibold">Evo naših najboljih majstora</h2>
-          <p class="text-lg leading-relaxed m-4">
-            Na osnovu vaših ocena, izdvojili smo najbolje majstore koji su se istakli svojim radom i posvećenošću.
+          <h2 class="text-4xl font-semibold text-blueGray-600 text-center">Evo naših najboljih profesionalaca</h2>
+          <p class="text-lg leading-relaxed m-4 text-blueGray-600 text-center">
+            Zahvaljujući vašim ocenama, izdvojili smo najbolje stručnjake koji su se istakli svojim radom i posvećenošću.
           </p>
         </div>
       </div>
@@ -249,13 +330,14 @@
         <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
           <div class="px-6">
             <a [routerLink]="['/profil', topMasters[0].id]">
-              <img alt="..." [src]="topMasters[0].photo" class="object-cover rounded-full shadow-lg mx-auto"
+              <img alt="..." [src]="topMasters[0].photo"
+                class="object-cover rounded-full shadow-lg mx-auto border-blueGray-600 border-solid border-2"
                 style="border-radius: 50%; height: 120px; width: 120px;" />
               <!-- <img alt="..." [src]="topMasters[0].photo" class="shadow-lg rounded-full mx-auto max-w-120-px" /> -->
             </a>
             <div class="pt-6 text-center">
-              <h5 class="text-xl font-bold">{{topMasters[0].username}}</h5>
-              <p class="mt-1 text-sm uppercase font-semibold">
+              <h5 class="text-xl font-bold text-blueGray-600">{{topMasters[0].username}}</h5>
+              <p class="mt-1 text-sm uppercase font-semibold text-blueGray-600">
                 {{topMasters[0].location}}
               </p>
               <!-- DRUSTVENE MREZE -->
@@ -276,12 +358,13 @@
         <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
           <div class="px-6">
             <a [routerLink]="['/profil', topMasters[1].id]">
-              <img alt="..." [src]="topMasters[1].photo" class="object-cover rounded-full shadow-lg mx-auto"
+              <img alt="..." [src]="topMasters[1].photo"
+                class="object-cover rounded-full shadow-lg mx-auto border-blueGray-600 border-solid border-2"
                 style="border-radius: 50%; height: 120px; width: 120px;" />
             </a>
             <div class="pt-6 text-center">
-              <h5 class="text-xl font-bold">{{topMasters[1].username}}</h5>
-              <p class="mt-1 text-sm uppercase font-semibold">
+              <h5 class="text-xl font-bold text-blueGray-600">{{topMasters[1].username}}</h5>
+              <p class="mt-1 text-sm uppercase font-semibold text-blueGray-600">
                 {{topMasters[1].location}}
               </p>
               <!-- <div class="mt-6">
@@ -301,12 +384,13 @@
         <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
           <div class="px-6">
             <a [routerLink]="['/profil', topMasters[2].id]">
-              <img alt="..." [src]="topMasters[2].photo" class="object-cover rounded-full shadow-lg mx-auto"
+              <img alt="..." [src]="topMasters[2].photo"
+                class="object-cover rounded-full shadow-lg mx-auto border-blueGray-600 border-solid border-2"
                 style="border-radius: 50%; height: 120px; width: 120px;" />
             </a>
             <div class="pt-6 text-center">
-              <h5 class="text-xl font-bold">{{topMasters[2].username}}</h5>
-              <p class="mt-1 text-sm uppercase font-semibold">
+              <h5 class="text-xl font-bold text-blueGray-600">{{topMasters[2].username}}</h5>
+              <p class="mt-1 text-sm uppercase font-semibold text-blueGray-600">
                 {{topMasters[2].location}}
               </p>
               <!-- <div class="mt-6">
@@ -326,12 +410,13 @@
         <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
           <div class="px-6">
             <a [routerLink]="['/profil', topMasters[3].id]">
-              <img alt="..." [src]="topMasters[3].photo" class="object-cover rounded-full shadow-lg mx-auto"
+              <img alt="..." [src]="topMasters[3].photo"
+                class="object-cover rounded-full shadow-lg mx-auto border-blueGray-600 border-solid border-2"
                 style="border-radius: 50%; height: 120px; width: 120px;" />
             </a>
             <div class="pt-6 text-center">
-              <h5 class="text-xl font-bold">{{topMasters[3].username}}</h5>
-              <p class="mt-1 text-sm uppercase font-semibold">
+              <h5 class="text-xl font-bold text-blueGray-600">{{topMasters[3].username}}</h5>
+              <p class="mt-1 text-sm uppercase font-semibold text-blueGray-600">
                 {{topMasters[3].location}}
               </p>
               <!-- <div class="mt-6">
@@ -352,123 +437,74 @@
     </div>
   </section>
   <!-- QUESTIONS -->
-  <section #fadeSection class="fade-section pb-4 relative block bg-plava">
-    <!-- <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20">
-      <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
-        version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-      </svg>
-    </div> -->
+  <section #fadeSection class="fade-section relative block py-24 lg:pt-0 bg-modern">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap items-center justify-center lg:justify-between">
 
-    <div class="container mx-auto px-4 lg:pt-24 lg:pb-64">
-      <div class="flex flex-wrap text-center justify-center">
-        <div class="w-full lg:w-6/12 px-4">
-          <h2 class="text-4xl font-semibold text-white">Imate problem?</h2>
-          <p class="text-lg leading-relaxed mt-4 mb-4 text-blueGray-400">
-            Obratite nam se i mi ćemo Vam pomoći da ga rešite u što kraćem periodu!
-          </p>
+        <!-- Leva strana - Mockup slika -->
+        <div class="mockup-container">
+          <img src="assets/img/mock_laptop2.jpeg" alt="Mockup sajta" class="mockup-image">
         </div>
-      </div>
-      <div class="flex flex-wrap mt-12 justify-center">
-        <div class="w-full lg:w-3/12 px-4 text-center">
-          <div
-            class="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
-            <i class="fas fa-medal text-xl"></i>
-          </div>
-          <h6 class="text-xl mt-5 font-semibold text-white">
-            Kvalitet
-          </h6>
-          <p class="mt-2 mb-4 text-blueGray-400">
-            Cenimo svaki komentar naših korisnika i trudimo se da pružimo najbolju moguću uslugu.
-          </p>
-        </div>
-        <div class="w-full lg:w-3/12 px-4 text-center">
-          <div
-            class="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
-            <i class="fas fa-handshake text-xl"></i>
-          </div>
-          <h5 class="text-xl mt-5 font-semibold text-white">
-            Saradnja
-          </h5>
-          <p class="mt-2 mb-4 text-blueGray-400">
-            Otvoreni smo za sve vrste predloga za saradnju. Kontaktirajte nas i zajedno ćemo pronaći najbolje rešenje.
-          </p>
-        </div>
-        <div class="w-full lg:w-3/12 px-4 text-center">
-          <div
-            class="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
-            <i class="fas fa-lightbulb text-xl"></i>
-          </div>
-          <h5 class="text-xl mt-5 font-semibold text-white">Ideje</h5>
-          <p class="mt-2 mb-4 text-blueGray-400">
-            Uvek smo spremni da čujemo vaše ideje i predloge kako bismo unapredili našu platformu.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-
-
-  <section #fadeSection class="fade-section relative block py-24 lg:pt-0 bg-plava mt-20">
-    <div class="container mx-auto px-4 bg-plava">
-      <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48">
-        <div class="w-full lg:w-6/12 px-4">
+        <!-- Desna strana - Forma -->
+        <div class="form-container">
 
           <!-- BOTTOM AD BANNER -->
-          <div class="w-full py-8 bg-blueGray-800">
+          <div class="w-full py-8">
             <div class="container mx-auto px-4">
               <div class="bg-gray-700 p-4 rounded-lg">
                 <div class="text-center text-gray-300">
-                  <!-- Ad Space -->
                   <div class="h-24 flex items-center justify-center border border-dashed border-gray-500">
-                    <img src="assets/img/banner.png" alt="Reklama" class="h-full w-full object-cover rounded-lg">
+                    <img src="assets/img/banner.png" alt="Reklama" class="h-full w-full object-contain rounded-lg">
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200">
-            <div class="flex-auto p-5 lg:p-10">
-              <h4 class="text-2xl font-semibold">Pitanje ili predlog?</h4>
-              <p class="leading-relaxed mt-1 mb-4 text-blueGray-500">
-                Popunite formu i dobićete odgovor u najkraćem mogućem roku.
-              </p>
-              <div class="relative w-full mb-3 mt-8">
-                <input type="text" maxlength="100"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  placeholder="Ime i prezime" [(ngModel)]="nameAndSurname" />
-              </div>
+          <div
+            class="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg bg-blueGray-200 p-5 lg:p-10 border-2 border-solid border-blueGray-600 justify-center items-center"> 
+            <h4 class="text-2xl font-semibold text-center">Pitanje ili predlog?</h4>
+            <p class="leading-relaxed mt-1 mb-4 text-blueGray-500 text-center">
+              Popunite formu i dobićete odgovor u najkraćem mogućem roku.
+            </p>
+            <div class="relative w-full mb-3 mt-8">
+              <input type="text" maxlength="100"
+                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                placeholder="Ime i prezime" [(ngModel)]="nameAndSurname" />
+            </div>
 
-              <div class="relative w-full mb-3">
-                <input type="email" maxlength="100"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  placeholder="Broj telefona ili email" [(ngModel)]="contact" />
-              </div>
+            <div class="relative w-full mb-3">
+              <input type="email" maxlength="100"
+                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                placeholder="Broj telefona ili email" [(ngModel)]="contact" />
+            </div>
 
-              <div class="relative w-full mb-3">
-                <textarea rows="4" cols="80" maxlength="800"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                  placeholder="Poruka..." [(ngModel)]="message"></textarea>
-              </div>
-              <div class="text-center mt-6">
-                <button
-                  class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                  type="button" (click)="send()">
-                  Pošalji poruku
-                </button>
-              </div>
-              <div *ngIf="msg" id="msg">
-                {{msg}}
-              </div>
-              <div *ngIf="sentMsg" id="sentMsg" class="text-center mt-6 bg-blueGray-700">
-                {{sentMsg}}
-              </div>
+            <div class="relative w-full mb-3">
+              <textarea rows="4" cols="80" maxlength="800"
+                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                placeholder="Poruka..." [(ngModel)]="message"></textarea>
+            </div>
+            <div class="text-center mt-6">
+              <button
+                class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                type="button" (click)="send()">
+                Pošalji poruku
+              </button>
+            </div>
+            <div *ngIf="msg" id="msg">
+              {{msg}}
+            </div>
+            <div *ngIf="sentMsg" id="sentMsg" class="text-center mt-6 bg-blueGray-700">
+              {{sentMsg}}
             </div>
           </div>
+
         </div>
       </div>
     </div>
   </section>
+
+
 </main>
 <app-footer></app-footer>

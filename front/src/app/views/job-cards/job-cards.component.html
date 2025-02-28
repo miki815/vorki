@@ -1,33 +1,22 @@
 <app-main-navbar></app-main-navbar>
 
-<div class="container mx-auto py-12 px-4 pt-12" style="background-image: url('assets/img/r6.jpg');
-background-size: cover;">
+<div class="container">
     <!-- Pretraživač -->
-    <div class="flex items-center justify-center mb-4">
-        <div class="relative">
-            <input type="text" [(ngModel)]="searchQuery" placeholder="Pretražite..."
-                (input)="onSearchInput($event.target.value)"
-                class="border border-blueGray-600 rounded-md px-4 py-2 w-full sm:w-64 focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-700" />
-        </div>
+    <div class="search-box">
+        <input type="text" [(ngModel)]="searchQuery" placeholder="Pretražite..."
+            (input)="onSearchInput($event.target.value)" />
     </div>
 
     <!-- Kartice -->
-    <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8 p-4">
-        <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-200 overflow-hidden transform hover:-translate-y-2"
-            *ngFor="let category of categories">
-            <div class="flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500 p-6">
-                <img src="assets/img/logo2.png" alt="Logo"
-                    class="w-20 h-20 rounded-full shadow-md border-4 border-white">
+    <div class="cards-grid">
+        <div class="category-card" *ngFor="let category of categories">
+            <div class="card-header">
+                <img src="assets/img/logo3.png" alt="Logo">
             </div>
-            <div class="p-6 text-center">
-                <h2 class="text-2xl font-extrabold text-gray-800 mb-3">{{category}}</h2>
-                <p class="text-gray-500 mb-4">Broj oglasa: <span
-                        class="font-semibold text-gray-700">{{categoriesCount[category]}}</span></p>
-                <button
-                    class="mt-auto bg-plava hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
-                    (click)="categoryChoice(category)">
-                    Istraži ponudu
-                </button>
+            <div class="card-body">
+                <h2>{{category}}</h2>
+                <p>Broj oglasa: <span>{{categoriesCount[category]}}</span></p>
+                <button (click)="categoryChoice(category)">Istraži ponudu</button>
             </div>
         </div>
     </div>

@@ -1,11 +1,11 @@
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
 <app-main-navbar></app-main-navbar>
 
-<div class="absolute top-0 w-full bg-full pt-8" style="background-image: url('assets/img/r6.jpg')">
+<div class="absolute top-0 w-full bg-full pt-8 bg-texture">
   <div class="container mx-auto px-4 h-full">
     <div class="flex content-center items-center justify-center">
       <div class="w-full lg:w-6/12 px-4">
-        <div class="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg bg-plava border-0 mt-10">
+        <div class="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg border-0 mt-10 form-container">
           <div class="rounded-t mb-0 px-6 py-6">
             <div class="btn-wrapper text-center">
               <h2 class="text-white text-xl font-bold">Dodavanje oglasa</h2>
@@ -20,7 +20,7 @@
                   Naziv posla
                 </label>
                 <input [(ngModel)]="title" name="title" type="text"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 input-field" />
               </div>
 
               <div class="relative w-full mb-1">
@@ -29,7 +29,7 @@
                 </label>
                 <input [(ngModel)]="searchQueryProf" name="searchQC" (input)="filterProfessions()"
                 placeholder="Pretraži..."
-                class="border-0 px-3 py-2 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full mb-2" />
+                class="border-0 px-3 py-2 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full mb-2 input-field" />
                 <select
                   class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   [(ngModel)]="selectedProfession" name="selectedProfession" id="proffesion">
@@ -43,7 +43,7 @@
                 </label>
                 <input [(ngModel)]="searchQuery" name="searchQ" (input)="filterCities()"
                 placeholder="Pretraži..."
-                class="border-0 px-3 py-2 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full mb-2" />
+                class="border-0 px-3 py-2 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full mb-2 input-field" />
                 <select
                   class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   [(ngModel)]="selectedCity" name="selectedCity" id="city">
@@ -57,7 +57,7 @@
                   Opis posla
                 </label>
                 <textarea
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 input-field"
                   [(ngModel)]="description" id="description" name="description" rows="4" cols="50"></textarea><br><br>
               </div>
 
@@ -67,7 +67,7 @@
                   Dodajte slike (do 4)
                 </label>
                 <input type="file" id="images" name="images" (change)="onImageChange($event)" multiple accept="image/*"
-                  class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" />
+                  class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 input-field" />
               </div>
 
               <!-- SHOW PICTURES -->

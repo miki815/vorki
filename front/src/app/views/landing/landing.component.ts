@@ -24,8 +24,8 @@ export class LandingComponent implements OnInit, AfterViewInit {
   isSubscribed: boolean = false;
   userId: string = "";
   readonly VAPID_PUBLIC_KEY = "BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg";
-  uri = 'http://127.0.0.1:4000'
-  // uri: string = 'https://vorki.rs';
+  // uri = 'http://127.0.0.1:4000'
+  uri: string = 'https://vorki.rs';
 
   @ViewChildren('fadeSection', { read: ElementRef }) sectionsElements!: QueryList<ElementRef>;
 
@@ -111,6 +111,10 @@ export class LandingComponent implements OnInit, AfterViewInit {
         });
       })
       .catch((err) => console.error('Failed to subscribe to notifications:', err));
+  }
+
+  category_navigation(id: number) {
+    this.router.navigate(['/kategorija', id]);
   }
 
 }

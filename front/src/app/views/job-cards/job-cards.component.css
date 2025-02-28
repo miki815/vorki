@@ -7,3 +7,114 @@ button:hover {
     background-color: #ffe83c;
     color: #1e293b;
 }
+
+/* Glavni kontejner */
+.container {
+    margin: auto;
+    background-image: url('../../../assets/img/texture2.jpg');
+    background-size: contain;
+    background-position: center;
+}
+
+/* Pretraživač */
+.search-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 15px;
+    border: 2px solid #4A90E2;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-box input:focus {
+    border-color: #2C6CBD;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
+}
+
+/* Grid za kartice */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Kartice */
+.category-card {
+    background: linear-gradient(to bottom, #ffffff, #f0f4ff);
+    border: 2px solid #4A90E2;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Gornji deo kartice */
+.card-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #3B4A6B; /* Tamnija nijansa plave */
+    padding: 20px;
+}
+
+
+
+.card-header img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+/* Donji deo kartice */
+.card-body {
+    text-align: center;
+    padding: 20px;
+}
+
+.card-body h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.card-body p {
+    color: #666;
+    font-size: 16px;
+}
+
+.card-body span {
+    font-weight: bold;
+    color: #2C6CBD;
+}
+
+/* Dugme */
+.card-body button {
+    background: #4A90E2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.card-body button:hover {
+    background: #2C6CBD;
+}

@@ -10,6 +10,7 @@ import { UserService } from "src/app/services/user.service";
 @Component({
   selector: 'app-advertisement',
   templateUrl: './advertisement.component.html',
+  styleUrls: ['./advertisement.component.css']
 })
 export class AdvertisementComponent implements OnInit {
 
