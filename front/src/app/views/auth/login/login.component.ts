@@ -8,8 +8,7 @@ import { UserService } from "src/app/services/user.service";
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
-  styleUrl: '../register/register.component.css'
-
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   constructor(private userService: UserService, private router: Router, private http: HttpClient, private cookieService: CookieService) { }
@@ -37,6 +36,7 @@ export class LoginComponent {
         // this.cookieService.set('token', JSON.stringify(response['id']), 30, '/');
         this.cookieService.set('token', response['token'], 30, '/');
         this.cookieService.set('userId', response['userId'], 30, '/');
+        localStorage.setItem('token', response['token']);
         this.router.navigate(["pocetna"]);
       } else { this.message = response['message']; }
     })

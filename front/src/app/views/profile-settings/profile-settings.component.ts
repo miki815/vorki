@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Gallery, GalleryItem, GalleryRef, GalleryState, ImageItem } from 'ng-gallery';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
@@ -12,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ProfileSettingsComponent {
 
-  constructor(private gallery: Gallery, private cookieService: CookieService, private userService: UserService, private jobService: JobService, private cdr: ChangeDetectorRef) { }
+  constructor(private gallery: Gallery, private cookieService: CookieService, private userService: UserService, private jobService: JobService, private cdr: ChangeDetectorRef, private router: Router) { }
 
 
   // TODO: Obrisati sve prom koje nisu potrebne
@@ -159,10 +160,9 @@ export class ProfileSettingsComponent {
             this.err = 1;
             return;
           }
-          this.jobService.changeJobLocationForUser({idUser: this.idUser, location: this.location}).subscribe((message: any) => {
-            console.log("Job location changed for user: ", this.idUser)
+          this.jobService.changeJobLocationForUser({ idUser: this.idUser, location: this.location }).subscribe(_ => {
+            this.router.navigate(['/profil', this.cookieService.get('userId')]);
           });
-          this.message = "Uspešno ste izmenili podatke"
         })
       })
     })

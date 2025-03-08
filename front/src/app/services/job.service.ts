@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -9,15 +9,19 @@ import { environment } from 'src/environments/environment';
 export class JobService {
 
   constructor(private http: HttpClient) { }
-  uri = 'https://vorki.rs';
-  // uri = 'http://localhost:4000';
+  // uri = 'https://vorki.rs';
+  uri = 'http://localhost:4000';
   // uri = environment.uri;
-  
 
-  insertJob(data) {
-    return this.http.post(`${this.uri}/jobs/insertJob`, data);
+
+  getToken() {
+    return localStorage.getItem('token'); // Čuva token u localStorage
   }
 
+  insertJob(data) {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/jobs/insertJob`, data, { headers });
+  }
 
   getJobs() {
     return this.http.get(`${this.uri}/jobs/getJobs`);
@@ -36,23 +40,28 @@ export class JobService {
   }
 
   requestForAgreement(data) {
-    return this.http.post(`${this.uri}/jobs/requestForAgreement`, data);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/jobs/requestForAgreement`, data, { headers });
   }
 
   updateJob(data) {
-    return this.http.post(`${this.uri}/jobs/updateJob`, data);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/jobs/updateJob`, data, { headers });
   }
 
   getJobRequests(idMaster) {
-    return this.http.get(`${this.uri}/jobs/getJobRequests/${idMaster}`);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.get(`${this.uri}/jobs/getJobRequests/${idMaster}`, { headers });
   }
 
   updateAgreement(data) {
-    return this.http.post(`${this.uri}/jobs/updateAgreement`, data);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/jobs/updateAgreement`, data, { headers });
   }
 
   getJobRequestsForUser(idUser) {
-    return this.http.get(`${this.uri}/jobs/getJobRequestsForUser/${idUser}`);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.get(`${this.uri}/jobs/getJobRequestsForUser/${idUser}`, { headers });
   }
 
   getMastersCount(data) {
@@ -64,6 +73,7 @@ export class JobService {
   }
 
   changeJobLocationForUser(data) {
-    return this.http.post(`${this.uri}/jobs/changeJobLocationForUser`, data);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/jobs/changeJobLocationForUser`, data, { headers });
   }
 }

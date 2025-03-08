@@ -1,62 +1,42 @@
-<div class="container mx-auto px-4 h-full">
-  <div class="flex content-center items-center justify-center h-full">
-    <div class="w-full lg:w-6/12 px-4">
-      <div class="relative flex flex-col min-w-0 w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
-
-        <!-- HEADER -->
-        <div class="rounded-t mb-0 px-6 py-6">
-          <div class="text-center mb-3">
-            <h1 class="text-blueGray-600 text-xl font-bold">Prijava</h1>
-          </div>
-          <hr class="mt-6 border-b-1 border-blueGray-300" />
-        </div>
-
-        <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-          <!-- FORM -->
-          <form>
-            <!-- EMAIL -->
-            <div class="relative w-full mb-3">
-              <input [(ngModel)]="email" name="email" type="email"
-                class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full"
-                placeholder="Korisničko ime ili email" />
-            </div>
-            <!-- PASSWORD -->
-            <div class="relative w-full mb-3">
-              <input [(ngModel)]="password" name="password" type="password"
-                class="border-0 px-3 py-3 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full"
-                placeholder="Lozinka" />
-            </div>
-            <!-- SUBMIT -->
-            <div class="text-center mt-6">
-              <button
-                class="text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                type="button" (click)="submit()">
-                Prijavite se
-              </button>
-            </div>
-            <!-- LOGIN -->
-            <br>
-            <div style="display: flex; flex-direction: row; justify-content: space-between;">
-              <a [routerLink]="['/autentikacija/zaboravljena_lozinka']" class="text-blueGray-800 ovde"
-                style="padding: 5px;">Zaboravili ste lozinku?</a>
-              <br>
-              <div style="padding: 5px;">
-                Nastavite kao <a [routerLink]="['/pocetna']"
-                  class="text-blueGray-800 ovde"> <u>gost.</u></a>
-              </div>
-            </div>
-            <div style="display: flex; flex-direction: row; justify-content: center;">
-              <div style="padding: 5px;">
-                Nemate profil? Registrujte se <a [routerLink]="['/autentikacija/registracija']"
-                  class="text-blueGray-800 ovde"> <u>ovde.</u></a>
-              </div>
-            </div>
-            <!-- MESSAGE -->
-            <div *ngIf="message" class="message">
-              {{message}}
-            </div>
-          </form>
-        </div>
-      </div>
+<div class="login-container bg-modern">
+  <div class="login-box">
+    <!-- HEADER -->
+    <div class="text-center mb-6">
+      <h1 class="login-title">Prijava</h1>
+      <p class="login-subtitle">Dobrodošli nazad!</p>
     </div>
+
+    <form>
+      <!-- EMAIL -->
+      <div class="form-group">
+        <input [(ngModel)]="email" name="email" type="email" class="form-input" placeholder="Korisničko ime ili email" />
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="form-group">
+        <input [(ngModel)]="password" name="password" type="password" class="form-input" placeholder="Lozinka" />
+      </div>
+
+      <!-- SUBMIT -->
+      <button type="button" (click)="submit()" class="submit-button">
+        Prijavite se
+      </button>
+
+      <!-- LINKS -->
+      <div class="links-container">
+        <a [routerLink]="['/autentikacija/zaboravljena_lozinka']" class="link">Zaboravili ste lozinku?</a>
+        <a [routerLink]="['/pocetna']" class="link">Nastavite kao <u>gost</u></a>
+      </div>
+
+      <div class="text-center mt-4 text-sm text-blueGray-200">
+        Nemate nalog?
+        <a [routerLink]="['/autentikacija/registracija']" class="link-highlight">Registrujte se ovde</a>
+      </div>
+
+      <!-- MESSAGE -->
+      <div *ngIf="message" class="message">
+        {{ message }}
+      </div>
+    </form>
   </div>
+</div>

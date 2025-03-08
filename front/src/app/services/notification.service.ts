@@ -9,8 +9,8 @@ import { environment } from 'src/environments/environment';
 })
 export class NotificationService {
   private vapidPublicKey = 'BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg';
-  uri = 'https://vorki.rs';
-  // uri = 'http://127.0.0.1:4000'
+  // uri = 'https://vorki.rs';
+  uri = 'http://127.0.0.1:4000'
   // uri = environment.uri;
   readonly VAPID_PUBLIC_KEY = "BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg";
 
@@ -35,17 +35,6 @@ export class NotificationService {
   //       console.error('Failed to subscribe to push notifications:', error);
   //     });
   // }
-
-  saveSubscription(subscription, userId) {
-    const payload = {
-      user_id: userId,
-      endpoint: subscription.endpoint,
-      p256dh: subscription.keys.p256dh,
-      auth: subscription.keys.auth,
-    };
-
-    return this.http.post(`${this.uri}/save-subscription`, payload);
-  }
 
   private urlBase64ToUint8Array(base64String: string): Uint8Array {
     const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
@@ -100,5 +89,21 @@ export class NotificationService {
 
   inform_user_of_master_accept_their_job(data) {
     return this.http.post(`${this.uri}/subscriptions/inform_user_of_master_accept_their_job`, data)
+  }
+
+  subscribe_to_notifications(data) {
+    return this.http.post(`${this.uri}/subscriptions/subscribe`, data)
+  }
+
+  save_subscription(subscription, userId) {
+    const payload = {
+      user_id: userId,
+      sub: subscription
+    };
+    return this.http.post(`${this.uri}/subscriptions/save_subscription`, payload);
+  }
+
+  unsubscribe_from_notifications(data) {
+    return this.http.post(`${this.uri}/subscriptions/unsubscribe`, data)
   }
 }

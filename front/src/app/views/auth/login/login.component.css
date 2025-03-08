@@ -1,0 +1,106 @@
+/* Pozadina sa teksturom */
+.login-container {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: url('/assets/texture3.webp') center/cover no-repeat;
+  }
+  
+  /* Glavni okvir */
+  .login-box {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(30, 42, 58); /* Tamna providna pozadina */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 30px;
+  }
+  
+  /* Naslov */
+  .login-title {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Podnaslov */
+  .login-subtitle {
+    color: #bbb;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* Grupa input polja */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Input polja */
+  .form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #394a5a;
+    background: #2C3E50;
+    color: #fff;
+    border-radius: 6px;
+    outline: none;
+    transition: border 0.3s;
+  }
+  
+  .form-input:focus {
+    border: 1px solid #EFCA21;
+  }
+  
+  /* Dugme */
+  .submit-button {
+    width: 100%;
+    background: #EFCA21;
+    color: #1E2A3A;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .submit-button:hover {
+    background: #FFD700;
+  }
+  
+  /* Linkovi */
+  .links-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .link {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .link:hover {
+    color: #fff;
+  }
+  
+  /* Istaknuti link */
+  .link-highlight {
+    color: #EFCA21;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .link-highlight:hover {
+    text-decoration: underline;
+  }
+  
+  /* Poruka */
+  .message {
+    text-align: center;
+    color: red;
+    margin-top: 15px;
+  }
+  

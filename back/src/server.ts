@@ -83,131 +83,9 @@ export { pool };
 
 // APP ROUTES
 
-app.post('/subscribe', (req, res) => {
-  console.log("Subscribe called");
-  const subscription = req.body;
-  if (
-    !subscription ||
-    !subscription.endpoint ||
-    !subscription.keys ||
-    !subscription.keys.p256dh ||
-    !subscription.keys.auth
-  ) {
-    console.error('Invalid subscription object:', subscription);
-    return res.status(400).json({ error: 'Invalid subscription object' });
-  }
-  logger.info('Subscription object details: ' + JSON.stringify(subscription));
-  logger.info('Subscription object details: ' + subscription.endpoint);
-  // Provera da li subskripcija već postoji
-  pool.getConnection((err, connection) => {
-    if (err) {
-      console.error('Database connection error:', err);
-      return res.status(500).json({ error: 'Database connection error' });
-    }
 
-    const queryCheck = 'SELECT id FROM subscriptions WHERE endpoint = ?';
-    connection.query(queryCheck, [subscription.endpoint], (checkErr, rows) => {
-      if (checkErr) {
-        console.error('Error checking subscription:', checkErr);
-        connection.release();
-        return res.status(500).json({ error: 'Database query error' });
-      }
 
-      if (rows.length > 0) {
-        // Ako subskripcija postoji, ažuriraj je
-        console.log('Subscription already exists, updating...');
-        const queryUpdate = `
-          UPDATE subscriptions
-          SET p256dh = ?, auth = ?, updated_at = CURRENT_TIMESTAMP
-          WHERE endpoint = ?
-        `;
-        connection.query(
-          queryUpdate,
-          [subscription.keys.p256dh, subscription.keys.auth, subscription.endpoint],
-          (updateErr) => {
-            connection.release();
-            if (updateErr) {
-              console.error('Error updating subscription:', updateErr);
-              return res.status(500).json({ error: 'Failed to update subscription' });
-            }
-            sendTestNotification(subscription, res);
-          }
-        );
-      } else {
-        // Ako subskripcija ne postoji, ubaci novu
-        console.log('New subscription, inserting...');
-        const queryInsert = `INSERT INTO subscriptions (endpoint, p256dh, auth) VALUES (?, ?, ?)`;
-        connection.query(queryInsert, [subscription.endpoint, subscription.keys.p256dh, subscription.keys.auth],
-          (insertErr) => {
-            connection.release();
-            if (insertErr) {
-              console.error('Error inserting subscription:', insertErr);
-              return res.status(500).json({ error: 'Failed to save subscription' });
-            }
-            sendTestNotification(subscription, res);
-          }
-        );
-      }
-    });
-  });
-});
 
-app.post('/save-subscription', (req, res) => {
-  const { user_id, endpoint, p256dh, auth } = req.body;
-  console.log('Subscription data:', req.body);
-
-  if (!endpoint || !p256dh || !auth) {
-    return res.status(400).json({ error: 'Missing subscription data' });
-  }
-
-  // Dohvatanje konekcije iz pool-a
-  pool.getConnection((err, connection) => {
-    if (err) {
-      console.error('Greška prilikom dohvatanja konekcije:', err);
-      return res.status(500).json({ error: 'Greška na serveru.' });
-    }
-
-    // Provera da li pretplata već postoji
-    connection.query(
-      'SELECT * FROM subscriptions WHERE endpoint = ?',
-      [endpoint],
-      (err, results) => {
-        if (err) {
-          console.error('Greška prilikom pretrage pretplate:', err);
-          connection.release(); // Oslobađanje konekcije
-          return res.status(500).json({ error: 'Greška na serveru.' });
-        }
-
-        if (results.length > 0) {
-          // Pretplata već postoji
-          connection.release(); // Oslobađanje konekcije
-          logger.info('Korisnik je vec pretplacen.');
-          return res.status(200).json({ message: 'Korisnik je već pretplaćen.' });
-        }
-
-        // Ako pretplata ne postoji, sačuvajte je
-        logger.info('Čuvanje pretplate...');
-        const query = `
-          INSERT INTO subscriptions (user_id, endpoint, p256dh, auth)
-          VALUES (?, ?, ?, ?)
-        `;
-        const values = [user_id, endpoint, p256dh, auth];
-
-        connection.query(query, values, (err) => {
-          connection.release(); // Oslobađanje konekcije
-
-          if (err) {
-            console.error('Greška prilikom čuvanja pretplate:', err);
-            return res.status(500).json({ error: 'Failed to save subscription' });
-          }
-
-          console.info('Pretplata uspešno sačuvana, user_id:', user_id);
-          res.status(200).json({ message: 'Pretplata uspešno sačuvana.' });
-        });
-      }
-    );
-  });
-});
 
 
 app.post('/trigger-event', (req, res) => {
@@ -273,20 +151,7 @@ app.post('/upload', upload.array('images', 10), (req, res) => {
 });
 
 
-function sendTestNotification(subscription, res) {
-  logger.info('Sending test notification...');
-  const payload = JSON.stringify({ title: 'Push Test', body: 'Push notification testtt' });
-  webPush
-    .sendNotification(subscription, payload)
-    .then(() => {
-      logger.info('Notification sent successfully');
-      res.status(200).json({ message: 'Subscription saved and notification sent successfully' });
-    })
-    .catch((error) => {
-      logger.error('Failed to send notification:', error);
-      res.status(500).json({ error: 'Failed to send notification', details: error.message });
-    });
-}
+
 
 app.use(express.static(path.join(__dirname, 'notus-angular')));
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));

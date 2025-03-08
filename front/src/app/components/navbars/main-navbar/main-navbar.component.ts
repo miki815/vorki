@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SwPush } from '@angular/service-worker';
 import { CookieService } from 'ngx-cookie-service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-main-navbar',
@@ -10,13 +12,17 @@ export class MainNavbarComponent implements OnInit {
   navbarOpen = false;
   login: number = 1;
   menuOpen = false;
+  notificationsEnabled = false;
+  readonly VAPID_PUBLIC_KEY = "BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg";
 
 
-  constructor(private router: Router, private cookieService: CookieService, private route: ActivatedRoute) { }
+
+  constructor(private router: Router, private cookieService: CookieService, private route: ActivatedRoute, private notificationService: NotificationService, private swPush: SwPush) { }
 
   ngOnInit(): void {
     this.login = this.cookieService.get('userId') ? 1 : 0;
-    // this.login = 1;
+    const savedState = localStorage.getItem('notificationsEnabled');
+    this.notificationsEnabled = savedState === 'true';
   }
 
   toggleMenu() {
@@ -24,9 +30,35 @@ export class MainNavbarComponent implements OnInit {
     this.menuOpen = !this.menuOpen;
   }
 
+  toggleNotifications() {
+    this.notificationsEnabled = !this.notificationsEnabled;
+    localStorage.setItem('notificationsEnabled', this.notificationsEnabled.toString());
+    if (this.notificationsEnabled) {
+      this.swPush.requestSubscription({
+        serverPublicKey: this.VAPID_PUBLIC_KEY
+      }).then(sub => {
+        console.log('Sending subscription to server', sub);
+        this.notificationService.save_subscription(sub, this.cookieService.get('userId')).subscribe({
+          next: response => console.log('Subscription sent to server successfully', response),
+          error: error => console.error('Failed to send subscription to server', error)
+        });
+      })
+    } else {
+      // this.swPush.subscription.subscribe(sub => {
+      //   this.notificationService.unsubscribe_from_notifications(sub).subscribe({
+      //     next: response => console.log('Subscription removed from server successfully', response),
+      //     error: error => console.error('Failed to remove subscription from server', error)
+      //   });
+      // sub.unsubscribe();
+      // });
+    }
+  }
+
   logout() {
     this.cookieService.delete('token', '/');
     this.cookieService.delete('userId', '/');
+    localStorage.removeItem('notificationsEnabled');
+    localStorage.removeItem('token');
     this.router.navigate(['/autentikacija/prijava']);
   }
 
@@ -43,7 +75,7 @@ export class MainNavbarComponent implements OnInit {
   }
 
   navigateToProfile() {
-    if(this.login == 1) this.router.navigate(['/profil', this.cookieService.get('userId')]);
+    if (this.login == 1) this.router.navigate(['/profil', this.cookieService.get('userId')]);
     else this.router.navigate(['/autentikacija/prijava']);
   }
 
@@ -52,7 +84,7 @@ export class MainNavbarComponent implements OnInit {
   }
 
   navigateToAddJob() {
-    if(this.login == 1) this.router.navigate(['/dodaj_oglas']);
+    if (this.login == 1) this.router.navigate(['/dodaj_oglas']);
     else this.router.navigate(['/autentikacija/prijava']);
   }
 }

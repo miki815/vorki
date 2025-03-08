@@ -20,10 +20,17 @@ class JobController {
              * @description Insert job into database
              * @returns {json} message
              */
-            const { description, title, city, profession, id, type } = req.body;
-            logger.info({ description, title, city, profession, id, type }, 'Inserting job');
+            const { description, title, city, profession, type } = req.body;
+            const userId = req.token.userId;
+            if (!description || !title || !city || !profession || !type) {
+                return databaseFatalError(res, null, 'Missing required fields');
+            }
+            if (!userId) {
+                return databaseFatalError(res, null, 'Unauthorized user');
+            }
+            logger.info({ description, title, city, profession, userId, type }, 'Inserting job');
             const sql = 'INSERT INTO job (idUser, title, description, city, profession, type) VALUES (?, ?, ?, ?, ?, ?)';
-            server_1.pool.query(sql, [id, title, description, city, profession, type], (err, job) => {
+            server_1.pool.query(sql, [userId, title, description, city, profession, type], (err, job) => {
                 if (err)
                     return databaseFatalError(res, err, 'Error inserting job');
                 return res.json({ message: "0", job_id: job.insertId });
@@ -92,7 +99,6 @@ class JobController {
         this.requestForAgreement = (req, res) => {
             /**
              * @param {number} idJob
-             * @param {number} idUser
              * @param {number} idMaster
              * @param {string} startDate
              * @param {string} endDate
@@ -100,12 +106,19 @@ class JobController {
              * @description Request for agreement
              * @returns {json} message
              */
-            const { idJob, idUser, idMaster, startDate, endDate, additionalInfo } = req.body;
+            const { idJob, idMaster, startDate, endDate, additionalInfo } = req.body;
+            const userId = req.token.userId;
+            if (!idJob || !idMaster || !startDate || !endDate) {
+                return databaseFatalError(res, null, "Missing required fields");
+            }
+            if (!userId) {
+                return databaseFatalError(res, null, "Unauthorized user");
+            }
             const sql = 'INSERT INTO agreements (idJob, idUser, idMaster, startTime, endTime, additionalInfo, currentStatus) VALUES (?, ?, ?, ?, ?, ?, "pending")';
-            server_1.pool.query(sql, [idJob, idUser, idMaster, startDate, endDate, additionalInfo], (err, _) => {
+            server_1.pool.query(sql, [idJob, userId, idMaster, startDate, endDate, additionalInfo], (err, _) => {
                 if (err)
                     return databaseFatalError(res, err, 'Error requesting agreement');
-                logger.info({ idJob, idUser, idMaster, startDate, endDate, additionalInfo }, 'Request for agreement');
+                logger.info({ idJob, userId, idMaster, startDate, endDate, additionalInfo }, 'Request for agreement');
                 return res.json({ message: "0" });
             });
         };
@@ -115,9 +128,15 @@ class JobController {
              * @description Update job
              * @returns {json} message
              */
+            const userId = req.token.userId;
             const { job } = req.body;
-            const sql = 'UPDATE job SET title = ?, description = ?, city = ?, profession = ? WHERE id = ?';
-            server_1.pool.query(sql, [job.title, job.description, job.city, job.profession, job.id], (err, _) => {
+            if (!job || !job.idUser || !job.title || !job.description || !job.city || !job.profession) {
+                return databaseFatalError(res, null, 'Missing required fields');
+            }
+            if (job.idUser != userId)
+                return databaseFatalError(res, null, 'Unauthorized user');
+            const sql = 'UPDATE job SET title = ?, description = ?, city = ?, profession = ? WHERE id = ? AND idUser = ?';
+            server_1.pool.query(sql, [job.title, job.description, job.city, job.profession, job.id, userId], (err, _) => {
                 if (err)
                     return databaseFatalError(res, err, 'Error updating job');
                 logger.info({ job }, 'Job updated');

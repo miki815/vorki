@@ -4,7 +4,7 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-forgotten-password',
   templateUrl: './forgotten-password.component.html',
-  styleUrl: '../register/register.component.css'
+  styleUrl: './forgotten-password.component.css'
 })
 export class ForgottenPasswordComponent {
   constructor(private userService: UserService) { }

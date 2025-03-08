@@ -25,21 +25,6 @@ const SECRET_KEY = process.env.JWT_SECRET || 'moj_tajni_kljuc';
 const logger = require('../logger');
 const moment = require('moment');
 const jwt = require('jsonwebtoken');
-function generateToken(user) {
-    return jwt.sign({ id: user.id, username: user.username }, 'tajni_kljuc', { expiresIn: '1h' });
-}
-function authenticateToken(req, res, next) {
-    var _a;
-    const token = (_a = req.headers['authorization']) === null || _a === void 0 ? void 0 : _a.split(' ')[1];
-    if (!token)
-        return res.sendStatus(401);
-    jwt.verify(token, 'tajni_kljuc', (err, user) => {
-        if (err)
-            return res.sendStatus(403);
-        req.user = user;
-        next();
-    });
-}
 function databaseFatalError(res, err, msg) {
     logger.error({ err }, msg);
     return res.json({ error: 1, message: "Fatal error: " + err });
@@ -171,18 +156,20 @@ class UserController {
              * @returns {json} - user data
              */
             const { id } = req.body;
-            if (!id)
-                return res.json({ error: 1, message: "User ID is required" });
-            var sql = 'SELECT username, firstname, lastname, birthday, phone, location, email, photo, backPhoto, type, instagram, facebook FROM user WHERE id = ?';
+            logger.info({ id }, 'getUserById attempt');
+            if (!id || !Number.isInteger(Number(id))) {
+                return databaseFatalError(res, null, 'getUserById failed: Invalid userID');
+            }
+            const sql = 'SELECT username, firstname, lastname, birthday, phone, location, email, photo, backPhoto, type, instagram, facebook FROM user WHERE id = ?';
             server_1.pool.query(sql, [id], (err, user) => {
                 if (err)
                     return databaseFatalError(res, err, 'getUserById failed');
                 if (user.length) {
-                    res.json({ error: 0, message: user[0] });
+                    return res.json({ error: 0, message: user[0] });
                 }
                 else {
                     logger.warn({ id }, 'getUserById failed: user not found');
-                    res.json({ error: 1, message: null });
+                    return res.json({ error: 1, message: 'User not found' });
                 }
             });
         };
@@ -196,14 +183,21 @@ class UserController {
              * @returns {json} - success or error message
              */
             const { idUser, idCommentator, comment, dateC, jobId } = req.body;
+            const idUserReq = req.userId; // jwt token
+            if (idCommentator != idUserReq)
+                return databaseFatalError(res, null, 'addComment failed: Unauthorized');
+            if (!idUser || !idCommentator || !jobId) {
+                return databaseFatalError(res, null, 'addComment failed: Missing required fields');
+            }
+            if (!comment || typeof comment !== 'string' || comment.trim().length === 0) {
+                return databaseFatalError(res, null, 'addComment failed: Comment cannot be empty');
+            }
             let convertedDate = moment(dateC).format('YYYY-MM-DD HH:mm:ss');
-            console.log(idUser + " " + idCommentator + " " + comment + " " + dateC + " " + jobId);
-            // logger.info({ idUser, idCommentator, comment, dateC, jobId }, 'addComment attempt');
-            var sql = 'INSERT INTO comments (idUser, idCommentator, comment, dateC, jobId) VALUES (?, ?, ?, ?, ?)';
+            const sql = 'INSERT INTO comments (idUser, idCommentator, comment, dateC, jobId) VALUES (?, ?, ?, ?, ?)';
             server_1.pool.query(sql, [idUser, idCommentator, comment, convertedDate, jobId], (err, d) => {
                 if (err) {
                     logger.error('addComment failed', err);
-                    return res.json({ error: 1, message: "Fatal error: " + err });
+                    return databaseFatalError(res, err, 'addComment failed');
                 }
                 logger.info({ idUser, idCommentator, comment, dateC, jobId }, 'New comment added');
                 res.json({ error: 0 });
@@ -215,7 +209,10 @@ class UserController {
              * @returns {json} - comments for the user
              */
             const { idUser } = req.body;
-            var sql = 'SELECT * FROM comments where idUser = ?';
+            const idUserReq = req.userId; // jwt token
+            if (idUser != idUserReq)
+                return databaseFatalError(res, null, 'getCommentById failed: Unauthorized');
+            const sql = 'SELECT * FROM comments where idUser = ?';
             server_1.pool.query(sql, [idUser], (err, comments) => {
                 if (err) {
                     logger.error('getCommentById failed', err);
@@ -231,7 +228,10 @@ class UserController {
              * @returns {json} - comments for the job
              */
             const { jobId } = req.body;
-            var sql = 'SELECT * FROM comments where jobId = ?';
+            if (!jobId || !Number.isInteger(Number(jobId))) {
+                return databaseFatalError(res, null, 'getCommentsByJobId failed: Invalid jobID');
+            }
+            const sql = 'SELECT * FROM comments where jobId = ?';
             server_1.pool.query(sql, [jobId], (err, comments) => {
                 if (err) {
                     logger.error('getCommentsByJobId failed', err);
@@ -248,14 +248,32 @@ class UserController {
              * @returns {json} - success or error message
              */
             const { id } = req.body;
-            var sql = 'DELETE FROM comments where id = ?';
-            server_1.pool.query(sql, [id], (err, _) => {
+            const userId = req.userId; // jwt token
+            if (!id || !Number.isInteger(Number(id))) {
+                return databaseFatalError(res, null, 'deleteCommentById failed: Invalid comment ID');
+            }
+            const checkSql = `SELECT idCommentator FROM comments WHERE id = ?`;
+            server_1.pool.query(checkSql, [id], (err, results) => {
                 if (err) {
-                    logger.error('deleteCommentById failed', err);
-                    return res.json({ error: 1, message: "Fatal error: " + err });
+                    logger.error({ id, error: err }, "deleteCommentById failed: Database error");
+                    return databaseFatalError(res, err, 'deleteCommentById failed');
                 }
-                logger.info({ id }, 'Comment deleted');
-                res.json({ error: 0 });
+                if (results.length === 0) {
+                    return databaseFatalError(res, null, 'deleteCommentById failed: Comment not found');
+                }
+                const commentOwner = results[0].idUser;
+                if (commentOwner !== userId) {
+                    return databaseFatalError(res, null, 'deleteCommentById failed: Unauthorized');
+                }
+                const deleteSql = `DELETE FROM comments WHERE id = ?`;
+                server_1.pool.query(deleteSql, [id], (err, _) => {
+                    if (err) {
+                        logger.error({ id, error: err }, "deleteCommentById failed: Database error");
+                        return databaseFatalError(res, err, 'deleteCommentById failed');
+                    }
+                    logger.info({ id, userId }, "Comment deleted");
+                    res.json({ error: 0, message: "Comment deleted successfully" });
+                });
             });
         };
         this.rate = (req, res) => {
@@ -266,29 +284,26 @@ class UserController {
              * @returns {json} - success or error message
              */
             const { idUser, idRater, rate } = req.body;
-            // logger.info({ idUser, idRater, rate }, 'rate attempt');
-            var sql = 'SELECT * FROM rate WHERE idUser = ? and idRater = ?';
-            server_1.pool.query(sql, [idUser, idRater], (err, data) => {
-                if (err)
+            const idUserReq = req.userId; // jwt token
+            if (!idUser || !idRater || rate === undefined)
+                return databaseFatalError(res, null, 'rate failed: Missing required fields');
+            if (idUser === idRater)
+                return databaseFatalError(res, null, 'rate failed: User cannot rate himself');
+            if (idRater != idUserReq)
+                return databaseFatalError(res, null, 'rate failed: Unauthorized');
+            if (typeof rate !== "number" || rate < 1 || rate > 5)
+                return databaseFatalError(res, null, 'rate failed: Invalid rate value');
+            const sql = `
+        INSERT INTO rate (idUser, idRater, rate)
+        VALUES (?, ?, ?)
+        ON DUPLICATE KEY UPDATE rate = VALUES(rate)`; // If rate already exists, update it
+            server_1.pool.query(sql, [idUser, idRater, rate], (err, _) => {
+                if (err) {
+                    logger.error({ idUser, idRater, rate, error: err }, "rate failed: Database error");
                     return databaseFatalError(res, err, 'rate failed');
-                if (data.length) {
-                    sql = 'UPDATE rate SET rate = ? WHERE idUser = ? and idRater = ?';
-                    server_1.pool.query(sql, [rate, idUser, idRater], (err, _) => {
-                        if (err)
-                            return databaseFatalError(res, err, 'rate failed');
-                        logger.info({ idUser, idRater, rate }, 'rate updated');
-                        res.json({ error: 0 });
-                    });
                 }
-                else {
-                    sql = 'INSERT INTO rate (idUser, idRater, rate) VALUES (?, ?, ?)';
-                    server_1.pool.query(sql, [idUser, idRater, rate], (err, _) => {
-                        if (err)
-                            return databaseFatalError(res, err, 'rate failed');
-                        logger.info({ idUser, idRater, rate }, 'rate added');
-                        res.json({ error: 0 });
-                    });
-                }
+                logger.info({ idUser, idRater, rate }, 'rate added or updated');
+                res.json({ error: 0 });
             });
         };
         this.getRateByIdUser = (req, res) => {
@@ -297,6 +312,9 @@ class UserController {
              * @returns {json} - rates for the user
              */
             const { idUser } = req.body;
+            const idUserReq = req.userId; // jwt token
+            if (idUser != idUserReq)
+                return databaseFatalError(res, null, 'getRateByIdUser failed: Unauthorized');
             var sql = 'SELECT * FROM rate WHERE idUser = ?';
             server_1.pool.query(sql, [idUser], (err, data) => {
                 if (err)
@@ -311,6 +329,9 @@ class UserController {
              * @returns {json} - rate for the user
              */
             const { idUser, idRater } = req.body;
+            const idUserReq = req.userId; // jwt token
+            if (idUser != idUserReq && idRater != idUserReq)
+                return databaseFatalError(res, null, 'getRateByIdUserAndRater failed: Unauthorized');
             var sql = 'SELECT rate FROM rate WHERE idUser = ? and idRater = ?';
             server_1.pool.query(sql, [idUser, idRater], (err, data) => {
                 if (err)
@@ -330,6 +351,9 @@ class UserController {
             if (!idUser || !password || !newPassword) {
                 return res.status(400).json({ error: 1, message: "Missing required fields" });
             }
+            const idUserReq = req.userId; // jwt token
+            if (idUser != idUserReq)
+                return databaseFatalError(res, null, 'changePassword failed: Unauthorized');
             const sqlGetPassword = 'SELECT password FROM user WHERE id = ?';
             server_1.pool.query(sqlGetPassword, [idUser], (err, results) => {
                 if (err)
@@ -404,6 +428,9 @@ class UserController {
             //     return res.json({ error: 0, message: message });
             // });
             const { idUser, username, email, firstname, lastname, location, phone, backPhoto, photo, distance } = req.body;
+            const idUserReq = req.userId;
+            if (idUser != idUserReq)
+                return databaseFatalError(res, null, 'updateUser failed: Unauthorized');
             logger.info({ idUser, username, email, firstname, lastname, location, phone, distance }, 'updateUser attempt');
             var sql = 'UPDATE user SET username=?, email=?, firstname=?, lastname=?, location=?, phone=?, photo=?, backPhoto = ?, distance = ? WHERE id=?';
             server_1.pool.query(sql, [username, email, firstname, lastname, location, phone, photo, backPhoto, distance, idUser], (err, message) => {

@@ -11,7 +11,7 @@ button:hover {
 /* Glavni kontejner */
 .container {
     margin: auto;
-    background-image: url('../../../assets/img/texture2.jpg');
+    background-image: url('../../../assets/img/texture2.webp');
     background-size: contain;
     background-position: center;
 }
@@ -68,11 +68,10 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #3B4A6B; /* Tamnija nijansa plave */
+    background: #3B4A6B;
+    /* Tamnija nijansa plave */
     padding: 20px;
 }
-
-
 
 .card-header img {
     width: 60px;

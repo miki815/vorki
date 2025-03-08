@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-single-job-long',
   templateUrl: './single-job-long.component.html',
+  styleUrls: ['./single-job-long.component.css']
 })
 export class SingleJobLongComponent implements OnInit {
   job: any;
@@ -39,7 +40,7 @@ export class SingleJobLongComponent implements OnInit {
   endTime: Date = new Date();
   additionalInfo: string = "";
   numberOfJobs: number = 0;
-  requestMsg: string = "Rezerviši termin";
+  requestMsg: string = "Rezerviši";
   ph: string = "https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80"
   cities: any[] = [];
   coordinates: any[] = [];
@@ -193,7 +194,7 @@ export class SingleJobLongComponent implements OnInit {
     console.log("Job - userRequestForAgreement: START")
     // let formattedStartDate = this.formatDateTime(this.startDate, this.startTime);
     let formattedEndDate = this.formatDateTime(this.endDate, this.endTime);
-    const data = { idUser: this.cookie, idJob: this.job.id, idMaster: this.job.idUser, startDate: this.startDate, endDate: formattedEndDate, additionalInfo: this.additionalInfo }
+    const data = { idJob: this.job.id, idMaster: this.job.idUser, startDate: this.startDate, endDate: formattedEndDate, additionalInfo: this.additionalInfo }
     this.jobService.requestForAgreement(data).subscribe((message: any) => {
       this.isRequest = false;
       this.requestMsg = "Zahtev poslat!";

@@ -1,10 +1,71 @@
 button {
-    background-color: #efca21;
-    color: #274153;
-    margin: 5px;
+    background: #4A90E2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 button:hover {
-    background-color: #274153;
-    color: #efca21;
+    background: #2C6CBD;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Zatamnjenje sa 50% providnosti */
+    opacity: 0;
+    /* Početno stanje - nevidljivo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: opacity 0.3s;
+    /* Efekat prelaza */
+}
+
+.overlay1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s;
+}
+
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
+.image-container:hover .overlay1 {
+    opacity: 1;
+}
+
+input[type="file"].hidden {
+    display: none;
+}
+
+.error-message {
+    background-color: rgb(239, 114, 114);
+}
+
+.success-message {
+    background-color: rgb(59, 185, 109);
 }

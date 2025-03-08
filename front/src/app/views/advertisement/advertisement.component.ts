@@ -76,7 +76,6 @@ export class AdvertisementComponent implements OnInit {
         title: this.title,
         city: this.selectedCity,
         profession: this.selectedProfession,
-        id: JSON.parse(this.cookieService.get('userId')),
         type: message['message'].type
       }
       //Slanje

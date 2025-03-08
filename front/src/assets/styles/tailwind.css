@@ -1293,17 +1293,23 @@ select {
 }
 
 .category-card {
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Svetla ivica */
-  border-radius: 12px; /* Zaobljeni uglovi */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* Svetla ivica */
+  border-radius: 12px;
+  /* Zaobljeni uglovi */
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.05); /* Blaga prozirnost */
-  backdrop-filter: blur(5px); /* Efekat stakla */
+  background: rgba(255, 255, 255, 0.05);
+  /* Blaga prozirnost */
+  backdrop-filter: blur(5px);
+  /* Efekat stakla */
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .category-card:hover {
-  transform: translateY(-5px); /* Blago podizanje na hover */
-  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.15); /* Suptilna senka */
+  transform: translateY(-5px);
+  /* Blago podizanje na hover */
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.15);
+  /* Suptilna senka */
 }
 
 
@@ -1311,17 +1317,31 @@ select {
   background: linear-gradient(to right, #232526, #414345);
 }
 
-.bg-modern{
-  background: url('../../assets/img/texture3.jpg');
-  background-size: cover;
+.bg-daska {
+  background: url('../../assets/img/daska2.jpg') center/cover;
+  background-size: contain;
   background-blend-mode: soft-light;
-  opacity: 0.9;}
+  opacity: 0.9;
+}
 
-.bg-texture {
-  background: url('../../assets/img/texture2.jpg');
+.bg-modern {
+  background: url('../../assets/img/texture3.webp');
   background-size: cover;
   background-blend-mode: soft-light;
   opacity: 0.9;
+}
+
+.bg-texture {
+  background: url('../../assets/img/texture2.webp');
+  background-size: cover;
+  background-blend-mode: soft-light;
+  opacity: 0.9;
+}
+
+.bg-texture-no-opacity {
+  background: url('../../assets/img/texture2.webp');
+  background-size: cover;
+  background-blend-mode: soft-light;
 }
 
 .bg-plava {
@@ -3277,6 +3297,21 @@ select {
   color: rgba(249, 115, 22, var(--tw-text-opacity));
 }
 
+.text-location {
+  --tw-text-opacity: 1;
+  color: #ff5733;
+}
+
+.text-covek {
+  --tw-text-opacity: 1;
+  color: #6c757d;
+}
+
+.text-telefon {
+  --tw-text-opacity: 1;
+  color: #28a745;
+}
+
 .text-red-300 {
   --tw-text-opacity: 1;
   color: rgba(252, 165, 165, var(--tw-text-opacity));
@@ -3285,6 +3320,11 @@ select {
 .text-red-500 {
   --tw-text-opacity: 1;
   color: rgba(239, 68, 68, var(--tw-text-opacity));
+}
+
+.text-green-500 {
+  --tw-text-opacity: 1;
+  color: rgba(16, 185, 129, var(--tw-text-opacity));
 }
 
 .text-red-600 {

@@ -12,8 +12,8 @@ import { environment } from 'src/environments/environment';
 })
 export class ContactComponent {
   readonly VAPID_PUBLIC_KEY = "BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg";
-  // uri = 'http://127.0.0.1:4000'
-  uri: string = 'https://vorki.rs';
+  uri = 'http://127.0.0.1:4000'
+  // uri: string = 'https://vorki.rs';
   // uri: string = environment.uri;
   userId: string;
   constructor(private swPush: SwPush, private http: HttpClient, private notificationService: NotificationService, private cookieService: CookieService) { }
@@ -66,7 +66,7 @@ export class ContactComponent {
      })
        .then(sub => {
          console.log("Subscription successful", sub);
-         this.http.post(`${this.uri}/subscribe`, sub).subscribe({
+         this.notificationService.subscribe_to_notifications(sub).subscribe({
            next: response => console.log('Subscription sent to server successfully', response),
            error: error => console.error('Failed to send subscription to server', error)
          });

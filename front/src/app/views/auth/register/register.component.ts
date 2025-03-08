@@ -107,7 +107,7 @@ export class RegisterComponent implements OnInit {
 
   verifyRequest() {
     if (!this.username ||  !this.policy || !this.location || (!this.type) || !this.password || !this.password1 || !this.email) {
-      this.message = "Niste uneli sve podatke."; false;
+      this.message = "Niste uneli sve podatke."; return false;
     }
     if (this.username.length < 3) { this.message = "Korisničko ime je prekratko, mora imati najmanje 3 karaktera."; return false; }
     if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(this.email)) { this.message = "Email nije u dobrom formatu."; return false; }

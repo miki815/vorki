@@ -5,154 +5,135 @@
 
 <app-main-navbar></app-main-navbar>
 
-<main class="profile-page bg-zuta">
+<main class="profile-page bg-modern">
+    <!--    Background Photo    -->
     <section class="relative block h-500-px">
         <div class="absolute top-0 w-full h-full bg-center bg-cover" style="background-image: url({{ph}});">
             <span class="w-full h-full absolute opacity-50 bg-black"></span>
         </div>
-        <!-- <div class="absolute bottom-0 left-0 right-0 w-full pointer-events-none overflow-hidden h-70-px" style="transform: translateZ(0)">
-            <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-                <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
-            </svg>
-        </div> -->
     </section>
 
-
+    <!--    Profile Card    -->
     <section class="relative py-16">
         <div class="container mx-auto px-4"
             style="width: 100%;display: flex; flex-direction: row; justify-content: space-between;">
-            <div class="relative flex flex-col min-w-0 break-words bg-plava w-full mb-6 rounded-lg -mt-64"
+            <div class="relative flex flex-col min-w-0 break-words bg-texture-no-opacity w-full px-6 mb-6 rounded-lg -mt-64"
                 style="height: fit-content; margin-right: 20px;">
-                <div class="px-6">
+                <div class="flex flex-wrap justify-center">
+                    <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
+                        <div class="relative im">
+                            <img alt="..." [src]="job.photo" class="object-cover rounded-full shadow-lg mx-auto -m-16"
+                                style="border-radius: 50%; height: 100px; width: 100px;" />
+                        </div>
+                    </div>
 
-                    <div class="flex flex-wrap justify-center">
+                    <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center c">
+                        <div class="flex justify-center py-4 lg:pt-4 pt-8">
+                            <div class="mr-4 p-3 text-center">
+                                <span class="text-xl font-bold block uppercase text-blueGray-200">
+                                    {{numberOfJobs}}
+                                </span>
+                                <span class="text-sm text-blueGray-200">Odrađenih poslova</span>
+                            </div>
 
-                        <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
-                            <div class="relative im">
-                                <img alt="..." [src]="job.photo" class="object-cover rounded-full shadow-lg mx-auto -m-16" style="border-radius: 50%; height: 100px; width: 100px;"/>
+                            <div class="mr-4 p-3 text-center">
+                                <span class="text-xl font-bold block uppercase text-blueGray-200">
+                                    {{job.avgRate.toFixed(2)}}
+                                </span>
+                                <span class="text-sm text-blueGray-200">Ocena</span>
+                            </div>
 
-                                <!-- <img [src]="job.photo"
-                                    class="rounded-full h-auto align-middle absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
-                                    style="border-radius: 50%; height: 100px; width: 100px; object-fit: cover;" /> -->
+                            <div class="lg:mr-4 p-3 text-center">
+                                <span class="text-xl font-bold block uppercase text-blueGray-200">
+                                    {{comments.length}}
+                                </span>
+                                <span class="text-sm text-blueGray-200">Broj pitanja</span>
                             </div>
                         </div>
 
-                        <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center c">
-
-                            <div class="flex justify-center py-4 lg:pt-4 pt-8">
-
-                                <div class="mr-4 p-3 text-center">
-                                    <span class="text-xl font-bold block uppercase text-white">
-                                        {{numberOfJobs}}
-                                    </span>
-                                    <span class="text-sm text-white">Odrađenih poslova</span>
+                        <!-- Sending Request -->
+                        <div class="py-3 px-3 mt-0 sm:mt-16"
+                            style="display: flex; flex-direction: column; align-items: center;" *ngIf="isRequest==true">
+                            <div style="display: flex; flex-direction: row; padding: 3px; ">
+                                <div class="relative w-full mb-3 margin-5" style="margin-right: 10px;">
+                                    <label class="block uppercase text-xs text-white font-bold mb-2"
+                                        htmlFor="grid-password">
+                                        Predlog termina
+                                    </label>
+                                    <input [(ngModel)]="startDate" name="startDate" type="date"
+                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                        maxlength="50" />
                                 </div>
-
-                                <div class="mr-4 p-3 text-center">
-                                    <span class="text-xl font-bold block uppercase text-white">
-                                        {{job.avgRate.toFixed(2)}}
-                                    </span>
-                                    <span class="text-sm text-white">Ocena</span>
-                                </div>
-
-                                <div class="lg:mr-4 p-3 text-center">
-                                    <span class="text-xl font-bold block uppercase text-white">
-                                        {{comments.length}}
-                                    </span>
-                                    <span class="text-sm text-white">Broj pitanja</span>
+                                <div class="relative w-full mb-3">
+                                    <label class="block uppercase text-xs text-white font-bold mb-2"
+                                        htmlFor="additionalInfo">
+                                        Dodatne informacije
+                                    </label>
+                                    <textarea [(ngModel)]="additionalInfo" name="additionalInfo" type="date"
+                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                        maxlength="255"></textarea>
                                 </div>
                             </div>
+                            <button style="margin-top: 5px;" (click)="userRequestForAgreement()"
+                                class="text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                                type="button">
+                                Pošalji zahtev
+                            </button>
+                        </div>
 
-                            <div class="py-3 px-3 mt-0 sm:mt-16"
-                                style="display: flex; flex-direction: column; align-items: center;"
-                                *ngIf="isRequest==true">
-                                <div style="display: flex; flex-direction: row; padding: 3px; ">
-                                    <div class="relative w-full mb-3 margin-5" style="margin-right: 10px;">
-                                        <label class="block uppercase text-xs text-white font-bold mb-2"
-                                            htmlFor="grid-password">
-                                            Predlog termina
-                                        </label>
-                                        <input [(ngModel)]="startDate" name="startDate" type="date"
-                                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                            maxlength="50" />
-                                    </div>
-                                    <!-- </div>
-
-                                <div style="display: flex; flex-direction: row; padding: 3px; "> -->
-                                    <div class="relative w-full mb-3">
-                                        <label class="block uppercase text-xs text-white font-bold mb-2"
-                                            htmlFor="additionalInfo">
-                                            Dodatne informacije
-                                        </label>
-                                        <textarea [(ngModel)]="additionalInfo" name="additionalInfo" type="date"
-                                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                            maxlength="255"></textarea>
-                                    </div>
-                                </div>
-
-                                <button style="margin-top: 5px;" (click)="userRequestForAgreement()"
-                                    class="bg-zuta text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                        <!-- Buttons -->
+                        <div class="py-3 px-3 mt-0 sm:mt-16"
+                            style="display: flex; flex-direction: column; align-items: center;"
+                            *ngIf="cookie!=idUser && isRequest==false">
+                            <div class="button-container">
+                                <button style="margin-top: 5px;"
+                                    class="uppercase font-semibold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150 button-list"
                                     type="button">
-                                    Pošalji zahtev
+                                    Kalendar
                                 </button>
-                            </div>
-
-
-                            <div class="py-3 px-3 mt-0 sm:mt-16"
-                                style="display: flex; flex-direction: column; align-items: center;"
-                                *ngIf="cookie!=idUser && isRequest==false">
-
-                                <div style="display: flex; flex-direction: row;">
-                                    <!-- <app-calendar></app-calendar> -->
-
-                                    <button style="margin-top: 5px;"
-                                        class="bg-zuta text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                                        type="button">
-                                        Kalendar majstora
-                                    </button>
-                                    <button style="margin-top: 5px;"
-                                        class="bg-zuta text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                                        type="button" [disabled]="requestMsg=='Zahtev poslat!'"
-                                        (click)="showRequestForm()">
-                                        {{requestMsg}}
-                                    </button>
-                                    <button style="margin-top: 5px;"
-                                        class="bg-zuta text-blueGray-600 uppercase font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                                        type="button">
-                                        Oceni majstora
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="w-full lg:w-4/12 px-4 lg:order-1">
-                            <div class="text-center mt-12">
-                                <h3 class="text-4xl font-semibold leading-normal mb-2 text-white mb-2">
-                                    {{job.username}}
-                                </h3>
-                                <div class="text-md leading-normal mt-0 mb-2 text-white font-bold uppercase">
-                                    <i class="fas  fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
-                                    {{ job.city }}
-                                </div>
-                                <div class="mb-2 text-white">
-                                    <i class="fas fa-user mr-2 text-lg text-blueGray-400"></i>
-                                    {{job.profession}}
-                                </div>
-                                <div class="mb-2 text-white">
-                                    <button (click)="callPhoneNumber(phoneNumber)">
-                                        <i class="fas fa-phone mr-2 text-lg text-blueGray-400"></i>
-                                        {{phoneNumber}}
-                                    </button>
-                                </div>
+                                <button style="margin-top: 5px;"
+                                    class="uppercase font-semibold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150 button-list"
+                                    type="button" [disabled]="requestMsg=='Zahtev poslat!'" (click)="showRequestForm()">
+                                    {{requestMsg}}
+                                </button>
+                                <button style="margin-top: 5px;"
+                                    class="uppercase font-semibold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150 button-list"
+                                    type="button">
+                                    Oceni
+                                </button>
                             </div>
                         </div>
                     </div>
 
+                    <!-- User Info -->
+                    <div class="w-full lg:w-4/12 px-4 lg:order-1">
+                        <div class="text-center mt-12">
+                            <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-200 mb-2">
+                                {{job.username}}
+                            </h3>
+                            <div class="text-md leading-normal mt-0 mb-2 text-blueGray-200 font-semibold uppercase">
+                                <i class="fas fa-map-marker-alt mr-2 text-lg text-location"></i>
+                                {{ job.city }}
+                            </div>
+                            <div class="mb-2 text-blueGray-200 font-semibold">
+                                <i class="fas fa-user mr-2 text-lg text-covek"></i>
+                                {{job.profession}}
+                            </div>
+                            <div class="mb-2 text-blueGray-200 font-semibold">
+                                <button (click)="callPhoneNumber(phoneNumber)">
+                                    <i class="fas fa-phone mr-2 text-lg text-telefon"></i>
+                                    {{phoneNumber}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="relative flex flex-col min-w-0 break-words bg-plava w-full mb-6 rounded">
+                <!--    Job info    -->
+                <div class="relative flex flex-col min-w-0 break-words w-full mb-6 rounded">
                     <hr>
-                    <h3 class="text-4xl font-semibold leading-normal mb-2 text-white text-center"> {{job.title}} </h3>
-                    <p class="text-lg mb-2 text-white ml-5 text-center">{{job.description}}</p>
+                    <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-200 text-center"> {{job.title}}
+                    </h3>
+                    <p class="text-lg mb-2 text-blueGray-200 ml-5 text-center">{{job.description}}</p>
                 </div>
             </div>
         </div>
@@ -178,71 +159,61 @@
             </div>
         </div>
     </section>
-    <hr>
-    <section class="relative py-16 bg-plava">
+    <!--    Questions    -->
+    <section class="relative bg-texture">
         <div class="container mx-auto px-4"
             style="width: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-            <div class="rounded-t mb-0 px-4 border-0 bg-plava" style="margin-top: 15px;">
+            <div class="rounded-t mb-0 px-4 border-0" style="margin-top: 15px;">
                 <div class="flex flex-wrap items-center">
                     <div class="relative w-full px-4 max-w-full flex-grow flex-1">
-                        <h3 class="text-4xl text-white font-semibold leading-normal mb-2 text-center">Pitanja</h3>
+                        <h3 class="text-4xl text-blueGray-200 font-semibold leading-normal mb-2 text-center">Pitanja
+                        </h3>
                     </div>
                 </div>
             </div>
-            <div class="relative flex flex-col min-w-0 break-words bg-zuta w-full mb-6 rounded-lg">
+            <div class="relative flex flex-col min-w-0 break-words bg-modern w-full mb-6 rounded-lg">
                 <!-- Pitanja -->
-                <div class="relative flex flex-col min-w-0 break-words w-full mb-2 shadow-lg rounded">
-
-                    <div class="block w-full overflow-x-auto">
-                        <table class="items-center w-full bg-transparent border-collapse">
-                            <tbody>
-                                <tr style="display: flex; flex-direction: row; align-items: center; padding: 10px;"
-                                    *ngFor="let comm of comments.slice(0, visibleComments)"
-                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 whitespace-nowrap text-left">
-                                    <img alt="..." [src]="comm.photo" class="shadow-xl rounded-full border-none"
-                                        style="width: 30px; height: 30px; margin: 5px;" />
-                                    <i>{{comm.username}} {{comm.dateC | date: 'dd.MM.yyyy'}}:</i> &nbsp; &nbsp;
-                                    {{comm.comment}}
-                                    <br>
-                                    <div style="width: 100%; display: flex; justify-content: flex-end; color: rgb(30, 41, 59);"
-                                        *ngIf="comm.idCommentator == cookie">
-                                        <i class='fas fa-trash-alt' style='font-size: 24px;'
-                                            (click)="deleteComment(comm.id)"></i>
-                                    </div>
-                                </tr>
-                                <tr>
-                                    <div style="background-color: white;"
-                                        class="relative w-full px-4 max-w-full flex-grow flex-1 text-center">
-                                        <button
-                                            style="margin: 10px; background-color: rgb(255, 232, 60); color: rgb(30, 41, 59);"
-                                            (click)="more()"
-                                            class="text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                            type="button">
-                                            Prikaži više
-                                        </button>
-                                        <button
-                                            style="margin: 10px; background-color: rgb(255, 232, 60); color: rgb(30, 41, 59);"
-                                            (click)="less()"
-                                            class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                            type="button">
-                                            Prikaži manje
-                                        </button>
-                                    </div>
-                                </tr>
-                                <tr
-                                    style="display: flex; flex-direction: row; justify-content: space-between; padding: 20px;">
-                                    <input style="width: 100%;" name="comment" type="text" [(ngModel)]="comment"
-                                        class="ml-2 border placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                        placeholder="Unesite pitanje" [disabled]="cookie === idUser" maxlength="200" />
-                                    <button
-                                        class="px-4 ml-2 bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                        type="button" (click)="addComment()">
-                                        Pošalji
+                <div class="block w-full overflow-x-auto">
+                    <table class="items-center w-full bg-transparent border-collapse">
+                        <tbody>
+                            <tr style="display: flex; flex-direction: row; align-items: center; padding: 10px;"
+                                *ngFor="let comm of comments.slice(0, visibleComments)"
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 whitespace-nowrap text-left">
+                                <img alt="..." [src]="comm.photo" class="shadow-xl rounded-full border-none"
+                                    style="width: 30px; height: 30px; margin: 5px;" />
+                                <i>{{comm.username}} {{comm.dateC | date: 'dd.MM.yyyy'}}:</i> &nbsp; &nbsp;
+                                <span class="text-blueGray-800">{{comm.comment}}</span>
+                                <br>
+                                <div style="width: 100%; display: flex; justify-content: flex-end; color: rgb(30, 41, 59);"
+                                    *ngIf="comm.idCommentator == cookie">
+                                    <i class='fas fa-trash-alt' style='font-size: 24px;'
+                                        (click)="deleteComment(comm.id)"></i>
+                                </div>
+                            </tr>
+                            <tr>
+                                <div class="bg-texture"
+                                    class="relative w-full px-4 max-w-full flex-grow flex-1 text-center">
+                                    <button (click)="more()" class="button-list m-3" type="button">
+                                        Prikaži više
                                     </button>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                    <button (click)="less()" class="button-list m-3" type="button">
+                                        Prikaži manje
+                                    </button>
+                                </div>
+                            </tr>
+                            <tr
+                                style="display: flex; flex-direction: row; justify-content: space-between; padding: 20px;">
+                                <input style="width: 100%;" name="comment" type="text" [(ngModel)]="comment"
+                                    class="ml-2 border placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                    placeholder="Unesite pitanje" [disabled]="cookie === idUser" maxlength="200" />
+                                <button
+                                    class="px-4 ml-2 bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                    type="button" (click)="addComment()">
+                                    Pošalji
+                                </button>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -263,12 +234,12 @@
     #map {
         height: 400px;
         border-radius: 2%;
-        margin-left: 5px;
-        margin-right: 5px;
+        /* margin-left: 20px;
+        margin-right: 20px; */
     }
 
     i:hover {
-        color: rgb(255, 232, 60);
+        color: rgb(241, 51, 51);
     }
 
     table.items-center tr:nth-child(even) {

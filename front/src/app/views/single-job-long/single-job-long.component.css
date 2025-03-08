@@ -1,0 +1,30 @@
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (min-width: 640px) {
+    .button-container {
+        flex-direction: row;
+    }
+}
+
+.button-list {
+    width: 160px;
+    height: 48px;
+    text-align: center;
+    background: #4A90E2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.button-list:hover {
+    background: #2C6CBD;
+}

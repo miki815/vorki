@@ -1,11 +1,12 @@
 import express from 'express'
 import { JobController } from '../controllers/job.controller';
+import { authenticateToken } from "..//auth";
 
 
 const jobRouter = express.Router();
 
-jobRouter.route('/insertJob').post(
-    (req, res) => new JobController().insertJob(req, res)
+jobRouter.route('/insertJob').post( // only user can insert job
+    authenticateToken, (req, res) => new JobController().insertJob(req, res)
 )
 
 jobRouter.route('/getJobs').get(
@@ -24,24 +25,24 @@ jobRouter.route('/getJobsWithUserInfo2').get(
     (req, res) => new JobController().getJobsWithUserInfo2(req, res)
 )
 
-jobRouter.route('/requestForAgreement').post(
-    (req, res) => new JobController().requestForAgreement(req, res)
+jobRouter.route('/requestForAgreement').post( // only user can request for agreement
+    authenticateToken, (req, res) => new JobController().requestForAgreement(req, res)
 )
 
-jobRouter.route('/updateJob').post(
-    (req, res) => new JobController().updateJob(req, res)
+jobRouter.route('/updateJob').post( // only job owner can update job
+    authenticateToken, (req, res) => new JobController().updateJob(req, res)
 )
 
 jobRouter.route('/getJobRequests/:idMaster').get(
-    (req, res) => new JobController().getJobRequests(req, res)
+    authenticateToken, (req, res) => new JobController().getJobRequests(req, res)
 )
 
 jobRouter.route('/updateAgreement').post(
-    (req, res) => new JobController().updateAgreement(req, res)
+    authenticateToken, (req, res) => new JobController().updateAgreement(req, res)
 )
 
 jobRouter.route('/getJobRequestsForUser/:idUser').get(
-    (req, res) => new JobController().getJobRequestsForUser(req, res)
+    authenticateToken, (req, res) => new JobController().getJobRequestsForUser(req, res)
 )
 
 jobRouter.route('/getMastersCount').post(
@@ -53,7 +54,7 @@ jobRouter.route('/getJobGallery/:idJob').get(
 )
 
 jobRouter.route('/changeJobLocationForUser').post(
-    (req, res) => new JobController().changeJobLocationForUser(req, res)
+    authenticateToken, (req, res) => new JobController().changeJobLocationForUser(req, res)
 )
 
 export default jobRouter;

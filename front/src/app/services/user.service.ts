@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -8,8 +8,8 @@ import { environment } from 'src/environments/environment';
 export class UserService {
 
   constructor(private http: HttpClient) { }
-  uri = 'https://vorki.rs';
-  // uri = 'http://127.0.0.1:4000'
+  // uri = 'https://vorki.rs';
+  uri = 'http://127.0.0.1:4000'
   // uri = environment.uri;
 
   login(data) {
@@ -21,39 +21,48 @@ export class UserService {
   }
 
   getUserById(data) {
-    return this.http.post(`${this.uri}/users/getUserById`, data);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/users/getUserById`, data, { headers });
   }
 
   addComment(data) {
-    return this.http.post(`${this.uri}/users/addComment`, data);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/users/addComment`, data, { headers });
   }
 
   getCommentById(data) {
-    return this.http.post(`${this.uri}/users/getCommentById`, data);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/users/getCommentById`, data, { headers });
   }
 
   getCommentsByJobId(data) {
-    return this.http.post(`${this.uri}/users/getCommentsByJobId`, data);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/users/getCommentsByJobId`, data, { headers });
   }
 
   deleteCommentById(data) {
-    return this.http.post(`${this.uri}/users/deleteCommentById`, data);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/users/deleteCommentById`, data, { headers });
   }
 
   rate(data) {
-    return this.http.post(`${this.uri}/users/rate`, data);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/users/rate`, data, { headers });
   }
 
   getRateByIdUser(data) {
-    return this.http.post(`${this.uri}/users/getRateByIdUser`, data);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/users/getRateByIdUser`, data, { headers });
   }
 
   getRateByIdUserAndRater(data) {
-    return this.http.post(`${this.uri}/users/getRateByIdUserAndRater`, data);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/users/getRateByIdUserAndRater`, data, { headers });
   }
 
   changePassword(data) {
-    return this.http.post(`${this.uri}/users/changePassword`, data);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/users/changePassword`, data, { headers });
   }
 
   getIdByEmail(data) {
@@ -65,7 +74,8 @@ export class UserService {
   }
 
   updateUser(data) {
-    return this.http.post(`${this.uri}/users/updateUser`, data);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/users/updateUser`, data, { headers });
   }
 
   forgotPasswordRequest(data) {

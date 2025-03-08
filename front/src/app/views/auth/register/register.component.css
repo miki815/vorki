@@ -1,108 +1,131 @@
-.message{
-    width: 100%; 
-    text-align: center; 
-    margin-top: 20px; 
-    background-color: rgb(239, 114, 114); 
-    color: white; 
-    padding: 10px; 
-    border-radius: 5px; 
-    color: #1e293b;
-  }
+/* Glavni okvir za registraciju */
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: url('/assets/texture3.webp') center/cover no-repeat;
+}
 
-  button{
-    background-color: #1e293b;
-    color: #ffe83c;
-  }
+/* Glavni okvir registracije */
+.login-box {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(30, 42, 58);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 30px;
+  margin-top: 0;
+}
 
-  button:hover{
-    background-color: #ffe83c;
-    color: #1e293b;
-  }
+/* Naslov */
+.login-title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
 
-  .ovde:hover{
-    color: #ffe83c;
-    background-color: #1e293b;
-    border-radius: 5%;
-  }
+/* Podnaslov */
+.login-subtitle {
+  color: #bbb;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Grupa input polja */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Input polja */
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #394a5a;
+  background: #2C3E50;
+  color: #fff;
+  border-radius: 6px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.form-input:focus {
+  border: 1px solid #EFCA21;
+}
+
+/* Radio dugmadi */
+.radio-input {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+/* Dropdown menu */
+/* .dropdown-menu {
+  position: absolute;
+  background-color: #2C3E50;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+} */
+
+/* Dropdown meni */
+.dropdown-menu {
+  position: absolute;
+  background-color: #2C3E50;
+  width: 100%; /* Osiguraj da širina bude 100% roditelja */
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  left: 0; /* Dodaj ovo kako bi se pozicionirao u okviru roditelja */
+  box-sizing: border-box; /* Osiguraj da se padding ne računa u širinu */
+}
 
 
-  .messageSucc{
-    width: 100%; 
-    text-align: center; 
-    margin-top: 20px; 
-    background-color: rgb(59, 185, 109);
-    color: white; 
-    padding: 10px; 
-    border-radius: 5px; 
-    color: #1e293b;
-  }
-  
-  .dropdown {
-    position: relative;
-    max-width: 400px;
-  }
-  
-  .search-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    max-height: 200px;
-    overflow-y: auto;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    z-index: 1000;
-  }
-  
-  .dropdown-item {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-  }
-  
-  .dropdown-item:hover {
-    background-color: #f0f0f0;
-  }
-  
-  .selected-professions {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-  
-  .selected-item {
-    background-color: #4caf50;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-  
-  .close-btn {
-    background: none;
-    border: none;
-    font-size: 18px;
-    font-weight: bold;
-    color: #444;
-    cursor: pointer;
-    float: right; /* Pozicionira dugme desno */
-    margin-right: 10px;
-  }
-  
-  .close-btn:hover {
-    color: #000;
-  }
-  
 
-  
+.dropdown-item {
+  width: 100%; 
+  box-sizing: border-box; 
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #1f2a35;
+}
+
+/* Dugme */
+.submit-button {
+  width: 100%;
+  background: #EFCA21;
+  color: #1E2A3A;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-button:hover {
+  background: #FFD700;
+}
+
+/* Linkovi */
+.link-highlight {
+  color: #EFCA21;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.link-highlight:hover {
+  text-decoration: underline;
+}
+
+/* Poruka */
+.message {
+  text-align: center;
+  color: red;
+  margin-top: 15px;
+}
