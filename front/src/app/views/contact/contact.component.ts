@@ -124,7 +124,7 @@ export class ContactComponent {
 
   triggerEvent() {
     const eventData = 'Test event triggered';
-    this.notificationService.triggerEvent(eventData).subscribe({
+    this.notificationService.trigger_event(eventData).subscribe({
       next: () => console.log('Event triggered successfully'),
       error: (err) => console.error('Failed to trigger event:', err),
     });

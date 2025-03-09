@@ -47,10 +47,6 @@ export class NotificationService {
     return outputArray;
   }
 
-  triggerEvent(eventData: string) {
-    return this.http.post(`${this.uri}/trigger-event`, { eventData });
-  }
-
   subscribeToNotifications(userId: string) {
     if (!this.swPush.isEnabled) {
       console.error('Push notifications are not enabled');
@@ -103,7 +99,11 @@ export class NotificationService {
     return this.http.post(`${this.uri}/subscriptions/save_subscription`, payload);
   }
 
-  unsubscribe_from_notifications(data) {
-    return this.http.post(`${this.uri}/subscriptions/unsubscribe`, data)
+  unsubscribe_from_notifications(userId) {
+    return this.http.post(`${this.uri}/subscriptions/unsubscribe`, { userId: userId });
+  }
+
+  trigger_event(eventData: string) {
+    return this.http.post(`${this.uri}/subscriptions/trigger_event`, { eventData });
   }
 }

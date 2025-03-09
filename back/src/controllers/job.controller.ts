@@ -24,7 +24,7 @@ export class JobController {
          * @returns {json} message
          */
         const { description, title, city, profession, type } = req.body;
-        const userId = (req as any).token.userId;
+        const userId = (req as any).userId;
 
         if (!description || !title || !city || !profession || !type) {
             return databaseFatalError(res, null, 'Missing required fields');
@@ -39,6 +39,7 @@ export class JobController {
 
         pool.query(sql, [userId, title, description, city, profession, type], (err, job) => {
             if (err) return databaseFatalError(res, err, 'Error inserting job');
+            logger.info({ job_id: job.insertId }, 'Job inserted');
             return res.json({ message: "0", job_id: job.insertId });
         });
     }
@@ -99,6 +100,22 @@ export class JobController {
         pool.query(sql, (err, jobs) => {
             if (err) return databaseFatalError(res, err, 'Error getting jobs');
             return res.json(jobs);
+        });
+    }
+
+    get_job_and_user_info = (req: express.Request, res: express.Response) => {
+        /**
+         * @param {number} id
+         * @description Get job and user info by id
+         * @returns {json} job
+         */
+        var sql = 'SELECT job.id, job.profession, job.title, job.description, job.city, job.idUser, user.username, user.photo,'
+        sql += 'COALESCE((SELECT AVG(rate) FROM rate r WHERE r.idUser = job.idUser GROUP BY r.idUser), 0) AS avgRate, job.type '
+        sql += 'FROM job INNER JOIN user ON job.idUser = user.id WHERE job.id = ?;';
+        
+        pool.query(sql, [req.params.id], (err, job) => {
+            if (err) return databaseFatalError(res, err, 'Error getting job and user info');
+            return res.json(job);
         });
     }
 

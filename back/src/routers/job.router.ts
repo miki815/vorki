@@ -25,6 +25,10 @@ jobRouter.route('/getJobsWithUserInfo2').get(
     (req, res) => new JobController().getJobsWithUserInfo2(req, res)
 )
 
+jobRouter.route('/get_job_and_user_info/:id').get(
+    (req, res) => new JobController().get_job_and_user_info(req, res)
+)
+
 jobRouter.route('/requestForAgreement').post( // only user can request for agreement
     authenticateToken, (req, res) => new JobController().requestForAgreement(req, res)
 )

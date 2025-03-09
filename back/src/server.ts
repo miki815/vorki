@@ -12,8 +12,8 @@ import multer from 'multer'
 
 declare module 'express-serve-static-core' {
   interface Request {
-    files?: Express.Multer.File[]; 
-    file?: Express.Multer.File;   
+    files?: Express.Multer.File[];
+    file?: Express.Multer.File;
   }
 }
 
@@ -82,45 +82,6 @@ export { pool };
 
 
 // APP ROUTES
-
-
-
-
-
-
-app.post('/trigger-event', (req, res) => {
-  const { eventData } = req.body;
-  pool.getConnection((err, connection) => {
-
-    const query = `SELECT endpoint, p256dh, auth FROM subscriptions`;
-    connection.query(query, (err, results) => {
-      if (err) {
-        logger(req, res).error('Database error:', err);
-        return res.status(500).json({ error: 'Failed to fetch subscriptions' });
-      }
-
-      const payload = JSON.stringify({ title: 'Poruka', body: 'Miki Miki Miki' });
-
-      results.forEach((subscription) => {
-        const pushSubscription = {
-          endpoint: subscription.endpoint,
-          keys: {
-            p256dh: subscription.p256dh,
-            auth: subscription.auth,
-          },
-        };
-
-        webPush
-          .sendNotification(pushSubscription, payload)
-          .then(() => logger.info('Notification sent successfully'))
-          .catch((err) => logger.error('Notification error:', err));
-      });
-
-      res.status(200).json({ message: 'Notifications triggered' });
-    });
-  });
-});
-
 
 app.post('/upload', upload.array('images', 10), (req, res) => {
   if (!req.files || !req.body.idJob) {

@@ -28,4 +28,9 @@ subscriptionRouter.route('/unsubscribe').post(
     (req, res) => new SubscriptionController().unsubscribe(req, res)
 )
 
+subscriptionRouter.route('/trigger_event').post(
+    (req, res) => new SubscriptionController().trigger_event(req, res)
+)
+
 export default subscriptionRouter;
+

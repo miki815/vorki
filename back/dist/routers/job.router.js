@@ -13,6 +13,7 @@ jobRouter.route('/getJobs').get((req, res) => new job_controller_1.JobController
 jobRouter.route('/getJobById/:id').get((req, res) => new job_controller_1.JobController().getJobById(req, res));
 jobRouter.route('/getJobsWithUserInfo').get((req, res) => new job_controller_1.JobController().getJobsWithUserInfo(req, res));
 jobRouter.route('/getJobsWithUserInfo2').get((req, res) => new job_controller_1.JobController().getJobsWithUserInfo2(req, res));
+jobRouter.route('/get_job_and_user_info/:id').get((req, res) => new job_controller_1.JobController().get_job_and_user_info(req, res));
 jobRouter.route('/requestForAgreement').post(// only user can request for agreement
 auth_1.authenticateToken, (req, res) => new job_controller_1.JobController().requestForAgreement(req, res));
 jobRouter.route('/updateJob').post(// only job owner can update job

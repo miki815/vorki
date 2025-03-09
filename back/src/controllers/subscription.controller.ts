@@ -19,7 +19,7 @@ function sendTestNotification(subscription, res) {
             res.status(200).json({ message: 'Subscription saved and notification sent successfully' });
         })
         .catch((error) => {
-            logger.error('Failed to send notification:', error);
+            logger.error({ error }, 'Failed to send notification:');
             res.status(500).json({ error: 'Failed to send notification', details: error.message });
         });
 }
@@ -305,16 +305,15 @@ export class SubscriptionController {
 
     unsubscribe = (req: express.Request, res: express.Response) => {
         try {
-            const { sub } = req.body;
-            const endpoint = sub.endpoint;
-            if (!endpoint) {
-                return res.status(400).json({ error: 'Missing endpoint' });
+            const { userId } = req.body;
+            if (!userId) {
+                return res.status(400).json({ error: 'Missing userId' });
             }
 
-            logger.info({ endpoint }, 'Unsubscribing user');
+            logger.info({ userId }, 'Unsubscribing user');
 
-            const query = 'DELETE FROM subscriptions WHERE endpoint = ?';
-            pool.query(query, endpoint, (err, result) => {
+            const query = 'DELETE FROM subscriptions WHERE user_id = ?';
+            pool.query(query, userId, (err, result) => {
                 if (err) {
                     logger.error('Greška prilikom pretrage pretplate:', err);
                     return res.status(500).json({ error: 'Greška na serveru.' });
@@ -322,13 +321,49 @@ export class SubscriptionController {
                 if (result.affectedRows === 0) {
                     return res.status(404).json({ error: 'Subscription not found' });
                 }
-                logger.info({ endpoint }, 'Subscription removed successfully');
+                logger.info({ userId }, 'Subscription removed successfully');
                 return res.status(200).json({ message: 'Pretplata uspešno isključena.' });
             });
         } catch (err) {
             logger.error('Database error:', err);
             return res.status(500).json({ error: `Database error: ${err.message}` });
         }
+    };
+
+    trigger_event = (req: express.Request, res: express.Response) => {
+        const { eventData } = req.body;
+        pool.getConnection((err, connection) => {
+            if (err) {
+                logger.error({ err }, 'Database error');
+                return res.status(500).json({ error: 'Failed to connect to database' });
+            }
+
+            const query = `SELECT endpoint, p256dh, auth FROM subscriptions`;
+            connection.query(query, (err, results) => {
+                if (err) {
+                    logger.error({ err }, 'Database error');
+                    return res.status(500).json({ error: 'Failed to fetch subscriptions' });
+                }
+
+                const payload = JSON.stringify({ title: eventData.title, body: eventData.body });
+
+                results.forEach((subscription) => {
+                    const pushSubscription = {
+                        endpoint: subscription.endpoint,
+                        keys: {
+                            p256dh: subscription.p256dh,
+                            auth: subscription.auth,
+                        },
+                    };
+                    webPush
+                        .sendNotification(pushSubscription, payload)
+                        .then(() => logger.info('Notification sent successfully'))
+                        .catch((err) => logger.error('Notification error:', err));
+                });
+
+                res.status(200).json({ message: 'Notifications triggered' });
+            });
+        });
     };
 
 

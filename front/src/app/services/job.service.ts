@@ -39,6 +39,10 @@ export class JobService {
     return this.http.get(`${this.uri}/jobs/getJobsWithUserInfo2`);
   }
 
+  get_job_and_user_info(id) {
+    return this.http.get(`${this.uri}/jobs/get_job_and_user_info/${id}`);
+  }
+
   requestForAgreement(data) {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
     return this.http.post(`${this.uri}/jobs/requestForAgreement`, data, { headers });

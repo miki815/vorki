@@ -27,10 +27,10 @@ export class AdvertisementComponent implements OnInit {
   searchQueryProf = '';
   filteredCities: any;
   filteredProfessions: string[] = [];
+  jobType: number;
 
-
-  // uri = 'http://127.0.0.1:4000'
-  uri = 'https://vorki.rs';
+  uri = 'http://127.0.0.1:4000'
+  // uri = 'https://vorki.rs';
   // uri = environment.uri;
 
   constructor(private jobService: JobService, private router: Router, private userService: UserService, private http: HttpClient, private cookieService: CookieService, private notificationService: NotificationService) {
@@ -64,37 +64,32 @@ export class AdvertisementComponent implements OnInit {
   insertJob() {
     console.log("Insert job - submit: START")
     // Provera
-    if (!this.description || !this.title) {
+    if (!this.description || !this.title || !this.selectedCity || !this.selectedProfession || !this.jobType) {
       this.poruka = "Niste uneli sve podatke.";
       this.bgcolor = "rgb(239, 114, 114)";
       return;
     }
-    this.userService.getUserById({ id: this.cookieService.get('userId') }).subscribe((message: any) => {
-      //Pakovanje
-      const data = {
-        description: this.description,
-        title: this.title,
-        city: this.selectedCity,
-        profession: this.selectedProfession,
-        type: message['message'].type
+    //Pakovanje
+    const data = {
+      description: this.description,
+      title: this.title,
+      city: this.selectedCity,
+      profession: this.selectedProfession,
+      type: this.jobType
+    }
+    //Slanje
+    this.jobService.insertJob(data).subscribe((message: any) => {
+      if (message['message'] == 0) {
+        console.log("Insert job - submit: PASS")
+        const job_id = message['job_id'];
+        this.addPicturesJobInsert(job_id);
+        this.notificationService.newJobNotification({ user_id: this.cookieService.get('userId'), job_id: message['job_id'], job_title: this.title }).subscribe((message: any) => {
+          console.log("Notification sent for job title: " + this.title);
+          this.router.navigate(['/oglasi/' + job_id]);
+        });
       }
-      //Slanje
-      console.log(data);
-      this.jobService.insertJob(data).subscribe((message: any) => {
-        if (message['message'] == 0) {
-          console.log("Insert job - submit: PASS")
-          this.poruka = "Uspešno ste dodali oglas: " + this.title;
-          this.description = null;
-          this.bgcolor = "rgb(42, 138, 42)";
-          this.addPicturesJobInsert(message['job_id']);
-          this.notificationService.newJobNotification({ user_id: this.cookieService.get('userId'), job_id: message['job_id'], job_title: this.title }).subscribe((message: any) => {
-            console.log("Notification sent for job title: " + this.title);
-            this.title = null;
-          });
-        }
-      })
-
     })
+
   }
 
   onImageChange(event: any) {
@@ -108,7 +103,7 @@ export class AdvertisementComponent implements OnInit {
       selectedFiles.forEach((file: File) => {
         if (file.size > MAX_SIZE) {
           alert(`Slika ${file.name} je prevelika! Maksimalna dozvoljena veličina je 2MB.`);
-          return; 
+          return;
         }
         const reader = new FileReader();
         reader.onload = (e: any) => {
@@ -143,11 +138,9 @@ export class AdvertisementComponent implements OnInit {
       });
     }
 
-    // Pošaljemo POST zahtev na server
     this.http.post(`${this.uri}/upload`, formData)
       .subscribe((response: any) => {
         console.log('Response from server:', response);
-        // Ovdje možeš obraditi odgovor sa servera (spremiti putanje slika u bazu, itd.)
       });
   }
 

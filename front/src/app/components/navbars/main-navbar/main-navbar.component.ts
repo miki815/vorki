@@ -44,12 +44,21 @@ export class MainNavbarComponent implements OnInit {
         });
       })
     } else {
+      this.notificationService.unsubscribe_from_notifications(this.cookieService.get('userId')).subscribe({
+        next: response => console.log('Subscription removed from server', response),
+        error: error => console.error('Failed to remove subscription from server', error)
+      });
       // this.swPush.subscription.subscribe(sub => {
-      //   this.notificationService.unsubscribe_from_notifications(sub).subscribe({
-      //     next: response => console.log('Subscription removed from server successfully', response),
-      //     error: error => console.error('Failed to remove subscription from server', error)
-      //   });
-      // sub.unsubscribe();
+      //   if (sub) {
+      //     this.notificationService.unsubscribe_from_notifications(sub).subscribe({
+      //       next: response => console.log('Subscription removed from server', response),
+      //       error: error => console.error('Failed to remove subscription from server', error)
+      //     });
+
+      //     // Zatim brišemo pretplatu iz browsera
+      //     sub.unsubscribe().then(() => console.log('Unsubscribed from push notifications'))
+      //       .catch(err => console.error('Error unsubscribing', err));
+      //   }
       // });
     }
   }

@@ -45,62 +45,60 @@ export class SingleJobLongComponent implements OnInit {
   cities: any[] = [];
   coordinates: any[] = [];
   index: number = 0;
-  // uri = 'http://127.0.0.1:4000'
-  uri = 'https://vorki.rs';
+  uri = 'http://127.0.0.1:4000'
+  // uri = 'https://vorki.rs';
   // uri = environment.uri;
 
 
   constructor(private jobService: JobService, private route: ActivatedRoute, private cookieService: CookieService, private userService: UserService, private gallery: Gallery, private notificationService: NotificationService) { }
   ngOnInit(): void {
     this.cookie = this.cookieService.get("userId");
-    this.job = history.state.job;
-    this.idUser = this.job.idUser;
-    this.userService.getUserById({ id: this.idUser }).subscribe((message: any) => {
-      console.log("User: ", message['message'])
-      this.photo = message['message'].photo;
-      this.username = message['message'].username;
-      this.phoneNumber = message['message'].phone;
-    });
+    // this.job = history.state.job;
+
     this.route.paramMap.subscribe(params => {
       this.jobId = params.get('id');
-      this.jobService.getJobGallery(this.jobId).subscribe((imgs: any) => {
-        console.log(imgs);
-        imgs.forEach(element => {
-          console.log(element.urlPhoto)
-          this.images.push(new ImageItem({ src: `${this.uri}${element.urlPhoto}`, thumb: `${this.uri}${element.urlPhoto}` }))
-          this.galleryRef.add(new ImageItem({ src: `${this.uri}${element.urlPhoto}`, thumb: `${this.uri}${element.urlPhoto}` }))
-          this.numberOfPhotos += 1;
+      this.jobService.get_job_and_user_info(this.jobId).subscribe((job: any) => {
+        console.log(job);
+        this.job = job[0];
+        this.idUser = this.job.idUser;
+        this.userService.getUserById({ id: this.idUser }).subscribe((message: any) => {
+          console.log("User: ", message['message'])
+          this.photo = message['message'].photo;
+          this.username = message['message'].username;
+          this.phoneNumber = message['message'].phone;
         });
-        if(this.numberOfPhotos > 0) this.imagesLoaded = true;
+        this.jobService.getJobGallery(this.jobId).subscribe((imgs: any) => {
+          console.log(imgs);
+          imgs.forEach(element => {
+            console.log(element.urlPhoto)
+            this.images.push(new ImageItem({ src: `${this.uri}${element.urlPhoto}`, thumb: `${this.uri}${element.urlPhoto}` }))
+            this.galleryRef.add(new ImageItem({ src: `${this.uri}${element.urlPhoto}`, thumb: `${this.uri}${element.urlPhoto}` }))
+            this.numberOfPhotos += 1;
+          });
+          if (this.numberOfPhotos > 0) this.imagesLoaded = true;
+        });
+        this.getComments();
+        this.map = L.map('map').setView([0, 0], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+        }).addTo(this.map);
+        fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + this.job.city)
+          .then(response => response.json())
+          .then(data => {
+            if (data.length > 0) {
+              var lat = parseFloat(data[0].lat);
+              var lon = parseFloat(data[0].lon);
+              L.marker([lat, lon]).addTo(this.map)
+                .bindPopup('' + this.job.city)
+                .openPopup();
+              this.map.setView([lat, lon], 8);
+            }
+          })
+          .catch(error => {
+            console.error('Greška pri pretrazi grada:', error);
+          });
       });
     });
-    this.getComments();
-
-    this.map = L.map('map').setView([0, 0], 2);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-    }).addTo(this.map);
-    fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + this.job.city)
-      .then(response => response.json())
-      .then(data => {
-        if (data.length > 0) {
-          var lat = parseFloat(data[0].lat);
-          var lon = parseFloat(data[0].lon);
-          L.marker([lat, lon]).addTo(this.map)
-            .bindPopup('' + this.job.city)
-            .openPopup();
-          this.map.setView([lat, lon], 8);
-        }
-      })
-      .catch(error => {
-        console.error('Greška pri pretrazi grada:', error);
-      });
-    // this.jobService.getJobById(this.jobId).subscribe((job: any) => {
-    //   // getJobById returns array of one element
-    //   this.job = job[0];
-    // });
-    // this.getCitiesCoordinates();
-    // this.getCities();
   }
 
   addComment() {
