@@ -89,4 +89,8 @@ userRouter.route('/verify-token').post(
     (req, res) => new UserController().verifyToken(req, res)
 )
 
+userRouter.route('/isUserSubscribed').get(
+    authenticateToken, (req, res) => new UserController().isUserSubscribed(req, res)
+)
+
 export default userRouter;

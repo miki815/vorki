@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { JobService } from "src/app/services/job.service";
 import { end } from "@popperjs/core";
 import { NotificationService } from "src/app/services/notification.service";
+import { Gallery, GalleryItem, GalleryRef, GalleryState, ImageItem } from "ng-gallery";
 
 
 @Component({
@@ -15,7 +16,7 @@ import { NotificationService } from "src/app/services/notification.service";
 })
 
 export class ProfileComponent implements OnInit {
-  constructor(private cookieService: CookieService, private router: Router, private userService: UserService, private route: ActivatedRoute, private jobService: JobService, private notificationService: NotificationService) { }
+  constructor(private cookieService: CookieService, private router: Router, private userService: UserService, private route: ActivatedRoute, private jobService: JobService, private notificationService: NotificationService, private gallery: Gallery) { }
 
   email: string = null;
   username: string = null;
@@ -37,16 +38,42 @@ export class ProfileComponent implements OnInit {
   backPhoto: string = "";
   instagram: string = "";
   facebook: string = "";
-  jobRequests: Array<any>;
+  jobOffers: Array<any>;
   myJobRequests: Array<any>;
+  imagesLoaded: boolean = false;
+  images: GalleryItem[] = [];
+  imgIndex: number = 0;
+  numberOfPhotos: number = 0;
+  galleryId = 'mixed';
+  galleryRef: GalleryRef = this.gallery.ref(this.galleryId);
+  finishedJobs: number = 0;
+  // uri = 'http://127.0.0.1:4000'
+  uri = 'https://vorki.rs';
+  // uri = environment.uri;
+
 
   ngOnInit(): void {
     console.log("Profile - ngOnInit: START")
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
 
     this.getToken();
     this.getRate();
     this.getUser();
     this.getJobs();
+    this.jobService.getJobsCountByStatus({ idUser: this.idUser, status: 'finished' }).subscribe((response: any) => {
+      this.finishedJobs = response["count"];
+    });
+    this.jobService.getUserGallery(this.idUser).subscribe((imgs: any) => {
+      console.log(imgs);
+      imgs.forEach(element => {
+        console.log(element.urlPhoto)
+        this.images.push(new ImageItem({ src: `${this.uri}${element.urlPhoto}`, thumb: `${this.uri}${element.urlPhoto}` }))
+        this.galleryRef.add(new ImageItem({ src: `${this.uri}${element.urlPhoto}`, thumb: `${this.uri}${element.urlPhoto}` }))
+        this.numberOfPhotos += 1;
+      });
+      if (this.numberOfPhotos > 0) this.imagesLoaded = true;
+    });
 
 
     console.log("Profile - ngOnInit: END")
@@ -106,7 +133,7 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  getJobs() { // TODO: Dodati servis samo za dohvatanje broja poslova
+  getJobs() {
     console.log("Profile - getJobs: START")
 
     this.jobService.getJobsWithUserInfo2().subscribe((response: any) => {
@@ -116,24 +143,6 @@ export class ProfileComponent implements OnInit {
 
     console.log("Profile - getJobs: END")
   }
-
-  // rate(){
-  //   console.log("Profile - rate: START")
-
-  //   const data = {
-  //     idUser:  this.idUser,
-  //     idRater:  this.cookie,
-  //     rate: this.rating
-  //   }
-
-  //   this.userService.rate(data).subscribe(() => {
-  //     this.getRate();
-  //     console.log("Profile - rate: END")
-  //   });
-
-  // }
-
-  // setRating(rating) {this.rating = rating;}
 
 
   // Pages
@@ -145,17 +154,8 @@ export class ProfileComponent implements OnInit {
 
   acceptRequest(request) {
     console.log("Profile - acceptRequest: START");
-    console.log("Start time: " + request.startTime);
-    console.log("End time: " + request.endTime);
-    let [hours, minutes] = request.endTime.split(':').map(Number);
-    console.log("Hours: " + hours + " Minutes: " + minutes);
-    let [day, month, year] = request.startTime.split('.').map(Number);
-    console.log("Day: " + day + " Month: " + month + " Year: " + year);
-    const startDate = new Date(request.startTime);
-    startDate.setHours(hours, minutes);
-    console.log("Start date: " + startDate);
-    this.jobService.updateAgreement({ idAgreements: request.idAgreements, status: 'accepted', startTime: this.convertToMySQLDate(startDate) }).subscribe(() => {
-      this.notificationService.inform_user_of_master_accept_their_job({ job_title: 'Prihvacen zahtev za posao!', user_id:  request.idUser, job_status: 'Pogledajte sve detalje dogovora.'}).subscribe(() => {
+    this.jobService.updateAgreement({ idAgreements: request.idAgreements, status: 'accepted' }).subscribe(() => {
+      this.notificationService.inform_user_of_master_accept_their_job({ job_title: 'Prihvacen zahtev za posao!', user_id: request.idUser, job_status: 'Čestitamo! Korisnik je izabrao vas da obavite njegov posao.' }).subscribe(() => {
         console.log("Notification sent");
         request.currentStatus = 'accepted';
       });
@@ -166,8 +166,8 @@ export class ProfileComponent implements OnInit {
 
   declineRequest(request) { // odbij
     console.log("Profile - declineRequest: START");
-    this.jobService.updateAgreement({ idAgreements: request.idAgreements, status: 'declined', startTime: null }).subscribe(() => {
-      this.notificationService.inform_user_of_master_accept_their_job({ job_title: 'Odbijen zahtev za posao', user_id:  request.idUser, job_status: 'Majstor trenutno ne moze da odradi vas posao.'}).subscribe(() => {
+    this.jobService.updateAgreement({ idAgreements: request.idAgreements, status: 'declined' }).subscribe(() => {
+      this.notificationService.inform_user_of_master_accept_their_job({ job_title: 'Odbijen zahtev za posao', user_id: request.idUser, job_status: 'Majstor trenutno ne moze da odradi vas posao.' }).subscribe(() => {
         console.log("Notification sent");
         request.currentStatus = 'declined';
       });
@@ -183,8 +183,8 @@ export class ProfileComponent implements OnInit {
       alert("Nije moguće otkazati posao koji počinje za manje od 24h.");
       return;
     }
-    this.jobService.updateAgreement({ idAgreements: request.idAgreements, status: 'canceled', startTime: null }).subscribe(() => {
-      this.notificationService.inform_user_of_master_accept_their_job({ job_title: 'Posao otkazan.', user_id:  request.idUser, job_status: 'Nazalost, majstor je otkazao dogovor sa vama.'}).subscribe(() => {
+    this.jobService.updateAgreement({ idAgreements: request.idAgreements, status: 'canceled' }).subscribe(() => {
+      this.notificationService.inform_user_of_master_accept_their_job({ job_title: 'Posao otkazan.', user_id: request.idUser, job_status: 'Nazalost, majstor je otkazao dogovor sa vama.' }).subscribe(() => {
         console.log("Notification sent");
         request.currentStatus = 'canceled';
       });
@@ -222,29 +222,9 @@ export class ProfileComponent implements OnInit {
         }
       }
       this.myJobRequests = response;
-      for (let i = 0; i < this.jobRequests.length; i++) {
-        console.log(this.jobRequests[i].startTime);
-      }
     });
     this.jobService.getJobRequests(this.idUser).subscribe((response: any) => {
-      console.log(response);
-      // for (let i = 0; i < response.length; i++) {
-      //   const date = new Date(response[i].startTime);
-      // if (response[i].currentStatus === 'pending') {
-      // response[i].startTime = date.toLocaleDateString('sr-RS', {
-      //   day: '2-digit',
-      //   month: '2-digit',
-      //   year: 'numeric'
-      // });
-      // }
-      // else {
-      //   response[i].startTime = date.getHours() + ':' + date.getMinutes();
-      // }
-      // }
-      this.jobRequests = response;
-      for (let i = 0; i < this.jobRequests.length; i++) {
-        console.log(this.jobRequests[i].startTime);
-      }
+      this.jobOffers = response.filter(job => job.currentStatus === 'offer');
     });
   }
 
@@ -258,6 +238,10 @@ export class ProfileComponent implements OnInit {
       month: '2-digit',
       year: 'numeric'
     });
+  }
+
+  onIndexChange(event: GalleryState) {
+    this.imgIndex = event.currIndex
   }
 
   /*addComment(){

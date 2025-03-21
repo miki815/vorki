@@ -30,6 +30,7 @@ export class SingleJobLongComponent implements OnInit {
   numberOfPhotos: number = 0;
   imgIndex: number = 0;
   private map;
+  jobStatus: string = "";
   idUser: string = "";
   rating: number = 0;
   phoneNumber: string = "";
@@ -40,13 +41,13 @@ export class SingleJobLongComponent implements OnInit {
   endTime: Date = new Date();
   additionalInfo: string = "";
   numberOfJobs: number = 0;
-  requestMsg: string = "Rezerviši";
+  requestMsg: string = "Zainteresovan/a za posao";
   ph: string = "https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80"
   cities: any[] = [];
   coordinates: any[] = [];
   index: number = 0;
-  uri = 'http://127.0.0.1:4000'
-  // uri = 'https://vorki.rs';
+  // uri = 'http://127.0.0.1:4000'
+  uri = 'https://vorki.rs';
   // uri = environment.uri;
 
 
@@ -78,6 +79,12 @@ export class SingleJobLongComponent implements OnInit {
           if (this.numberOfPhotos > 0) this.imagesLoaded = true;
         });
         this.getComments();
+        this.jobService.checkUserRequestForAgreement({jobId: this.jobId}).subscribe((message: any) => {
+          this.jobStatus = message['status'];
+          if (this.jobStatus == "offer") {
+            this.requestMsg = "Ponuda poslata!";
+          }
+        });
         this.map = L.map('map').setView([0, 0], 2);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           maxZoom: 19,
@@ -171,8 +178,16 @@ export class SingleJobLongComponent implements OnInit {
     this.visibleComments = 3;
   }
 
-  showRequestForm() {
-    this.isRequest = true;
+  sendOffer() {
+    const data = { idJob: this.job.id, idMaster: this.job.idUser }
+    this.jobService.sendOffer(data).subscribe((message: any) => {
+      this.isRequest = false;
+      this.requestMsg = "Ponuda poslata!";
+      this.notificationService.informMasterOfJob({ user_id: this.cookie, master_id: this.job.idUser, job_title: this.job.title }).subscribe((message: any) => {
+        console.log("Notification sent to master")
+      });
+      console.log("Job - userRequestForAgreement: END")
+    })
   }
 
   formatDateTime(date: Date, time: Date): string {

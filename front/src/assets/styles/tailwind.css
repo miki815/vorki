@@ -1318,7 +1318,7 @@ select {
 }
 
 .bg-daska {
-  background: url('../../assets/img/daska2.jpg') center/cover;
+  background: url('../../assets/img/daska2.webp') center/cover;
   background-size: contain;
   background-blend-mode: soft-light;
   opacity: 0.9;
@@ -1331,9 +1331,23 @@ select {
   opacity: 0.9;
 }
 
+.bg-modern-contain {
+  background: url('../../assets/img/texture3.webp');
+  background-size: contain;
+  background-blend-mode: soft-light;
+  opacity: 0.9;
+}
+
 .bg-texture {
   background: url('../../assets/img/texture2.webp');
   background-size: cover;
+  background-blend-mode: soft-light;
+  opacity: 0.9;
+}
+
+.bg-texture-contain {
+  background: url('../../assets/img/texture2.webp');
+  background-size: contain;
   background-blend-mode: soft-light;
   opacity: 0.9;
 }
@@ -3297,6 +3311,11 @@ select {
   color: rgba(249, 115, 22, var(--tw-text-opacity));
 }
 
+.text-suitcase {
+  --tw-text-opacity: 1;
+  color: #4A90E2;
+}
+
 .text-location {
   --tw-text-opacity: 1;
   color: #ff5733;
@@ -3310,6 +3329,11 @@ select {
 .text-telefon {
   --tw-text-opacity: 1;
   color: #28a745;
+}
+
+.text-torta {
+  --tw-text-opacity: 1;
+  color: #FFD700;
 }
 
 .text-red-300 {

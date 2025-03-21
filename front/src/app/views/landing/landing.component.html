@@ -4,9 +4,9 @@
   <!-- INTRO TEXT -->
   <section #fadeSection class="intro-section">
     <div id="introVideoDiv">
-      <video autoplay loop muted playsinline  poster="assets/img/texture3.webp">
+      <!-- <video autoplay loop muted playsinline poster="assets/img/texture3.webp">
         <source src="assets/video/video_farba.mp4" type="video/mp4">
-      </video>
+      </video> -->
     </div>
 
     <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
@@ -17,13 +17,17 @@
         <div class="items-center flex flex-wrap">
           <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
             <div class="pr-12">
-              <h1 class="text-blueGray-600 font-semibold text-5xl">
+              <h1 class="text-blueGray-600 font-semibold text-5xl text-banner">
                 TI TRAŽIŠ - MI SPAJAMO
               </h1>
-              <p class="mt-4 text-lg text-blueGray-600 text-justify"><strong>
-                  <!-- Vorki vam donosi majstore, usluge i prevoz na dohvat ruke. Brzo, jednostavno i bez stresa – pronađite najbolje u svom kraju već sada! -->
+              <!-- <p class="mt-4 text-lg text-blueGray-600 text-justify"><strong>
                   Od popravke do prevoza, Vorki vas spaja s najbolje ocenjenima brzo i sigurno!
-                </strong></p>
+                </strong></p> -->
+
+              <div class="mt-8 relative flex items-center w-full max-w-2xl mx-auto text-blueGray-600">
+                <input [(ngModel)]="searchQuery" (input)="searchJobs()" type="text" placeholder="Pretraži profesije..."
+                  class="w-full px-6 py-3 text-lg border border-gray-300 rounded-full shadow-md focus:outline-none focus:ring focus:ring-blue-500" />
+              </div>
             </div>
           </div>
         </div>
@@ -44,11 +48,16 @@
   </div> -->
 
     <!-- CATEGORIES -->
-    <div class="-mt-24">
+
+  </section>
+
+  <!-- PLATFORM DESCRIPTION -->
+  <section #fadeSection class="fade-section relative py-12 background-section">
+    <div class="-mt-8">
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap">
           <!-- USLUGE -->
-          <div class="w-full md:w-4/12 px-4 text-center">
+          <div class="w-full md:w-4/12 px-4 text-center" *ngIf="topJobs.length == 0">
             <div
               class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva usluge">
               <div class="px-4 py-5 flex-auto content">
@@ -69,8 +78,25 @@
             </div>
           </div>
 
+          <div class="w-full md:w-4/12 px-4 text-center" *ngIf="topJobs.length > 0">
+            <div
+              class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva usluge"
+              [ngStyle]="{'background-image': 'url(' + topJobs[0].urlPhoto + ')'}">
+              <div class="px-4 py-5 flex-auto content">
+                <div
+                  class="text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blueGray-200 border-blueGray-600 border-solid border-2 overflow-hidden">
+                  <img [src]="topJobs[0].photo" alt="Profilna" class="w-full h-full object-cover">
+                </div>
+                <h6 class="text-xl font-bold text-blueGray-600">{{topJobs[0].title}}</h6>
+              </div>
+              <button class="istrazi-dugme" (click)="job_navigation(topJobs[0].id)">
+                Istraži
+              </button>
+            </div>
+          </div>
+
           <!-- MAJSTORI -->
-          <div class="w-full md:w-4/12 px-4 text-center">
+          <div class="w-full md:w-4/12 px-4 text-center" *ngIf="topJobs.length == 0">
             <div
               class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva majstori">
               <div class="px-4 py-5 flex-auto content">
@@ -89,8 +115,25 @@
               </button>
             </div>
           </div>
+
+          <div class="w-full md:w-4/12 px-4 text-center" *ngIf="topJobs.length > 1">
+            <div
+              class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva usluge"
+              [ngStyle]="{'background-image': 'url(' + topJobs[1].urlPhoto + ')'}">
+              <div class="px-4 py-5 flex-auto content">
+                <div
+                  class="text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blueGray-200 border-blueGray-600 border-solid border-2 overflow-hidden">
+                  <img [src]="topJobs[1].photo" alt="Profilna" class="w-full h-full object-cover">
+                </div>
+                <h6 class="text-xl font-bold text-blueGray-600">{{topJobs[1].title}}</h6>
+              </div>
+              <button class="istrazi-dugme" (click)="job_navigation(topJobs[1].id)">
+                Istraži
+              </button>
+            </div>
+          </div>
           <!-- PREVOZ -->
-          <div class="w-full md:w-4/12 px-4 text-center">
+          <div class="w-full md:w-4/12 px-4 text-center" *ngIf="topJobs.length == 0">
             <div
               class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva prevoz">
               <div class="px-4 py-5 flex-auto content">
@@ -109,87 +152,68 @@
               </button>
             </div>
           </div>
+          <div class="w-full md:w-4/12 px-4 text-center" *ngIf="topJobs.length > 2">
+            <div
+              class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-siva usluge"
+              [ngStyle]="{'background-image': 'url(' + topJobs[2].urlPhoto + ')'}">
+              <div class="px-4 py-5 flex-auto content">
+                <div
+                  class="text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blueGray-200 border-blueGray-600 border-solid border-2 overflow-hidden">
+                  <img [src]="topJobs[2].photo" alt="Profilna" class="w-full h-full object-cover">
+                </div>
+                <h6 class="text-xl font-bold text-blueGray-600">{{topJobs[2].title}}</h6>
+              </div>
+              <button class="istrazi-dugme" (click)="job_navigation(topJobs[2].id)">
+                Istraži
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- PLATFORM DESCRIPTION -->
-  <section #fadeSection class="fade-section relative py-12 background-section">
-    <div class="bg-gray-100">
-      <div class="container mx-auto px-4 py-8">
+    <div>
+      <div class="container mx-auto px-4">
         <!-- Header Section -->
-        <div class="text-center mb-8">
+        <div class="text-center mb-12 mt-12">
           <h1 class="text-4xl font-bold text-blueGray-600">POVEZUJEMO LJUDE - GRADIMO ZAJEDNICU</h1>
-          <p class="text-gray-600 mt-2">Uspostavljamo veze između korisnika i stručnjaka kroz otvorenu komunikaciju i
+          <!-- <p class="text-gray-600 mt-2">Uspostavljamo veze između korisnika i stručnjaka kroz otvorenu komunikaciju i
             međusobno poverenje. Sa našom podrškom zajednica raste, jača i gradi dugoročne veze koje traju izvan jednog
             projekta.</p>
-          <p class="text-gray-600 mt-2"><strong>Lako, brzo i sigurno!</strong></p>
+          <p class="text-gray-600 mt-2"><strong>Lako, brzo i sigurno!</strong></p> -->
         </div>
 
         <!-- Features Section -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 justify-center cards-container">
           <!-- Notifikacije -->
-          <div class="bg-white p-6 rounded-lg shadow-lg">
-            <div class="flex items-center justify-center">
-              <img src="assets/icons/bell.png" alt="Notifikacije" class="w-12 h-12 mb-4">
-              <h2 class="text-xl font-semibold text-blueGray-600">Notifikacije</h2>
-            </div>
-            <p class="text-gray-600 mt-2">Pretplatite se na besplatne push
-              notifikacije i budite među prvima koji dobijaju najnovije ponude i obaveštenja.
-            </p>
+          <div class="bg-white p-6 rounded-lg shadow-lg text-center card">
+            <img src="assets/icons/bell.png" alt="Notifikacije" class="w-12 h-12 mx-auto mb-4">
+            <h2 class="text-xl font-semibold text-blueGray-600">Notifikacije</h2>
+            <p class="text-gray-600 mt-2">Pretplatite se na besplatne push notifikacije i budite među prvima koji dobijaju najnovije ponude i obaveštenja.</p>
           </div>
-
-          <!-- Sve na jednom mestu -->
-          <!-- <div class="bg-white p-6 rounded-lg shadow-lg">
-            <div class="flex items-center justify-center">
-              <img src="assets/icons/job-search.png" alt="Sve na jednom mestu" class="w-12 h-12 mb-4">
-              <h2 class="text-xl font-semibold text-blueGray-600">Sve na jednom mestu</h2>
-            </div>
-            <p class="text-gray-600 mt-2">Bez obzira da li vam treba majstor, prevoz ili
-              bilo koja druga usluga, lako ćete pronaći odgovarajućeg profesionalca.</p>
-          </div> -->
-
+        
           <!-- Bez skrivenih troškova -->
-          <div class="bg-white p-6 rounded-lg shadow-lg">
-            <div class="flex items-center justify-center">
-              <img src="assets/icons/free.png" alt="Bez skrivenih troškova" class="w-12 h-12 mb-4">
-              <h2 class="text-xl font-semibold text-blueGray-600">Bez skrivenih troškova</h2>
-            </div>
-            <p class="text-gray-600 mt-2">Besplatna rezervacija,
-              dok plaćanje ide direktno pružaocima usluga.</p>
+          <div class="bg-white p-6 rounded-lg shadow-lg text-center card">
+            <img src="assets/icons/free.png" alt="Bez skrivenih troškova" class="w-12 h-12 mx-auto mb-4">
+            <h2 class="text-xl font-semibold text-blueGray-600">Bez skrivenih troškova</h2>
+            <p class="text-gray-600 mt-2">Besplatna rezervacija, dok plaćanje ide direktno pružaocima usluga.</p>
           </div>
-
-          <!-- Bez čekanja
-          <div class="bg-white p-6 rounded-lg shadow-lg">
-            <div class="flex items-center justify-center">
-              <img src="assets/icons/lighting.png" alt="Bez čekanja" class="w-12 h-12 mb-4">
-              <h2 class="text-xl font-semibold text-blueGray-600">Bez čekanja</h2>
-            </div>
-            <p class="text-gray-600 mt-2">Vorki vam omogućava da u nekoliko klikova
-              pronađete i angažujete pouzdane pružaoce usluga.</p>
-          </div> -->
-
+        
           <!-- Ocene i recenzije -->
-          <div class="bg-white p-6 rounded-lg shadow-lg">
-            <div class="flex items-center justify-center">
-              <img src="assets/icons/star.png" alt="Ocene i recenzije" class="w-12 h-12 mb-4">
-              <h2 class="text-xl font-semibold text-blueGray-600">Ocene i recenzije</h2>
-            </div>
-            <p class="text-gray-600 mt-2">Pročitajte iskustva drugih korisnika i
-              izaberite najbolje stručnjake za vaš posao.</p>
+          <div class="bg-white p-6 rounded-lg shadow-lg text-center card">
+            <img src="assets/icons/star.png" alt="Ocene i recenzije" class="w-12 h-12 mx-auto mb-4">
+            <h2 class="text-xl font-semibold text-blueGray-600">Ocene i recenzije</h2>
+            <p class="text-gray-600 mt-2">Pročitajte iskustva drugih korisnika i izaberite najbolje stručnjake za vaš posao.</p>
           </div>
-
+        
           <!-- Provereni stručnjaci -->
-          <div class="bg-white p-6 rounded-lg shadow-lg">
-            <div class="flex items-center justify-center">
-              <img src="assets/icons/man.png" alt="Provereni stručnjaci" class="w-12 h-12 mb-4">
-              <h2 class="text-xl font-semibold text-blueGray-600">Provereni stručnjaci</h2>
-            </div>
-            <p class="text-gray-600 mt-2">Bez obzira na zadatak, na Vorki platformi ćete pronaći pravog profesionalca za
-              posao.</p>
+          <div class="bg-white p-6 rounded-lg shadow-lg text-center card">
+            <img src="assets/icons/man.png" alt="Provereni stručnjaci" class="w-12 h-12 mx-auto mb-4">
+            <h2 class="text-xl font-semibold text-blueGray-600">Provereni stručnjaci</h2>
+            <p class="text-gray-600 mt-2">Bez obzira na zadatak, na Vorki platformi ćete pronaći pravog profesionalca za posao.</p>
           </div>
         </div>
+        
       </div>
     </div>
 
@@ -239,9 +263,9 @@
   </section>
 
   <!-- MIDDLE AD BANNER -->
-  <div class="w-full py-8 bg-white">
+  <div class="w-full py-4 bg-white">
     <div class="container mx-auto px-4">
-      <div class="bg-gray-100 p-4 rounded-lg">
+      <div class="p-4 rounded-lg">
         <!-- <div class="text-center text-gray-600"> -->
         <!-- Ad Space -->
         <div class="h-24 flex items-center justify-center border border-dashed border-gray-300">
@@ -329,10 +353,10 @@
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap justify-center text-center mb-12">
         <div class="w-full lg:w-6/12 px-4">
-          <h2 class="text-4xl font-semibold text-blueGray-800 text-center">Predstavljamo vam naše stručnjake</h2>
-          <p class="text-lg leading-relaxed m-4 text-blueGray-800 text-center">
+          <h2 class="text-4xl font-semibold text-blueGray-800 text-center">Predstavljamo vam trenutno najbolje ocenjene stručnjake</h2>
+          <!-- <p class="text-lg leading-relaxed m-4 text-blueGray-800 text-center">
             Zahvaljujući vašim ocenama, izdvojili smo najbolje stručnjake koji su se istakli svojim radom.
-          </p>
+          </p> -->
         </div>
       </div>
       <div class="flex flex-wrap">

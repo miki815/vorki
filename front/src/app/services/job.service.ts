@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -9,8 +9,8 @@ import { environment } from 'src/environments/environment';
 export class JobService {
 
   constructor(private http: HttpClient) { }
-  // uri = 'https://vorki.rs';
-  uri = 'http://localhost:4000';
+  uri = 'https://vorki.rs';
+  // uri = 'http://localhost:4000';
   // uri = environment.uri;
 
 
@@ -76,8 +76,31 @@ export class JobService {
     return this.http.get(`${this.uri}/jobs/getJobGallery/${idJob}`);
   }
 
+  getUserGallery(idUser) {
+    return this.http.get(`${this.uri}/jobs/getUserGallery/${idUser}`);
+  }
+
   changeJobLocationForUser(data) {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
     return this.http.post(`${this.uri}/jobs/changeJobLocationForUser`, data, { headers });
+  }
+
+  sendOffer(data){
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/jobs/sendOffer`, data, { headers });
+  }
+
+  checkUserRequestForAgreement(data){
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/jobs/checkUserRequestForAgreement`, data, { headers });
+  }
+
+  getTop3Jobs(searchQuery: string) {
+    const params = new HttpParams().set('searchQuery', searchQuery);
+    return this.http.get(`${this.uri}/jobs/getTop3Jobs`, { params });
+  }
+
+  getJobsCountByStatus(data){
+    return this.http.post(`${this.uri}/jobs/getJobsCountByStatus`, data);  
   }
 }

@@ -32,7 +32,7 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-//const uri = 'http://localhost:4200'
+// const uri = 'http://localhost:4200'
 const uri = 'https://vorki.rs';
 
 export class UserController {
@@ -446,12 +446,12 @@ export class UserController {
         //     logger.info({ idUser }, 'User updated');
         //     return res.json({ error: 0, message: message });
         // });
-        const { idUser, username, email, firstname, lastname, location, phone, backPhoto, photo, distance } = req.body;
+        const { idUser, username, email, firstname, lastname, birthday, location, phone, backPhoto, photo, distance } = req.body;
         const idUserReq = (req as any).userId;
         if (idUser != idUserReq) return databaseFatalError(res, null, 'updateUser failed: Unauthorized');
-        logger.info({ idUser, username, email, firstname, lastname, location, phone, distance }, 'updateUser attempt');
-        var sql = 'UPDATE user SET username=?, email=?, firstname=?, lastname=?, location=?, phone=?, photo=?, backPhoto = ?, distance = ? WHERE id=?';
-        pool.query(sql, [username, email, firstname, lastname, location, phone, photo, backPhoto, distance, idUser], (err, message) => {
+        logger.info({ idUser, username, email, firstname, lastname, birthday, location, phone, distance }, 'updateUser attempt');
+        var sql = 'UPDATE user SET username=?, email=?, firstname=?, lastname=?, birthday=?, location=?, phone=?, photo=?, backPhoto = ?, distance = ? WHERE id=?';
+        pool.query(sql, [username, email, firstname, lastname, birthday, location, phone, photo, backPhoto, distance, idUser], (err, message) => {
             if (err) return databaseFatalError(res, err, 'updateUser failed');
             logger.info({ idUser }, 'User updated');
             return res.json({ error: 0, message: message });
@@ -645,6 +645,24 @@ export class UserController {
         } catch (error) {
             return res.status(401).json({ authorized: false, message: "Invalid token" });
         }
+    }
+
+    isUserSubscribed = (req: express.Request, res: express.Response) => {
+        /**
+         * @param {number} userId - id of the user
+         * @returns {json} - subscribed or not
+         */
+        const idUserReq = (req as any).userId;
+        if (!idUserReq) return databaseFatalError(res, null, 'isUserSubscribed failed: Unauthorized');
+        
+        const sql = 'SELECT * FROM subscriptions WHERE user_id = ?';
+        pool.query(sql, [idUserReq], (err, results) => {
+            if (err) return databaseFatalError(res, err, 'isUserSubscribed failed');
+            if (results.length) {
+                return res.json({ subscribed: true });
+            }
+            return res.json({ subscribed: false });
+        });
     }
 
 }

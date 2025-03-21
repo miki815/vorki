@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SwPush } from '@angular/service-worker';
 import { CookieService } from 'ngx-cookie-service';
 import { NotificationService } from 'src/app/services/notification.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-main-navbar',
@@ -17,12 +18,16 @@ export class MainNavbarComponent implements OnInit {
 
 
 
-  constructor(private router: Router, private cookieService: CookieService, private route: ActivatedRoute, private notificationService: NotificationService, private swPush: SwPush) { }
+  constructor(private router: Router, private cookieService: CookieService, private route: ActivatedRoute, private notificationService: NotificationService, private swPush: SwPush, private userService: UserService) { }
 
   ngOnInit(): void {
     this.login = this.cookieService.get('userId') ? 1 : 0;
     const savedState = localStorage.getItem('notificationsEnabled');
-    this.notificationsEnabled = savedState === 'true';
+    this.userService.isUserSubscribed().subscribe({
+      next: response => this.notificationsEnabled = response['subscribed'],
+      error: error => console.error('Failed to check if user is subscribed', error)
+    });
+    // this.notificationsEnabled = savedState === 'true';
   }
 
   toggleMenu() {

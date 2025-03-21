@@ -38,7 +38,7 @@ const transporter = nodemailer_1.default.createTransport({
         pass: process.env.SUPPORT_EMAIL_PASSWORD
     }
 });
-//const uri = 'http://localhost:4200'
+// const uri = 'http://localhost:4200'
 const uri = 'https://vorki.rs';
 class UserController {
     constructor() {
@@ -427,13 +427,13 @@ class UserController {
             //     logger.info({ idUser }, 'User updated');
             //     return res.json({ error: 0, message: message });
             // });
-            const { idUser, username, email, firstname, lastname, location, phone, backPhoto, photo, distance } = req.body;
+            const { idUser, username, email, firstname, lastname, birthday, location, phone, backPhoto, photo, distance } = req.body;
             const idUserReq = req.userId;
             if (idUser != idUserReq)
                 return databaseFatalError(res, null, 'updateUser failed: Unauthorized');
-            logger.info({ idUser, username, email, firstname, lastname, location, phone, distance }, 'updateUser attempt');
-            var sql = 'UPDATE user SET username=?, email=?, firstname=?, lastname=?, location=?, phone=?, photo=?, backPhoto = ?, distance = ? WHERE id=?';
-            server_1.pool.query(sql, [username, email, firstname, lastname, location, phone, photo, backPhoto, distance, idUser], (err, message) => {
+            logger.info({ idUser, username, email, firstname, lastname, birthday, location, phone, distance }, 'updateUser attempt');
+            var sql = 'UPDATE user SET username=?, email=?, firstname=?, lastname=?, birthday=?, location=?, phone=?, photo=?, backPhoto = ?, distance = ? WHERE id=?';
+            server_1.pool.query(sql, [username, email, firstname, lastname, birthday, location, phone, photo, backPhoto, distance, idUser], (err, message) => {
                 if (err)
                     return databaseFatalError(res, err, 'updateUser failed');
                 logger.info({ idUser }, 'User updated');
@@ -632,6 +632,24 @@ class UserController {
             catch (error) {
                 return res.status(401).json({ authorized: false, message: "Invalid token" });
             }
+        };
+        this.isUserSubscribed = (req, res) => {
+            /**
+             * @param {number} userId - id of the user
+             * @returns {json} - subscribed or not
+             */
+            const idUserReq = req.userId;
+            if (!idUserReq)
+                return databaseFatalError(res, null, 'isUserSubscribed failed: Unauthorized');
+            const sql = 'SELECT * FROM subscriptions WHERE user_id = ?';
+            server_1.pool.query(sql, [idUserReq], (err, results) => {
+                if (err)
+                    return databaseFatalError(res, err, 'isUserSubscribed failed');
+                if (results.length) {
+                    return res.json({ subscribed: true });
+                }
+                return res.json({ subscribed: false });
+            });
         };
     }
     verifyPassword(plainPassword, hashedPassword) {

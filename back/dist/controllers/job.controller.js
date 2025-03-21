@@ -193,14 +193,13 @@ class JobController {
             /**
              * @param {number} idAgreements
              * @param {string} status
-             * @param {string} startTime
              * @description Update agreement status
              * @returns {json} message
              */
-            const { idAgreements, status, startTime } = req.body;
-            logger.info({ idAgreements, status, startTime }, 'Updating agreement status');
-            const sql = 'UPDATE agreements SET currentStatus = ?, startTime = ? WHERE idAgreements = ?';
-            server_1.pool.query(sql, [status, startTime, idAgreements], (err, _) => {
+            const { idAgreements, status } = req.body;
+            logger.info({ idAgreements, status }, 'Updating agreement status');
+            const sql = 'UPDATE agreements SET currentStatus = ? WHERE idAgreements = ?';
+            server_1.pool.query(sql, [status, idAgreements], (err, _) => {
                 if (err)
                     return databaseFatalError(res, err, 'Error updating agreement');
                 return res.json({ message: "0" });
@@ -227,10 +226,32 @@ class JobController {
              * @returns {json} images
              */
             const idJob = req.params.idJob;
+            if (!idJob) {
+                return databaseFatalError(res, null, 'Missing required fields');
+            }
             const query = 'SELECT urlPhoto FROM gallery WHERE idJob = ?';
             server_1.pool.query(query, [idJob], (err, results) => {
                 if (err)
                     return databaseFatalError(res, err, 'Error fetching images');
+                return res.json(results);
+            });
+        };
+        this.getUserGallery = (req, res) => {
+            /**
+             * @param {number} idUser
+             * @description Get images from all jobs of user
+             * @returns {json} images
+             */
+            const idUser = req.params.idUser;
+            if (!idUser) {
+                return databaseFatalError(res, null, 'Missing required fields');
+            }
+            const query = 'SELECT gallery.urlPhoto, job.id FROM gallery JOIN job ON gallery.idJob = job.id WHERE job.idUser = ?';
+            server_1.pool.query(query, [idUser], (err, results) => {
+                if (err)
+                    return databaseFatalError(res, err, 'Error fetching images');
+                logger.info({ idUser }, 'Getting user gallery');
+                logger.info({ results }, 'Results');
                 return res.json(results);
             });
         };
@@ -248,6 +269,90 @@ class JobController {
                 if (err)
                     return databaseFatalError(res, err, 'Error changing job location for user');
                 return res.json({ message: "0" });
+            });
+        };
+        this.sendOffer = (req, res) => {
+            const { idJob, idMaster } = req.body;
+            const userId = req.userId;
+            if (!idJob || !idMaster) {
+                return databaseFatalError(res, null, 'Missing required fields');
+            }
+            if (!userId) {
+                return databaseFatalError(res, null, 'Unauthorized user');
+            }
+            const sql = 'INSERT INTO agreements (idJob, idUser, idMaster, currentStatus) VALUES (?, ?, ?, ?)';
+            server_1.pool.query(sql, [idJob, userId, idMaster, 'offer'], (err, _) => {
+                if (err)
+                    return databaseFatalError(res, err, 'Error sending offer');
+                logger.info({ idJob, userId, idMaster }, 'Sending offer');
+                return res.json({ message: "0" });
+            });
+        };
+        this.checkUserRequestForAgreement = (req, res) => {
+            const { jobId } = req.body;
+            const userId = req.userId;
+            if (!jobId) {
+                return databaseFatalError(res, null, 'Missing required fields');
+            }
+            if (!userId) {
+                return databaseFatalError(res, null, 'Unauthorized user');
+            }
+            const sql = 'SELECT currentStatus FROM agreements WHERE idJob = ? AND idUser = ?';
+            server_1.pool.query(sql, [jobId, userId], (err, result) => {
+                if (err)
+                    return databaseFatalError(res, err, 'Error checking user request for agreement');
+                return res.json({ 'status': result.length > 0 ? result[0].currentStatus : 'no_request' });
+            });
+        };
+        this.getTop3Jobs = (req, res) => {
+            const { searchQuery } = req.query;
+            logger.info({ searchQuery }, 'Getting top 3 jobs');
+            if (!searchQuery) {
+                return databaseFatalError(res, null, 'Missing required fields');
+            }
+            const sql = ` SELECT 
+        g.urlPhoto,
+        j.title,
+        j.id,
+        u.photo,
+        u.username
+        FROM job j JOIN gallery g ON g.idJob = j.id JOIN user u ON u.id = j.idUser 
+        WHERE j.title LIKE ? LIMIT 3;`;
+            server_1.pool.query(sql, [`%${searchQuery}%`], (err, results) => {
+                if (err) {
+                    return databaseFatalError(res, err, 'Error fetching top 3 jobs');
+                }
+                if (results.length === 0) {
+                    return databaseFatalError(res, null, 'No jobs found');
+                }
+                res.status(200).json({
+                    message: 'Top 3 jobs fetched successfully',
+                    jobs: results
+                });
+            });
+        };
+        this.getJobsCountByStatus = (req, res) => {
+            const { status, idUser } = req.body;
+            if (!status) {
+                return databaseFatalError(res, null, 'Missing required fields');
+            }
+            const sql = `SELECT COUNT(*) AS count FROM agreements WHERE currentStatus = ? and idMaster = ?;`;
+            server_1.pool.query(sql, [status, idUser], (err, results) => {
+                if (err) {
+                    return databaseFatalError(res, err, 'Error fetching jobs count by status');
+                }
+                if (results.length === 0) {
+                    res.status(200).json({
+                        message: 'No jobs found',
+                        count: 0
+                    });
+                }
+                else {
+                    res.status(200).json({
+                        message: 'Jobs count fetched successfully',
+                        count: results[0].count
+                    });
+                }
             });
         };
     }

@@ -105,7 +105,6 @@ export class ProfileSettingsComponent {
         this.photo = message['message'].photo;
         this.birthday = new Date(this.birthday);
         this.backPhoto = message['message'].backPhoto;
-        this.birthdayDate = this.birthday.getFullYear() + "-" + (this.birthday.getMonth() + 1).toString().padStart(2, '0') + "-" + this.birthday.getDate().toString().padStart(2, '0');
         fetch('assets/city.json')
           .then(response => response.json())
           .then(gradovi => {
@@ -130,7 +129,7 @@ export class ProfileSettingsComponent {
 
   update() {
     console.log("ProfileSettings - update: START")
-
+    console.log("Birthday: " + this.birthday)
     this.userService.getIdByEmail({ email: this.email }).subscribe((message: any) => {
       if (this.email != this.oldEmail && message["message"].length && message["message"][0].id != this.idUser) { this.message = "Email već postoji."; this.err = 1; return; }
       this.userService.getIdByUsername({ username: this.username }).subscribe((message: any) => {
@@ -147,7 +146,7 @@ export class ProfileSettingsComponent {
           email: this.email,
           firstname: this.firstname,
           lastname: this.lastname,
-          //birthday: this.birthday,
+          birthday: new Date(this.birthday).toISOString().split('T')[0],
           location: this.location,
           phone: this.phone,
           photo: this.photo,

@@ -24,10 +24,30 @@ function sendTestNotification(subscription, res) {
         });
 }
 
+function sendNotificationToRelatedUsers(results, payload){
+    results.forEach((subscription) => {
+        const pushSubscription = {
+            endpoint: subscription.endpoint,
+            keys: {
+                p256dh: subscription.p256dh,
+                auth: subscription.auth,
+            },
+        };
+        webPush
+            .sendNotification(pushSubscription, payload)
+            .then(() => logger.info('Notification sent successfully'))
+            .catch((err) => logger.error('Notification error:', err));
+            logger.info('Notification sent successfully to user with ID: ' + subscription.user_id);
+    });
+}
+
 export class SubscriptionController {
 
     get_related_subscribers = (req: express.Request, res: express.Response) => {
-        const { user_id, job_id, job_title } = req.body;
+        const { user_id, job_id, job_title, job_location } = req.body;
+        const job_location_utf = Buffer.from(job_location, 'latin1').toString('utf-8');
+        logger.info({ user_id, job_id, job_title, job_location_utf }, 'Finding related subscribers');
+
 
         if (!user_id) {
             return res.status(400).json({ error: 'User ID is required' });
@@ -39,22 +59,9 @@ export class SubscriptionController {
                 return res.status(500).json({ error: 'Database connection failed' });
             }
 
-            // Step 1: Get the city for the given user_id
-            const getCityQuery = `SELECT location FROM user WHERE id = ?`;
-            connection.query(getCityQuery, [user_id], (err, cityResults) => {
-                if (err) {
-                    console.error('Error fetching user city:', err);
-                    connection.release();
-                    return res.status(500).json({ error: 'Error fetching user city' });
-                }
-                if (cityResults.length === 0) {
-                    connection.release();
-                    return res.status(404).json({ error: 'User not found' });
-                }
-                const userCity = cityResults[0].location;
-                console.log('User city:', userCity);
-                // Step 2: Find all related cities in the distances table
-                const getRelatedCitiesQuery = `
+
+            // Step 1: Find all related cities in the distances table
+            const getRelatedCitiesQuery = `
                 SELECT city2 AS related_city
                 FROM distances
                 WHERE city1 = ?
@@ -63,63 +70,44 @@ export class SubscriptionController {
                 FROM distances
                 WHERE city2 = ?
                 `;
-                connection.query(getRelatedCitiesQuery, [userCity, userCity], (err, relatedCitiesResults) => {
-                    if (err) {
-                        console.error('Error fetching related cities:', err);
-                        connection.release();
-                        return res.status(500).json({ error: 'Error fetching related cities' });
-                    }
-
-                    const relatedCities = relatedCitiesResults.map((row) => row.related_city);
-
-                    if (relatedCities.length === 0) {
-                        connection.release();
-                        return res.status(200).json({ message: 'No related cities found', subscribers: [] });
-                    }
-                    // console.log('Related cities:', relatedCities);
-                    // Step 3: Find all subscribers in related cities
-                    const getSubscribersQuery = `
+            connection.query(getRelatedCitiesQuery, [job_location_utf, job_location_utf], (err, relatedCitiesResults) => {
+                if (err) {
+                    console.error('Error fetching related cities:', err);
+                    connection.release();
+                    return res.status(500).json({ error: 'Error fetching related cities' });
+                }
+                const relatedCities = relatedCitiesResults.map((row) => row.related_city);
+                if (relatedCities.length === 0) {
+                    connection.release();
+                    return res.status(200).json({ message: 'No related cities found', subscribers: [] });
+                }
+                // Step 2: Find all subscribers in related cities
+                const getSubscribersQuery = `
                     SELECT DISTINCT u.id, u.location
                     FROM user u
                     JOIN subscriptions s ON u.id = s.user_id
                     WHERE u.location IN (?)
-                    `;
-                    connection.query(getSubscribersQuery, [relatedCities], (err, subscribersResults) => {
-                        connection.release();
-
-                        if (err) {
-                            console.error('Error fetching subscribers:', err);
-                            return res.status(500).json({ error: err });
-                        }
-                        const query = `SELECT endpoint, p256dh, auth FROM subscriptions where user_id = ?`;
-                        for (const sub of subscribersResults) {
-                            console.log('Subscriber:', sub.id);
-                            connection.query(query, [sub.id], (err, results) => {
-                                if (err) {
-                                    logger(req, res).error('Database error:', err);
-                                    return res.status(500).json({ error: 'Failed to fetch subscriptions' });
-                                }
-                                const payload = JSON.stringify({ title: job_title, body: 'Korisniku u vašoj blizini je potrebno završiti posao koji bi mogao biti baš za vas!', url: `https://vorki.rs/oglasi/${job_id}` });
-                                results.forEach((subscription) => {
-                                    const pushSubscription = {
-                                        endpoint: subscription.endpoint,
-                                        keys: {
-                                            p256dh: subscription.p256dh,
-                                            auth: subscription.auth,
-                                        },
-                                    };
-                                    webPush
-                                        .sendNotification(pushSubscription, payload)
-                                        .then(() => logger.info('Notification sent successfully'))
-                                        .catch((err) => logger.error('Notification error:', err));
-                                });
-                            });
-                        }
-
-                        res.status(200).json({
-                            message: 'Subscribers found',
-                            subscribers: subscribersResults,
+                `;
+                connection.query(getSubscribersQuery, [relatedCities], (err, subscribersResults) => {
+                    if (err) {
+                        console.error('Error fetching subscribers:', err);
+                        return res.status(500).json({ error: err });
+                    }
+                    const query = `SELECT endpoint, p256dh, auth FROM subscriptions where user_id = ?`;
+                    for (const sub of subscribersResults) {
+                        connection.query(query, [sub.id], (err, results) => {
+                            if (err) {
+                                logger(req, res).error('Database error:', err);
+                                return res.status(500).json({ error: 'Failed to fetch subscriptions' });
+                            }
+                            const payload = JSON.stringify({ title: job_title, body: 'Korisniku u vašoj blizini je potrebno završiti posao koji bi mogao biti baš za vas!', url: `https://vorki.rs/oglasi/${job_id}` });
+                            sendNotificationToRelatedUsers(results, payload);
                         });
+                    }
+
+                    res.status(200).json({
+                        message: 'Subscribers found',
+                        subscribers: subscribersResults,
                     });
                 });
             });

@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { ActivatedRoute, Router } from "@angular/router";
 import { SwPush } from "@angular/service-worker";
 import { HttpClient } from "@angular/common/http";
+import { JobService } from 'src/app/services/job.service';
 
 
 @Component({
@@ -23,6 +24,8 @@ export class LandingComponent implements OnInit, AfterViewInit {
   sentMsg: string = "";
   isSubscribed: boolean = false;
   userId: string = "";
+  searchQuery: string = '';
+  topJobs: any[] = [];
   readonly VAPID_PUBLIC_KEY = "BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg";
   // uri = 'http://127.0.0.1:4000'
   uri: string = 'https://vorki.rs';
@@ -47,7 +50,7 @@ export class LandingComponent implements OnInit, AfterViewInit {
     });
   }
 
-  constructor(private userService: UserService, private cookieService: CookieService, private router: Router, private route: ActivatedRoute, private swPush: SwPush, private http: HttpClient) { }
+  constructor(private userService: UserService, private cookieService: CookieService, private router: Router, private route: ActivatedRoute, private swPush: SwPush, private http: HttpClient, private jobService: JobService) { }
   login: number = 1;
   ngOnInit(): void {
     this.login = this.cookieService.get('userId') ? 1 : 0;
@@ -115,6 +118,22 @@ export class LandingComponent implements OnInit, AfterViewInit {
 
   category_navigation(id: number) {
     this.router.navigate(['/kategorija', id]);
+  }
+
+  searchJobs() {
+    if (!this.searchQuery.trim()) {
+      this.topJobs = [];
+      return;
+    }
+    this.jobService.getTop3Jobs(this.searchQuery).subscribe((data: any) => {
+      this.topJobs = data['jobs'];
+      console.log(this.topJobs);
+    });
+  }
+
+  job_navigation(id: number) {
+    console.log(id + " id");
+    this.router.navigate(['/oglasi', id]);
   }
 
 }

@@ -57,8 +57,28 @@ jobRouter.route('/getJobGallery/:idJob').get(
     (req, res) => new JobController().getJobGallery(req, res)
 )
 
+jobRouter.route('/getUserGallery/:idUser').get(
+    (req, res) => new JobController().getUserGallery(req, res)
+)
+
 jobRouter.route('/changeJobLocationForUser').post(
     authenticateToken, (req, res) => new JobController().changeJobLocationForUser(req, res)
+)
+
+jobRouter.route('/sendOffer').post(
+    authenticateToken, (req, res) => new JobController().sendOffer(req, res)
+)
+
+jobRouter.route('/checkUserRequestForAgreement').post(
+    authenticateToken, (req, res) => new JobController().checkUserRequestForAgreement(req, res)
+)
+
+jobRouter.route('/getTop3Jobs').get(
+    (req, res) => new JobController().getTop3Jobs(req, res)
+)
+
+jobRouter.route('/getJobsCountByStatus').post(
+    (req, res) => new JobController().getJobsCountByStatus(req, res)
 )
 
 export default jobRouter;

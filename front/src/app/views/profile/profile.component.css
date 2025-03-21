@@ -22,17 +22,6 @@ table.items-center tr:nth-child(even) {
   color: #274153;
 }
 
-button {
-  background-color: #efca21;
-  color: #274153;
-  margin: 5px;
-}
-
-button:hover {
-  background-color: #274153;
-  color: #efca21;
-}
-
 .ovde:hover {
   color: #efca21;
   background-color: #274153;
@@ -49,6 +38,19 @@ button:hover {
   padding: 10px;
   border-radius: 5px;
   color: #1e293b;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .button-container {
+      flex-direction: row;
+  }
 }
 
 #declineBtn {
@@ -69,4 +71,33 @@ button:hover {
 
 #acceptBtn:hover {
   background-color: #2a9d2a;
+}
+
+.job-link {
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.job-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.button-list {
+  width: 200px;
+  height: 48px;
+  text-align: center;
+  background: #4A90E2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button-list:hover {
+  background: #2C6CBD;
 }

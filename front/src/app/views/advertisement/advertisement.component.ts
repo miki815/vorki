@@ -29,8 +29,8 @@ export class AdvertisementComponent implements OnInit {
   filteredProfessions: string[] = [];
   jobType: number;
 
-  uri = 'http://127.0.0.1:4000'
-  // uri = 'https://vorki.rs';
+  // uri = 'http://127.0.0.1:4000'
+  uri = 'https://vorki.rs';
   // uri = environment.uri;
 
   constructor(private jobService: JobService, private router: Router, private userService: UserService, private http: HttpClient, private cookieService: CookieService, private notificationService: NotificationService) {
@@ -83,7 +83,7 @@ export class AdvertisementComponent implements OnInit {
         console.log("Insert job - submit: PASS")
         const job_id = message['job_id'];
         this.addPicturesJobInsert(job_id);
-        this.notificationService.newJobNotification({ user_id: this.cookieService.get('userId'), job_id: message['job_id'], job_title: this.title }).subscribe((message: any) => {
+        this.notificationService.newJobNotification({ user_id: this.cookieService.get('userId'), job_id: message['job_id'], job_title: this.title, job_location: this.selectedCity }).subscribe((message: any) => {
           console.log("Notification sent for job title: " + this.title);
           this.router.navigate(['/oglasi/' + job_id]);
         });

@@ -1,43 +1,35 @@
 <app-main-navbar></app-main-navbar>
 
-<div class="page-container bg-modern">
-  <div class="flex flex-col lg:flex-row items-center justify-center mt-4 gap-4 w-full" *ngIf="!idUser">
-    <!-- <input [(ngModel)]="searchQuery" name="searchQ" (input)="filterCities()" placeholder="Pretraži..."
-      class="border-0 px-3 py-2 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full mb-2" />
-    <select [(ngModel)]="selectedCity" id="city" class="border border-gray-300 rounded-md p-2" (change)="filterJobs()">
-      <option value="">Izaberite grad</option>
-      <option *ngFor="let city of filteredCities" [value]="city.city">{{ city.city }}</option>
-    </select> -->
+<div class="page-container bg-modern-contain">
+  <div class="flex flex-col lg:flex-row items-center justify-center mt-6 gap-4 w-full" *ngIf="!idUser">
+
     <input [(ngModel)]="selectedCity" list="cities" name="citySearch" id="citySearch" placeholder="Izaberite grad..."
-      class="border border-gray-300 rounded-md px-3 py-2 w-full mb-2" (input)="filterJobs()" />
+      class="border border-gray-400 rounded-xl px-4 py-3 w-full shadow-sm transition-all focus:border-gold focus:ring-2 focus:ring-gold hover:border-gold"
+      (input)="filterJobs()" />
 
     <datalist id="cities">
       <option *ngFor="let city of filteredCities" [value]="city.city"></option>
     </datalist>
 
-    <!-- <select [(ngModel)]="selectedProfession" id="profession" class="border border-gray-300 rounded-md p-2"
-      (change)="filterJobs()">
-      <option value="">Izaberite profesiju</option>
-      <option *ngFor="let profession of professions" [value]="profession">
-        {{ profession }}
-      </option>
-
-    </select> -->
     <input [(ngModel)]="selectedProfession" list="professions" name="professionSearch" id="professionSearch"
-      placeholder="Izaberite profesiju..." class="border border-gray-300 rounded-md px-3 py-2 w-full mb-2"
+      placeholder="Izaberite profesiju..."
+      class="border border-gray-400 rounded-xl px-4 py-3 w-full shadow-sm transition-all focus:border-gold focus:ring-2 focus:ring-gold hover:border-gold"
       (input)="filterJobs()" />
 
     <datalist id="professions">
       <option *ngFor="let profession of professions" [value]="profession"></option>
     </datalist>
 
-
-    <select [(ngModel)]="selectedSort" class="border border-gray-300 rounded-md p-2" (change)="sort()">
+    <select [(ngModel)]="selectedSort"
+      class="border border-gray-400 rounded-xl px-4 py-3 shadow-sm transition-all bg-white text-gray-700 focus:border-gold focus:ring-2 focus:ring-gold hover:border-gold"
+      (change)="sort()">
       <option value="">Sortiranje</option>
       <option value="rate">Ocena</option>
       <option value="city">Grad</option>
     </select>
+
   </div>
+
 
   <div class="grid grid-cols-1 gap-4 place-items-center mt-4" *ngIf="jobs">
     <div class="py-3" style="width: 70%;" *ngFor="let job of jobs.slice(
@@ -48,13 +40,14 @@
     </div>
   </div>
 
-  <div class="mt-4 pb-4 flex justify-center" *ngIf="jobs">
-    <button (click)="prevPage()" [disabled]="currentPage === 1">Prethodna</button>
-    <span class="mx-4" style="color: white">| {{ currentPage }} |</span>
-    <button (click)="nextPage()" [disabled]="jobs.length <= currentPage * jobsPerPage">
+  <div class="mt-4 pb-4 flex justify-center items-center space-x-4" *ngIf="jobs">
+    <button class="button-nvg" (click)="prevPage()" [disabled]="currentPage === 1">Prethodna</button>
+    <span class="text-blueGray-600">| {{ currentPage }} |</span>
+    <button class="button-nvg" (click)="nextPage()" [disabled]="jobs.length <= currentPage * jobsPerPage">
       Sledeća
     </button>
   </div>
+
 
   <!-- MIDDLE AD BANNER -->
   <div class="w-full py-8 bg-white">

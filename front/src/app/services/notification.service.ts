@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SwPush } from "@angular/service-worker";
 import { environment } from 'src/environments/environment';
 
@@ -9,8 +9,8 @@ import { environment } from 'src/environments/environment';
 })
 export class NotificationService {
   private vapidPublicKey = 'BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg';
-  // uri = 'https://vorki.rs';
-  uri = 'http://127.0.0.1:4000'
+  uri = 'https://vorki.rs';
+  // uri = 'http://127.0.0.1:4000'
   // uri = environment.uri;
   readonly VAPID_PUBLIC_KEY = "BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg";
 
@@ -76,7 +76,7 @@ export class NotificationService {
   }
 
   newJobNotification(data) {
-    return this.http.post(`${this.uri}/subscriptions/get_related_subscribers`, data)
+    return this.http.post(`${this.uri}/subscriptions/get_related_subscribers`, data, { headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' }) })
   }
 
   informMasterOfJob(data) {

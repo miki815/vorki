@@ -8,6 +8,7 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-job-listing',
   templateUrl: './job-listing.component.html',
+  styleUrls: ['./job-listing.component.css']
 })
 export class JobListingComponent implements OnInit {
   jobs: Array<any>;

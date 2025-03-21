@@ -1,6 +1,6 @@
 <app-main-navbar></app-main-navbar>
 
-<main class="profile-page full-page">
+<main class="profile-page full-page bg-modern-contain">
   <section class="relative block h-500-px">
     <div class="absolute top-0 w-full h-full bg-center bg-cover image-container"
       style="background-image: url({{backPhoto}})">
@@ -8,9 +8,10 @@
     </div>
   </section>
 
-  <section class="relative py-16 bg-zuta">
+  <section class="pt-16">
     <div class="container mx-auto px-4" style="display: flex; flex-direction: row;">
-      <div class="relative flex flex-col min-w-0 break-words bg-plava w-full mb-6 shadow-xl rounded-lg -mt-64">
+      <div
+        class="relative flex flex-col min-w-0 break-words bg-texture-no-opacity w-full mb-6 shadow-xl rounded-lg -mt-64">
         <div class="px-6">
           <div class="flex flex-wrap justify-center">
             <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
@@ -37,9 +38,9 @@
                 </div>
                 <div class="mr-4 p-3 text-center text-white">
                   <span class="text-xl text-white font-bold block uppercase tracking-wide">
-                    {{userRateLen}}
+                    {{finishedJobs}}
                   </span>
-                  <span class="text-sm">Broj ocena</span>
+                  <span class="text-sm">Odrađenih poslova</span>
                 </div>
                 <!-- <div class="lg:mr-4 p-3 text-center">
                   <span
@@ -50,53 +51,18 @@
                   <span class="text-sm text-white">Komentari</span>
                 </div> -->
               </div>
-
-              <!-- <div class="py-3 px-3 mt-0 sm:mt-16" style="display: flex; flex-direction: column; align-items: center;" *ngIf="cookie!=idUser">            
-                  <div style="display: flex; flex-direction: row; padding: 3px; ">
-                      <i class="fas fa-star" [ngClass]="{'text-red-500': rating >= 1, 'text-gray-500': rating < 1}" style="font-size: 30px;" id="1" (click)="setRating(1)"></i>
-                      <i class="fas fa-star" [ngClass]="{'text-red-500': rating >= 2, 'text-gray-500': rating < 2}" style="font-size: 30px;" id="2" (click)="setRating(2)"></i>
-                      <i class="fas fa-star" [ngClass]="{'text-red-500': rating >= 3, 'text-gray-500': rating < 3}" style="font-size: 30px;" id="3" (click)="setRating(3)"></i>
-                      <i class="fas fa-star" [ngClass]="{'text-red-500': rating >= 4, 'text-gray-500': rating < 4}" style="font-size: 30px;" id="4" (click)="setRating(4)"></i>
-                      <i class="fas fa-star" [ngClass]="{'text-red-500': rating >= 5, 'text-gray-500': rating < 5}" style="font-size: 30px;" id="5" (click)="setRating(5)"></i>
-                  </div>
-                  <button
-                  style="margin-top: 5px;background-color: rgb(255, 232, 60); color:rgb(30, 41, 59); "
-                  (click) = "rate()"
-                  class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                  type="button"
-                >
-                  Potvrdi
+              <!-- buttons -->
+              <div class="py-3 px-3 mt-0 sm:mt-16 button-container"
+                style="display: flex; flex-direction: column; align-items: center;" *ngIf="cookie==idUser">
+                <button
+                  class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150 button-list"
+                  type="button" (click)="calendar()"> Kalendar
                 </button>
-              </div> -->
-              <div class="py-3 px-3 mt-0 sm:mt-16" style="display: flex; flex-direction: column; align-items: center;"
-                *ngIf="cookie==idUser">
-                <div style="display: flex; flex-direction: row;">
-                  <button
-                    class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                    type="button" (click)="calendar()"> Kalendar
-                  </button>
-                  <button
-                    class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                    type="button" (click)="settings()">
-                    Podešavanja
-                  </button>
-                  <button
-                    class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                    type="button" (click)="jobs1()">
-                    <div *ngIf="type=='0'"> Moji oglasi</div>
-                    <div *ngIf="type=='1'"> Svi oglasi</div>
-                  </button>
-                </div>
-              </div>
-              <div class="py-3 px-3 mt-0 sm:mt-16" style="display: flex; flex-direction: column; align-items: center;"
-                *ngIf="cookie!=idUser">
-                <div style="display: flex; flex-direction: row;">
-                  <button
-                    class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                    type="button" (click)="oglasi()">
-                    Svi oglasi
-                  </button>
-                </div>
+                <button *ngIf="idUser==cookie"
+                  class="uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150 button-list"
+                  type="button" (click)="settings()">
+                  Podešavanja
+                </button>
               </div>
             </div>
             <div class="w-full lg:w-4/12 px-4 lg:order-1">
@@ -105,15 +71,15 @@
                   {{firstname}}&nbsp;{{lastname}}
                 </h3>
                 <div class="text-md text-white leading-normal mt-0 mb-2 font-bold uppercase">
-                  <i class="fas fa-map-marker-alt mr-2 text-lg"></i>
+                  <i class="fas fa-map-marker-alt mr-2 text-lg text-location"></i>
                   {{location}}
                 </div>
                 <div class="mb-2 text-white">
-                  <i class="fas fa-birthday-cake mr-2 text-lg"></i>
+                  <i class="fas fa-birthday-cake mr-2 text-lg text-torta"></i>
                   {{ birthday | date: 'dd.MM.yyyy.' }}
                 </div>
                 <div class="mb-2 text-white">
-                  <i class="fas fa-phone mr-2 text-lg"></i>
+                  <i class="fas fa-phone mr-2 text-lg  text-telefon"></i>
                   {{phone}}
                 </div>
                 <div class="mb-2 text-white">
@@ -223,49 +189,59 @@
   </section>
 
   <!-- MAJSTOR -->
-  <div class="flex justify-center py-8 bg-zuta px-4">
-    <div class="overflow-x-auto w-full bg-zuta">
+  <div class="flex justify-center px-4" style="width: 100%;" *ngIf="idUser==cookie && type == 1">
+    <div class="overflow-x-auto w-full">
       <h3 class="text-2xl font-bold text-center text-blue-600 mb-4 pb-2">
-        Vaši oglasi - zahtevi
+        Zainteresovani za Vaše poslove
       </h3>
-      <table class="w-full bg-plava shadow-md rounded-lg overflow-hidden justify-center">
-        <thead class="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 text-white" *ngIf="jobRequests.length > 0">
+      <table class="w-full bg-texture shadow-md rounded-lg overflow-hidden justify-center">
+        <thead class="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 text-white" *ngIf="jobOffers.length > 0">
           <tr>
-            <th class="py-4 px-6 text-left uppercase text-sm font-semibold">Korisnik</th>
-            <th class="py-4 px-6 text-left uppercase text-sm font-semibold">Datum</th>
-            <th class="py-4 px-6 text-left uppercase text-sm font-semibold">Posao</th>
-            <th class="py-4 px-6 text-left uppercase text-sm font-semibold">Dodatne Informacije</th>
+            <th class="py-4 px-6 text-center uppercase text-xl font-semibold">Korisnik</th>
+            <!-- <th class="py-4 px-6 text-left uppercase text-sm font-semibold">Datum</th> -->
+            <th class="py-4 px-6 text-center uppercase text-xl font-semibold">Posao</th>
+            <th class="py-4 px-6 text-center uppercase text-xl font-semibold">Prihvati</th>
+            <!-- <th class="py-4 px-6 text-left uppercase text-sm font-semibold">Dodatne Informacije</th>
             <th class="py-4 px-6 text-left uppercase text-sm font-semibold">Vreme Dolaska</th>
             <th class="py-4 px-6 text-left uppercase text-sm font-semibold">Prihvati</th>
-            <th class="py-4 px-6 text-left uppercase text-sm font-semibold">Odbij</th>
+            <th class="py-4 px-6 text-left uppercase text-sm font-semibold">Odbij</th> -->
           </tr>
         </thead>
-        <tbody *ngIf="jobRequests.length > 0">
-          <tr *ngFor="let request of jobRequests" class="border-b border-gray-200 hover:bg-gray-100">
-            <td class="py-4 px-6 text-white">{{ request.username }}</td>
-            <td class="py-4 px-6 text-white">{{ extractDate(request.startTime) }}</td>
-            <td class="py-4 px-6 text-white">{{ request.title }}</td>
-            <td class="py-4 px-6 text-white">{{ request.additionalInfo }}</td>
-            <td class="py-4 px-6" *ngIf="request.currentStatus=='pending'">
+        <tbody *ngIf="jobOffers.length > 0">
+          <tr *ngFor="let request of jobOffers" class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-4 px-6 text-white text-center text-xl">
+              <a [routerLink]="['/profil', request.idUser]" class="job-link">
+                {{ request.username }}
+              </a>
+            </td>
+            <!-- <td class="py-4 px-6 text-white">{{ extractDate(request.startTime) }}</td> -->
+            <td class="py-4 px-6 text-white text-center text-xl">
+              <a [routerLink]="['/oglasi', request.idJob]" class="job-link">
+                {{ request.title }}
+              </a>
+            </td>
+
+            <!-- <td class="py-4 px-6 text-white">{{ request.additionalInfo }}</td> -->
+            <!-- <td class="py-4 px-6" *ngIf="request.currentStatus=='pending'">
               <input type="time" [(ngModel)]="request.endTime" lang="fr" step="60"
                 class="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            </td>
-            <td class="py-4 px-6 text-white" *ngIf="request.currentStatus=='accepted'">{{
-              extractHoursAndMinutes(request.startTime) }}</td>
+            </td> -->
+            <!-- <td class="py-4 px-6 text-white" *ngIf="request.currentStatus=='accepted'">{{
+              extractHoursAndMinutes(request.startTime) }}</td> -->
 
-            <td class="py-4 px-6 text-white text-center" *ngIf="request.currentStatus=='pending'">
-              <button class="bg-green-500 text-white px-3 py-1 rounded-md text-sm" id="acceptBtn"
+            <td class="py-4 px-6 text-white text-center" *ngIf="request.currentStatus=='offer'">
+              <button class="bg-green-500 text-white px-3 py-1 rounded-md text-xl" id="acceptBtn"
                 (click)="acceptRequest(request)">
                 Prihvati
               </button>
             </td>
             <td class="py-4 px-6 text-white text-center" *ngIf="request.currentStatus=='accepted'">Posao prihvaćen</td>
-            <td class="py-4 px-6 text-white text-center" *ngIf="request.currentStatus=='pending'">
+            <!-- <td class="py-4 px-6 text-white text-center" *ngIf="request.currentStatus=='pending'">
               <button class="bg-red-500 text-white px-3 py-1 rounded-md text-sm" id="declineBtn"
                 (click)="declineRequest(request)">
                 Odbij
               </button>
-            </td>
+            </td> -->
             <td class="py-4 px-6 text-white text-center" *ngIf="request.currentStatus=='accepted'">
               <button class="bg-red-500 text-white px-3 py-1 rounded-md text-sm" id="declineBtn"
                 (click)="cancelRequest(request)">
@@ -274,7 +250,7 @@
             </td>
           </tr>
         </tbody>
-        <tbody *ngIf="jobRequests.length === 0">
+        <tbody *ngIf="jobOffers.length === 0">
           <tr>
             <td colspan="7" class="py-4 px-6 text-center text-white font-medium">Nemate zahteva za posao</td>
           </tr>
@@ -286,19 +262,20 @@
 
 
   <!-- KORISNIK -->
-  <div class="flex justify-center py-8 bg-zuta px-4" style="width: 100%;">
-    <div class="overflow-x-auto w-full bg-zuta">
+  <div class="flex justify-center py-8 px-4" style="width: 100%;" *ngIf="idUser==cookie && type == 0">
+    <div class="overflow-x-auto w-full">
       <h3 class="text-2xl font-bold text-center text-blue-600 mb-4 pb-2">
-        Poslovi koje ste zatražili
+        Poslovi za koje ste zainteresovani
       </h3>
-      <table class="w-full bg-plava shadow-lg rounded-lg overflow-hidden justify-center">
-        <thead class="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 text-white" *ngIf="myJobRequests.length > 0">
+      <table class="w-full bg-texture shadow-lg rounded-lg overflow-hidden justify-center">
+        <thead class="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 text-white"
+          *ngIf="myJobRequests.length > 0">
           <tr>
             <th class="py-4 px-6 text-left uppercase text-sm font-semibold">Majstor</th>
-            <th class="py-4 px-6 text-left uppercase text-sm font-semibold">Datum</th>
+            <!-- <th class="py-4 px-6 text-left uppercase text-sm font-semibold">Datum</th> -->
             <th class="py-4 px-6 text-left uppercase text-sm font-semibold">Posao</th>
             <th class="py-4 px-6 text-left uppercase text-sm font-semibold">Dodatne Informacije</th>
-            <th class="py-4 px-6 text-left uppercase text-sm font-semibold">Vreme Dolaska</th>
+            <!-- <th class="py-4 px-6 text-left uppercase text-sm font-semibold">Vreme Dolaska</th> -->
             <th class="py-4 px-6 text-center uppercase text-sm font-semibold">Status</th>
             <th class="py-4 px-6 text-center uppercase text-sm font-semibold">Otkaži</th>
           </tr>
@@ -310,14 +287,14 @@
           <tr *ngFor="let request of myJobRequests"
             class="border-b border-gray-200 hover:bg-gray-100 transition duration-200">
             <td class="py-4 px-6 text-white font-medium">{{ request.username }}</td>
-            <td class="py-4 px-6 text-white" *ngIf="request.currentStatus!='accepted'">-</td>
-            <td class="py-4 px-6 text-white" *ngIf="request.currentStatus=='accepted'">{{ extractDate(request.startTime)
-              }}</td>
+            <!-- <td class="py-4 px-6 text-white" *ngIf="request.currentStatus!='accepted'">-</td> -->
+            <!-- <td class="py-4 px-6 text-white" *ngIf="request.currentStatus=='accepted'">{{ extractDate(request.startTime)
+              }}</td> -->
             <td class="py-4 px-6 text-white">{{ request.title }}</td>
             <td class="py-4 px-6 text-white">{{ request.additionalInfo }}</td>
-            <td class="py-4 px-6 text-white" *ngIf="request.currentStatus!='accepted'">-</td>
+            <!-- <td class="py-4 px-6 text-white" *ngIf="request.currentStatus!='accepted'">-</td>
             <td class="py-4 px-6 text-white" *ngIf="request.currentStatus=='accepted'">{{
-              extractHoursAndMinutes(request.startTime) }}</td>
+              extractHoursAndMinutes(request.startTime) }}</td> -->
             <td class="py-4 px-6 text-center">
               <span class="w-24 px-4 py-2 rounded-lg text-sm font-semibold text-white shadow-md 
                   inline-block text-center" [ngClass]="{
@@ -348,6 +325,40 @@
     </div>
   </div>
 
+  <!-- GALERIJA SVIH SLIKA -->
+  <section class="relative" *ngIf="imagesLoaded">
+    <div class="container mx-auto px-4" style="display: flex; flex-direction: row; justify-content: space-between;">
+      <div class="relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg">
+        <!-- Galerija -->
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div class="rounded-t mb-0 px-4 border-0">
+            <div class="flex flex-wrap items-center">
+              <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                <h3 class="text-4xl font-semibold leading-normal mb-2 text-center text-blueGray-600">
+                  Galerija
+                </h3>
+              </div>
+            </div>
+          </div>
+          <gallery id="{{galleryId}}" *ngIf="imagesLoaded" class="bg-texture"
+            style="width: 100% !important; height: 500px !important; object-fit: cover;"
+            (indexChange)="onIndexChange($event)"></gallery>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOJI OGLASI -->
+  <section class="bg-texture-contain">
+    <h3 class="text-4xl font-semibold leading-normal mb-2 text-center text-blueGray-200">
+      Oglasi
+    </h3>
+    <div class="grid grid-cols-1 gap-4 place-items-center mt-4" *ngIf="jobs">
+      <div class="py-3" style="width: 70%;" *ngFor="let job of jobs">
+        <app-single-job-short [job]="job"></app-single-job-short>
+      </div>
+    </div>
+  </section>
 
 </main>
 
