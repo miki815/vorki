@@ -46,14 +46,9 @@
     opacity: 0;
     transform: translateY(20px);
     /* transition: opacity 0.8s ease-out, transform 0.8s ease-out; */
-    /* background-image: url('../../../assets/img/texture2.webp');
+    background-image: url('/assets/img/pocetna.png');
     background-size: cover;
-    background-position: center; */
-    background-color: white;
-    /* Video */
-    position: relative;
-    z-index: 1;
-    color: white;
+    background-position: center; 
 }
 
 .intro-section.show {
@@ -307,7 +302,7 @@
     white-space: nowrap;
     text-align: center;
     width: 100%;
-    color: black;
+    color: #eead2b;
 }
 
 .cards-container {
@@ -315,7 +310,7 @@
     justify-content: center;
     gap: 24px;
     /* Razmak između kartica */
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     /* Sprečava prelamanje u više redova */
 }
 
@@ -323,6 +318,7 @@
     flex: 1;
     /* Svaka kartica zauzima jednaku širinu */
     max-width: 250px;
+    height: 200px;
     /* Postavi maksimalnu širinu kartice */
     text-align: center;
     background: white;
@@ -331,7 +327,52 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.card {
+    flex: 1 1 calc(100% - 24px);
+    /* Kartice će biti 100% širine na malim ekranima */
+    max-width: 100%;
+    /* Osigurava da se ne razvuku previše */
+}
 
+.card-1 {
+    background-image: url('/assets/img/izboru.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card-2 {
+    background-image: url('/assets/img/izboru.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card-3 {
+    background-image: url('/assets/img/izboru.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card-4 {
+    background-image: url('/assets/img/izboru.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+input {
+    background: transparent !important;
+    border: 1px solid #9f9f9f !important; 
+    color: #eead2b !important; /* Osigurava da je tekst vidljiv */
+    outline: none; /* Uklanja plavi fokus okvir */
+  }
+  
+  input::placeholder {
+    color: #fcfcfd; 
+  }
+  
 
 @media (max-width: 1024px) {
 
@@ -343,5 +384,15 @@
 
     .mockup-image {
         max-width: 80%;
+    }
+
+}
+
+@media (min-width: 1024px) {
+
+    /* Tailwind 'lg' breakpoint */
+    .card {
+        flex: 1 1 calc(25% - 24px);
+        /* 4 u redu na većim ekranima */
     }
 }

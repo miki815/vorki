@@ -3,7 +3,7 @@
   .navbar {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between; /* Razmak između elemenata */
     /* background: rgba(30, 41, 59, 0.7); */
     /* Prozirna tamna pozadina */
     /* backdrop-filter: blur(10px); */
@@ -13,7 +13,7 @@
     padding: 0 20px;
     /* position: sticky; */
     top: 0;
-    z-index: 1000;
+    /* z-index: 1000; */
     transition: background 0.3s ease-in-out;
     /* border: 1px solid rgba(255, 255, 255, 0.2); */
   }
@@ -36,11 +36,11 @@
     display: flex;
     align-items: center;
     gap: 15px;
+    margin-left: auto;
   }
 
   /* Linkovi */
   .nav-links a {
-    color: black;
     text-decoration: none;
     font-size: 1rem;
     font-weight: bold;
@@ -68,7 +68,7 @@
     gap: 5px;
     z-index: 1100;
     transition: transform 0.3s ease-in-out;
-    margin-left: auto;
+    margin-left: 15px; /* Da se ne lepi uz ostale elemente */
   }
 
   .burger div {
@@ -99,6 +99,7 @@
     cursor: pointer;
     padding: 10px;
     transition: transform 0.2s ease-in-out;
+    margin-left: 15px; /* Da bude odvojen od linkova */
   }
 
   .notification-toggle:hover {
@@ -171,22 +172,22 @@
   </div>
 
   <div class="nav-links">
-    <a [routerLink]="['/pocetna']">POČETNA STRANA</a>
-    <span class="separator">|</span>
-    <a [routerLink]="['/dodaj_oglas']" (click)="navigateToAddJob()">DODAJ OGLAS</a>
-    <span class="separator">|</span>
-    <a [routerLink]="['/oglasi']" (click)="navigateToJobListing()">SVI OGLASI</a>
-    <span class="separator">|</span>
-    <a [routerLink]="['/profil']" (click)="navigateToProfile()">PROFIL</a>
+    <a [routerLink]="['/pocetna']" class="text-zlatna">POČETNA STRANA</a>
+    <span class="separator text-siva">|</span>
+    <a [routerLink]="['/dodaj_oglas']" class="text-basic" (click)="navigateToAddJob()">DODAJ OGLAS</a>
+    <span class="separator text-siva">|</span>
+    <a [routerLink]="['/oglasi']" class="text-basic" (click)="navigateToJobListing()">SVI OGLASI</a>
+    <span class="separator text-siva">|</span>
+    <a [routerLink]="['/profil']" class="text-basic" (click)="navigateToProfile()">PROFIL</a>
     <ng-container *ngIf="login == 1">
-      <span class="separator">|</span>
-      <a [routerLink]="['/pocetna']" (click)="logout()">ODJAVA</a>
+      <span class="separator text-siva">|</span>
+      <a [routerLink]="['/pocetna']" class="text-basic" (click)="logout()">ODJAVA</a>
     </ng-container>
     <ng-container *ngIf="login == 0">
-      <span class="separator">|</span>
-      <a [routerLink]="['/pocetna']" (click)="navigate_to_register()">REGISTRACIJA</a>
-      <span class="separator">|</span>
-      <a [routerLink]="['/pocetna']" (click)="navigate_to_login()">PRIJAVA</a>
+      <span class="separator text-siva">|</span>
+      <a [routerLink]="['/pocetna']" class="text-basic" (click)="navigate_to_register()">REGISTRACIJA</a>
+      <span class="separator text-siva">|</span>
+      <a [routerLink]="['/pocetna']" class="text-basic" (click)="navigate_to_login()">PRIJAVA</a>
     </ng-container>
   </div>
 

@@ -26,6 +26,14 @@ export class LandingComponent implements OnInit, AfterViewInit {
   userId: string = "";
   searchQuery: string = '';
   topJobs: any[] = [];
+  allJobs: Array<any>;
+  cities = [];
+  selectedCity: string = '';
+  professions = [];
+  filteredProfessions = [];
+  selectedProfession: string = '';
+  filteredCities: any;
+
   readonly VAPID_PUBLIC_KEY = "BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg";
   // uri = 'http://127.0.0.1:4000'
   uri: string = 'https://vorki.rs';
@@ -59,6 +67,9 @@ export class LandingComponent implements OnInit, AfterViewInit {
       this.topMasters = data['top5'];
       console.log(this.topMasters);
     });
+    this.getJobs();
+    this.getCities();
+    this.getCraftmen();
   }
 
   send() {
@@ -134,6 +145,66 @@ export class LandingComponent implements OnInit, AfterViewInit {
   job_navigation(id: number) {
     console.log(id + " id");
     this.router.navigate(['/oglasi', id]);
+  }
+
+  getJobs() {
+    console.log("JobListing - getJobs: START")
+    this.jobService.getJobsWithUserInfo2().subscribe((jobs: any) => {
+      this.allJobs = this.topJobs = jobs
+      this.filterJobs();
+    });
+    console.log("JobListing - getJobs: END")
+  }
+
+  filterJobs() {
+    if (this.selectedCity === '' && this.selectedProfession === '') this.topJobs = this.allJobs;
+    else if (this.selectedCity === '') this.topJobs = this.allJobs.filter(job => job.profession === this.selectedProfession);
+    else if (this.selectedProfession === '') this.topJobs = this.allJobs.filter(job => job.city === this.selectedCity);
+    else this.topJobs = this.allJobs.filter(job => job.city === this.selectedCity && job.profession === this.selectedProfession);
+  }
+
+  filterCities() {
+    console.log('Register - filterCities: START')
+    console.log('Search query:', this.searchQuery)
+    console.log('Cities:', this.cities[0])
+    this.filteredCities = this.cities.filter(city =>
+      city.city.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
+  }
+
+  getCraftmen() {
+    console.log("JobListing - getCraftmen: START")
+
+    fetch('assets/craftsmen.json')
+      .then(response => response.json())
+      .then(professions => {
+        this.professions = this.professions = [...professions.craftsmen, ...professions.services, ...professions.transport];
+        ;
+        this.professions.sort((a, b) => a.localeCompare(b));
+        this.filteredProfessions = this.professions;
+      })
+      .catch(error => {
+        console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):', error);
+      });
+
+    console.log("JobListing - getCraftmen: END")
+  }
+
+  getCities() {
+    console.log("JobListing - getCities: START")
+
+    fetch('assets/city.json')
+      .then(response => response.json())
+      .then(cities => {
+        this.cities = cities;
+        this.cities.sort((a, b) => a.city.localeCompare(b.city));
+        this.filteredCities = this.cities;
+      })
+      .catch(error => {
+        console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradiva):', error);
+      });
+
+    console.log("JobListing - getCities: END")
   }
 
 }
