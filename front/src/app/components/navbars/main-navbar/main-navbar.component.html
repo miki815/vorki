@@ -130,6 +130,7 @@
   @media (max-width: 768px) {
     .burger {
       display: flex;
+      z-index: 2100;
     }
 
     .nav-links {
@@ -139,10 +140,11 @@
       top: 70px;
       left: 0;
       width: 100%;
-      background: rgba(30, 41, 59, 0.9);
+      background: #fdfdfc;
       backdrop-filter: blur(10px);
       padding: 20px 0;
       border-radius: 0 0 10px 10px;
+      z-index: 2000; 
     }
 
     .navbar.active .nav-links {

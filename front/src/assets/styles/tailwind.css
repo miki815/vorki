@@ -315,6 +315,14 @@ button {
   background-image: none;
 }
 
+
+@font-face {
+  font-family: 'Monument';
+  src: url('/assets/fonts/Monument.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /**
  * Work around a Firefox/IE bug where the transparent `button` background
  * results in a loss of the default `button` focus styles.
@@ -1314,7 +1322,8 @@ select {
 
 
 .bg-footer {
-  background: linear-gradient(to right, #232526, #414345);
+  /* background: linear-gradient(to right, #232526, #414345); */
+  background: #201e26;
 }
 
 .bg-daska {
@@ -1467,6 +1476,26 @@ select {
 .bg-red-900 {
   --tw-bg-opacity: 1;
   background-color: rgba(127, 29, 29, var(--tw-bg-opacity));
+}
+
+.bg-zlatna {
+  --tw-bg-opacity: 1;
+  background-color: #eead2b;
+}
+
+.bg-crna {
+  --tw-bg-opacity: 1;
+  background-color: #201e26;
+}
+
+.bg-siva {
+  --tw-bg-opacity: 1;
+  background-color: #9f9f9f;
+}
+
+.bg-basic {
+  --tw-bg-opacity: 1;
+  background-color: #fcfcfd;
 }
 
 .bg-gray-100 {
@@ -3410,14 +3439,14 @@ select {
   color: #efca21;
 }
 
-.text-zlatna {
-  --tw-bg-opacity: 1;
-  color: #eead2b;
-}
-
 .text-basic {
   --tw-bg-opacity: 1;
   color: #fcfcfd;
+}
+
+.text-crna {
+  --tw-bg-opacity: 1;
+  color: #201e26;
 }
 
 .text-zlatna {
@@ -3502,6 +3531,10 @@ select {
 
 .overflow-clip {
   text-overflow: clip;
+}
+
+.font-monument {
+  font-family: 'Monument', sans-serif;
 }
 
 .italic {

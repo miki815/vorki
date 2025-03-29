@@ -33,6 +33,7 @@ export class LandingComponent implements OnInit, AfterViewInit {
   filteredProfessions = [];
   selectedProfession: string = '';
   filteredCities: any;
+  professionsCount: { [categories: string]: number } = {};
 
   readonly VAPID_PUBLIC_KEY = "BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg";
   // uri = 'http://127.0.0.1:4000'
@@ -182,6 +183,8 @@ export class LandingComponent implements OnInit, AfterViewInit {
         ;
         this.professions.sort((a, b) => a.localeCompare(b));
         this.filteredProfessions = this.professions;
+        this.initializeCategoriesCount();
+        this.getMastersCount(this.professions);
       })
       .catch(error => {
         console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):', error);
@@ -206,5 +209,26 @@ export class LandingComponent implements OnInit, AfterViewInit {
 
     console.log("JobListing - getCities: END")
   }
+
+  getMastersCount(categories) {
+    const data = {
+      jobsArray: categories
+    }
+    this.jobService.getMastersCount(data).subscribe((data: any) => {
+      console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        this.professionsCount[data[i].profession] = data[i].count
+      }
+      console.log(this.professionsCount);
+    });
+  }
+
+  initializeCategoriesCount(): void {
+    this.professionsCount = this.professions.reduce((acc, category) => {
+      acc[category] = 0;
+      return acc;
+    }, {} as { [profession: string]: number });
+  }
+
 
 }
