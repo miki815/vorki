@@ -42,3 +42,7 @@ button {
 button:hover {
     background: #2C6CBD;
 }
+
+.advertisement-container {
+    background: linear-gradient(135deg, #201e26 70%, #eead2b);
+}

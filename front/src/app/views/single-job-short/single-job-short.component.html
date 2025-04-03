@@ -1,28 +1,27 @@
 <div
-    class="max-w-lg mx-auto bg-white shadow-lg rounded-xl overflow-hidden border border-blueGray-600 bg-nice backdrop-blur-lg relative transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl card-container">
+    class="max-w-lg mx-auto bg-white shadow-lg rounded-xl overflow-hidden relative transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl card-container">
     <!-- Gornji deo kartice -->
     <div class="px-6 py-4 flex flex-col items-center">
         <img alt="..." [src]="imageSrc" class="w-20 h-20 object-cover rounded-full shadow-md border-4 border-white" />
         <div class="avg-rate mt-2 px-3 py-1 rounded-lg">
             <label class="text-lg font-semibold">&#9733; {{ job.avgRate | number: '1.2-2' }}</label>
         </div>
-        <h1 class="font-semibold text-blueGray-200 text-xl mt-2">{{ job.title }}</h1>
-        <p class="text-blueGray-300 text-sm flex items-center mt-1">
+        <h1 class="font-semibold text-basic text-xl mt-2">{{ job.title }}</h1>
+        <p class="text-basic text-sm flex items-center mt-1">
             <i class="fas fa-map-marker-alt mr-1 text-location"></i> {{ job.city }}
         </p>
-        <p class="text-blueGray-300 text-sm flex items-center">
+        <p class="text-basic text-sm flex items-center">
             <i class="fas fa-briefcase mr-1 text-suitcase"></i> {{ job.profession }}
         </p>
     </div>
 
     <!-- Kratak opis -->
     <div class="px-6 py-3 text-center">
-        <p class="text-blueGray-300 text-sm leading-relaxed">{{ shortDescription }}</p>
+        <p class="text-basic text-sm leading-relaxed text-wrap">{{ shortDescription }}</p>
     </div>
 
     <!-- Dugme za detalje -->
-    <button
-        class="block mx-auto px-5 py-2 mb-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg shadow-md font-semibold hover:from-blue-600 hover:to-blue-800 transition duration-300"
+    <button class="block mx-auto px-5 py-2 mb-4 bg-gradient-to-r rounded-lg shadow-md font-semibold"
         (click)="locateToJob()">
         Prikaži detalje
     </button>
@@ -35,10 +34,13 @@
     /* Kartica */
     .card-container {
         position: relative;
-        background: linear-gradient(135deg, rgba(20, 20, 50, 0.8) 0%, rgba(30, 30, 70, 0.9) 100%);
+        background: linear-gradient(135deg, rgba(238, 173, 43, 0.9) 0%, rgba(32, 30, 38, 0.9) 100%);
         border-radius: 16px;
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 2px solid #eead2b;
+        /* Zlatna ivica */
+        border-radius: 12px;
+        /* Zaobljeni uglovi */
         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         color: white;
         overflow: hidden;
@@ -93,8 +95,8 @@
 
     /* Dugme */
     button {
-        background: #FDC830;
-        color: black;
+        background: #eead2b;
+        color: #201e26;
         padding: 10px 20px;
         border-radius: 8px;
         font-size: 16px;
@@ -107,8 +109,9 @@
     }
 
     button:hover {
-        background: #E5B20A;
-        box-shadow: 0px 4px 20px rgba(229, 178, 10, 0.7);
+        background: #d69f2b;
+        transform: translateY(-2px);
+        box-shadow: 0px 6px 20px rgba(253, 200, 48, 0.5);
     }
 
 
@@ -130,5 +133,11 @@
     p {
         font-size: 14px;
         text-align: center;
+    }
+
+    .text-wrap {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 </style>

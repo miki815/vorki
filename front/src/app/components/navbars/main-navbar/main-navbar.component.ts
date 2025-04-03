@@ -14,6 +14,7 @@ export class MainNavbarComponent implements OnInit {
   login: number = 1;
   menuOpen = false;
   notificationsEnabled = false;
+  showAnimation = true;
   readonly VAPID_PUBLIC_KEY = "BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg";
 
 
@@ -27,6 +28,9 @@ export class MainNavbarComponent implements OnInit {
       next: response => this.notificationsEnabled = response['subscribed'],
       error: error => console.error('Failed to check if user is subscribed', error)
     });
+    setTimeout(() => {
+      this.showAnimation = false;
+    }, 5000);
     // this.notificationsEnabled = savedState === 'true';
   }
 

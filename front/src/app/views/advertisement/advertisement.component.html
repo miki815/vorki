@@ -1,120 +1,123 @@
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
-<app-main-navbar></app-main-navbar>
-
-<div class="w-full bg-full pt-8 bg-texture">
-  <div class="container mx-auto px-4 h-full">
-    <div class="flex content-center items-center justify-center">
-      <div class="w-full lg:w-6/12 px-4">
-        <div
-          class="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg border-0 mt-10 form-container">
-          <div class="rounded-t mb-0 px-6 py-6">
-            <div class="btn-wrapper text-center">
-              <h2 class="text-white text-xl font-bold">Dodavanje oglasa</h2>
+<section class="advertisement-container">
+  <app-main-navbar></app-main-navbar>
+  <div class="w-full bg-full pt-8">
+    <div class="container mx-auto px-4 h-full">
+      <div class="flex content-center items-center justify-center">
+        <div class="w-full lg:w-6/12 px-4">
+          <div
+            class="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg border-0 mt-10 form-container">
+            <div class="rounded-t mb-0 px-6 py-6">
+              <div class="btn-wrapper text-center">
+                <h2 class="text-white text-xl font-bold">Dodavanje oglasa</h2>
+              </div>
+              <hr class="mt-6 border-b-1 border-blueGray-300" />
             </div>
-            <hr class="mt-6 border-b-1 border-blueGray-300" />
-          </div>
-          <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+            <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
 
-            <form>
-              <div class="relative w-full mb-5">
-                <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="title">
-                  Naziv posla
-                </label>
-                <input [(ngModel)]="title" name="title" type="text"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 input-field" />
-              </div>
-
-              <div class="relative w-full mb-5">
-                <label class="block uppercase text-white text-xs font-bold mb-2">
-                  Tip oglasa
-                </label>
-                <div class="flex items-center space-x-4">
-                  <label class="inline-flex items-center">
-                    <input type="radio" [(ngModel)]="jobType" name="jobType" value="0" class="form-radio text-plava" />
-                    <span class="ml-2 text-white">Tražim posao</span>
+              <form>
+                <div class="relative w-full mb-5">
+                  <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="title">
+                    Naziv posla
                   </label>
-                  <label class="inline-flex items-center">
-                    <input type="radio" [(ngModel)]="jobType" name="jobType" value="1" class="form-radio text-plava" />
-                    <span class="ml-2 text-white">Nudim posao</span>
+                  <input [(ngModel)]="title" name="title" type="text"
+                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 input-field" />
+                </div>
+
+                <div class="relative w-full mb-5">
+                  <label class="block uppercase text-white text-xs font-bold mb-2">
+                    Tip oglasa
                   </label>
+                  <div class="flex items-center space-x-4">
+                    <label class="inline-flex items-center">
+                      <input type="radio" [(ngModel)]="jobType" name="jobType" value="0"
+                        class="form-radio text-plava" />
+                      <span class="ml-2 text-white">Tražim posao</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                      <input type="radio" [(ngModel)]="jobType" name="jobType" value="1"
+                        class="form-radio text-plava" />
+                      <span class="ml-2 text-white">Nudim posao</span>
+                    </label>
+                  </div>
                 </div>
-              </div>
 
 
-              <div class="relative w-full mb-1">
-                <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="proffesion">
-                  Zanimanje
-                </label>
-                <input [(ngModel)]="searchQueryProf" name="searchQC" (input)="filterProfessions()"
-                  placeholder="Pretraži..."
-                  class="border-0 px-3 py-2 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full mb-2 input-field" />
-                <select
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  [(ngModel)]="selectedProfession" name="selectedProfession" id="proffesion">
-                  <option *ngFor="let profession of filteredProfessions" [value]="profession">{{ profession }}</option>
-                </select><br><br>
-              </div>
-
-              <div class="relative w-full mb-1">
-                <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="city">
-                  Mesto rada
-                </label>
-                <input [(ngModel)]="searchQuery" name="searchQ" (input)="filterCities()" placeholder="Pretraži..."
-                  class="border-0 px-3 py-2 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full mb-2 input-field" />
-                <select
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  [(ngModel)]="selectedCity" name="selectedCity" id="city">
-                  <option *ngFor="let city of filteredCities" [value]="city.city">{{ city.city }}</option>
-                </select><br><br>
-              </div>
-
-
-              <div class="relative w-full mb-3">
-                <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="description">
-                  Opis posla
-                </label>
-                <textarea
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 input-field"
-                  [(ngModel)]="description" id="description" name="description" rows="4" cols="50"></textarea><br><br>
-              </div>
-
-              <!-- PICTURES -->
-              <div class="relative w-full mb-3">
-                <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="images">
-                  Dodajte slike (do 4)
-                </label>
-                <input type="file" id="images" name="images" (change)="onImageChange($event)" multiple accept="image/*"
-                  class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 input-field" />
-              </div>
-
-              <!-- SHOW PICTURES -->
-              <div class="relative w-full mb-3" *ngIf="imagePreviews.length > 0">
-                <label class="block uppercase text-white text-xs font-bold mb-2">
-                  Pregled slika
-                </label>
-                <div class="flex flex-wrap">
-                  <img *ngFor="let image of imagePreviews" [src]="image"
-                    class="w-24 h-24 object-cover rounded-md m-2" />
+                <div class="relative w-full mb-1">
+                  <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="proffesion">
+                    Zanimanje
+                  </label>
+                  <input [(ngModel)]="searchQueryProf" name="searchQC" (input)="filterProfessions()"
+                    placeholder="Pretraži..."
+                    class="border-0 px-3 py-2 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full mb-2 input-field" />
+                  <select
+                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    [(ngModel)]="selectedProfession" name="selectedProfession" id="proffesion">
+                    <option *ngFor="let profession of filteredProfessions" [value]="profession">{{ profession }}
+                    </option>
+                  </select><br><br>
                 </div>
-              </div>
+
+                <div class="relative w-full mb-1">
+                  <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="city">
+                    Mesto rada
+                  </label>
+                  <input [(ngModel)]="searchQuery" name="searchQ" (input)="filterCities()" placeholder="Pretraži..."
+                    class="border-0 px-3 py-2 placeholder-blueGray-400 text-blueGray-600 bg-white rounded text-sm w-full mb-2 input-field" />
+                  <select
+                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    [(ngModel)]="selectedCity" name="selectedCity" id="city">
+                    <option *ngFor="let city of filteredCities" [value]="city.city">{{ city.city }}</option>
+                  </select><br><br>
+                </div>
 
 
-              <div class="text-center mt-6">
-                <button
-                  class="text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                  type="button" (click)="insertJob()">
-                  Dodaj oglas
-                </button>
-              </div>
-              <div *ngIf="poruka" [ngStyle]="{'background-color': bgcolor}"
-                style="width: 100%; text-align: center; margin-top: 20px; color: white; padding: 10px; border-radius: 5px; ">
-                {{poruka}}
-              </div>
-            </form>
+                <div class="relative w-full mb-3">
+                  <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="description">
+                    Opis posla
+                  </label>
+                  <textarea
+                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 input-field"
+                    [(ngModel)]="description" id="description" name="description" rows="4" cols="50"></textarea><br><br>
+                </div>
+
+                <!-- PICTURES -->
+                <div class="relative w-full mb-3">
+                  <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="images">
+                    Dodajte slike (do 4)
+                  </label>
+                  <input type="file" id="images" name="images" (change)="onImageChange($event)" multiple
+                    accept="image/*"
+                    class="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 input-field" />
+                </div>
+
+                <!-- SHOW PICTURES -->
+                <div class="relative w-full mb-3" *ngIf="imagePreviews.length > 0">
+                  <label class="block uppercase text-white text-xs font-bold mb-2">
+                    Pregled slika
+                  </label>
+                  <div class="flex flex-wrap">
+                    <img *ngFor="let image of imagePreviews" [src]="image"
+                      class="w-24 h-24 object-cover rounded-md m-2" />
+                  </div>
+                </div>
+
+
+                <div class="text-center mt-6">
+                  <button
+                    class="text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                    type="button" (click)="insertJob()">
+                    Dodaj oglas
+                  </button>
+                </div>
+                <div *ngIf="poruka" [ngStyle]="{'background-color': bgcolor}"
+                  style="width: 100%; text-align: center; margin-top: 20px; color: white; padding: 10px; border-radius: 5px; ">
+                  {{poruka}}
+                </div>
+              </form>
+            </div>
           </div>
-        </div>
-        <div class="flex flex-wrap mt-6 relative" style="font-size: 20px;">
-          <!-- <div class="w-1/2">
+          <div class="flex flex-wrap mt-6 relative" style="font-size: 20px;">
+            <!-- <div class="w-1/2">
           <a [routerLink]="['/auth/#']" class="text-blueGray-200">
             <small>Zaboravili ste lozinku?</small>
           </a>
@@ -124,10 +127,12 @@
             <small>Napravite nov profil!</small>
           </a>
         </div> -->
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <app-footer></app-footer>
+    <app-footer></app-footer>
 
-</div>
+  </div>
+
+</section>

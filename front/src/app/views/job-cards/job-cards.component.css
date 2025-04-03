@@ -11,9 +11,7 @@ button:hover {
 /* Glavni kontejner */
 .container {
     margin: auto;
-    background-image: url('../../../assets/img/texture2.webp');
-    background-size: contain;
-    background-position: center;
+    background: linear-gradient(to top, #eead2b, #201e26);
 }
 
 /* Pretraživač */

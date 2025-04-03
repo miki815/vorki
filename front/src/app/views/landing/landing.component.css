@@ -46,7 +46,7 @@
     opacity: 0;
     transform: translateY(20px);
     /* transition: opacity 0.8s ease-out, transform 0.8s ease-out; */
-    background-image: url('/assets/img/pocetna.png');
+    background-image: url('/assets/img/pocetna5.png');
     background-size: cover;
     background-position: center;
 }
@@ -78,7 +78,7 @@
     padding: 100px 20px;
     width: 100%;
     height: 100%;
-    background-image: url('/assets/img/pocetna2.png');
+    background-image: url('/assets/img/pocetna6.png');
     background-size: cover;
     background-position: center;
 }
@@ -271,6 +271,12 @@
     align-items: center;
 }
 
+@media (max-width: 640px) {
+    .mockup-container {
+      display: none; /* Sakriva sliku na telefonima */
+    }
+  }
+
 .mockup-image {
     max-width: 100%;
     height: auto;
@@ -291,10 +297,17 @@
     color: #eead2b;
     flex: 1;
     font-size: 3rem;
+    word-wrap: break-word;
 }
 
 .text-banner h1 {
     font-family: 'Monument', sans-serif;
+}
+
+@media (max-width: 640px) {
+    .text-banner {
+        font-size: 1rem;
+    }
 }
 
 .cards-container {

@@ -4343,3 +4343,64 @@ select {
 }
 
 @media (min-width: 1536px) {}
+
+.notification-btn {
+  background-color: #eead2b; /* Žuta boja */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+/* .notification-btn:hover {
+  transform: scale(1.05);
+}
+
+.dashed-arrow {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg); 
+  font-size: 30px;
+  color: #eead2b;
+  animation: move-arrow 2s infinite, blink 1s step-start infinite;
+}
+
+.dashed-arrow::before {
+  content: '↘'; 
+  animation: dashed-move 2s infinite;
+}
+
+@keyframes move-arrow {
+  0% {
+    top: 100%;
+  }
+  50% {
+    top: 110%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes dashed-move {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+} */
