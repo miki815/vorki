@@ -1,6 +1,6 @@
 .button-nvg {
-    background: #4A90E2;
-    color: white;
+    background: #fcfcfd;
+    color: #201e26;
     padding: 10px 20px;
     border-radius: 10px;
     font-size: 16px;
@@ -14,6 +14,52 @@
 
 
 .button-nvg:hover {
-    background: #2C6CBD;
-    color: white;
+    background: #eead2b;
+    color: #201e26;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 jednake kolone */
+    grid-auto-rows: auto;
+    /* Fiksna visina kartica */
+    gap: 20px;
+    /* padding: 20px 10vw; */
+    /* Odmak sa leve i desne strane */
+    justify-content: center;
+    /* Centriranje mreže */
+}
+
+/* Kartice */
+.category-card {
+    width: 100%;
+    /* Kartice zauzimaju punu širinu kolone */
+    height: 100%;
+    /* Fiksna visina */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #eead2b;
+    border: 2px solid #9f9f9f;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1024px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kartice u redu na tabletima */
+    }
+}
+
+@media (max-width: 768px) {
+    .cards-grid {
+        grid-template-columns: 1fr; /* 1 kartica po redu na telefonima */
+    }
 }

@@ -1488,6 +1488,10 @@ select {
   background-color: #201e26;
 }
 
+.bg-gradient-crna {
+  background: linear-gradient(135deg, #25232d 0%, #201e26 100%);
+}
+
 .bg-siva {
   --tw-bg-opacity: 1;
   background-color: #9f9f9f;
@@ -1630,6 +1634,11 @@ select {
 .border-basic {
   --tw-border-opacity: 1;
   border-color: #fcfcfd;
+}
+
+.border-crna {
+  --tw-border-opacity: 1;
+  border-color: #201e26;
 }
 
 .border-red-700 {
@@ -3029,6 +3038,11 @@ select {
   color: rgba(203, 213, 225, var(--tw-placeholder-opacity));
 }
 
+.placeholder-siva::-moz-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: #9f9f9f
+}
+
 .placeholder-blueGray-300::placeholder {
   --tw-placeholder-opacity: 1;
   color: rgba(203, 213, 225, var(--tw-placeholder-opacity));
@@ -4345,7 +4359,8 @@ select {
 @media (min-width: 1536px) {}
 
 .notification-btn {
-  background-color: #eead2b; /* Žuta boja */
+  background-color: #eead2b;
+  /* Žuta boja */
   border: none;
   border-radius: 8px;
   cursor: pointer;

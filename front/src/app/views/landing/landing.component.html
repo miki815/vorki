@@ -365,7 +365,7 @@
     <div class="cards-grid">
       <div class="category-card" *ngFor="let category of professions | slice:0:12">
         <div class="card-header">
-          <img src="assets/img/logo3.png" alt="Logo">
+          <img src="assets/img/logon.png" alt="Logo">
         </div>
         <div class="card-body">
           <h2>{{category}}</h2>
@@ -375,6 +375,7 @@
       </div>
     </div>
   </section>
+  <hr class="hrcard">
 
   <!-- TOP MASTERS
   <section #fadeSection class="fade-section pt-12 pb-20 top-masters-background">
@@ -500,7 +501,7 @@
 
         <!-- Leva strana - Mockup slika -->
         <div class="mockup-container">
-          <img src="assets/img/mock_laptop2.webp" alt="Mockup sajta" class="mockup-image">
+          <img src="assets/img/mockupn1.png" alt="Mockup sajta" class="mockup-image">
         </div>
 
         <!-- Desna strana - Forma -->
@@ -520,31 +521,31 @@
           </div>
 
           <div
-            class="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg bg-zlatna p-5 lg:p-10 border-2 border-solid border-blueGray-600 justify-center items-center">
+            class="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg bg-zlatna p-5 lg:p-10 border-2 border-solid border-basic justify-center items-center">
             <h4 class="text-2xl font-semibold text-center text-crna">Pitanje ili predlog?</h4>
             <p class="leading-relaxed mt-1 mb-4 text-crna text-center">
               Popunite formu i dobićete odgovor u najkraćem mogućem roku.
             </p>
             <div class="relative w-full mb-3 mt-8">
               <input type="text" maxlength="100"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-crna rounded text-sm shadow focus:outline-none focus:ring w-full"
+                class="border-0 px-3 py-3 text-crna rounded text-sm shadow focus:outline-none focus:ring w-full input-field"
                 placeholder="Ime i prezime" [(ngModel)]="nameAndSurname" />
             </div>
 
             <div class="relative w-full mb-3">
               <input type="email" maxlength="100"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-crna rounded text-sm shadow focus:outline-none focus:ring w-full"
+                class="border-0 px-3 py-3 text-crna rounded text-sm shadow focus:outline-none focus:ring w-full input-field"
                 placeholder="Broj telefona ili email" [(ngModel)]="contact" />
             </div>
 
             <div class="relative w-full mb-3">
               <textarea rows="4" cols="80" maxlength="800"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                class="border-0 px-3 py-3 text-crna bg-basic rounded text-sm shadow focus:outline-none focus:ring w-full input-field"
                 placeholder="Poruka..." [(ngModel)]="message"></textarea>
             </div>
             <div class="text-center mt-6">
               <button
-                class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                class="bg-crna text-basic text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                 type="button" (click)="send()">
                 Pošalji poruku
               </button>

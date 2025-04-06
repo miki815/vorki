@@ -1,6 +1,6 @@
-<app-main-navbar></app-main-navbar>
+<div class="bg-gradient-crna">
+  <app-main-navbar></app-main-navbar>
 
-<div class="page-container bg-modern-contain">
   <div class="flex flex-col lg:flex-row items-center justify-center mt-6 gap-4 w-full" *ngIf="!idUser">
 
     <input [(ngModel)]="selectedCity" list="cities" name="citySearch" id="citySearch" placeholder="Izaberite grad..."
@@ -31,8 +31,8 @@
   </div>
 
 
-  <div class="grid grid-cols-1 gap-4 place-items-center mt-4" *ngIf="jobs">
-    <div class="py-3" style="width: 70%;" *ngFor="let job of jobs.slice(
+  <div class="cards-grid place-items-center mt-4" *ngIf="jobs">
+    <div class="py-3 category-card" style="width: 70%;" *ngFor="let job of jobs.slice(
         (currentPage - 1) * jobsPerPage,
         currentPage * jobsPerPage
       )">
@@ -42,7 +42,7 @@
 
   <div class="mt-4 pb-4 flex justify-center items-center space-x-4" *ngIf="jobs">
     <button class="button-nvg" (click)="prevPage()" [disabled]="currentPage === 1">Prethodna</button>
-    <span class="text-blueGray-600">| {{ currentPage }} |</span>
+    <span class="text-basic">| {{ currentPage }} |</span>
     <button class="button-nvg" (click)="nextPage()" [disabled]="jobs.length <= currentPage * jobsPerPage">
       Sledeća
     </button>

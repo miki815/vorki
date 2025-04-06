@@ -49,7 +49,7 @@ button:hover {
 /* Kartice */
 .category-card {
     background: linear-gradient(to bottom, #ffffff, #f0f4ff);
-    border: 2px solid #4A90E2;
+    border: 2px solid #201e26;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -66,44 +66,45 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #3B4A6B;
-    /* Tamnija nijansa plave */
+    background: #eead2b;
     padding: 20px;
 }
 
 .card-header img {
-    width: 60px;
-    height: 60px;
+    background-color: #201e26;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 1px solid #eead2b;
 }
 
 /* Donji deo kartice */
 .card-body {
     text-align: center;
     padding: 20px;
+    background: #fcfcfd;
 }
 
 .card-body h2 {
     font-size: 20px;
     font-weight: bold;
-    color: #333;
+    color: #201e26;
 }
 
 .card-body p {
-    color: #666;
+    color: #201e26;
     font-size: 16px;
 }
 
 .card-body span {
     font-weight: bold;
-    color: #2C6CBD;
+    color: #eead2b;
 }
 
 /* Dugme */
 .card-body button {
-    background: #4A90E2;
-    color: white;
+    background: #eead2b;
+    color: #201e26;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -113,5 +114,6 @@ button:hover {
 }
 
 .card-body button:hover {
-    background: #2C6CBD;
+    background: #201e26;
+    color: #eead2b;
 }

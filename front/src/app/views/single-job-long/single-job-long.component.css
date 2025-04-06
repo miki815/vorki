@@ -15,8 +15,8 @@
     width: 200px;
     height: 48px;
     text-align: center;
-    background: #4A90E2;
-    color: white;
+    background: #eead2b;
+    color: #201e26;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -26,5 +26,42 @@
 }
 
 .button-list:hover {
-    background: #2C6CBD;
+    background: #201e26;
+    color: #eead2b;
+}
+
+.card-section {
+    margin-top: 300px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#map {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin: 0 auto;
+    width: 70%;
+    height: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main-container {
+    background: linear-gradient(to top, #eead2b, #201e26);
+}
+
+.hrcard{
+    background: #eead2b;
+    color: #eead2b;
+    border-radius: 2px;
+    padding: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-container {
+    width: 80%;
+    height: 500px;
+    object-fit: cover; 
+    margin: 50px auto;
+    margin-bottom: 100px;
 }

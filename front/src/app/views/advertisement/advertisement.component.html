@@ -1,4 +1,4 @@
-<section class="advertisement-container">
+<section class="advertisement-container bg-gradient-crna">
   <app-main-navbar></app-main-navbar>
   <div class="w-full bg-full pt-8">
     <div class="container mx-auto px-4 h-full">
@@ -8,15 +8,15 @@
             class="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg border-0 mt-10 form-container">
             <div class="rounded-t mb-0 px-6 py-6">
               <div class="btn-wrapper text-center">
-                <h2 class="text-white text-xl font-bold">Dodavanje oglasa</h2>
+                <h2 class="text-crna text-3xl font-bold">Novi oglas</h2>
               </div>
-              <hr class="mt-6 border-b-1 border-blueGray-300" />
+              <hr class="mt-6 border-b-2 border-basic" />
             </div>
             <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
 
               <form>
                 <div class="relative w-full mb-5">
-                  <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="title">
+                  <label class="block uppercase text-crna text-xs font-bold mb-2" htmlFor="title">
                     Naziv posla
                   </label>
                   <input [(ngModel)]="title" name="title" type="text"
@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="relative w-full mb-5">
-                  <label class="block uppercase text-white text-xs font-bold mb-2">
+                  <label class="block uppercase text-crna text-xs font-bold mb-2">
                     Tip oglasa
                   </label>
                   <div class="flex items-center space-x-4">
@@ -43,7 +43,7 @@
 
 
                 <div class="relative w-full mb-1">
-                  <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="proffesion">
+                  <label class="block uppercase text-crna text-xs font-bold mb-2" htmlFor="proffesion">
                     Zanimanje
                   </label>
                   <input [(ngModel)]="searchQueryProf" name="searchQC" (input)="filterProfessions()"
@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="relative w-full mb-1">
-                  <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="city">
+                  <label class="block uppercase text-crna text-xs font-bold mb-2" htmlFor="city">
                     Mesto rada
                   </label>
                   <input [(ngModel)]="searchQuery" name="searchQ" (input)="filterCities()" placeholder="Pretraži..."
@@ -72,7 +72,7 @@
 
 
                 <div class="relative w-full mb-3">
-                  <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="description">
+                  <label class="block uppercase text-crna text-xs font-bold mb-2" htmlFor="description">
                     Opis posla
                   </label>
                   <textarea
@@ -82,7 +82,7 @@
 
                 <!-- PICTURES -->
                 <div class="relative w-full mb-3">
-                  <label class="block uppercase text-white text-xs font-bold mb-2" htmlFor="images">
+                  <label class="block uppercase text-crna text-xs font-bold mb-2" htmlFor="images">
                     Dodajte slike (do 4)
                   </label>
                   <input type="file" id="images" name="images" (change)="onImageChange($event)" multiple

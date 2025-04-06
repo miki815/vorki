@@ -1,7 +1,7 @@
 .form-container {
-    background: rgba(30, 45, 70, 0.9);
+    background: linear-gradient(135deg, rgba(238, 173, 43, 0.9) 0%, rgba(32, 30, 38, 0.9) 100%);
     /* Tamno plava sa providnošću */
-    border: 2px solid #3b5b88;
+    border: 2px solid #201e26;
     /* Svetliji plavi border */
     border-radius: 10px;
     /* Zaobljeni uglovi */
@@ -29,9 +29,9 @@ button {
     width: 160px;
     height: 48px;
     text-align: center;
-    background: #4A90E2;
-    color: white;
-    border: none;
+    background: #eead2b;
+    color: #201e26;
+    border: 1px solid #201e26;
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 8px;
@@ -40,9 +40,10 @@ button {
 }
 
 button:hover {
-    background: #2C6CBD;
+    background: #201e26;
+    color: #eead2b;
 }
 
 .advertisement-container {
-    background: linear-gradient(135deg, #201e26 70%, #eead2b);
+    /* background: linear-gradient(135deg, #201e26 70%, #eead2b); */
 }

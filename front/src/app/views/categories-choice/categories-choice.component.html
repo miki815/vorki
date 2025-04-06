@@ -1,41 +1,42 @@
-<app-main-navbar></app-main-navbar>
+<section class="bg-gradient-crna">
+    <app-main-navbar></app-main-navbar>
+    <div class="grid justify-center place-items-center min-h-screen sm:p-12 md:p-12 lg:p-12 pt-6">
+        <div class="container mx-auto">
+            <div class="justify-center flex flex-wrap">
+                <div class="w-full lg:w-12/12 px-4 mb-6">
+                    <div class="flex flex-wrap">
+                        <div class="w-full lg:w-4/12 px-4">
+                            <h5 class="text-3xl font-bold pb-4 text-center text-basic">Majstori</h5>
+                            <a [routerLink]="['/kategorija/1']">
+                                <div
+                                    class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150 category-card">
+                                    <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg"
+                                        src="assets/img/izborm.jpg" />
+                                </div>
+                            </a>
+                        </div>
 
-<section class="grid justify-center place-items-center  min-h-screen bg-texture sm:p-12 md:p-12 lg:p-12 pt-12">
-    <div class="container mx-auto">
-        <div class="justify-center flex flex-wrap"> 
-            <div class="w-full lg:w-12/12 px-4 mb-6">
-                <div class="flex flex-wrap">
-                    <div class="w-full lg:w-4/12 px-4">
-                        <h5 class="text-xl font-bold pb-4 text-center text-blueGray-200">Majstori</h5>
-                        <a [routerLink]="['/kategorija/1']">
-                            <div
-                                class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150 category-card">
-                                <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg"
-                                    src="assets/img/izborm.jpg" />
-                            </div>
-                        </a>
-                    </div>
+                        <div class="w-full lg:w-4/12 px-4">
+                            <h5 class="text-3xl font-bold pb-4 text-center text-basic">Usluge</h5>
+                            <a [routerLink]="['/kategorija/2']">
+                                <div
+                                    class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
+                                    <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg"
+                                        src="assets/img/izboru.jpg" />
+                                </div>
+                            </a>
+                        </div>
 
-                    <div class="w-full lg:w-4/12 px-4">
-                        <h5 class="text-xl font-bold pb-4 text-center text-blueGray-200">Usluge</h5>
-                        <a [routerLink]="['/kategorija/2']">
-                            <div
-                                class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
-                                <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg"
-                                    src="assets/img/izboru.jpg" />
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="w-full lg:w-4/12 px-4">
-                        <h5 class="text-xl font-bold pb-4 text-center text-blueGray-200">Prevoz</h5>
-                        <a [routerLink]="['/kategorija/3']">
-                            <div
-                                class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
-                                <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg"
-                                    src="assets/img/izborp.jpg" />
-                            </div>
-                        </a>
+                        <div class="w-full lg:w-4/12 px-4">
+                            <h5 class="text-3xl font-bold pb-4 text-center text-basic">Prevoz</h5>
+                            <a [routerLink]="['/kategorija/3']">
+                                <div
+                                    class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
+                                    <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg"
+                                        src="assets/img/izborp.jpg" />
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

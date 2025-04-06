@@ -269,6 +269,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 @media (max-width: 640px) {
@@ -329,18 +330,24 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.input-field{
+    background-color: #fcfcfd;
+    color: #201e26;
+    border: 1px solid #201e26;
+}
+
 
 input {
-    background: transparent !important;
-    border: 1px solid #9f9f9f !important;
-    color: #eead2b !important;
+    background: transparent;
+    border: 1px solid #9f9f9f;
+    color: #eead2b;
     /* Osigurava da je tekst vidljiv */
     outline: none;
     /* Uklanja plavi fokus okvir */
 }
 
 input::placeholder {
-    color: #fcfcfd;
+    color: #9f9f9f;
 }
 
 
@@ -463,21 +470,22 @@ input::placeholder {
 .card-header {
     flex-shrink: 0;
     /* Sprečava smanjivanje */
-    height: 80px;
+    /* height: 80px; */
     /* Definisana visina */
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #fcfcfd;
+    background: #eead2b;
     /* Tamnija nijansa plave */
     padding: 20px;
 }
 
 .card-header img {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 1px solid #eead2b;
+    background-color: #201e26;
 }
 
 /* Donji deo kartice */
@@ -490,28 +498,29 @@ input::placeholder {
     align-items: center;
     text-align: center;
     padding: 20px;
+    background: #fcfcfd;
 }
 
 .card-body h2 {
     font-size: 20px;
     font-weight: bold;
-    color: #fcfcfd;
+    color: #201e26;
 }
 
 .card-body p {
-    color: #fcfcfd;
+    color: #201e26;
     font-size: 16px;
 }
 
 .card-body span {
     font-weight: bold;
-    color: #fcfcfd;
+    color: #eead2b;
 }
 
 /* Dugme */
 .card-body button {
-    background: #9f9f9f;
-    color: #fcfcfd;
+    background: #eead2b;
+    color: #201e26;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -521,7 +530,8 @@ input::placeholder {
 }
 
 .card-body button:hover {
-    background: #333;
+    background: #201e26;
+    color: #eead2b;
 }
 
 .job-card-container {
@@ -549,4 +559,10 @@ input::placeholder {
     .cards-grid {
         grid-template-columns: 1fr; /* 1 kartica po redu na telefonima */
     }
+}
+
+.hrcard{
+    color: #fcfcfd;
+    background-color: #fcfcfd;
+    padding: 2px;
 }

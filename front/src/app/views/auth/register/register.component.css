@@ -4,30 +4,30 @@
   min-height: 100vh;
   justify-content: center;
   align-items: center;
-  background: url('/assets/texture3.webp') center/cover no-repeat;
 }
 
 /* Glavni okvir registracije */
 .login-box {
   width: 100%;
   max-width: 400px;
-  background: rgba(30, 42, 58);
+  background: linear-gradient(135deg, rgba(238, 173, 43, 0.9) 0%, rgba(32, 30, 38, 0.9) 100%);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   padding: 30px;
   margin-top: 0;
+  border: 2px solid #eead2b;
 }
 
 /* Naslov */
 .login-title {
-  color: #fff;
+  color: #201e26;
   font-size: 24px;
   font-weight: bold;
 }
 
 /* Podnaslov */
 .login-subtitle {
-  color: #bbb;
+  color: #201e26;
   font-size: 14px;
   margin-top: 5px;
 }
@@ -41,16 +41,16 @@
 .form-input {
   width: 100%;
   padding: 12px;
-  border: 1px solid #394a5a;
-  background: #2C3E50;
-  color: #fff;
+  border: 1px solid #201e26;
+  /* background: #fcfcfd; */
+  color: #201e26; 
   border-radius: 6px;
   outline: none;
   transition: border 0.3s;
 }
 
 .form-input:focus {
-  border: 1px solid #EFCA21;
+  border: 1px solid #eead2b;
 }
 
 /* Radio dugmadi */
@@ -73,7 +73,7 @@
 /* Dropdown meni */
 .dropdown-menu {
   position: absolute;
-  background-color: #2C3E50;
+  background-color: #201e26;
   width: 100%; /* Osiguraj da širina bude 100% roditelja */
   max-height: 200px;
   overflow-y: auto;
@@ -92,14 +92,14 @@
 }
 
 .dropdown-item:hover {
-  background-color: #1f2a35;
+  background-color: #201e26;
 }
 
 /* Dugme */
 .submit-button {
   width: 100%;
-  background: #EFCA21;
-  color: #1E2A3A;
+  background: #eead2b;
+  color: #201e26;
   font-weight: bold;
   text-transform: uppercase;
   padding: 12px;
@@ -109,12 +109,12 @@
 }
 
 .submit-button:hover {
-  background: #FFD700;
+  background: #cfb509;
 }
 
 /* Linkovi */
 .link-highlight {
-  color: #EFCA21;
+  color: #eead2b;
   font-weight: bold;
   text-decoration: none;
 }

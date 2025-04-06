@@ -14,7 +14,7 @@ export class JobListingComponent implements OnInit {
   jobs: Array<any>;
   allJobs: Array<any>;
   currentPage: number = 1;
-  jobsPerPage: number = 5;
+  jobsPerPage: number = 9;
   @ViewChild('top') topElement!: ElementRef;
   cities = [];
   selectedCity: string = '';
