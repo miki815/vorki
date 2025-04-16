@@ -23,7 +23,7 @@
                     class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 input-field" />
                 </div>
 
-                <div class="relative w-full mb-5">
+                <!-- <div class="relative w-full mb-5">
                   <label class="block uppercase text-crna text-xs font-bold mb-2">
                     Tip oglasa
                   </label>
@@ -39,10 +39,23 @@
                       <span class="ml-2 text-white">Nudim posao</span>
                     </label>
                   </div>
+                </div> -->
+
+                <div class="relative w-full mb-1">
+                  <label class="block uppercase text-crna text-xs font-bold mb-2" htmlFor="proffesion">
+                    Zanimanje
+                  </label>
+                  <input [(ngModel)]="selectedProfession" list="professions" name="professionSearch"
+                    id="professionSearch" placeholder="Izaberite zanimanje..."
+                    class=" text-black border border-gray-400 rounded-xl px-4 py-3 w-full shadow-sm transition-all focus:border-gold focus:ring-2 focus:ring-gold hover:border-gold"
+                  />
+                  <datalist id="professions">
+                    <option *ngFor="let profession of filteredProfessions" [value]="profession"></option>
+                  </datalist>
                 </div>
 
 
-                <div class="relative w-full mb-1">
+                <!-- <div class="relative w-full mb-1">
                   <label class="block uppercase text-crna text-xs font-bold mb-2" htmlFor="proffesion">
                     Zanimanje
                   </label>
@@ -55,9 +68,21 @@
                     <option *ngFor="let profession of filteredProfessions" [value]="profession">{{ profession }}
                     </option>
                   </select><br><br>
-                </div>
+                </div> -->
 
                 <div class="relative w-full mb-1">
+                  <label class="block uppercase text-crna text-xs font-bold mb-2" htmlFor="city">
+                    Mesto rada
+                  </label>
+                  <input [(ngModel)]="selectedCity" list="cities" name="citySearch" id="citySearch"
+                    placeholder="Izaberite mesto..."
+                    class="text-black border border-gray-400 rounded-xl px-4 py-3 w-full shadow-sm transition-all focus:border-gold focus:ring-2 focus:ring-gold hover:border-gold" />
+                  <datalist id="cities">
+                    <option *ngFor="let city of filteredCities" [value]="city.city"></option>
+                  </datalist>
+                </div>
+
+                <!-- <div class="relative w-full mb-1">
                   <label class="block uppercase text-crna text-xs font-bold mb-2" htmlFor="city">
                     Mesto rada
                   </label>
@@ -68,7 +93,7 @@
                     [(ngModel)]="selectedCity" name="selectedCity" id="city">
                     <option *ngFor="let city of filteredCities" [value]="city.city">{{ city.city }}</option>
                   </select><br><br>
-                </div>
+                </div> -->
 
 
                 <div class="relative w-full mb-3">

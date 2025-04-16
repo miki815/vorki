@@ -1,28 +1,172 @@
-<nav
-  class="top-0 absolute z-50 w-full flex flex-wrap px-2 py-3 navbar-expand-lg"
->
-  <div
-    class="container px-4 mx-auto flex flex-wrap justify-end"
-  >
-    <div
-      class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
-      style="width:100%; display: flex; flex-direction: row; justify-content: space-between;"
+<style>
+  /* Navbar osnovni stil */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0 20px;
+    top: 0;
+    transition: background 0.3s ease-in-out;
+  }
 
-    >
-      <a
-      [routerLink]="['/autentikacija/prijava']"
-      class="text-white text-lg font-bold leading-relaxed inline-block mr-4 py-4 whitespace-nowrap uppercase"
-        style="font-size: 1.25rem; padding: 1rem;"
-      >
-        Prijava
-      </a>
-      <a
-        [routerLink]="['/autentikacija/registracija']"
-        class="text-white text-lg font-bold leading-relaxed inline-block mr-4 py-4 whitespace-nowrap uppercase"
-        style="font-size: 1.25rem; padding: 1rem;"
-      >
-        Registracija
-      </a>
-    </div>
+  /* Logo */
+  .logo img {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .logo img:hover {
+    transform: scale(1.1);
+  }
+
+  /* Navigacija */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+  }
+
+  /* Linkovi */
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+  }
+
+  /* Separator */
+  .separator {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2rem;
+  }
+
+  /* Burger meni */
+  .burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1100;
+    transition: transform 0.3s ease-in-out;
+    margin-left: 15px;
+    /* Da se ne lepi uz ostale elemente */
+  }
+
+  .burger div {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Efekat animacije za burger meni */
+  .navbar.active .burger div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .navbar.active .burger div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar.active .burger div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Dugme za notifikacije */
+  .notification-toggle {
+    margin-left: auto;
+    /* Gura dugme ka desnoj strani */
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.2s ease-in-out;
+    margin-left: 15px;
+    /* Da bude odvojen od linkova */
+  }
+
+  .notification-toggle:hover {
+    transform: scale(1.1);
+  }
+
+  .logoImg {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 15px;
+  }
+
+  /* Mobilni prikaz */
+  @media (max-width: 768px) {
+    .burger {
+      display: flex;
+      z-index: 2100;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background: #201e26;
+      backdrop-filter: blur(10px);
+      padding: 20px 0;
+      border-radius: 0 0 10px 10px;
+      z-index: 2000;
+    }
+
+    .navbar.active .nav-links {
+      display: flex;
+    }
+
+    .nav-links a {
+      padding: 12px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .separator {
+      display: none;
+    }
+  }
+</style>
+
+<nav class="navbar" [class.active]="menuOpen">
+  <div class="logo">
+    <img src="assets/img/logon.png" alt="logo" class="logoImg" (click)="navigateToHome()">
+  </div>
+
+  <div class="nav-links">
+    <a [routerLink]="['/pocetna']" class="text-basic" routerLinkActive="text-zlatna"
+      [routerLinkActiveOptions]="{exact: true}">POČETNA STRANA</a>
+    <span class="separator text-siva">|</span>
+    <a [routerLink]="['/autentikacija/prijava']" class="text-basic" routerLinkActive="text-zlatna"
+      (click)="navigate_to_login()">PRIJAVA</a>
+    <span class="separator text-siva">|</span>
+    <a [routerLink]="['/autentikacija/registracija']" class="text-basic" routerLinkActive="text-zlatna"
+      (click)="navigate_to_register()">REGISTRACIJA</a>
+    <!-- <span class="separator text-siva">|</span>
+    <a [routerLink]="['/autentikacija/zaboravljena_lozinka']" class="text-basic" routerLinkActive="text-zlatna"
+      (click)="navigate_to_forgot()">ZABORAVLJENA LOZINKA</a> -->
+  </div>
+
+  <div class="burger" (click)="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
 </nav>

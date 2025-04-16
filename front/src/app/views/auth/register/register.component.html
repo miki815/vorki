@@ -7,10 +7,20 @@
     </div>
 
     <form (ngSubmit)="onSubmit()">
-      <!-- USERNAME -->
-      <div class="form-group">
-        <input [(ngModel)]="username" name="username" type="text" class="form-input" placeholder="Korisničko ime" maxlength="30" required />
+      <!-- FIRSTNAME, LASTNAME -->
+      <!-- <div class="form-group">
+        <input [(ngModel)]="username" name="username" type="text" class="form-input" placeholder="Korisničko ime"
+          maxlength="30" required />
+      </div> -->
+
+      <div class="form-group flex flex-col md:flex-row gap-4">
+        <input [(ngModel)]="firstName" name="firstName" type="text" class="form-input flex-1" placeholder="Ime"
+          maxlength="30" required />
+
+        <input [(ngModel)]="lastName" name="lastName" type="text" class="form-input flex-1" placeholder="Prezime"
+          maxlength="30" required />
       </div>
+
 
       <!-- EMAIL -->
       <div class="form-group">
@@ -19,23 +29,29 @@
 
       <!-- LOCATION -->
       <div class="form-group">
-        <label class="text-white">Lokacija</label>
-        <div class="flex items-center space-x-4 w-full mb-3">
-          <div class="relative w-3/4">
+        <!-- <label class="text-white">Lokacija</label> -->
+        <!-- <div class="flex items-center space-x-4 w-full mb-3"> -->
+        <!-- <div class="relative w-3/4">
             <select [(ngModel)]="location" name="location" class="form-input">
               <option *ngFor="let city of filteredCities">{{ city.city }}</option>
             </select>
           </div>
           <div class="relative w-1/4">
-            <input [(ngModel)]="searchQuery" name="searchQ" (input)="filterCities()" placeholder="Pretraži..." class="form-input" />
-          </div>
-        </div>
+            <input [(ngModel)]="searchQuery" name="searchQ" (input)="filterCities()" placeholder="Pretraži..."
+              class="form-input" />
+          </div> -->
+        <input [(ngModel)]="location" type="text" list="cities" name="location" id="citySearch" placeholder="Lokacija"
+          class="form-input" (input)="filterCities()" required />
+        <datalist id="cities">
+          <option *ngFor="let city of filteredCities" [value]="city.city" class="form-input"></option>
+        </datalist>
+        <!-- </div> -->
       </div>
 
       <!-- TYPE -->
       <div class="form-group">
         <div class="flex space-x-4">
-        <label class="text-white">Tip:</label>
+          <label class="text-white">Tip:</label>
           <div class="flex items-center">
             <input [(ngModel)]="type" name="type" value="1" type="radio" class="radio-input" />
             <label class="text-white">Korisnik</label>
@@ -50,29 +66,44 @@
       <!-- PROFESSIONS -->
       <div *ngIf="type == 0" class="form-group">
         <label class="text-white">Poslovi kojima se bavite</label>
-        <div class="dropdown">
-          <input type="text" name="profess" [(ngModel)]="searchTerm" (focus)="showProfessions()" (input)="filterProfessions()" class="form-input" placeholder="Pretraži zanimanja..." />
-          <div *ngIf="isDropdownVisible" class="dropdown-menu">
-            <button class="close-btn text-red-500" (click)="hideProfessions()">X</button>
-            <div *ngFor="let profession of filteredProfessions" class="dropdown-item text-blueGray-200" (click)="toggleSelection(profession)">
-              <input type="checkbox" [checked]="selectedProfessions.includes(profession)" />
-              {{ profession }}
+        <div class="dropdown relative">
+          <input type="text" name="profess" [(ngModel)]="searchTerm" (focus)="showProfessions()"
+            (input)="filterProfessions()" class="form-input" placeholder="Pretraži zanimanja..." />
+
+          <div *ngIf="isDropdownVisible"
+            class="dropdown-menu absolute bg-white z-10 border rounded w-full max-h-60 overflow-y-auto mt-1 shadow-lg">
+            <div class="flex justify-end p-2">
+              <button class="text-red-500 font-bold" (click)="hideProfessions()">✖</button>
+            </div>
+
+            <div *ngFor="let profession of filteredProfessions"
+              class="dropdown-item flex items-center px-4 py-2 hover:bg-gray-100">
+              <input type="checkbox" [checked]="selectedProfessions.includes(profession)"
+                (change)="toggleSelection(profession)" class="mr-2" />
+              <span class="text-basic">{{ profession }}</span>
             </div>
           </div>
         </div>
-        <div class="selected-professions">
-          <p *ngFor="let profession of selectedProfessions" class="selected-item text-green-500">{{ profession }}</p>
+
+        <div class="selected-professions mt-2">
+          <span *ngFor="let profession of selectedProfessions"
+            class="inline-block bg-green-500 text-basic text-sm px-3 py-1 rounded-full mr-2 mb-2">
+            {{ profession }}
+          </span>
         </div>
       </div>
 
+
       <!-- PASSWORD -->
       <div class="form-group">
-        <input [(ngModel)]="password" name="password" type="password" class="form-input" placeholder="Lozinka" required />
+        <input [(ngModel)]="password" name="password" type="password" class="form-input" placeholder="Lozinka"
+          required />
       </div>
 
       <!-- PASSWORD CONFIRMATION -->
       <div class="form-group">
-        <input [(ngModel)]="password1" name="passwordConfirm" type="password" class="form-input" placeholder="Ponovite lozinku" required />
+        <input [(ngModel)]="password1" name="passwordConfirm" type="password" class="form-input"
+          placeholder="Ponovite lozinku" required />
       </div>
 
       <!-- POLICY AGREEMENT -->
@@ -93,7 +124,7 @@
 
       <!-- SUBMIT BUTTON -->
       <div class="text-center mt-6">
-        <button (click)="submit()" class="submit-button">Registrujte se</button>
+        <button (click)="onSubmit()" class="submit-button">Registrujte se</button>
       </div>
 
       <!-- LOGIN LINK -->

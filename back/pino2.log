@@ -3972,3 +3972,21 @@
 {"level":30,"time":1742598145557,"pid":11464,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
 {"level":30,"time":1742598145561,"pid":11464,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
 {"level":30,"time":1742598145599,"pid":11464,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1744757505341,"pid":22676,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1744757505345,"pid":22676,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1744757505384,"pid":22676,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1744757875596,"pid":2660,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1744757875600,"pid":2660,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1744757875636,"pid":2660,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1744757911189,"pid":2660,"hostname":"DESKTOP-9KL4NAD","email":"uki@gmail.com","idUser":12,"msg":"User registered"}
+{"level":30,"time":1744757949682,"pid":2660,"hostname":"DESKTOP-9KL4NAD","email":"uki@gmail.com","msg":"Login attempt"}
+{"level":30,"time":1744757949789,"pid":2660,"hostname":"DESKTOP-9KL4NAD","userId":12,"email":"uki@gmail.com","msg":"Login successful"}
+{"level":30,"time":1744757959047,"pid":2660,"hostname":"DESKTOP-9KL4NAD","id":"12","msg":"getUserById attempt"}
+{"level":30,"time":1744758079782,"pid":2660,"hostname":"DESKTOP-9KL4NAD","email":"nidza@gmail.com","idUser":13,"msg":"User registered"}
+{"level":50,"time":1744758079831,"pid":2660,"hostname":"DESKTOP-9KL4NAD","msg":"Register error: Error: Duplicate entry 'nidza@gmail.com' for key 'user.username'"}
+{"level":30,"time":1744758089385,"pid":2660,"hostname":"DESKTOP-9KL4NAD","email":"nidza@gmail.com","msg":"Login attempt"}
+{"level":30,"time":1744758089469,"pid":2660,"hostname":"DESKTOP-9KL4NAD","userId":13,"email":"nidza@gmail.com","msg":"Login successful"}
+{"level":30,"time":1744758092318,"pid":2660,"hostname":"DESKTOP-9KL4NAD","id":"13","msg":"getUserById attempt"}
+{"level":30,"time":1744758158604,"pid":2660,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJpYXQiOjE3NDQ3NTgwODksImV4cCI6MTc0NDc2MTY4OX0.eWD4yY1t5mO9YyOQeDXTh_mT12tUaGkb42NWbooRkVo","msg":"Verifying token"}
+{"level":30,"time":1744758158606,"pid":2660,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":13,"iat":1744758089,"exp":1744761689},"msg":"Decoded token"}
+{"level":30,"time":1744758158636,"pid":2660,"hostname":"DESKTOP-9KL4NAD","id":"13","msg":"getUserById attempt"}

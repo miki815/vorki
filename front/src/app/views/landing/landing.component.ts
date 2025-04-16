@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { SwPush } from "@angular/service-worker";
 import { HttpClient } from "@angular/common/http";
 import { JobService } from 'src/app/services/job.service';
+import { Gallery, GalleryConfig, GalleryItem, GalleryRef, GalleryState, ImageItem } from 'ng-gallery';
+
 
 
 @Component({
@@ -35,6 +37,19 @@ export class LandingComponent implements OnInit, AfterViewInit {
   filteredCities: any;
   professionsCount: { [categories: string]: number } = {};
 
+  images: GalleryItem[] = [];
+  imagesLoaded: boolean = false;
+  galleryId = 'mixed';
+  galleryRef: GalleryRef = this.gallery.ref(this.galleryId);
+  numberOfPhotos: number = 0;
+  imgIndex: number = 0;
+
+  galleryConfig: GalleryConfig = {
+    autoPlay: true,
+    playerInterval: 3000,
+    loop: true
+  };
+
   readonly VAPID_PUBLIC_KEY = "BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg";
   // uri = 'http://127.0.0.1:4000'
   uri: string = 'https://vorki.rs';
@@ -59,7 +74,7 @@ export class LandingComponent implements OnInit, AfterViewInit {
     });
   }
 
-  constructor(private userService: UserService, private cookieService: CookieService, private router: Router, private route: ActivatedRoute, private swPush: SwPush, private http: HttpClient, private jobService: JobService) { }
+  constructor(private userService: UserService, private cookieService: CookieService, private router: Router, private route: ActivatedRoute, private swPush: SwPush, private http: HttpClient, private jobService: JobService, private gallery: Gallery) { }
   login: number = 1;
   ngOnInit(): void {
     this.login = this.cookieService.get('userId') ? 1 : 0;
@@ -71,6 +86,20 @@ export class LandingComponent implements OnInit, AfterViewInit {
     this.getJobs();
     this.getCities();
     this.getCraftmen();
+
+    const fixedImages = [
+      'assets/img/mockupn1.png',
+      'assets/img/mockupn2.png'
+    ];
+
+    fixedImages.forEach(path => {
+      const fullPath = `${this.uri}${path}`;
+      const item = new ImageItem({ src: path, thumb: path });
+      this.images.push(item);
+      this.galleryRef.add(item);
+      this.numberOfPhotos += 1;
+      this.imagesLoaded = true;
+    });
   }
 
   send() {
@@ -151,8 +180,8 @@ export class LandingComponent implements OnInit, AfterViewInit {
   getJobs() {
     console.log("JobListing - getJobs: START")
     this.jobService.getJobsWithUserInfo2().subscribe((jobs: any) => {
-      this.allJobs = this.topJobs = jobs
-      this.filterJobs();
+      this.allJobs = jobs;
+      // this.filterJobs();
     });
     console.log("JobListing - getJobs: END")
   }
@@ -230,5 +259,14 @@ export class LandingComponent implements OnInit, AfterViewInit {
     }, {} as { [profession: string]: number });
   }
 
+  categoryChoice(category) {
+    sessionStorage.setItem('category', category);
+    this.router.navigate(['/oglasi']);
+    // this.router.navigate(['/oglasi'], { state: { category: category } });
+  }
+
+  onIndexChange(event: GalleryState) {
+    this.imgIndex = event.currIndex
+  }
 
 }

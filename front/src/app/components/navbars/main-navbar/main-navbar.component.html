@@ -4,19 +4,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* Razmak između elemenata */
-    /* background: rgba(30, 41, 59, 0.7); */
-    /* Prozirna tamna pozadina */
-    /* backdrop-filter: blur(10px); */
-    /* Efekat zamućenja */
-    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
     height: 50px;
     padding: 0 20px;
-    /* position: sticky; */
     top: 0;
-    /* z-index: 1000; */
     transition: background 0.3s ease-in-out;
-    /* border: 1px solid rgba(255, 255, 255, 0.2); */
   }
 
   /* Logo */
@@ -106,25 +97,6 @@
     transform: scale(1.1);
   }
 
-  /* Ikonica zvona */
-  .bell-icon {
-    font-size: 24px;
-    color: rgba(255, 255, 255, 0.6);
-    transition: color 0.3s ease-in-out;
-  }
-
-  .bell-icon::before {
-    content: "🔕";
-  }
-
-  .bell-icon.active {
-    color: #efca21;
-  }
-
-  .bell-icon.active::before {
-    content: "🔔";
-  }
-
   .logoImg {
     width: 200px;
     height: 200px;
@@ -191,16 +163,18 @@
     <span class="separator text-siva">|</span>
     <a [routerLink]="['/profil']" class="text-basic" routerLinkActive="text-zlatna"
       (click)="navigateToProfile()">PROFIL</a>
+    <span class="separator text-siva">|</span>
+    <a [routerLink]="['/kontakt']" class="text-basic" routerLinkActive="text-zlatna">KONTAKT</a>
     <ng-container *ngIf="login == 1">
       <span class="separator text-siva">|</span>
       <a [routerLink]="['/odjava']" class="text-basic" routerLinkActive="text-zlatna" (click)="logout()">ODJAVA</a>
     </ng-container>
     <ng-container *ngIf="login == 0">
       <span class="separator text-siva">|</span>
-      <a [routerLink]="['/pocetna']" class="text-basic" routerLinkActive="text-zlatna"
+      <a [routerLink]="['/autentikacija/registracija']" class="text-basic" routerLinkActive="text-zlatna"
         (click)="navigate_to_register()">REGISTRACIJA</a>
       <span class="separator text-siva">|</span>
-      <a [routerLink]="['/pocetna']" class="text-basic" routerLinkActive="text-zlatna"
+      <a [routerLink]="['/autentikacija/prijava']" class="text-basic" routerLinkActive="text-zlatna"
         (click)="navigate_to_login()">PRIJAVA</a>
     </ng-container>
   </div>

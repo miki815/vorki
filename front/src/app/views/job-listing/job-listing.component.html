@@ -4,7 +4,7 @@
   <div class="flex flex-col lg:flex-row items-center justify-center mt-6 gap-4 w-full" *ngIf="!idUser">
 
     <input [(ngModel)]="selectedCity" list="cities" name="citySearch" id="citySearch" placeholder="Izaberite grad..."
-      class="border border-gray-400 rounded-xl px-4 py-3 w-full shadow-sm transition-all focus:border-gold focus:ring-2 focus:ring-gold hover:border-gold"
+      class="rounded px-4 py-3 w-full shadow-sm transition-all focus:border-gold focus:ring-2 focus:ring-gold hover:border-gold border-2 border-solid border-zlatna custom-select"
       (input)="filterJobs()" />
 
     <datalist id="cities">
@@ -13,7 +13,7 @@
 
     <input [(ngModel)]="selectedProfession" list="professions" name="professionSearch" id="professionSearch"
       placeholder="Izaberite profesiju..."
-      class="border border-gray-400 rounded-xl px-4 py-3 w-full shadow-sm transition-all focus:border-gold focus:ring-2 focus:ring-gold hover:border-gold"
+      class="rounded px-4 py-3 w-full shadow-sm transition-all focus:border-gold focus:ring-2 focus:ring-gold hover:border-gold border-2 border-solid border-zlatna custom-select" 
       (input)="filterJobs()" />
 
     <datalist id="professions">
@@ -21,7 +21,7 @@
     </datalist>
 
     <select [(ngModel)]="selectedSort"
-      class="border border-gray-400 rounded-xl px-4 py-3 shadow-sm transition-all bg-white text-gray-700 focus:border-gold focus:ring-2 focus:ring-gold hover:border-gold"
+      class="border-2 border-solid border-zlatna rounded-xl px-4 py-3 shadow-sm transition-all text-crna focus:border-gold focus:ring-2 focus:ring-gold hover:border-gold custom-select"
       (change)="sort()">
       <option value="">Sortiranje</option>
       <option value="rate">Ocena</option>

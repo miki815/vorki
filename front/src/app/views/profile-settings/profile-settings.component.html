@@ -1,7 +1,7 @@
-<app-main-navbar></app-main-navbar>
 
-<main class="profile-page bg-daska">
-  <section class="relative block h-500-px">
+<main class="profile-page bg-gradient-crna">
+  <app-main-navbar></app-main-navbar>
+  <!-- <section class="relative block h-500-px">
     <div class="absolute top-0 w-full h-full bg-center bg-cover image-container" style="
         background-image: url({{backPhoto}})">
       <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
@@ -14,7 +14,7 @@
     <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
       style="transform: translateZ(0); display: flex; justify-content: center; margin-bottom: 5px;">
     </div>
-  </section>
+  </section> -->
   <section class="relative">
     <div class="relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg border-0">
 
@@ -22,9 +22,9 @@
         <form>
           <div style="display: flex; flex-direction: row; justify-content: center;">
             <div class="image-container" style="margin-top: 5px;">
-              <img src="{{photo}}" style="border-radius: 50%; height: 100px; width: 100px; object-fit: cover;">
+              <img src="{{photo}}" style="border-radius: 50%; height: 100px; width: 100px; object-fit: cover; border: 1px solid #eead2b;">
               <div class="overlay">
-                <label for="fileInput2" style="color: white;">Izmeni</label>
+                <label for="fileInput2" style="color: #fcfcfd;">Izmeni</label>
                 <input #fileInput2 id="fileInput2" type="file" (change)="loadPhoto($event,0)" class="hidden"
                   accept=".jpg, .jpeg, .png">
               </div>
@@ -35,62 +35,62 @@
           <div class="flex flex-wrap">
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative w-full mb-3">
-                <label class="block uppercase text-blueGray-800 text-xs font-semibold mb-2" htmlFor="grid-password">
+                <label class="block uppercase text-basic text-xs font-semibold mb-2" htmlFor="grid-password">
                   Korisničko ime
                 </label>
                 <input type="text"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 border-2 border-solid border-zlatna"
                   value="{{username}}" [(ngModel)]="username" name="username" />
               </div>
             </div>
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative w-full mb-3">
-                <label class="block uppercase text-blueGray-800 text-xs font-semibold mb-2" htmlFor="grid-password">
+                <label class="block uppercase text-basic text-xs font-semibold mb-2" htmlFor="grid-password">
                   Email
                 </label>
                 <input type="text"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 border-2 border-solid border-zlatna"
                   value="{{email}}" [(ngModel)]="email" name="email" />
               </div>
             </div>
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative w-full mb-3">
-                <label class="block uppercase text-blueGray-800 text-xs font-semibold mb-2" htmlFor="grid-password">
+                <label class="block uppercase text-basic text-xs font-semibold mb-2" htmlFor="grid-password">
                   Ime
                 </label>
                 <input type="text"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 border-2 border-solid border-zlatna"
                   value="{{firstname}}" [(ngModel)]="firstname" name="firstname" />
               </div>
             </div>
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative w-full mb-3">
-                <label class="block uppercase text-blueGray-800 text-xs font-semibold mb-2" htmlFor="grid-password">
+                <label class="block uppercase text-basic text-xs font-semibold mb-2" htmlFor="grid-password">
                   Prezime
                 </label>
                 <input type="text"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 border-2 border-solid border-zlatna"
                   value="{{lastname}}" [(ngModel)]="lastname" name="lastname" />
               </div>
             </div>
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative w-full mb-3">
-                <label class="block uppercase text-blueGray-800 text-xs font-semibold mb-2" htmlFor="grid-password">
+                <label class="block uppercase text-basic text-xs font-semibold mb-2" htmlFor="grid-password">
                   Datum rođenja
                 </label>
                 <input type="date" value="{{birthday}}"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 border-2 border-solid border-zlatna"
                   [(ngModel)]="birthday" name="birthday" />
               </div>
             </div>
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative w-full mb-3">
-                <label htmlFor="grid-password" class="block uppercase text-blueGray-800 text-xs font-semibold mb-2">Zelim da primam
+                <label htmlFor="grid-password" class="block uppercase text-basic text-xs font-semibold mb-2">Zelim da primam
                   zahteve u krugu
                   od:</label>
                 <select id="distanceFilter" name="distanceFilter" [(ngModel)]="selectedDistance" class="border-0
                   px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow
-                  focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                  focus:outline-none focus:ring w-full ease-linear transition-all duration-150 border-2 border-solid border-zlatna">
                   <option *ngFor="let opt of distanceOptions" [value]="opt.value">
                     {{ opt.label }}
                   </option>
@@ -99,22 +99,22 @@
             </div>
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative w-full mb-3">
-                <label class="block uppercase text-blueGray-800 text-xs font-semibold mb-2" htmlFor="grid-password">
+                <label class="block uppercase text-basic text-xs font-semibold mb-2" htmlFor="grid-password">
                   Mesto
                 </label>
                 <select [(ngModel)]="location" name="location" style="margin-bottom: 10px;"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 border-2 border-solid border-zlatna">
                   <option *ngFor="let grad of gradovi" [ngValue]="grad.city">{{ grad.city }}</option>
                 </select>
               </div>
             </div>
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative w-full mb-3">
-                <label class="block uppercase text-blueGray-800 text-xs font-semibold mb-2" htmlFor="grid-password">
+                <label class="block uppercase text-basic text-xs font-semibold mb-2" htmlFor="grid-password">
                   Mobilni telefon
                 </label>
                 <input type="text"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 border-2 border-solid border-zlatna"
                   value="{{phone}}" [(ngModel)]="phone" name="phone" />
               </div>
             </div>
@@ -123,7 +123,7 @@
           <div style="width: 100%;display: flex; justify-content: center;">
             <div style="display: flex; flex-direction: column;margin-bottom: 20px;">
               <button style="margin-top: 5px;" (click)="update()"
-                class="active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                class="uppercase text-crna font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
                 type="button">
                 Izmeni informacije
               </button>
@@ -133,18 +133,18 @@
             <div class="w-full lg:w-3/12"></div>
             <div class="w-full lg:w-6/12 px-4" style="display: flex; justify-content: center;">
               <div class="relative w-full mb-3">
-                <label class="block uppercase text-blueGray-800 text-xs font-semibold mb-2 py-5" htmlFor="grid-password">
+                <label class="block uppercase text-basic text-xs font-semibold mb-2 py-5" htmlFor="grid-password">
                   Promena lozinke
                 </label>
                 <input type="password"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 border-2 border-solid border-zlatna"
                   placeholder="Stara lozinka" style="margin-bottom: 10px;" name="oldPassword"
                   [(ngModel)]="oldPassword" />
                 <input type="password"
-                  class=" border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  class=" border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 border-2 border-solid border-zlatna"
                   placeholder="Nova lozinka" style="margin-bottom: 10px;" name="password" [(ngModel)]="password" />
                 <input type="password"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 border-2 border-solid border-zlatna"
                   placeholder="Ponovite novu lozinku" style="margin-bottom: 10px;" name="password1"
                   [(ngModel)]="password1" />
               </div>
@@ -153,7 +153,7 @@
             <div style="width: 100%;display: flex; justify-content: center;">
               <div style="display: flex; flex-direction: column;margin-bottom: 20px;">
                 <button style="margin-top: 5px;" (click)="newPass()"
-                  class="bg-red-600 active:bg-red-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                  class="uppercase text-crna font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
                   type="button">
                   Potvrdi
                 </button>

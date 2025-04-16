@@ -123,8 +123,8 @@ export class JobListingComponent implements OnInit {
 
   sort() {
     this.currentPage = 1;
-    if (this.selectedSort === 'rate') this.jobs = this.allJobs.sort((a, b) => b.avgRate - a.avgRate);
-    if (this.selectedSort === 'city') this.jobs = this.allJobs.sort((a, b) => a.city.localeCompare(b.city));
+    if (this.selectedSort === 'rate') this.jobs = this.jobs.sort((a, b) => b.avgRate - a.avgRate);
+    if (this.selectedSort === 'city') this.jobs = this.jobs.sort((a, b) => a.city.localeCompare(b.city));
     //if (this.selectedSort === 'name') this.jobs = this.allJobs.sort((a, b) => a.name.localeCompare(b.name));
   }
 

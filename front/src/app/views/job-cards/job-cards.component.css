@@ -12,6 +12,7 @@ button:hover {
 .container {
     margin: auto;
     background: linear-gradient(to top, #eead2b, #201e26);
+    width: 100%;
 }
 
 /* Pretraživač */
@@ -26,7 +27,7 @@ button:hover {
     width: 100%;
     max-width: 300px;
     padding: 10px 15px;
-    border: 2px solid #4A90E2;
+    border: 2px solid #eead2b;
     border-radius: 20px;
     font-size: 16px;
     outline: none;
@@ -34,8 +35,8 @@ button:hover {
 }
 
 .search-box input:focus {
-    border-color: #2C6CBD;
-    box-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
+    border-color: #eead2b;
+    box-shadow: 0 0 8px rgba(238, 173, 43, 0.5);
 }
 
 /* Grid za kartice */
@@ -49,7 +50,7 @@ button:hover {
 /* Kartice */
 .category-card {
     background: linear-gradient(to bottom, #ffffff, #f0f4ff);
-    border: 2px solid #201e26;
+    border: 2px solid #eead2b;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;

@@ -35,6 +35,8 @@ export class RegisterComponent implements OnInit {
   idUser: string = null;
   filteredCities: any;
   searchQuery = '';
+  firstName: string = '';
+  lastName: string = '';
 
   ngOnInit(): void {
     console.log('Register - ngOnInit: START')
@@ -53,7 +55,7 @@ export class RegisterComponent implements OnInit {
       .then(cities => {
         this.cities = cities.sort((a, b) => a.city.localeCompare(b.city));
         this.filteredCities = this.cities;
-        this.location = this.cities[0].city;
+        // this.location = this.cities[0].city;
       })
       .catch(error => {
         console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradiva):', error);
@@ -69,7 +71,7 @@ export class RegisterComponent implements OnInit {
     return "hashedPasswordTODO";
   }
 
-  submit() {
+  onSubmit() {
     console.log('Register - submit: START')
 
     if (!this.verifyRequest()) return;
@@ -80,7 +82,9 @@ export class RegisterComponent implements OnInit {
       .then(backPhoto => {
         this.hashPassword(this.password).then(hashedPassword => {
           const data = {
-            username: this.username,
+            firstname: this.firstName,
+            lastname: this.lastName,
+            username: this.email.toLowerCase(),
             password: this.password,
             location: this.location,
             type: this.type,
@@ -106,10 +110,10 @@ export class RegisterComponent implements OnInit {
   }
 
   verifyRequest() {
-    if (!this.username ||  !this.policy || !this.location || (!this.type) || !this.password || !this.password1 || !this.email) {
+    if (!this.firstName || !this.lastName || !this.policy || !this.location || (!this.type) || !this.password || !this.password1 || !this.email) {
       this.message = "Niste uneli sve podatke."; return false;
     }
-    if (this.username.length < 3) { this.message = "Korisničko ime je prekratko, mora imati najmanje 3 karaktera."; return false; }
+    if (this.firstName.length < 3) { this.message = "Ime je prekratko, mora imati najmanje 3 karaktera."; return false; }
     if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(this.email)) { this.message = "Email nije u dobrom formatu."; return false; }
     // if (this.name.length < 2) { this.message = "Ime je prekratko, mora imati najmanje 2 karaktera."; return false; }
     // if (this.surname.length < 2) { this.message = "Prezime je prekratko, mora imati najmanje 2 karaktera."; return false; }

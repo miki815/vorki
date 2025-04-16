@@ -18,8 +18,8 @@ export class AdvertisementComponent implements OnInit {
   description: string = null;
   cities = [];
   professions = [];
-  selectedCity: string = "Beograd";
-  selectedProfession: string = "Vodoinstalater";
+  selectedCity: string = "";
+  selectedProfession: string = "";
   poruka: string = null;
   bgcolor: string = "rgb(239, 114, 114)";
   imagePreviews: string[] = [];
@@ -64,7 +64,7 @@ export class AdvertisementComponent implements OnInit {
   insertJob() {
     console.log("Insert job - submit: START")
     // Provera
-    if (!this.description || !this.title || !this.selectedCity || !this.selectedProfession || !this.jobType) {
+    if (!this.description || !this.title || !this.selectedCity || !this.selectedProfession) {
       this.poruka = "Niste uneli sve podatke.";
       this.bgcolor = "rgb(239, 114, 114)";
       return;
@@ -75,7 +75,7 @@ export class AdvertisementComponent implements OnInit {
       title: this.title,
       city: this.selectedCity,
       profession: this.selectedProfession,
-      type: this.jobType
+      type: "1"
     }
     //Slanje
     this.jobService.insertJob(data).subscribe((message: any) => {

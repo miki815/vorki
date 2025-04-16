@@ -4,126 +4,70 @@
   <section #fadeSection class="intro-section">
     <app-main-navbar></app-main-navbar>
 
-
-    <div class="relative flex content-center items-center justify-center min-h-screen-50">
+    <div class="relative flex content-center items-center justify-center min-h-screen-50 mt-6">
       <div class="container relative mx-auto">
-        <div class="items-center flex flex-wrap">
-          <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center banner-container">
+        <div class="text-banner">
+          <!-- <p class="text-base uppercase text-siva text-center mb-2">
+            Pronađi najbolje u tvom gradu</p> -->
+          <h1 class="font-bold text-5xl text-center mb-2">
+            TI TRAŽIŠ, MI SPAJAMO
+          </h1>
+          <!-- <p class="text-base uppercase text-siva text-center">
+            Brzo i jednostavno</p> -->
+        </div>
 
-            <!-- <div class="mt-8 relative flex items-center w-full max-w-2xl mx-auto text-blueGray-600">
-                <input [(ngModel)]="searchQuery" (input)="searchJobs()" type="text" placeholder="Pretraži profesije..."
-                  class="w-full px-6 py-3 text-lg border border-gray-300 rounded-full shadow-md focus:outline-none focus:ring focus:ring-blue-500" />
-              </div> -->
-            <div class="page-container">
-              <div class="items-center justify-center mt-6 gap-4 w-full" *ngIf="!idUser">
+        <div class="flex flex-col gap-6 w-full px-4 ml-auto mr-auto text-center banner-container">
 
-                <input [(ngModel)]="selectedCity" list="cities" name="citySearch" id="citySearch"
-                  placeholder="Izaberite grad..."
-                  class="text-black border border-gray-400 rounded-xl px-4 py-3 w-full shadow-sm transition-all focus:border-gold focus:ring-2 focus:ring-gold hover:border-gold"
-                  (input)="filterJobs()" />
-
+          <!-- TOP MASTERS -->
+          <div class="content-wrapper">
+            <div class="left-column">
+              <div class="inputs-wrapper" *ngIf="!idUser">
+                <!-- City input -->
+                <input [(ngModel)]="selectedCity" list="cities" name="citySearch" id="citySearch" placeholder="Grad..."
+                  class="input-style" (input)="filterJobs()" />
                 <datalist id="cities">
                   <option *ngFor="let city of filteredCities" [value]="city.city"></option>
                 </datalist>
 
+                <!-- Profession input -->
                 <input [(ngModel)]="selectedProfession" list="professions" name="professionSearch" id="professionSearch"
-                  placeholder="Izaberite profesiju..."
-                  class=" text-black border border-gray-400 rounded-xl px-4 py-3 w-full shadow-sm transition-all focus:border-gold focus:ring-2 focus:ring-gold hover:border-gold"
-                  (input)="filterJobs()" />
-
+                  placeholder="Profesija..." class="input-style" (input)="filterJobs()" />
                 <datalist id="professions">
                   <option *ngFor="let profession of professions" [value]="profession"></option>
                 </datalist>
+              </div>
 
+              <!-- Leva strana – kartice -->
+              <div class="cards-wrapper">
+                <div class="job-card" *ngFor="let job of topJobs.slice(0, 3)">
+                  <div class="job-inner"  [ngStyle]="{'background-image': 'url(' + job.urlPhoto + ')'}" (click)="job_navigation(job.id)">
+                    <div class="px-4 py-5 flex-auto content">
+                      <div
+                        class="text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blueGray-200 border-zlatna border-solid border-2 overflow-hidden">
+                        <img [src]="job.photo" alt="Profilna" class="w-full h-full object-cover">
+                      </div>
+                      <h6 class="text-xl font-bold text-zlatna">{{job.title}}</h6>
+                    </div>
+                    <!-- <button class="istrazi-dugme" (click)="job_navigation(job.id)">Istraži</button> -->
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="text-banner">
-              <p class="text-base uppercase text-siva text-center mb-2">
-                Pronađi najbolje u tvom gradu</p>
-              <h1 class="font-bold text-5xl text-center mb-2">
-                TI TRAŽIŠ
-              </h1>
-              <h1 class="font-bold text-5xl text-center mb-2">
-                MI SPAJAMO
-              </h1>
-              <p class="text-base uppercase text-siva text-center">
-                Brzo i jednostavno</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- TOP AD BANNER -->
-    <!-- <div class="w-full py-10 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="bg-gray-100 p-4 rounded-lg">
-        <div class="text-center text-gray-600">
-          <div class="h-24 flex items-center justify-center border border-dashed border-gray-300">
-            <p class="text-sm">Prostor za reklamu - Banner 728x90</p>
+            <!-- Desna strana – galerija -->
+            <div class="gallery-wrapper" *ngIf="imagesLoaded">
+              <gallery id="{{galleryId}}" class="bg-crna" (indexChange)="onIndexChange($event)"
+                [options]="galleryConfig"></gallery>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
-    <!-- CATEGORIES -->
-    <div class="container mx-auto px-4">
-      <div class="flex flex-wrap">
-        <div class="w-full md:w-4/12 px-4 text-center" *ngIf="topJobs.length > 0">
-          <div
-            class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-transparent border-siva border-solid border-2"
-            [ngStyle]="{'background-image': 'url(' + topJobs[0].urlPhoto + ')'}">
-            <div class="px-4 py-5 flex-auto content">
-              <div
-                class="text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blueGray-200 border-zlatna border-solid border-2 overflow-hidden">
-                <img [src]="topJobs[0].photo" alt="Profilna" class="w-full h-full object-cover">
-              </div>
-              <h6 class="text-xl font-bold text-zlatna">{{topJobs[0].title}}</h6>
-            </div>
-            <button class="istrazi-dugme" (click)="job_navigation(topJobs[0].id)">
-              Istraži
-            </button>
-          </div>
-        </div>
-        <div class="w-full md:w-4/12 px-4 text-center" *ngIf="topJobs.length > 1">
-          <div
-            class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-transparent border-siva border-solid border-2"
-            [ngStyle]="{'background-image': 'url(' + topJobs[1].urlPhoto + ')'}">
-            <div class="px-4 py-5 flex-auto content">
-              <div
-                class="text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blueGray-200 border-zlatna border-solid border-2 overflow-hidden">
-                <img [src]="topJobs[1].photo" alt="Profilna" class="w-full h-full object-cover">
-              </div>
-              <h6 class="text-xl font-bold text-zlatna">{{topJobs[1].title}}</h6>
-            </div>
-            <button class="istrazi-dugme" (click)="job_navigation(topJobs[1].id)">
-              Istraži
-            </button>
-          </div>
-        </div>
-        <div class="w-full md:w-4/12 px-4 text-center" *ngIf="topJobs.length > 2">
-          <div
-            class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg bg-transparent border-siva border-solid border-2"
-            [ngStyle]="{'background-image': 'url(' + topJobs[2].urlPhoto + ')'}">
-            <div class="px-4 py-5 flex-auto content">
-              <div
-                class="text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blueGray-200 border-zlatna border-solid border-2 overflow-hidden">
-                <img [src]="topJobs[2].photo" alt="Profilna" class="w-full h-full object-cover">
-              </div>
-              <h6 class="text-xl font-bold text-zlatna">{{topJobs[2].title}}</h6>
-            </div>
-            <button class="istrazi-dugme" (click)="job_navigation(topJobs[2].id)">
-              Istraži
-            </button>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PLATFORM DESCRIPTION -->
-  <section #fadeSection class="fade-section relative py-12 background-section">
+  <section #fadeSection class="fade-section relative background-section">
     <!-- <div class="-mt-8">
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap">
@@ -179,42 +123,42 @@
       <div class="container mx-auto px-4">
         <!-- Header Section -->
         <div class="text-center mb-12 mt-6">
-          <h1 class="text-4xl font-bold text-basic font-monument">POVEZUJEMO LJUDE</h1>
-          <h1 class="text-4xl font-bold text-basic font-monument">GRADIMO ZAJEDNICU</h1>
+          <h1 class="font-bold text-basic font-monument naslov2">POVEZUJEMO LJUDE,</h1>
+          <h1 class="font-bold text-basic font-monument naslov2">GRADIMO ZAJEDNICU</h1>
           <!--<p class="text-gray-600 mt-2"><strong>Lako, brzo i sigurno!</strong></p> -->
         </div>
 
         <!-- Features Section -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 justify-center cards-container">
           <!-- Notifikacije -->
-          <div class="p-6 rounded-lg shadow-lg text-center card bg-zlatna">
+          <div class="p-6 rounded-lg shadow-lg text-center card bg-zlatna border border-2 border-solid border-basic">
             <img src="assets/icons/i_zvono.png" alt="Notifikacije" class="w-12 h-12 mx-auto mb-4">
-            <h2 class="text-xl font-semibold text-basic uppercase mb-6">Notifikacije</h2>
-            <p class="text-basic text-base mt-2">Pretplatite se na besplatne push notifikacije i budite među prvima koji
+            <h2 class="text-xl font-semibold text-crna uppercase mb-6">Notifikacije</h2>
+            <p class="text-crna text-base mt-2">Pretplatite se na besplatne push notifikacije i budite među prvima koji
               dobijaju najnovije ponude i obaveštenja.</p>
           </div>
 
           <!-- Provereni stručnjaci -->
-          <div class="bg-zlatna p-6 rounded-lg shadow-lg text-center card">
+          <div class="bg-zlatna p-6 rounded-lg shadow-lg text-center card border border-2 border-solid border-basic">
             <img src="assets/icons/i_strucnjak.png" alt="Provereni stručnjaci" class="w-12 h-12 mx-auto mb-4">
-            <h2 class="text-xl font-semibold text-basic uppercase mb-6">Stručnjaci</h2>
-            <p class="text-basic text-base mt-2">Bez obzira na zadatak, na Vorki platformi ćete pronaći pravog
+            <h2 class="text-xl font-semibold text-crna uppercase mb-6">Stručnjaci</h2>
+            <p class="text-crna text-base mt-2">Bez obzira na zadatak, na Vorki platformi ćete pronaći pravog
               profesionalca za
               posao.</p>
           </div>
 
           <!-- Bez skrivenih troškova -->
-          <div class="bg-zlatna p-6 rounded-lg shadow-lg text-center card">
+          <div class="bg-zlatna p-6 rounded-lg shadow-lg text-center card border border-2 border-solid border-basic">
             <img src="assets/icons/i_troskovi.png" alt="Bez skrivenih troškova" class="w-12 h-12 mx-auto mb-4">
-            <h2 class="text-xl font-semibold text-basic uppercase mb-6">Bez troškova</h2>
-            <p class="text-basic text-base mt-2">Besplatna rezervacija, dok plaćanje ide direktno pružaocima usluga.</p>
+            <h2 class="text-xl font-semibold text-crna uppercase mb-6">Bez troškova</h2>
+            <p class="text-crna text-base mt-2">Besplatna rezervacija, dok plaćanje ide direktno pružaocima usluga.</p>
           </div>
 
           <!-- Ocene i recenzije -->
-          <div class="bg-zlatna p-6 rounded-lg shadow-lg text-center card">
+          <div class="bg-zlatna p-6 rounded-lg shadow-lg text-center card border border-2 border-solid border-basic">
             <img src="assets/icons/i_zvezda.png" alt="Ocene i recenzije" class="w-12 h-12 mx-auto mb-4">
-            <h2 class="text-xl font-semibold text-basic uppercase mb-6">Ocene i recenzije</h2>
-            <p class="text-basic text-base mt-2">Pročitajte iskustva drugih korisnika i izaberite najbolje stručnjake za
+            <h2 class="text-xl font-semibold text-crna uppercase mb-6">Ocene i recenzije</h2>
+            <p class="text-crna text-base mt-2">Pročitajte iskustva drugih korisnika i izaberite najbolje stručnjake za
               vaš
               posao.</p>
           </div>
@@ -358,7 +302,7 @@
   <!-- TOP CATEGORIES -->
   <section class="job-card-container">
     <div class="text-banner">
-      <h1 class="font-bold text-5xl text-center uppercase mb-12 pt-12">
+      <h1 class="font-bold text-center uppercase mb-12 pt-12 naslov">
         Najpopularnije kategorije
       </h1>
     </div>
@@ -494,6 +438,22 @@
       </div>
     </div>
   </section> -->
+
+  <!-- MIDDLE AD BANNER -->
+  <div class="w-full py-4 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="p-4 rounded-lg">
+        <!-- <div class="text-center text-gray-600"> -->
+        <!-- Ad Space -->
+        <div class="h-24 flex items-center justify-center border border-dashed border-gray-300">
+          <img src="assets/img/banner.webp" alt="Reklama" class="h-full w-full object-contain rounded-lg">
+        </div>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+
+
   <!-- QUESTIONS -->
   <section #fadeSection class="bottom-container relative block py-24 lg:pt-0">
     <div class="container mx-auto px-4">
@@ -508,7 +468,7 @@
         <div class="form-container">
 
           <!-- BOTTOM AD BANNER -->
-          <div class="w-full py-8">
+          <!-- <div class="w-full py-8">
             <div class="container mx-auto px-4">
               <div class="bg-gray-700 p-4 rounded-lg">
                 <div class="text-center text-gray-300">
@@ -518,7 +478,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div
             class="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg bg-zlatna p-5 lg:p-10 border-2 border-solid border-basic justify-center items-center">

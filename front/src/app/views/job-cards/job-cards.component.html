@@ -1,26 +1,27 @@
+<section class="bg-gradient-crna">
+    <div>
+        <app-main-navbar></app-main-navbar>
 
-<div class="container">
-    <app-main-navbar></app-main-navbar>
+        <!-- Pretraživač -->
+        <div class="search-box">
+            <input type="text" [(ngModel)]="searchQuery" placeholder="Pretražite..."
+                (input)="onSearchInput($event.target.value)" />
+        </div>
 
-    <!-- Pretraživač -->
-    <div class="search-box">
-        <input type="text" [(ngModel)]="searchQuery" placeholder="Pretražite..."
-            (input)="onSearchInput($event.target.value)" />
-    </div>
-
-    <!-- Kartice -->
-    <div class="cards-grid">
-        <div class="category-card" *ngFor="let category of categories">
-            <div class="card-header">
-                <img src="assets/img/logon.png" alt="Logo">
-            </div>
-            <div class="card-body">
-                <h2>{{category}}</h2>
-                <p>Broj oglasa: <span>{{categoriesCount[category]}}</span></p>
-                <button (click)="categoryChoice(category)">Istraži ponudu</button>
+        <!-- Kartice -->
+        <div class="cards-grid">
+            <div class="category-card" *ngFor="let category of categories">
+                <div class="card-header">
+                    <img src="assets/img/logon.png" alt="Logo">
+                </div>
+                <div class="card-body">
+                    <h2>{{category}}</h2>
+                    <p>Broj oglasa: <span>{{categoriesCount[category]}}</span></p>
+                    <button (click)="categoryChoice(category)">Istraži ponudu</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <app-footer></app-footer>

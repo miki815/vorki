@@ -1,9 +1,10 @@
 /* Pozadina sa teksturom */
 .login-container {
     display: flex;
-    min-height: 100vh;
+    min-height: 90vh;
     justify-content: center;
     align-items: center;
+    padding: 2rem;
   }
   
   /* Glavni okvir */
@@ -103,3 +104,15 @@
     margin-top: 15px;
   }
   
+  .logo-wrapper {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+/*   
+  .logo-img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 50%;
+  } */
+
