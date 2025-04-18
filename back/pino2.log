@@ -3990,3 +3990,279 @@
 {"level":30,"time":1744758158604,"pid":2660,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJpYXQiOjE3NDQ3NTgwODksImV4cCI6MTc0NDc2MTY4OX0.eWD4yY1t5mO9YyOQeDXTh_mT12tUaGkb42NWbooRkVo","msg":"Verifying token"}
 {"level":30,"time":1744758158606,"pid":2660,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":13,"iat":1744758089,"exp":1744761689},"msg":"Decoded token"}
 {"level":30,"time":1744758158636,"pid":2660,"hostname":"DESKTOP-9KL4NAD","id":"13","msg":"getUserById attempt"}
+{"level":30,"time":1744829424428,"pid":10172,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1744829424433,"pid":10172,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1744829424489,"pid":10172,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1744829466851,"pid":10172,"hostname":"DESKTOP-9KL4NAD","email":"peca","msg":"Login attempt"}
+{"level":40,"time":1744829466962,"pid":10172,"hostname":"DESKTOP-9KL4NAD","email":"peca","msg":"Login failed: incorrect password"}
+{"level":30,"time":1744829469479,"pid":10172,"hostname":"DESKTOP-9KL4NAD","email":"peca","msg":"Login attempt"}
+{"level":40,"time":1744829469690,"pid":10172,"hostname":"DESKTOP-9KL4NAD","email":"peca","msg":"Login failed: incorrect password"}
+{"level":30,"time":1744829474229,"pid":10172,"hostname":"DESKTOP-9KL4NAD","email":"peca","msg":"Login attempt"}
+{"level":30,"time":1744829474353,"pid":10172,"hostname":"DESKTOP-9KL4NAD","userId":11,"email":"peca","msg":"Login successful"}
+{"level":30,"time":1744829477088,"pid":10172,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1744829477112,"pid":10172,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1744829477112,"pid":10172,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1744829477150,"pid":10172,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1744829477153,"pid":10172,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1744829598316,"pid":10172,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1744829598340,"pid":10172,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1744829598340,"pid":10172,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1744829598575,"pid":10172,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1744829598580,"pid":10172,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1744829636050,"pid":10172,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDQ4Mjk0NzQsImV4cCI6MTc0NDkxNTg3NH0.0AtsvlYbsMUpx82Lmd_uWMpS8CagsAka3b1lI_5bCKY","msg":"Verifying token"}
+{"level":30,"time":1744829636052,"pid":10172,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1744829474,"exp":1744915874},"msg":"Decoded token"}
+{"level":30,"time":1744829636090,"pid":10172,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1744829636098,"pid":10172,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1744829636098,"pid":10172,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1744845953300,"pid":10172,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDQ4Mjk0NzQsImV4cCI6MTc0NDkxNTg3NH0.0AtsvlYbsMUpx82Lmd_uWMpS8CagsAka3b1lI_5bCKY","msg":"Verifying token"}
+{"level":30,"time":1744845953306,"pid":10172,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1744829474,"exp":1744915874},"msg":"Decoded token"}
+{"level":30,"time":1744845953431,"pid":10172,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745005478637,"pid":26604,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1745005478643,"pid":26604,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1745005478720,"pid":26604,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1745005489129,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745005489210,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745005489210,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745005504490,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDQ4Mjk0NzQsImV4cCI6MTc0NDkxNTg3NH0.0AtsvlYbsMUpx82Lmd_uWMpS8CagsAka3b1lI_5bCKY","msg":"Verifying token"}
+{"level":30,"time":1745005512769,"pid":26604,"hostname":"DESKTOP-9KL4NAD","email":"peca","msg":"Login attempt"}
+{"level":30,"time":1745005513089,"pid":26604,"hostname":"DESKTOP-9KL4NAD","userId":11,"email":"peca","msg":"Login successful"}
+{"level":30,"time":1745005587710,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745005587745,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745005587745,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745005587763,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745005587768,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745005598953,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745005598957,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745005599008,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745005599018,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745005599018,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745005912154,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745005912156,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745005912217,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745005912228,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745005912228,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745005981412,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745005981414,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745005981688,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745005981703,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745005981703,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745006004047,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745006004050,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745006004175,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745006004184,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745006004184,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745006021351,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745006021353,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745006021401,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745006021403,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745006021403,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745006079139,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745006079141,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745006079193,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745006079199,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745006079199,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745006172286,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745006172288,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745006172330,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745006172339,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745006172339,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745006196160,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745006196162,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745006196215,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745006196226,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745006196226,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745006231026,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745006231028,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745006231065,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745006231072,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745006231073,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745006275803,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745006275809,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745006275863,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745006275878,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745006275878,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745006341578,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745006341580,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745006341628,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745006341635,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745006341635,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745006373016,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745006373017,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745006373076,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745006373082,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745006373082,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745006455423,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745006455426,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745006455473,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745006455481,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745006455481,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745006515232,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745006515243,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745006515347,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745006515357,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745006515357,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745006568773,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745006568775,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745006568825,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745006568831,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745006568831,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745006644542,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745006644543,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745006644597,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745006644603,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745006644603,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745006712485,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745006712487,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745006712534,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745006712540,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745006712541,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[{"urlPhoto":"/uploads/1741633751426.jpg","id":54},{"urlPhoto":"/uploads/1741633751438.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.jpg","id":54},{"urlPhoto":"/uploads/1741633751449.webp","id":54},{"urlPhoto":"/uploads/1741737353287.png","id":55},{"urlPhoto":"/uploads/1741737353302.png","id":55},{"urlPhoto":"/uploads/1741737353314.png","id":55}],"msg":"Results"}
+{"level":30,"time":1745007343293,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745007343296,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745007343503,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745007343510,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745007343510,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745007493378,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745007493380,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745007493447,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745007493458,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745007493458,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745007521047,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745007521050,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745007521115,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745007521118,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745007521118,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745007550983,"pid":26604,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745007550985,"pid":26604,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745007551087,"pid":26604,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745007551097,"pid":26604,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745007551097,"pid":26604,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745007795248,"pid":19652,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1745007795254,"pid":19652,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1745007795294,"pid":19652,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1745008013104,"pid":19652,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745008013110,"pid":19652,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745008013184,"pid":19652,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745008013221,"pid":19652,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745008013221,"pid":19652,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745008048839,"pid":19652,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745008048841,"pid":19652,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745008048891,"pid":19652,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745008048900,"pid":19652,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745008048900,"pid":19652,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745008073143,"pid":19652,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745008073146,"pid":19652,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745008073199,"pid":19652,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745008073208,"pid":19652,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745008073208,"pid":19652,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745008102398,"pid":19652,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745008102400,"pid":19652,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745008102448,"pid":19652,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745008102456,"pid":19652,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745008102456,"pid":19652,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745008121930,"pid":19652,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745008121933,"pid":19652,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745008122011,"pid":19652,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745008122021,"pid":19652,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745008122021,"pid":19652,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745008174616,"pid":19652,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745008174617,"pid":19652,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745008174686,"pid":19652,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745008174689,"pid":19652,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745008174689,"pid":19652,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745008192714,"pid":19652,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745008192716,"pid":19652,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745008192821,"pid":19652,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745008192831,"pid":19652,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745008192831,"pid":19652,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745008216505,"pid":19652,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745008216507,"pid":19652,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745008216590,"pid":19652,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745008216601,"pid":19652,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745008216601,"pid":19652,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745008265442,"pid":19652,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745008265444,"pid":19652,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745008265496,"pid":19652,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745008265503,"pid":19652,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745008265503,"pid":19652,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745008283664,"pid":19652,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745008283666,"pid":19652,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745008283708,"pid":19652,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745008283716,"pid":19652,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745008283716,"pid":19652,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745008302092,"pid":19652,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745008302093,"pid":19652,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745008302141,"pid":19652,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745008302149,"pid":19652,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745008302149,"pid":19652,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":50,"time":1745008323958,"pid":19652,"hostname":"DESKTOP-9KL4NAD","err":null,"msg":"Missing required fields"}
+{"level":50,"time":1745008323974,"pid":19652,"hostname":"DESKTOP-9KL4NAD","err":null,"msg":"Missing required fields"}
+{"level":30,"time":1745008385334,"pid":19652,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745008385386,"pid":19652,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745008385394,"pid":19652,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745008385395,"pid":19652,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745008385395,"pid":19652,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745008392422,"pid":19652,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745008392424,"pid":19652,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745008392452,"pid":19652,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745008392462,"pid":19652,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745008392462,"pid":19652,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745008580633,"pid":19652,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDU1MTMsImV4cCI6MTc0NTA5MTkxM30.W-ToxeRFauLKr1szUnqZIv2bPyD8uAkmtvP-0UVBY6Q","msg":"Verifying token"}
+{"level":30,"time":1745008580634,"pid":19652,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745005513,"exp":1745091913},"msg":"Decoded token"}
+{"level":30,"time":1745008580705,"pid":19652,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745008580712,"pid":19652,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745008580712,"pid":19652,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745008644648,"pid":16724,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1745008644653,"pid":16724,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1745008644694,"pid":16724,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1745008661812,"pid":16724,"hostname":"DESKTOP-9KL4NAD","email":"peca@gmail.com","msg":"Login attempt"}
+{"level":30,"time":1745008662003,"pid":16724,"hostname":"DESKTOP-9KL4NAD","userId":11,"email":"peca@gmail.com","msg":"Login successful"}
+{"level":30,"time":1745008672157,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745008672226,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745008672226,"pid":16724,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745008672239,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745008672244,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745008675872,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDg2NjIsImV4cCI6MTc0NTA5NTA2Mn0.sIVQqER48zDL8oJIMR-md70f-27KC6RAcDUwoZy4GXs","msg":"Verifying token"}
+{"level":30,"time":1745008675873,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745008662,"exp":1745095062},"msg":"Decoded token"}
+{"level":30,"time":1745008675900,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":50,"time":1745008691228,"pid":16724,"hostname":"DESKTOP-9KL4NAD","err":null,"msg":"Missing required fields"}
+{"level":50,"time":1745008691238,"pid":16724,"hostname":"DESKTOP-9KL4NAD","err":null,"msg":"Missing required fields"}
+{"level":30,"time":1745008782312,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745008782337,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745008782337,"pid":16724,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745008782356,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745008782361,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745008783853,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDg2NjIsImV4cCI6MTc0NTA5NTA2Mn0.sIVQqER48zDL8oJIMR-md70f-27KC6RAcDUwoZy4GXs","msg":"Verifying token"}
+{"level":30,"time":1745008783855,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745008662,"exp":1745095062},"msg":"Decoded token"}
+{"level":30,"time":1745008783874,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745008936136,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDg2NjIsImV4cCI6MTc0NTA5NTA2Mn0.sIVQqER48zDL8oJIMR-md70f-27KC6RAcDUwoZy4GXs","msg":"Verifying token"}
+{"level":30,"time":1745008936137,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745008662,"exp":1745095062},"msg":"Decoded token"}
+{"level":30,"time":1745008936208,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745009029744,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745009029776,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745009029776,"pid":16724,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745009029791,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745009029794,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745009031667,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDg2NjIsImV4cCI6MTc0NTA5NTA2Mn0.sIVQqER48zDL8oJIMR-md70f-27KC6RAcDUwoZy4GXs","msg":"Verifying token"}
+{"level":30,"time":1745009031668,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745008662,"exp":1745095062},"msg":"Decoded token"}
+{"level":30,"time":1745009031684,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745009506045,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDg2NjIsImV4cCI6MTc0NTA5NTA2Mn0.sIVQqER48zDL8oJIMR-md70f-27KC6RAcDUwoZy4GXs","msg":"Verifying token"}
+{"level":30,"time":1745009506047,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745008662,"exp":1745095062},"msg":"Decoded token"}
+{"level":30,"time":1745009506167,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745009550387,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDg2NjIsImV4cCI6MTc0NTA5NTA2Mn0.sIVQqER48zDL8oJIMR-md70f-27KC6RAcDUwoZy4GXs","msg":"Verifying token"}
+{"level":30,"time":1745009550389,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745008662,"exp":1745095062},"msg":"Decoded token"}
+{"level":30,"time":1745009550552,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745009582324,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDg2NjIsImV4cCI6MTc0NTA5NTA2Mn0.sIVQqER48zDL8oJIMR-md70f-27KC6RAcDUwoZy4GXs","msg":"Verifying token"}
+{"level":30,"time":1745009582326,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745008662,"exp":1745095062},"msg":"Decoded token"}
+{"level":30,"time":1745009582423,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745009599253,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDg2NjIsImV4cCI6MTc0NTA5NTA2Mn0.sIVQqER48zDL8oJIMR-md70f-27KC6RAcDUwoZy4GXs","msg":"Verifying token"}
+{"level":30,"time":1745009599256,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745008662,"exp":1745095062},"msg":"Decoded token"}
+{"level":30,"time":1745009599348,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745009620186,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDg2NjIsImV4cCI6MTc0NTA5NTA2Mn0.sIVQqER48zDL8oJIMR-md70f-27KC6RAcDUwoZy4GXs","msg":"Verifying token"}
+{"level":30,"time":1745009620188,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745008662,"exp":1745095062},"msg":"Decoded token"}
+{"level":30,"time":1745009620242,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745009680830,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDg2NjIsImV4cCI6MTc0NTA5NTA2Mn0.sIVQqER48zDL8oJIMR-md70f-27KC6RAcDUwoZy4GXs","msg":"Verifying token"}
+{"level":30,"time":1745009680831,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745008662,"exp":1745095062},"msg":"Decoded token"}
+{"level":30,"time":1745009680884,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745009700282,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDg2NjIsImV4cCI6MTc0NTA5NTA2Mn0.sIVQqER48zDL8oJIMR-md70f-27KC6RAcDUwoZy4GXs","msg":"Verifying token"}
+{"level":30,"time":1745009700285,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745008662,"exp":1745095062},"msg":"Decoded token"}
+{"level":30,"time":1745009700347,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}

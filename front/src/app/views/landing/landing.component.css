@@ -619,7 +619,7 @@ input::placeholder {
 
 /* INTRO SECTION */
 
-.content-wrapper {
+/* .content-wrapper {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -644,7 +644,7 @@ input::placeholder {
         grid-template-columns: repeat(3, 1fr);
         flex: 2;
     }
-}
+} */
 
 .job-card {
     display: flex;
@@ -661,7 +661,7 @@ input::placeholder {
     /* background-color: rgba(255, 255, 255, 0.8); */
 }
 
-.gallery-wrapper {
+/* .gallery-wrapper {
     width: 100%;
     max-width: 100%;
     display: flex;
@@ -684,7 +684,7 @@ input::placeholder {
     @media (min-width: 1024px) {
         flex: 2;
     }
-}
+} */
 
 .inputs-wrapper {
     display: flex;
@@ -700,5 +700,56 @@ input::placeholder {
     padding: 0.5rem;
     border-radius: 0.5rem;
     font-size: 1rem;
+    min-width: 100px;
     width: 100%;
 }
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+
+    @media (min-width: 1024px) {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0;
+    }
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+
+    @media (min-width: 1024px) {
+        width: 50%; /* ili flex: 2 ako želite flex ratio */
+    }
+}
+
+.gallery-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    @media (min-width: 1024px) {
+        width: 50%; /* ili flex: 1 za ratio 2:1 */
+        margin-left: 2rem;
+    }
+}
+
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 100%;
+
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+

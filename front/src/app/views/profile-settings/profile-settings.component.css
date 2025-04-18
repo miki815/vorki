@@ -9,7 +9,18 @@ button {
     transition: background 0.3s ease;
 }
 
-button:hover {
+.img-file-input{
+    background: #eead2b;
+    color: #201e26;
+    border: 2px solid #201e26;
+    padding: 12px 22px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover, .img-file-input:hover {
     background: #201e26;
     color: #eead2b;
 }
@@ -69,4 +80,19 @@ input[type="file"].hidden {
 
 .success-message {
     background-color: rgb(59, 185, 109);
+}
+
+.gallery-wrapper {
+    width: 100%;
+    /* display: flex; */
+    justify-content: center;
+    align-items: flex-start;
+
+    @media (min-width: 1024px) {
+        width: 50%;
+        margin: 0 auto;
+        /* OVO centriranje */
+        justify-content: center;
+        align-items: center;
+    }
 }

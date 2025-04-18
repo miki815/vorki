@@ -63,13 +63,14 @@ pool.getConnection((err, connection) => {
 });
 // APP ROUTES
 app.post('/upload', upload.array('images', 10), (req, res) => {
-    if (!req.files || !req.body.idJob) {
+    if (!req.files || !req.body.idUser) {
         return res.status(400).send('Nedostaju fajlovi ili ID posla.');
     }
-    const idJob = req.body.idJob;
+    const idUser = req.body.idUser;
     const imagePaths = req.files.map(file => '/uploads/' + file.filename);
-    const insertQuery = 'INSERT INTO gallery (idJob, urlPhoto) VALUES ?';
-    const values = imagePaths.map(path => [idJob, path]);
+    // const insertQuery = 'INSERT INTO gallery (idJob, urlPhoto) VALUES ?';
+    const insertQuery = 'INSERT INTO gallery (idUser, urlPhoto) VALUES ?';
+    const values = imagePaths.map(path => [idUser, path]);
     pool.getConnection((err, connection) => {
         connection.query(insertQuery, [values], (err, result) => {
             if (err) {
@@ -79,7 +80,7 @@ app.post('/upload', upload.array('images', 10), (req, res) => {
             res.status(201).json({
                 message: 'Uspešno sačuvano!',
                 data: {
-                    idJob,
+                    idUser: idUser,
                     images: imagePaths,
                 }
             });

@@ -69,6 +69,7 @@ class UserController {
                 const token = jwt.sign({ userId: user[0].id }, SECRET_KEY, { expiresIn: '24h' });
                 res.cookie('httpToken', token, {
                     httpOnly: true,
+                    maxAge: 24 * 60 * 60 * 1000 // 24h u milisekundama
                     //secure: process.env.NODE_ENV === 'production' // Uključi samo u produkciji
                 });
                 res.json({ error: 0, message: "Uspešna prijava", token: token, userId: user[0].id });

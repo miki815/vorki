@@ -59,9 +59,11 @@ CREATE TABLE rate (
 
 CREATE TABLE gallery (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    idJob INT NOT NULL,
+    idJob INT,
+    idUser INT,
     urlPhoto LONGTEXT NOT NULL,
-    FOREIGN KEY (idJob) REFERENCES job(id)
+    FOREIGN KEY (idJob) REFERENCES job(id),
+    FOREIGN KEY (idUser) REFERENCES user(id)
 );
 
 

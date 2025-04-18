@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Gallery, GalleryItem, GalleryRef, GalleryState, ImageItem } from 'ng-gallery';
+import { Gallery, GalleryConfig, GalleryItem, GalleryRef, GalleryState, ImageItem } from 'ng-gallery';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { JobService } from 'src/app/services/job.service';
@@ -13,11 +14,12 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ProfileSettingsComponent {
 
-  constructor(private gallery: Gallery, private cookieService: CookieService, private userService: UserService, private jobService: JobService, private cdr: ChangeDetectorRef, private router: Router) { }
+  constructor(private gallery: Gallery, private cookieService: CookieService, private userService: UserService, private jobService: JobService, private cdr: ChangeDetectorRef, private router: Router, private http: HttpClient) { }
 
-
+  // uri = 'http://127.0.0.1:4000'
+  uri = 'https://vorki.rs';
+  // uri = environment.uri;
   // TODO: Obrisati sve prom koje nisu potrebne
-  images: GalleryItem[] = [];
   email: string = null;
   oldEmail: string = null;
   username: string = null;
@@ -37,24 +39,26 @@ export class ProfileSettingsComponent {
   userRateLen: number = 0;
   cookie: string = "";
   idUser: string = "";
-  imagesLoaded: boolean = false;
   birthdayDate: string = "";
   poruka: string = ""; // dodao da ne izbacuje gresku
   backPhoto: string = null;
-
-  galleryId = 'mixed';
-  galleryRef: GalleryRef = this.gallery.ref(this.galleryId);
 
   password: string = "";
   password1: string = "";
   oldPassword: string = "";
   gradovi: any;
 
-  numberOfPhotos: number = 0;
   err: number = 0;
   message: string = "";
-  imgIndex: number = 0;
   newphoto: string = "";
+
+  images: GalleryItem[] = [];
+  imagesLoaded: boolean = false;
+  galleryId = 'mixed';
+  galleryRef: GalleryRef = this.gallery.ref(this.galleryId);
+  numberOfPhotos: number = 0;
+  imgIndex: number = 0;
+
 
   distanceOptions: any[] = [
     { label: '5 km', value: 5 },
@@ -71,6 +75,17 @@ export class ProfileSettingsComponent {
 
     this.getToken();
     this.getUser();
+
+    this.jobService.getGalleryByIdUser(this.idUser).subscribe((imgs: any) => {
+      console.log(imgs);
+      imgs.forEach(element => {
+        console.log(element.urlPhoto)
+        this.images.push(new ImageItem({ src: `${this.uri}${element.urlPhoto}`, thumb: `${this.uri}${element.urlPhoto}` }))
+        this.galleryRef.add(new ImageItem({ src: `${this.uri}${element.urlPhoto}`, thumb: `${this.uri}${element.urlPhoto}` }))
+        this.numberOfPhotos += 1;
+      });
+      if (this.numberOfPhotos > 0) this.imagesLoaded = true;
+    });
 
     console.log("ProfileSettings - ngOnInit: END")
   }
@@ -300,9 +315,82 @@ export class ProfileSettingsComponent {
   //   this.numberOfPhotos -=1 ;
   // }
 
+  onIndexChange(event: GalleryState) {
+    this.imgIndex = event.currIndex
+  }
 
-  // onIndexChange(event: GalleryState) {
-  //   this.imgIndex = event.currIndex
-  // }
+  removeCurrentImage() {
+    this.galleryRef.remove(this.imgIndex);
+    if (this.imgIndex > 0) this.imgIndex -= 1;
+    this.numberOfPhotos -= 1;
+    this.imagesLoaded = true;
+    this.cdr.detectChanges();
+    this.jobService.deleteImageFromGallery({ idUser: this.idUser, index: this.imgIndex }).subscribe((message: any) => {
+      console.log(message);
+    });
+  }
+
+  onFileSelected(event: any) {
+    const files: FileList = event.target.files;
+
+    // Array.from(files).forEach((file: File) => {
+    //   const formData = new FormData();
+    //   formData.append('image', file);
+    //   formData.append('userId', this.idUser);
+
+    //   this.jobService.uploadImage(formData).subscribe((uploaded: any) => {
+    //     const url = `${this.uri}${uploaded.urlPhoto}`;
+    //     const newImg = new ImageItem({ src: url, thumb: url });
+
+    //     this.images.push(newImg);         // dodaj u lokalnu listu
+    //     this.galleryRef.add(newImg);      // dodaj direktno u prikazanu galeriju
+    //     this.numberOfPhotos++;
+    //     this.imagesLoaded = true;         // u slučaju da je bila prazna galerija
+    //   });
+    // });
+    this.addPicturesJobInsert(); // poziv funkcije za dodavanje slika u bazu
+    // Reset input polja da omogući ponovno biranje iste slike
+    event.target.value = '';
+  }
+
+
+  addPicturesJobInsert() {
+    const formData = new FormData();
+    const MAX_SIZE = 2 * 1024 * 1024; // 2MB 
+    const MAX_IMAGES = 5;
+
+    formData.append('idUser', this.cookie);
+
+    // Dodaj sve slike u formData
+    const imageFiles = (document.getElementById('images') as HTMLInputElement).files;
+    if (imageFiles) {
+      if (imageFiles.length > MAX_IMAGES) {
+        alert(`Možete poslati najviše ${MAX_IMAGES} slika.`);
+        return;
+      }
+
+      Array.from(imageFiles).forEach((file: File) => {
+        if (file.size > MAX_SIZE) {
+          console.warn(`Slika ${file.name} je prevelika (${(file.size / 1024 / 1024).toFixed(2)} MB). Maksimalna dozvoljena veličina je 2MB.`);
+          return;
+        }
+        formData.append('images', file, file.name);
+      });
+    }
+
+    this.http.post(`${this.uri}/upload`, formData)
+      .subscribe((response: any) => {
+        console.log('Response from server:', response);
+        const imgs = response.data.images;
+        imgs.forEach(element => {
+          this.galleryRef.add(new ImageItem({ src: `${this.uri}${element}`, thumb: `${this.uri}${element}` }))
+          this.images.push(new ImageItem({ src: `${this.uri}${element.urlPhoto}`, thumb: `${this.uri}${element.urlPhoto}` }))
+          this.numberOfPhotos += 1;
+        });
+        this.imagesLoaded = true;
+        this.cdr.detectChanges();
+      });
+  }
+
 
 }

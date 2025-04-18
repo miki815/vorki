@@ -88,8 +88,9 @@ export class LandingComponent implements OnInit, AfterViewInit {
     this.getCraftmen();
 
     const fixedImages = [
-      'assets/img/mockupn1.png',
-      'assets/img/mockupn2.png'
+      'assets/img/pocetnagal1.png',
+      'assets/img/pocetnagal2.png',
+      'assets/img/pocetnagal3.png',
     ];
 
     fixedImages.forEach(path => {

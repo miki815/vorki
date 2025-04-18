@@ -251,6 +251,24 @@ export class JobController {
         });
     }
 
+    getGalleryByIdUser = (req: express.Request, res: express.Response) => {
+        /**
+         * @param {number} idUser
+         * @description Get job gallery
+         * @returns {json} images
+         */
+        const idUser = req.params.idUser;
+        if (!idUser) {
+            return databaseFatalError(res, null, 'Missing required fields');
+        }
+
+        const query = 'SELECT urlPhoto FROM gallery WHERE idUser = ?';
+        pool.query(query, [idUser], (err, results) => {
+            if (err) return databaseFatalError(res, err, 'Error fetching images');
+            return res.json(results);
+        });
+    }
+
     getUserGallery = (req: express.Request, res: express.Response) => {
         /**
          * @param {number} idUser
@@ -375,6 +393,34 @@ export class JobController {
                     count: results[0].count
                 });
             }
+        });
+    }
+
+    // TODO
+
+    deleteImageFromGallery = (req: express.Request, res: express.Response) => {
+        const { idUser, index } = req.body;
+        if (!idUser || !index) {
+            return databaseFatalError(res, null, 'Missing required fields');
+        }
+        const sql = 'DELETE FROM gallery WHERE idUser = ? AND index = ?';
+        pool.query(sql, [idUser, index], (err, _) => {
+            if (err) return databaseFatalError(res, err, 'Error deleting image from gallery');
+            logger.info({ idUser, index }, 'Deleting image from gallery');
+            return res.json({ message: "0" });
+        });
+    }
+
+    uploadImage = (req: express.Request, res: express.Response) => {
+        const { idUser, index, urlPhoto } = req.body;
+        if (!idUser || !index || !urlPhoto) {
+            return databaseFatalError(res, null, 'Missing required fields');
+        }
+        const sql = 'INSERT INTO gallery (idUser, index, urlPhoto) VALUES (?, ?, ?)';
+        pool.query(sql, [idUser, index, urlPhoto], (err, _) => {
+            if (err) return databaseFatalError(res, err, 'Error uploading image');
+            logger.info({ idUser, index }, 'Uploading image');
+            return res.json({ message: "0" });
         });
     }
 

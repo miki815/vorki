@@ -76,6 +76,10 @@ export class JobService {
     return this.http.get(`${this.uri}/jobs/getJobGallery/${idJob}`);
   }
 
+  getGalleryByIdUser(idUser) {
+    return this.http.get(`${this.uri}/jobs/getGalleryByIdUser/${idUser}`);
+  }
+
   getUserGallery(idUser) {
     return this.http.get(`${this.uri}/jobs/getUserGallery/${idUser}`);
   }
@@ -102,5 +106,15 @@ export class JobService {
 
   getJobsCountByStatus(data){
     return this.http.post(`${this.uri}/jobs/getJobsCountByStatus`, data);  
+  }
+
+  deleteImageFromGallery(data) {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/jobs/deleteImageFromGallery`, data, { headers });
+  }
+
+  uploadImage(data) {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/jobs/uploadImage`, data, { headers });
   }
 }

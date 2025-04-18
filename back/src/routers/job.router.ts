@@ -57,6 +57,10 @@ jobRouter.route('/getJobGallery/:idJob').get(
     (req, res) => new JobController().getJobGallery(req, res)
 )
 
+jobRouter.route('/getGalleryByIdUser/:idUser').get(
+    (req, res) => new JobController().getGalleryByIdUser(req, res)
+)
+
 jobRouter.route('/getUserGallery/:idUser').get(
     (req, res) => new JobController().getUserGallery(req, res)
 )
@@ -79,6 +83,14 @@ jobRouter.route('/getTop3Jobs').get(
 
 jobRouter.route('/getJobsCountByStatus').post(
     (req, res) => new JobController().getJobsCountByStatus(req, res)
+)
+
+jobRouter.route('/deleteImageFromGallery').post(
+    authenticateToken, (req, res) => new JobController().deleteImageFromGallery(req, res)
+)
+
+jobRouter.route('/uploadImage').post(
+    authenticateToken, (req, res) => new JobController().uploadImage(req, res)
 )
 
 export default jobRouter;

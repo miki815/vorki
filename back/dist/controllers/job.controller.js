@@ -236,6 +236,23 @@ class JobController {
                 return res.json(results);
             });
         };
+        this.getGalleryByIdUser = (req, res) => {
+            /**
+             * @param {number} idUser
+             * @description Get job gallery
+             * @returns {json} images
+             */
+            const idUser = req.params.idUser;
+            if (!idUser) {
+                return databaseFatalError(res, null, 'Missing required fields');
+            }
+            const query = 'SELECT urlPhoto FROM gallery WHERE idUser = ?';
+            server_1.pool.query(query, [idUser], (err, results) => {
+                if (err)
+                    return databaseFatalError(res, err, 'Error fetching images');
+                return res.json(results);
+            });
+        };
         this.getUserGallery = (req, res) => {
             /**
              * @param {number} idUser
@@ -353,6 +370,33 @@ class JobController {
                         count: results[0].count
                     });
                 }
+            });
+        };
+        // TODO
+        this.deleteImageFromGallery = (req, res) => {
+            const { idUser, index } = req.body;
+            if (!idUser || !index) {
+                return databaseFatalError(res, null, 'Missing required fields');
+            }
+            const sql = 'DELETE FROM gallery WHERE idUser = ? AND index = ?';
+            server_1.pool.query(sql, [idUser, index], (err, _) => {
+                if (err)
+                    return databaseFatalError(res, err, 'Error deleting image from gallery');
+                logger.info({ idUser, index }, 'Deleting image from gallery');
+                return res.json({ message: "0" });
+            });
+        };
+        this.uploadImage = (req, res) => {
+            const { idUser, index, urlPhoto } = req.body;
+            if (!idUser || !index || !urlPhoto) {
+                return databaseFatalError(res, null, 'Missing required fields');
+            }
+            const sql = 'INSERT INTO gallery (idUser, index, urlPhoto) VALUES (?, ?, ?)';
+            server_1.pool.query(sql, [idUser, index, urlPhoto], (err, _) => {
+                if (err)
+                    return databaseFatalError(res, err, 'Error uploading image');
+                logger.info({ idUser, index }, 'Uploading image');
+                return res.json({ message: "0" });
             });
         };
     }
