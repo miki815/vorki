@@ -10,6 +10,7 @@ const userRouter = express_1.default.Router();
 userRouter.route('/login').post((req, res) => new user_controller_1.UserController().login(req, res));
 userRouter.route('/register').post((req, res) => new user_controller_1.UserController().register(req, res));
 userRouter.route('/getUserById').post((req, res) => new user_controller_1.UserController().getUserById(req, res));
+userRouter.route('/getUserProfessionsById').post((req, res) => new user_controller_1.UserController().getUserProfessionsById(req, res));
 userRouter.route('/addComment').post(// only user can comment
 auth_1.authenticateToken, (req, res) => new user_controller_1.UserController().addComment(req, res));
 userRouter.route('/getCommentById').post(// only user can see his comment

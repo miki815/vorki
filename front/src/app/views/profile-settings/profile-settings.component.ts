@@ -59,6 +59,14 @@ export class ProfileSettingsComponent {
   numberOfPhotos: number = 0;
   imgIndex: number = 0;
 
+  filteredProfessions: string[] = [];
+  selectedProfessions: string[] = [];
+  userProfessions: any[] = [];
+  professions: string[] = [];
+  isDropdownVisible: boolean = false;
+  searchTerm: string = '';
+  infoText: string = "";
+
 
   distanceOptions: any[] = [
     { label: '5 km', value: 5 },
@@ -75,6 +83,7 @@ export class ProfileSettingsComponent {
 
     this.getToken();
     this.getUser();
+    this.getCraftmen();
 
     this.jobService.getGalleryByIdUser(this.idUser).subscribe((imgs: any) => {
       console.log(imgs);
@@ -85,6 +94,12 @@ export class ProfileSettingsComponent {
         this.numberOfPhotos += 1;
       });
       if (this.numberOfPhotos > 0) this.imagesLoaded = true;
+    });
+    this.userService.getUserProfessionsById({ id: this.idUser }).subscribe((response: any) => {
+      this.userProfessions = response['message'];
+      this.userProfessions.forEach(element => {
+        this.selectedProfessions.push(element.profession);
+      });
     });
 
     console.log("ProfileSettings - ngOnInit: END")
@@ -120,6 +135,8 @@ export class ProfileSettingsComponent {
         this.photo = message['message'].photo;
         this.birthday = new Date(this.birthday);
         this.backPhoto = message['message'].backPhoto;
+        this.infoText = message['message'].info;
+        this.selectedDistance = message['message'].distance;
         fetch('assets/city.json')
           .then(response => response.json())
           .then(gradovi => {
@@ -153,7 +170,7 @@ export class ProfileSettingsComponent {
         if (this.firstname.length < 3) { this.message = "Ime je prekratko."; this.err = 1; return; }
         if (this.lastname.length < 3) { this.message = "Prezime je prekratko."; this.err = 1; return; }
         if (this.birthday > new Date((new Date()).getFullYear() - 18, (new Date()).getMonth(), (new Date()).getDate())) { this.message = "Morate biti punoletni."; this.err = 1; return; }
-        if (!/^381\d{6}\d+$/.test(this.phone.slice(1)) || this.phone[0] != "+") { this.message = "Mobilni telefon nije u dobrom formatu."; this.err = 1; return; }
+        if (this.phone && (!/^381\d{6}\d+$/.test(this.phone.slice(1)) || this.phone[0] != "+")) { this.message = "Mobilni telefon nije u dobrom formatu."; this.err = 1; return; }
         if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(this.email)) { this.message = "Email nije u dobrom formatu."; this.err = 1; return; }
         const data = {
           idUser: this.idUser,
@@ -166,8 +183,10 @@ export class ProfileSettingsComponent {
           phone: this.phone,
           photo: this.photo,
           backPhoto: this.backPhoto,
-          distance: this.selectedDistance
+          distance: this.selectedDistance,
+          info: this.infoText
         }
+        console.log("INFO TEXT: " + this.infoText);
         this.userService.updateUser(data).subscribe((message: any) => {
           if (message.error) {
             this.message = "Došlo je do greške prilikom izmene podataka.";
@@ -392,5 +411,56 @@ export class ProfileSettingsComponent {
       });
   }
 
+  getCraftmen() {
+    console.log("JobListing - getCraftmen: START")
+
+    fetch('assets/craftsmen.json')
+      .then(response => response.json())
+      .then(professions => {
+        this.professions = this.professions = [...professions.craftsmen, ...professions.services, ...professions.transport];
+        ;
+        this.professions.sort((a, b) => a.localeCompare(b));
+        // this.filteredProfessions = this.professions;
+      })
+      .catch(error => {
+        console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):', error);
+      });
+
+    console.log("JobListing - getCraftmen: END")
+  }
+
+  toggleSelection(profession: string) {
+    if (this.selectedProfessions.includes(profession)) {
+      this.selectedProfessions = this.selectedProfessions.filter(
+        (p) => p !== profession
+      );
+    } else {
+      this.selectedProfessions.push(profession);
+    }
+    // this.registrationForm.get('selectedProfessions')?.setValue(this.selectedProfessions);
+  }
+
+  showProfessions() {
+    this.isDropdownVisible = true;
+    this.filteredProfessions = this.professions;
+  }
+
+  hideProfessions() {
+    this.isDropdownVisible = false;
+    this.filteredProfessions = [];
+  }
+
+  filterProfessions() {
+    this.filteredProfessions = this.professions.filter((profession) =>
+      this.normalizeString(profession).includes(this.normalizeString(this.searchTerm))
+    );
+  }
+
+  normalizeString(input: string): string {
+    return input
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+  }
 
 }

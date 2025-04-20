@@ -9,7 +9,7 @@ button {
     transition: background 0.3s ease;
 }
 
-.img-file-input{
+.img-file-input {
     background: #eead2b;
     color: #201e26;
     border: 2px solid #201e26;
@@ -20,7 +20,8 @@ button {
     transition: background 0.3s ease;
 }
 
-button:hover, .img-file-input:hover {
+button:hover,
+.img-file-input:hover {
     background: #201e26;
     color: #eead2b;
 }
@@ -95,4 +96,31 @@ input[type="file"].hidden {
         justify-content: center;
         align-items: center;
     }
+}
+
+.dropdown-menu {
+    position: absolute;
+    background-color: #201e26;
+    width: 100%;
+    /* Osiguraj da širina bude 100% roditelja */
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    left: 0;
+    /* Dodaj ovo kako bi se pozicionirao u okviru roditelja */
+    box-sizing: border-box;
+    /* Osiguraj da se padding ne računa u širinu */
+}
+
+
+
+.dropdown-item {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #201e26;
 }

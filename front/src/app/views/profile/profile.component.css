@@ -89,7 +89,6 @@ table.items-center tr:nth-child(even) {
   height: 48px;
   text-align: center;
   background: #eead2b;
-  border: none;
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 8px;
@@ -131,5 +130,19 @@ table.items-center tr:nth-child(even) {
 @media (min-width: 1024px) {
   .job-container {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.gallery-wrapper {
+  width: 100%;
+  /* display: flex; */
+  justify-content: center;
+  align-items: flex-start;
+
+  @media (min-width: 1024px) {
+    width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
   }
 }

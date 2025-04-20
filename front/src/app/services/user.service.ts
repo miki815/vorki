@@ -25,6 +25,11 @@ export class UserService {
     return this.http.post(`${this.uri}/users/getUserById`, data, { headers });
   }
 
+  getUserProfessionsById(data) {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/users/getUserProfessionsById`, data, { headers });
+  }
+
   addComment(data) {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
     return this.http.post(`${this.uri}/users/addComment`, data, { headers });

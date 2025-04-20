@@ -47,6 +47,9 @@ export class ProfileComponent implements OnInit {
   galleryId = 'mixed';
   galleryRef: GalleryRef = this.gallery.ref(this.galleryId);
   finishedJobs: number = 0;
+  professions: Array<any>;
+  professionsString: string = "";
+  userInfo: string = "";
   // uri = 'http://127.0.0.1:4000'
   uri = 'https://vorki.rs';
   // uri = environment.uri;
@@ -64,7 +67,7 @@ export class ProfileComponent implements OnInit {
     this.jobService.getJobsCountByStatus({ idUser: this.idUser, status: 'finished' }).subscribe((response: any) => {
       this.finishedJobs = response["count"];
     });
-    this.jobService.getUserGallery(this.idUser).subscribe((imgs: any) => {
+    this.jobService.getGalleryByIdUser(this.idUser).subscribe((imgs: any) => {
       console.log(imgs);
       imgs.forEach(element => {
         console.log(element.urlPhoto)
@@ -74,6 +77,11 @@ export class ProfileComponent implements OnInit {
       });
       if (this.numberOfPhotos > 0) this.imagesLoaded = true;
     });
+    this.userService.getUserProfessionsById({ id: this.idUser }).subscribe((response: any) => {
+      this.professions = response["message"];
+      this.professionsString = this.professions.map((profession: any) => profession.profession).join(", ");
+    });
+
 
 
     console.log("Profile - ngOnInit: END")
@@ -126,6 +134,7 @@ export class ProfileComponent implements OnInit {
         this.backPhoto = response['message'].backPhoto;
         this.instagram = response['message'].instagram;
         this.facebook = response['message'].facebook;
+        this.userInfo = response['message'].info;
         this.getJobRequests();
         console.log("Profile - getUser: END")
         return;

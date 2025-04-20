@@ -159,7 +159,7 @@ class UserController {
             if (!id || !Number.isInteger(Number(id))) {
                 return databaseFatalError(res, null, 'getUserById failed: Invalid userID');
             }
-            const sql = 'SELECT username, firstname, lastname, birthday, phone, location, email, photo, backPhoto, type, instagram, facebook FROM user WHERE id = ?';
+            const sql = 'SELECT username, firstname, lastname, birthday, phone, location, email, photo, backPhoto, type, instagram, facebook, info, distance FROM user WHERE id = ?';
             server_1.pool.query(sql, [id], (err, user) => {
                 if (err)
                     return databaseFatalError(res, err, 'getUserById failed');
@@ -168,6 +168,29 @@ class UserController {
                 }
                 else {
                     logger.warn({ id }, 'getUserById failed: user not found');
+                    return res.json({ error: 1, message: 'User not found' });
+                }
+            });
+        };
+        this.getUserProfessionsById = (req, res) => {
+            /**
+             * @param {number} id - id of the user
+             * @returns {json} - user professions
+             */
+            const { id } = req.body;
+            logger.info({ id }, 'getUserProfessionsById attempt');
+            if (!id || !Number.isInteger(Number(id))) {
+                return databaseFatalError(res, null, 'getUserProfessionsById failed: Invalid userID');
+            }
+            const sql = 'SELECT profession FROM job WHERE idUser = ?';
+            server_1.pool.query(sql, [id], (err, professions) => {
+                if (err)
+                    return databaseFatalError(res, err, 'getUserProfessionsById failed');
+                if (professions.length) {
+                    return res.json({ error: 0, message: professions });
+                }
+                else {
+                    logger.warn({ id }, 'getUserProfessionsById failed: user not found');
                     return res.json({ error: 1, message: 'User not found' });
                 }
             });
@@ -416,6 +439,7 @@ class UserController {
              * @param {string} backPhoto - back photo of the user
              * @param {string} photo - photo of the user
              * @param {number} distance - distance of the user
+             * @param {string} info - info of the user
              * @returns {json} - success or error message
              */
             // const { idUser, username, email, firstname, lastname, birthday, location, phone, backPhoto, photo, distance } = req.body;
@@ -426,13 +450,13 @@ class UserController {
             //     logger.info({ idUser }, 'User updated');
             //     return res.json({ error: 0, message: message });
             // });
-            const { idUser, username, email, firstname, lastname, birthday, location, phone, backPhoto, photo, distance } = req.body;
+            const { idUser, username, email, firstname, lastname, birthday, location, phone, backPhoto, photo, distance, info } = req.body;
             const idUserReq = req.userId;
             if (idUser != idUserReq)
                 return databaseFatalError(res, null, 'updateUser failed: Unauthorized');
-            logger.info({ idUser, username, email, firstname, lastname, birthday, location, phone, distance }, 'updateUser attempt');
-            var sql = 'UPDATE user SET username=?, email=?, firstname=?, lastname=?, birthday=?, location=?, phone=?, photo=?, backPhoto = ?, distance = ? WHERE id=?';
-            server_1.pool.query(sql, [username, email, firstname, lastname, birthday, location, phone, photo, backPhoto, distance, idUser], (err, message) => {
+            logger.info({ idUser, username, email, firstname, lastname, birthday, location, phone, distance, info }, 'updateUser attempt');
+            var sql = 'UPDATE user SET username=?, email=?, firstname=?, lastname=?, birthday=?, location=?, phone=?, photo=?, backPhoto = ?, distance = ?, info = ? WHERE id=?';
+            server_1.pool.query(sql, [username, email, firstname, lastname, birthday, location, phone, photo, backPhoto, distance, info, idUser], (err, message) => {
                 if (err)
                     return databaseFatalError(res, err, 'updateUser failed');
                 logger.info({ idUser }, 'User updated');

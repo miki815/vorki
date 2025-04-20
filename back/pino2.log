@@ -4266,3 +4266,539 @@
 {"level":30,"time":1745009700282,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUwMDg2NjIsImV4cCI6MTc0NTA5NTA2Mn0.sIVQqER48zDL8oJIMR-md70f-27KC6RAcDUwoZy4GXs","msg":"Verifying token"}
 {"level":30,"time":1745009700285,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745008662,"exp":1745095062},"msg":"Decoded token"}
 {"level":30,"time":1745009700347,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745107422875,"pid":16724,"hostname":"DESKTOP-9KL4NAD","email":"peca@gmail.com","msg":"Login attempt"}
+{"level":30,"time":1745107423051,"pid":16724,"hostname":"DESKTOP-9KL4NAD","userId":11,"email":"peca@gmail.com","msg":"Login successful"}
+{"level":30,"time":1745107426625,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745107426679,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745107426679,"pid":16724,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745107426719,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745107426722,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745107511427,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745107511448,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745107511448,"pid":16724,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745107511555,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745107511558,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745107548094,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745107548124,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745107548124,"pid":16724,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745107548140,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745107548143,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745107598643,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745107598661,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745107598661,"pid":16724,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745107598736,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745107598750,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745107641267,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745107641309,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745107641309,"pid":16724,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745107641344,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745107641347,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745107687286,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745107687326,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745107687328,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745107687329,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745107687329,"pid":16724,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745107709095,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745107709115,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting user gallery"}
+{"level":30,"time":1745107709115,"pid":16724,"hostname":"DESKTOP-9KL4NAD","results":[],"msg":"Results"}
+{"level":30,"time":1745107709141,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745107709143,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745107754944,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745107754945,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745107754995,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745107812920,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745107812922,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745107813217,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745107834917,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745107834919,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745107834962,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745107850567,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745107850603,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745107850605,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745107869163,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745107869165,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745107869184,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745107941693,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745107941695,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745107941819,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745107986330,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745107986331,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745107986380,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745107992153,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745107992192,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745107992197,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745108056720,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745108056882,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745108056886,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745108137589,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745108137638,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745108137642,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745108218155,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745108218474,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745108218481,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745108262877,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745108263126,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745108263131,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745108311075,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745108311354,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745108311357,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745108637063,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745108637425,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745108637430,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745108679826,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745108679889,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745108679893,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745108797310,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745108797369,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745108797379,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745108850607,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745108850720,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745108850724,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745108886249,"pid":16724,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745108886250,"pid":16724,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745108886300,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745108895535,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745108952883,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745108953356,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745108953367,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745108992214,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745108992463,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745108992466,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745109242558,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745109242837,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745109242840,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745109317018,"pid":16724,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745109317159,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745109317163,"pid":16724,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745109360556,"pid":17060,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1745109360566,"pid":17060,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1745109360643,"pid":17060,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1745109367495,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745109367529,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745109367647,"pid":17060,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745109367662,"pid":17060,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745109419262,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745109419273,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745109419348,"pid":17060,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745109419354,"pid":17060,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745109573434,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745109573447,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745109573522,"pid":17060,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745109573525,"pid":17060,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745109585695,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745109585701,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745109585761,"pid":17060,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745109585780,"pid":17060,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745109704958,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745109704959,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745109704993,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745109740860,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745109740864,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745109740905,"pid":17060,"hostname":"DESKTOP-9KL4NAD","idUser":"11","msg":"Getting job requests for user"}
+{"level":30,"time":1745109740909,"pid":17060,"hostname":"DESKTOP-9KL4NAD","idMaster":"11","msg":"Getting job requests for master"}
+{"level":30,"time":1745109754345,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745109754347,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745109754367,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745109835786,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745109835788,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745109835875,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745109868190,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745109868192,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745109868316,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745109900088,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745109900091,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745109900158,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745109993341,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745109993342,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745109993466,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745110040548,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745110040549,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745110040605,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745110134422,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745110134424,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745110134519,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745110185336,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745110185338,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745110185417,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745110281559,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745110281563,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745110281650,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745110340292,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745110340294,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745110340371,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745110392837,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745110392840,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745110392926,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745110410727,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745110410729,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745110410805,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745110534235,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745110534237,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745110534445,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745110568242,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745110568245,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745110568322,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745111118132,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745111118134,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745111118181,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745111213859,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745111213861,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745111213967,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745111213983,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745111272491,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745111272494,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745111272681,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745111272690,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745111410099,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745111410102,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745111410180,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745111410189,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745112172177,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745112172180,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745112172480,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":40,"time":1745112172483,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById failed: user not found"}
+{"level":30,"time":1745112172491,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById attempt"}
+{"level":40,"time":1745112172493,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById failed: user not found"}
+{"level":30,"time":1745112243014,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745112243016,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745112243216,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":40,"time":1745112243220,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById failed: user not found"}
+{"level":30,"time":1745112243224,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById attempt"}
+{"level":40,"time":1745112243226,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById failed: user not found"}
+{"level":30,"time":1745112263565,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745112263567,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745112263618,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":40,"time":1745112263620,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById failed: user not found"}
+{"level":30,"time":1745112263623,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById attempt"}
+{"level":40,"time":1745112263625,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById failed: user not found"}
+{"level":30,"time":1745112297461,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745112297462,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745112297503,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745112297505,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById attempt"}
+{"level":40,"time":1745112297507,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById failed: user not found"}
+{"level":40,"time":1745112297508,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById failed: user not found"}
+{"level":30,"time":1745112332375,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745112332378,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745112332422,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":40,"time":1745112332426,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById failed: user not found"}
+{"level":30,"time":1745112332429,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById attempt"}
+{"level":40,"time":1745112332430,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById failed: user not found"}
+{"level":30,"time":1745112391072,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745112391074,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745112391112,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745112391115,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById attempt"}
+{"level":40,"time":1745112391116,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById failed: user not found"}
+{"level":40,"time":1745112391117,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById failed: user not found"}
+{"level":30,"time":1745112437415,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745112437417,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745112437468,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":40,"time":1745112437471,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById failed: user not found"}
+{"level":30,"time":1745112437473,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById attempt"}
+{"level":40,"time":1745112437475,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById failed: user not found"}
+{"level":30,"time":1745112523750,"pid":17060,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745112523754,"pid":17060,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745112523896,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":40,"time":1745112523897,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById failed: user not found"}
+{"level":30,"time":1745112523901,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById attempt"}
+{"level":40,"time":1745112523904,"pid":17060,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById failed: user not found"}
+{"level":30,"time":1745112821366,"pid":18636,"hostname":"DESKTOP-9KL4NAD","msg":"hello world"}
+{"level":30,"time":1745112821371,"pid":18636,"hostname":"DESKTOP-9KL4NAD","msg":"Express server running on port 4000"}
+{"level":30,"time":1745112821412,"pid":18636,"hostname":"DESKTOP-9KL4NAD","msg":"db connection ok"}
+{"level":30,"time":1745112859264,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDUxMDc0MjMsImV4cCI6MTc0NTE5MzgyM30.EY9VOpcNjoYnfzP_14S4v3s4swfKX_wBl_uPyRay7vc","msg":"Verifying token"}
+{"level":30,"time":1745112859269,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":11,"iat":1745107423,"exp":1745193823},"msg":"Decoded token"}
+{"level":30,"time":1745112859403,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById attempt"}
+{"level":30,"time":1745112859416,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById attempt"}
+{"level":40,"time":1745112859467,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserById failed: user not found"}
+{"level":40,"time":1745112859471,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"11","msg":"getUserProfessionsById failed: user not found"}
+{"level":30,"time":1745112914783,"pid":18636,"hostname":"DESKTOP-9KL4NAD","email":"mmilenkovic815@gmail.com","idUser":4,"msg":"User registered"}
+{"level":30,"time":1745112934050,"pid":18636,"hostname":"DESKTOP-9KL4NAD","email":"mmilenkovic815@gmail.com","msg":"Login attempt"}
+{"level":30,"time":1745112934150,"pid":18636,"hostname":"DESKTOP-9KL4NAD","userId":4,"email":"mmilenkovic815@gmail.com","msg":"Login successful"}
+{"level":30,"time":1745113016328,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113016336,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113016372,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745113016376,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745113120362,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113120365,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113120408,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745113120413,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745113133468,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113133470,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113133518,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745113133526,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745113182845,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113182860,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113182926,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745113182928,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745113202054,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113202056,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113202089,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745113202094,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745113225700,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc0NTExMjkzNCwiZXhwIjoxNzQ1MTk5MzM0fQ.B88F7q1ibVwkOzHmk7yWEa4vRnJ6z5XFkfqwN60iV4c","msg":"Verifying token"}
+{"level":30,"time":1745113225701,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":4,"iat":1745112934,"exp":1745199334},"msg":"Decoded token"}
+{"level":30,"time":1745113225740,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113225742,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113305814,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc0NTExMjkzNCwiZXhwIjoxNzQ1MTk5MzM0fQ.B88F7q1ibVwkOzHmk7yWEa4vRnJ6z5XFkfqwN60iV4c","msg":"Verifying token"}
+{"level":30,"time":1745113305816,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":4,"iat":1745112934,"exp":1745199334},"msg":"Decoded token"}
+{"level":30,"time":1745113305972,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113305987,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113411981,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc0NTExMjkzNCwiZXhwIjoxNzQ1MTk5MzM0fQ.B88F7q1ibVwkOzHmk7yWEa4vRnJ6z5XFkfqwN60iV4c","msg":"Verifying token"}
+{"level":30,"time":1745113411982,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":4,"iat":1745112934,"exp":1745199334},"msg":"Decoded token"}
+{"level":30,"time":1745113412048,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113412057,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113447646,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc0NTExMjkzNCwiZXhwIjoxNzQ1MTk5MzM0fQ.B88F7q1ibVwkOzHmk7yWEa4vRnJ6z5XFkfqwN60iV4c","msg":"Verifying token"}
+{"level":30,"time":1745113447648,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":4,"iat":1745112934,"exp":1745199334},"msg":"Decoded token"}
+{"level":30,"time":1745113447695,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113447700,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113669530,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113669538,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113669586,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745113669589,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745113672785,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc0NTExMjkzNCwiZXhwIjoxNzQ1MTk5MzM0fQ.B88F7q1ibVwkOzHmk7yWEa4vRnJ6z5XFkfqwN60iV4c","msg":"Verifying token"}
+{"level":30,"time":1745113672787,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":4,"iat":1745112934,"exp":1745199334},"msg":"Decoded token"}
+{"level":30,"time":1745113672812,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113672817,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113681053,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","username":"mmilenkovic815@gmail.com","email":"mmilenkovic815@gmail.com","firstname":"Mihailom","lastname":"Milenkovicm","birthday":"1970-01-01","location":"Kostolac","phone":null,"distance":0,"info":null,"msg":"updateUser attempt"}
+{"level":30,"time":1745113681067,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"User updated"}
+{"level":30,"time":1745113681076,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","location":"Kostolac","msg":"Changing job location for user"}
+{"level":30,"time":1745113681187,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113681188,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113681214,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745113681217,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745113684946,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc0NTExMjkzNCwiZXhwIjoxNzQ1MTk5MzM0fQ.B88F7q1ibVwkOzHmk7yWEa4vRnJ6z5XFkfqwN60iV4c","msg":"Verifying token"}
+{"level":30,"time":1745113684948,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":4,"iat":1745112934,"exp":1745199334},"msg":"Decoded token"}
+{"level":30,"time":1745113684965,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113684967,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113693663,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","username":"mmilenkovic815@gmail.com","email":"mmilenkovic815@gmail.com","firstname":"Mihailom","lastname":"Milenkovicm","birthday":"1969-12-31","location":"Kostolac","phone":"+381600412345","distance":0,"info":null,"msg":"updateUser attempt"}
+{"level":30,"time":1745113693724,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"User updated"}
+{"level":30,"time":1745113693732,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","location":"Kostolac","msg":"Changing job location for user"}
+{"level":30,"time":1745113693849,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113693851,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113693879,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745113693881,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745113696867,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc0NTExMjkzNCwiZXhwIjoxNzQ1MTk5MzM0fQ.B88F7q1ibVwkOzHmk7yWEa4vRnJ6z5XFkfqwN60iV4c","msg":"Verifying token"}
+{"level":30,"time":1745113696869,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":4,"iat":1745112934,"exp":1745199334},"msg":"Decoded token"}
+{"level":30,"time":1745113696886,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113696887,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113705353,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","username":"mmilenkovic815@gmail.com","email":"mmilenkovic815@gmail.com","firstname":"Mihailom","lastname":"Milenkovicm","birthday":"1969-12-30","location":"Kostolac","phone":"+381600412345","distance":"20","info":null,"msg":"updateUser attempt"}
+{"level":30,"time":1745113705362,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"User updated"}
+{"level":30,"time":1745113705371,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","location":"Kostolac","msg":"Changing job location for user"}
+{"level":30,"time":1745113705505,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113705507,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113705539,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745113705544,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745113706682,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc0NTExMjkzNCwiZXhwIjoxNzQ1MTk5MzM0fQ.B88F7q1ibVwkOzHmk7yWEa4vRnJ6z5XFkfqwN60iV4c","msg":"Verifying token"}
+{"level":30,"time":1745113706684,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":4,"iat":1745112934,"exp":1745199334},"msg":"Decoded token"}
+{"level":30,"time":1745113706700,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113706701,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113745908,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113745913,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113745943,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745113745948,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745113756974,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc0NTExMjkzNCwiZXhwIjoxNzQ1MTk5MzM0fQ.B88F7q1ibVwkOzHmk7yWEa4vRnJ6z5XFkfqwN60iV4c","msg":"Verifying token"}
+{"level":30,"time":1745113756976,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":4,"iat":1745112934,"exp":1745199334},"msg":"Decoded token"}
+{"level":30,"time":1745113756998,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113756999,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113773168,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","username":"mmilenkovic815@gmail.com","email":"mmilenkovic815@gmail.com","firstname":"Mihailom","lastname":"Milenkovicm","birthday":"1969-12-29","location":"Kostolac","phone":"+381600412345","distance":20,"info":null,"msg":"updateUser attempt"}
+{"level":30,"time":1745113773181,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"User updated"}
+{"level":30,"time":1745113773192,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","location":"Kostolac","msg":"Changing job location for user"}
+{"level":30,"time":1745113773443,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113773452,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113773492,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745113773496,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745113808893,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113808913,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113809059,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745113809065,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745113832725,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc0NTExMjkzNCwiZXhwIjoxNzQ1MTk5MzM0fQ.B88F7q1ibVwkOzHmk7yWEa4vRnJ6z5XFkfqwN60iV4c","msg":"Verifying token"}
+{"level":30,"time":1745113832728,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":4,"iat":1745112934,"exp":1745199334},"msg":"Decoded token"}
+{"level":30,"time":1745113832771,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113832780,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113838760,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","username":"mmilenkovic815@gmail.com","email":"mmilenkovic815@gmail.com","firstname":"Mihailom","lastname":"Milenkovicm","birthday":"1969-12-28","location":"Kostolac","phone":"+381600412345","distance":20,"info":null,"msg":"updateUser attempt"}
+{"level":30,"time":1745113838821,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"User updated"}
+{"level":30,"time":1745113838833,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","location":"Kostolac","msg":"Changing job location for user"}
+{"level":30,"time":1745113839096,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113839098,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113839147,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745113839151,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745113859006,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc0NTExMjkzNCwiZXhwIjoxNzQ1MTk5MzM0fQ.B88F7q1ibVwkOzHmk7yWEa4vRnJ6z5XFkfqwN60iV4c","msg":"Verifying token"}
+{"level":30,"time":1745113859008,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":4,"iat":1745112934,"exp":1745199334},"msg":"Decoded token"}
+{"level":30,"time":1745113859045,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113859048,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113870913,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","username":"mmilenkovic815@gmail.com","email":"mmilenkovic815@gmail.com","firstname":"Mihailommm","lastname":"Milenkovicm","birthday":"1969-12-27","location":"Kostolac","phone":"+381600412345","distance":20,"info":null,"msg":"updateUser attempt"}
+{"level":30,"time":1745113870975,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"User updated"}
+{"level":30,"time":1745113870987,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","location":"Kostolac","msg":"Changing job location for user"}
+{"level":30,"time":1745113871240,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745113871242,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745113871283,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745113871288,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114053931,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114053936,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114054070,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114054074,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114064480,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc0NTExMjkzNCwiZXhwIjoxNzQ1MTk5MzM0fQ.B88F7q1ibVwkOzHmk7yWEa4vRnJ6z5XFkfqwN60iV4c","msg":"Verifying token"}
+{"level":30,"time":1745114064483,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":4,"iat":1745112934,"exp":1745199334},"msg":"Decoded token"}
+{"level":30,"time":1745114064529,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114064539,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114087602,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","username":"mmilenkovic815@gmail.com","email":"mmilenkovic815@gmail.com","firstname":"Mihailommmm","lastname":"Milenkovicm","birthday":"1969-12-26","location":"Kostolac","phone":"+381600412345","distance":20,"info":null,"msg":"updateUser attempt"}
+{"level":30,"time":1745114087665,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"User updated"}
+{"level":30,"time":1745114087680,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","location":"Kostolac","msg":"Changing job location for user"}
+{"level":30,"time":1745114087926,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114087958,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114088085,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114088095,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114116824,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc0NTExMjkzNCwiZXhwIjoxNzQ1MTk5MzM0fQ.B88F7q1ibVwkOzHmk7yWEa4vRnJ6z5XFkfqwN60iV4c","msg":"Verifying token"}
+{"level":30,"time":1745114116826,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":4,"iat":1745112934,"exp":1745199334},"msg":"Decoded token"}
+{"level":30,"time":1745114116853,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114116860,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114150234,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc0NTExMjkzNCwiZXhwIjoxNzQ1MTk5MzM0fQ.B88F7q1ibVwkOzHmk7yWEa4vRnJ6z5XFkfqwN60iV4c","msg":"Verifying token"}
+{"level":30,"time":1745114150237,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":4,"iat":1745112934,"exp":1745199334},"msg":"Decoded token"}
+{"level":30,"time":1745114150363,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114150376,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114184904,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","username":"mmilenkovic815@gmail.com","email":"mmilenkovic815@gmail.com","firstname":"Mihailo","lastname":"Milenkovicm","birthday":"1969-12-25","location":"Kostolac","phone":"+381600412345","distance":20,"info":"cao ja sam miki","msg":"updateUser attempt"}
+{"level":30,"time":1745114185001,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"User updated"}
+{"level":30,"time":1745114185020,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","location":"Kostolac","msg":"Changing job location for user"}
+{"level":30,"time":1745114185343,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114185374,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114185545,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114185554,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114210221,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc0NTExMjkzNCwiZXhwIjoxNzQ1MTk5MzM0fQ.B88F7q1ibVwkOzHmk7yWEa4vRnJ6z5XFkfqwN60iV4c","msg":"Verifying token"}
+{"level":30,"time":1745114210224,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":4,"iat":1745112934,"exp":1745199334},"msg":"Decoded token"}
+{"level":30,"time":1745114210258,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114210260,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114222541,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","username":"mmilenkovic815@gmail.com","email":"mmilenkovic815@gmail.com","firstname":"Mihailo","lastname":"Milenkovicm","birthday":"1969-12-24","location":"Kostolac","phone":"+381600412345","distance":20,"info":"cao ja sam miki","msg":"updateUser attempt"}
+{"level":30,"time":1745114222651,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"User updated"}
+{"level":30,"time":1745114222662,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","location":"Kostolac","msg":"Changing job location for user"}
+{"level":30,"time":1745114222907,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114222910,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114222944,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114222948,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114225378,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc0NTExMjkzNCwiZXhwIjoxNzQ1MTk5MzM0fQ.B88F7q1ibVwkOzHmk7yWEa4vRnJ6z5XFkfqwN60iV4c","msg":"Verifying token"}
+{"level":30,"time":1745114225380,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":4,"iat":1745112934,"exp":1745199334},"msg":"Decoded token"}
+{"level":30,"time":1745114225403,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114225406,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114228357,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","username":"mmilenkovic815@gmail.com","email":"mmilenkovic815@gmail.com","firstname":"Mihailo","lastname":"Milenkovicm","birthday":"1969-12-23","location":"Kostolac","phone":"+381600412345","distance":20,"info":"cao ja sam miki","msg":"updateUser attempt"}
+{"level":30,"time":1745114228377,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"User updated"}
+{"level":30,"time":1745114228387,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","location":"Kostolac","msg":"Changing job location for user"}
+{"level":30,"time":1745114228662,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114228670,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114228713,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114228717,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114284954,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114284956,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114285122,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114285127,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114335359,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114335366,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114335424,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114335427,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114378060,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114378076,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114378194,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114378202,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114407917,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114407920,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114407981,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114407986,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114529510,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114529513,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114529649,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114529652,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114566019,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114566022,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114566197,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114566202,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114643057,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114643062,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114643284,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114643294,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114711144,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114711148,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114711269,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114711279,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114773171,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114773176,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114773316,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114773318,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114799125,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114799126,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114799442,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114799445,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114817015,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114817021,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114817109,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114817112,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114864584,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114864585,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114864773,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114864777,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114898319,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114898323,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114898474,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114898478,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114915431,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114915440,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114915503,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114915508,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114951382,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114951384,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114951471,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114951479,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745114970122,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745114970127,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745114970230,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745114970242,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745115058103,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745115058108,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745115058181,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745115058186,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745115108497,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745115108499,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745115108551,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745115108557,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745115137265,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745115137269,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745115137399,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745115137405,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745115178022,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745115178024,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745115178083,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745115178086,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745115196053,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745115196059,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745115196109,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745115196114,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745115252714,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745115252724,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745115252784,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745115252788,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745115281396,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745115281403,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745115281482,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745115281487,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745115301007,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745115301008,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745115301161,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745115301166,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745115320420,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745115320435,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745115320551,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745115320556,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745115346033,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745115346038,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745115346193,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745115346197,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745115372601,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745115372605,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745115372641,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745115372645,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}
+{"level":30,"time":1745115395207,"pid":18636,"hostname":"DESKTOP-9KL4NAD","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTc0NTExMjkzNCwiZXhwIjoxNzQ1MTk5MzM0fQ.B88F7q1ibVwkOzHmk7yWEa4vRnJ6z5XFkfqwN60iV4c","msg":"Verifying token"}
+{"level":30,"time":1745115395209,"pid":18636,"hostname":"DESKTOP-9KL4NAD","decoded":{"userId":4,"iat":1745112934,"exp":1745199334},"msg":"Decoded token"}
+{"level":30,"time":1745115395250,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745115395258,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745115416194,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","username":"mmilenkovic815@gmail.com","email":"mmilenkovic815@gmail.com","firstname":"Mihailo","lastname":"Milenkovicm","birthday":"1969-12-22","location":"Kostolac","phone":"+381600412345","distance":20,"info":"cao ja sam miki dosta pratim sport i pomazem kada god stignem evo sad gledam lejkerse i testiram ovo pa se pitam da li ce biti ok ajde da vidimo","msg":"updateUser attempt"}
+{"level":30,"time":1745115416215,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"User updated"}
+{"level":30,"time":1745115416227,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","location":"Kostolac","msg":"Changing job location for user"}
+{"level":30,"time":1745115416392,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserById attempt"}
+{"level":30,"time":1745115416395,"pid":18636,"hostname":"DESKTOP-9KL4NAD","id":"4","msg":"getUserProfessionsById attempt"}
+{"level":30,"time":1745115416428,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idUser":"4","msg":"Getting job requests for user"}
+{"level":30,"time":1745115416431,"pid":18636,"hostname":"DESKTOP-9KL4NAD","idMaster":"4","msg":"Getting job requests for master"}

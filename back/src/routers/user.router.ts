@@ -16,6 +16,10 @@ userRouter.route('/getUserById').post(
     (req, res) => new UserController().getUserById(req, res)
 )
 
+userRouter.route('/getUserProfessionsById').post(
+    (req, res) => new UserController().getUserProfessionsById(req, res)
+)
+
 userRouter.route('/addComment').post( // only user can comment
     authenticateToken, (req, res) => new UserController().addComment(req, res)
 )

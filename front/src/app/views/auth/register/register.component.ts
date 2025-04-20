@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, HostListener } from "@angular/core";
+import { Component, OnInit, ElementRef, HostListener, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { UserService } from "src/app/services/user.service";
 // import * as bcrypt from 'bcryptjs';
@@ -45,6 +45,14 @@ export class RegisterComponent implements OnInit {
     this.getCraftmen();
 
     console.log('Register - ngOnInit: END')
+  }
+
+  @ViewChild('dropdown') dropdownRef!: ElementRef;
+
+  ngAfterViewChecked() {
+    if (this.isDropdownVisible && this.dropdownRef) {
+      (this.dropdownRef.nativeElement as HTMLElement).focus({ preventScroll: true });
+    }
   }
 
   getCities() {

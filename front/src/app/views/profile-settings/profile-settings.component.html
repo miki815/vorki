@@ -32,6 +32,16 @@
             </div>
           </div>
 
+          <!-- <div class="flex justify-center items-center min-h-screen bg-gray-100"> -->
+            <div class="w-full max-w-2xl p-6 bg-white rounded-2xl shadow-lg mt-4 mb-2">
+              <h2 class="text-2xl font-bold text-center text-crna">Reci nešto o sebi</h2>
+              <textarea [(ngModel)]="infoText" name="infoText"
+                placeholder="Opiši sebe, iskustvo, veštine ili šta god želiš da potencijalni korisnici znaju o tebi..." rows="8"
+                class="w-full p-4 border border-gray-300 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-crna"></textarea>
+            </div>
+          <!-- </div> -->
+
+
           <div class="flex flex-wrap">
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative w-full mb-3">
@@ -76,11 +86,30 @@
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative w-full mb-3">
                 <label class="block uppercase text-basic text-xs font-semibold mb-2" htmlFor="grid-password">
-                  Datum rođenja
+                  Poslovi kojima se bavite
                 </label>
-                <input type="date" value="{{birthday}}"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 border-2 border-solid border-zlatna"
-                  [(ngModel)]="birthday" name="birthday" />
+
+                <div class="dropdown relative">
+                  <input type="text" name="profess" [(ngModel)]="searchTerm" (focus)="showProfessions()"
+                    (input)="filterProfessions()"
+                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 border-2 border-solid border-zlatna"
+                    placeholder="Pretraži zanimanja..." />
+
+                  <div *ngIf="isDropdownVisible" #dropdown tabindex="0" style="-webkit-overflow-scrolling: touch;"
+                    class="dropdown-menu absolute bg-white z-10 border rounded w-full max-h-60 overflow-y-auto mt-1 shadow-lg">
+                    <div class="flex justify-end p-2">
+                      <button class="text-red-500 font-bold" (click)="hideProfessions()">✖</button>
+                    </div>
+
+                    <div *ngFor="let profession of professions"
+                      class="dropdown-item flex items-center px-4 py-2 hover:bg-gray-100">
+                      <input type="checkbox" [checked]="selectedProfessions.includes(profession)"
+                        (change)="toggleSelection(profession)" class="mr-2" />
+                      <span class="text-basic">{{ profession }}</span>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
             <div class="w-full lg:w-6/12 px-4">

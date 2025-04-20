@@ -70,7 +70,7 @@
           <input type="text" name="profess" [(ngModel)]="searchTerm" (focus)="showProfessions()"
             (input)="filterProfessions()" class="form-input" placeholder="Pretraži zanimanja..." />
 
-          <div *ngIf="isDropdownVisible"
+          <div *ngIf="isDropdownVisible" #dropdown tabindex="0" style="-webkit-overflow-scrolling: touch;"
             class="dropdown-menu absolute bg-white z-10 border rounded w-full max-h-60 overflow-y-auto mt-1 shadow-lg">
             <div class="flex justify-end p-2">
               <button class="text-red-500 font-bold" (click)="hideProfessions()">✖</button>
