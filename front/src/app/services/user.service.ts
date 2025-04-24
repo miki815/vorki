@@ -132,4 +132,8 @@ export class UserService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
     return this.http.get(`${this.uri}/users/isUserSubscribed`, { headers });
   }
+
+  getTop3Masters(data) {
+    return this.http.post(`${this.uri}/users/getTop3Masters`, data);
+  }
 }

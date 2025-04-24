@@ -32,4 +32,6 @@ jobRouter.route('/getTop3Jobs').get((req, res) => new job_controller_1.JobContro
 jobRouter.route('/getJobsCountByStatus').post((req, res) => new job_controller_1.JobController().getJobsCountByStatus(req, res));
 jobRouter.route('/deleteImageFromGallery').post(auth_1.authenticateToken, (req, res) => new job_controller_1.JobController().deleteImageFromGallery(req, res));
 jobRouter.route('/uploadImage').post(auth_1.authenticateToken, (req, res) => new job_controller_1.JobController().uploadImage(req, res));
+jobRouter.route('/updateUserProfessions').post(auth_1.authenticateToken, (req, res) => new job_controller_1.JobController().updateUserProfessions(req, res));
+jobRouter.route('/getPageJobs').post((req, res) => new job_controller_1.JobController().getPageJobs(req, res));
 exports.default = jobRouter;

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Gallery, GalleryConfig, GalleryItem, GalleryRef, GalleryState, ImageItem } from 'ng-gallery';
 import { CookieService } from 'ngx-cookie-service';
@@ -105,6 +105,14 @@ export class ProfileSettingsComponent {
     console.log("ProfileSettings - ngOnInit: END")
   }
 
+  @ViewChild('dropdown') dropdownRef!: ElementRef;
+
+  ngAfterViewChecked() {
+    if (this.isDropdownVisible && this.dropdownRef) {
+      (this.dropdownRef.nativeElement as HTMLElement).focus({ preventScroll: true });
+    }
+  }
+
   getToken() {
     console.log("ProfileSettings - getToken: START")
 
@@ -161,7 +169,6 @@ export class ProfileSettingsComponent {
 
   update() {
     console.log("ProfileSettings - update: START")
-    console.log("Birthday: " + this.birthday)
     this.userService.getIdByEmail({ email: this.email }).subscribe((message: any) => {
       if (this.email != this.oldEmail && message["message"].length && message["message"][0].id != this.idUser) { this.message = "Email već postoji."; this.err = 1; return; }
       this.userService.getIdByUsername({ username: this.username }).subscribe((message: any) => {
@@ -169,8 +176,8 @@ export class ProfileSettingsComponent {
         if (this.username.length < 3) { this.message = "Korisničko ime je prekratko."; this.err = 1; return; }
         if (this.firstname.length < 3) { this.message = "Ime je prekratko."; this.err = 1; return; }
         if (this.lastname.length < 3) { this.message = "Prezime je prekratko."; this.err = 1; return; }
-        if (this.birthday > new Date((new Date()).getFullYear() - 18, (new Date()).getMonth(), (new Date()).getDate())) { this.message = "Morate biti punoletni."; this.err = 1; return; }
-        if (this.phone && (!/^381\d{6}\d+$/.test(this.phone.slice(1)) || this.phone[0] != "+")) { this.message = "Mobilni telefon nije u dobrom formatu."; this.err = 1; return; }
+        // if (this.birthday > new Date((new Date()).getFullYear() - 18, (new Date()).getMonth(), (new Date()).getDate())) { this.message = "Morate biti punoletni."; this.err = 1; return; }
+        // if (this.phone && (!/^381\d{6}\d+$/.test(this.phone.slice(1)) || this.phone[0] != "+")) { this.message = "Mobilni telefon nije u dobrom formatu."; this.err = 1; return; }
         if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(this.email)) { this.message = "Email nije u dobrom formatu."; this.err = 1; return; }
         const data = {
           idUser: this.idUser,
@@ -186,18 +193,24 @@ export class ProfileSettingsComponent {
           distance: this.selectedDistance,
           info: this.infoText
         }
-        console.log("INFO TEXT: " + this.infoText);
         this.userService.updateUser(data).subscribe((message: any) => {
           if (message.error) {
             this.message = "Došlo je do greške prilikom izmene podataka.";
             this.err = 1;
             return;
           }
-          this.jobService.changeJobLocationForUser({ idUser: this.idUser, location: this.location }).subscribe(_ => {
+          this.jobService.updateUserProfessions({ idUser: this.idUser, professions: this.selectedProfessions, city: this.location }).subscribe((message: any) => {
+            if (message.error) {
+              this.message = "Došlo je do greške prilikom izmene profesija.";
+              this.err = 1;
+              return;
+            }
+            this.message = "Uspesno ste promenili podatke.";
+            this.err = 0;
             this.router.navigate(['/profil', this.cookieService.get('userId')]);
           });
-        })
-      })
+        });
+      });
     })
 
     console.log("ProfileSettings - update: END")
@@ -339,12 +352,22 @@ export class ProfileSettingsComponent {
   }
 
   removeCurrentImage() {
+    const image = this.images[this.imgIndex] as ImageItem;
+    let fullUrl: string | undefined;
+    if (typeof image.data?.src === 'string') {
+      fullUrl = image.data.src;
+    } else if (Array.isArray(image.data?.src) && image.data.src[0]?.url) {
+      fullUrl = image.data.src[0].url;
+    }
+    const urlPhoto = fullUrl?.replace(this.uri, '');
+  
     this.galleryRef.remove(this.imgIndex);
+    this.images.splice(this.imgIndex, 1); // Remove from local array
     if (this.imgIndex > 0) this.imgIndex -= 1;
     this.numberOfPhotos -= 1;
     this.imagesLoaded = true;
     this.cdr.detectChanges();
-    this.jobService.deleteImageFromGallery({ idUser: this.idUser, index: this.imgIndex }).subscribe((message: any) => {
+    this.jobService.deleteImageFromGallery({ idUser: this.idUser, urlPhoto: urlPhoto }).subscribe((message: any) => {
       console.log(message);
     });
   }
@@ -375,8 +398,8 @@ export class ProfileSettingsComponent {
 
   addPicturesJobInsert() {
     const formData = new FormData();
-    const MAX_SIZE = 2 * 1024 * 1024; // 2MB 
-    const MAX_IMAGES = 5;
+    const MAX_SIZE = 10 * 1024 * 1024; // 10MB 
+    const MAX_IMAGES = 20;
 
     formData.append('idUser', this.cookie);
 
@@ -390,10 +413,12 @@ export class ProfileSettingsComponent {
 
       Array.from(imageFiles).forEach((file: File) => {
         if (file.size > MAX_SIZE) {
-          console.warn(`Slika ${file.name} je prevelika (${(file.size / 1024 / 1024).toFixed(2)} MB). Maksimalna dozvoljena veličina je 2MB.`);
-          return;
+          alert(`Slika ${file.name} je prevelika (${(file.size / 1024 / 1024).toFixed(2)} MB). Maksimalna dozvoljena veličina je 10MB.`)
+          console.warn(`Slika ${file.name} je prevelika (${(file.size / 1024 / 1024).toFixed(2)} MB). Maksimalna dozvoljena veličina je 10MB.`);
         }
-        formData.append('images', file, file.name);
+        else {
+          formData.append('images', file, file.name);
+        }
       });
     }
 

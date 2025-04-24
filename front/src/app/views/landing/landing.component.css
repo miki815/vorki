@@ -242,18 +242,21 @@
 
 /* Dugme "Istraži" */
 .istrazi-dugme {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #274153;
-    color: white;
+    background-color: #fcfcfd;
+    color:#201e26;
     padding: 12px 24px;
-    border: none;
+    border: 1px solid #201e26;
     border-radius: 8px;
-    opacity: 0;
     transition: opacity 0.3s ease-in-out;
     z-index: 2;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.istrazi-dugme:hover{
+    transform: scale3d(1.05, 1.05, 1);
+    transition: transform 0.3s ease-in-out;
 }
 
 /* Prikazi dugme na hover */

@@ -94,7 +94,7 @@ export class JobController {
          * @description Get all jobs with user info from database
          * @returns {json} jobs
          */
-        var sql = 'SELECT job.id, job.profession, job.title, job.description, job.city, job.idUser, user.username, user.photo,'
+        var sql = 'SELECT job.id, job.profession, job.title, job.description, job.city, job.idUser, user.username, user.photo, user.firstName, user.lastName, user.type,'
         sql += 'COALESCE((SELECT AVG(rate) FROM rate r WHERE r.idUser = job.idUser GROUP BY r.idUser), 0) AS avgRate, job.type '
         sql += 'FROM job INNER JOIN user ON job.idUser = user.id;';
         pool.query(sql, (err, jobs) => {
@@ -399,14 +399,14 @@ export class JobController {
     // TODO
 
     deleteImageFromGallery = (req: express.Request, res: express.Response) => {
-        const { idUser, index } = req.body;
-        if (!idUser || !index) {
+        const { idUser, urlPhoto } = req.body;
+        if (!idUser || !urlPhoto) {
             return databaseFatalError(res, null, 'Missing required fields');
         }
-        const sql = 'DELETE FROM gallery WHERE idUser = ? AND index = ?';
-        pool.query(sql, [idUser, index], (err, _) => {
+        const sql = 'DELETE FROM gallery WHERE idUser = ? AND urlPhoto = ?';
+        pool.query(sql, [idUser, urlPhoto], (err, _) => {
             if (err) return databaseFatalError(res, err, 'Error deleting image from gallery');
-            logger.info({ idUser, index }, 'Deleting image from gallery');
+            logger.info({ idUser, urlPhoto }, 'Deleted image from gallery');
             return res.json({ message: "0" });
         });
     }
@@ -424,5 +424,90 @@ export class JobController {
         });
     }
 
+    updateUserProfessions = (req: express.Request, res: express.Response) => {
+        const { idUser, professions, city } = req.body;
+        logger.info({ idUser, professions, city }, 'Updating user professions');
+        if (!idUser || !professions) {
+            return databaseFatalError(res, null, 'Missing required fields');
+        }
+        // delete old professions if profession not in new professions
+        const sqlDelete = 'DELETE FROM job WHERE idUser = ? AND profession NOT IN (?)';
+        pool.query(sqlDelete, [idUser, professions], (err, _) => {
+            if (err) return databaseFatalError(res, err, 'Error deleting old professions');
+            for (let i = 0; i < professions.length; i++) {
+                if (typeof professions[i] !== 'string') {
+                    return databaseFatalError(res, null, 'Invalid profession type');
+                }
+                const checkSql = 'SELECT COUNT(*) AS count FROM job WHERE idUser = ? AND profession = ?';
+                pool.query(checkSql, [idUser, professions[i]], (err, results) => {
+                    if (err) return databaseFatalError(res, err, 'Error checking existing profession');
+                    if (results[0].count === 0) {
+                        const sql = 'INSERT INTO job (idUser, profession, city, type) VALUES (?, ?, ?, 0)';
+                        pool.query(sql, [idUser, professions[i], city], (err, _) => {
+                            if (err) return databaseFatalError(res, err, 'Error updating user professions');
+                            logger.info({ idUser, professions }, 'Updating user professions');
+                            if (i === professions.length - 1) {
+                                return res.json({ message: "0" });
+                            }
+                        });
+                    } else {
+                        if (i === professions.length - 1) {
+                            return res.json({ message: "0" });
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+
+    getPageJobs = (req: express.Request, res: express.Response) => {
+        /**
+         * @param {number} page
+         * @param {number} jobsPerPage
+         * @param {string} selectedCity
+         * @param {string} selectedProfession
+         * @param {string} selectedSort
+         * @description Get page of jobs from database
+         * @returns {json} jobs
+         */
+
+        const { page, jobsPerPage, selectedCity, selectedProfession, selectedSort } = req.body;
+        const offset = (page - 1) * jobsPerPage;
+        let sql = 'SELECT job.id, job.profession, job.title, job.description, job.city, job.idUser, user.username, user.photo, user.firstName, user.lastName, user.type,'
+        sql += 'COALESCE((SELECT AVG(rate) FROM rate r WHERE r.idUser = job.idUser GROUP BY r.idUser), 0) AS avgRate, job.type '
+        sql += 'FROM job INNER JOIN user ON job.idUser = user.id';
+
+        const conditions = [];
+        const params = [];
+
+        if (selectedCity) {
+            conditions.push('job.city = ?');
+            params.push(selectedCity);
+        }
+        if (selectedProfession) {
+            // conditions.push('job.profession = ?');
+            // params.push(selectedProfession);
+            conditions.push('job.profession LIKE ?');
+            params.push(`%${selectedProfession}%`);
+        }
+        if (conditions.length > 0) {
+            sql += ' WHERE ' + conditions.join(' AND ');
+        }
+        if (selectedSort === 'rate') {
+            sql += ' ORDER BY avgRate DESC';
+        } else if (selectedSort === 'city') {
+            sql += ' ORDER BY job.city ASC';
+        }
+
+        sql += ' LIMIT ?, ?';
+        params.push(offset, jobsPerPage);
+        logger.info({ sql, params }, 'Getting page of jobs');
+
+        pool.query(sql, params, (err, jobs) => {
+            if (err) return databaseFatalError(res, err, 'Error getting page of jobs');
+            return res.json({message: jobs});
+        });
+    }
 
 }

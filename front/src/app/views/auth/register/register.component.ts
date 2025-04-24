@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   name: string = null;
   surname: string = null;
   birthday: Date = null;
-  telephone: string = null;
+  phone: string = null;
   location: string = null;
   type: string = null;
   password: string = null;
@@ -48,12 +48,24 @@ export class RegisterComponent implements OnInit {
   }
 
   @ViewChild('dropdown') dropdownRef!: ElementRef;
+  @ViewChild('dropdownToggle') toggleRef!: ElementRef;
 
   ngAfterViewChecked() {
     if (this.isDropdownVisible && this.dropdownRef) {
       (this.dropdownRef.nativeElement as HTMLElement).focus({ preventScroll: true });
     }
   }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: MouseEvent) {
+    const clickedInsideDropdown = this.dropdownRef?.nativeElement.contains(event.target);
+    const clickedToggle = this.toggleRef?.nativeElement.contains(event.target);
+  
+    if (!clickedInsideDropdown && !clickedToggle) {
+      this.isDropdownVisible = false;
+    }
+  }
+
 
   getCities() {
     console.log('Register - getCities: START')
@@ -98,7 +110,8 @@ export class RegisterComponent implements OnInit {
             type: this.type,
             email: this.email.toLowerCase(),
             backPhoto: backPhoto,
-            selectedProfessions: this.selectedProfessions
+            selectedProfessions: this.selectedProfessions,
+            phone: this.phone,
           }
 
           this.userService.register(data).subscribe((response: any) => {
@@ -118,9 +131,10 @@ export class RegisterComponent implements OnInit {
   }
 
   verifyRequest() {
-    if (!this.firstName || !this.lastName || !this.policy || !this.location || (!this.type) || !this.password || !this.password1 || !this.email) {
+    if (!this.firstName || !this.lastName || !this.location || (!this.type) || !this.password || !this.password1 || !this.email) {
       this.message = "Niste uneli sve podatke."; return false;
     }
+    if (!this.policy) this.message = "Morate prihvatiti uslove korišćenja.";
     if (this.firstName.length < 3) { this.message = "Ime je prekratko, mora imati najmanje 3 karaktera."; return false; }
     if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(this.email)) { this.message = "Email nije u dobrom formatu."; return false; }
     // if (this.name.length < 2) { this.message = "Ime je prekratko, mora imati najmanje 2 karaktera."; return false; }

@@ -27,6 +27,11 @@
         <input [(ngModel)]="email" name="email" type="email" class="form-input" placeholder="Email" required />
       </div>
 
+      <!-- PHONE -->
+      <div class="form-group">
+        <input [(ngModel)]="phone" name="phone" type="text" class="form-input" placeholder="Broj telefona" required />
+      </div>
+
       <!-- LOCATION -->
       <div class="form-group">
         <!-- <label class="text-white">Lokacija</label> -->
@@ -58,7 +63,7 @@
           </div>
           <div class="flex items-center">
             <input [(ngModel)]="type" name="type" value="0" type="radio" class="radio-input" />
-            <label class="text-white">Majstor</label>
+            <label class="text-white">Majstor/Stručnjak</label>
           </div>
         </div>
       </div>
@@ -67,10 +72,10 @@
       <div *ngIf="type == 0" class="form-group">
         <label class="text-white">Poslovi kojima se bavite</label>
         <div class="dropdown relative">
-          <input type="text" name="profess" [(ngModel)]="searchTerm" (focus)="showProfessions()"
-            (input)="filterProfessions()" class="form-input" placeholder="Pretraži zanimanja..." />
+          <input type="text" #dropdownToggle name="profess" [(ngModel)]="searchTerm" (focus)="showProfessions()"
+            (input)="filterProfessions()" class="form-input" placeholder="Označite zanimanja kojima se bavite..." />
 
-          <div *ngIf="isDropdownVisible" #dropdown tabindex="0" style="-webkit-overflow-scrolling: touch;"
+          <div *ngIf="isDropdownVisible" #dropdown style="-webkit-overflow-scrolling: touch;"
             class="dropdown-menu absolute bg-white z-10 border rounded w-full max-h-60 overflow-y-auto mt-1 shadow-lg">
             <div class="flex justify-end p-2">
               <button class="text-red-500 font-bold" (click)="hideProfessions()">✖</button>
@@ -124,8 +129,9 @@
 
       <!-- SUBMIT BUTTON -->
       <div class="text-center mt-6">
-        <button (click)="onSubmit()" class="submit-button">Registrujte se</button>
+        <button class="submit-button" type="submit">Registrujte se</button>
       </div>
+      <!-- (click)="onSubmit()" -->
 
       <!-- LOGIN LINK -->
       <div class="text-center mt-4 text-sm text-blueGray-200">

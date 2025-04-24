@@ -39,4 +39,5 @@ userRouter.route('/support').post((req, res) => new user_controller_1.UserContro
 userRouter.route('/verify-user').post((req, res) => new user_controller_1.UserController().verifyUser(req, res));
 userRouter.route('/verify-token').post((req, res) => new user_controller_1.UserController().verifyToken(req, res));
 userRouter.route('/isUserSubscribed').get(auth_1.authenticateToken, (req, res) => new user_controller_1.UserController().isUserSubscribed(req, res));
+userRouter.route('/getTop3Masters').post((req, res) => new user_controller_1.UserController().getTop3Masters(req, res));
 exports.default = userRouter;

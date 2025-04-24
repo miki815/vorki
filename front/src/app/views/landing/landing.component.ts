@@ -33,6 +33,7 @@ export class LandingComponent implements OnInit, AfterViewInit {
   selectedCity: string = '';
   professions = [];
   filteredProfessions = [];
+  topProfessions: any[] = [];
   selectedProfession: string = '';
   filteredCities: any;
   professionsCount: { [categories: string]: number } = {};
@@ -79,10 +80,9 @@ export class LandingComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.login = this.cookieService.get('userId') ? 1 : 0;
     this.userId = this.cookieService.get('userId');
-    this.userService.getTop5masters().subscribe((data: any) => {
-      this.topMasters = data['top5'];
-      console.log(this.topMasters);
-    });
+    // this.userService.getTop5masters().subscribe((data: any) => {
+    //   this.topMasters = data['top5'];
+    // });
     this.getJobs();
     this.getCities();
     this.getCraftmen();
@@ -104,7 +104,6 @@ export class LandingComponent implements OnInit, AfterViewInit {
   }
 
   send() {
-    console.log('Support - submit: START')
     if (!this.nameAndSurname || !this.contact || !this.message) {
       this.msg = "Niste popunili sva polja.";
       return;
@@ -117,23 +116,21 @@ export class LandingComponent implements OnInit, AfterViewInit {
       message: this.message,
       nameAndSurname: this.nameAndSurname
     }
-    console.log(data);
     this.userService.support(data).subscribe((response: any) => {
       if (response['message'] == "0") {
-        this.sentMsg = "Naš tim je primio vašu poruku. Odgovorićemo vam u najkraćem roku.";
+        this.sentMsg = "Naš tim je primio Vašu poruku. Odgovorićemo Vam u najkraćem roku.";
         return;
       } else {
         this.msg = "Problemi sa serverom. Molimo vas pokušajte kasnije.";
       }
-      console.log('Support - submit: END')
     });
   }
 
   subscribeToNotifications() {
-    if (!this.swPush.isEnabled) {
-      console.error('Push notifications are not enabled');
-      return;
-    }
+    // if (!this.swPush.isEnabled) {
+    //   console.error('Push notifications are not enabled');
+    //   return;
+    // }
 
     this.swPush
       .requestSubscription({
@@ -149,13 +146,12 @@ export class LandingComponent implements OnInit, AfterViewInit {
 
         this.http.post(`${this.uri}/save-subscription`, payload).subscribe({
           next: () => {
-            console.log('Subscription saved successfully')
             this.isSubscribed = true;
           },
-          error: (err) => console.error('Failed to save subscription:', err),
+          // error: (err) => console.error('Failed to save subscription:', err),
         });
       })
-      .catch((err) => console.error('Failed to subscribe to notifications:', err));
+      // .catch((err) => console.error('Failed to subscribe to notifications:', err));
   }
 
   category_navigation(id: number) {
@@ -169,22 +165,18 @@ export class LandingComponent implements OnInit, AfterViewInit {
     }
     this.jobService.getTop3Jobs(this.searchQuery).subscribe((data: any) => {
       this.topJobs = data['jobs'];
-      console.log(this.topJobs);
     });
   }
 
   job_navigation(id: number) {
-    console.log(id + " id");
-    this.router.navigate(['/oglasi', id]);
+    this.router.navigate(['/profil', id]);
   }
 
   getJobs() {
-    console.log("JobListing - getJobs: START")
     this.jobService.getJobsWithUserInfo2().subscribe((jobs: any) => {
       this.allJobs = jobs;
       // this.filterJobs();
     });
-    console.log("JobListing - getJobs: END")
   }
 
   filterJobs() {
@@ -195,16 +187,12 @@ export class LandingComponent implements OnInit, AfterViewInit {
   }
 
   filterCities() {
-    console.log('Register - filterCities: START')
-    console.log('Search query:', this.searchQuery)
-    console.log('Cities:', this.cities[0])
     this.filteredCities = this.cities.filter(city =>
       city.city.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
   }
 
   getCraftmen() {
-    console.log("JobListing - getCraftmen: START")
 
     fetch('assets/craftsmen.json')
       .then(response => response.json())
@@ -217,14 +205,12 @@ export class LandingComponent implements OnInit, AfterViewInit {
         this.getMastersCount(this.professions);
       })
       .catch(error => {
-        console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):', error);
+        // console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):');
       });
 
-    console.log("JobListing - getCraftmen: END")
   }
 
   getCities() {
-    console.log("JobListing - getCities: START")
 
     fetch('assets/city.json')
       .then(response => response.json())
@@ -234,10 +220,9 @@ export class LandingComponent implements OnInit, AfterViewInit {
         this.filteredCities = this.cities;
       })
       .catch(error => {
-        console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradiva):', error);
+        // console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradiva):');
       });
 
-    console.log("JobListing - getCities: END")
   }
 
   getMastersCount(categories) {
@@ -245,11 +230,14 @@ export class LandingComponent implements OnInit, AfterViewInit {
       jobsArray: categories
     }
     this.jobService.getMastersCount(data).subscribe((data: any) => {
-      console.log(data);
       for (let i = 0; i < data.length; i++) {
         this.professionsCount[data[i].profession] = data[i].count
       }
-      console.log(this.professionsCount);
+      // get topProfessions
+      this.topProfessions = Object.entries(this.professionsCount)
+        .sort(([, countA], [, countB]) => countB - countA)
+        .slice(0, 12)
+        .map(([profession]) => profession);
     });
   }
 
@@ -268,6 +256,17 @@ export class LandingComponent implements OnInit, AfterViewInit {
 
   onIndexChange(event: GalleryState) {
     this.imgIndex = event.currIndex
+  }
+
+  getTop3Masters() {
+    let data = {
+      selectedCity: this.selectedCity,
+      selectedProfession: this.selectedProfession
+    }
+
+    this.userService.getTop3Masters(data).subscribe((data: any) => {
+      this.topMasters = data['top3'];
+    });
   }
 
 }

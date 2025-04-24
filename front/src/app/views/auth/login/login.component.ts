@@ -36,6 +36,7 @@ export class LoginComponent {
         // this.cookieService.set('token', JSON.stringify(response['id']), 30, '/');
         this.cookieService.set('token', response['token'], 30, '/');
         this.cookieService.set('userId', response['userId'], 30, '/');
+        this.cookieService.set('userType', response['userType'], 30, '/');
         localStorage.setItem('token', response['token']);
         this.router.navigate(["pocetna"]);
       } else { this.message = response['message']; }

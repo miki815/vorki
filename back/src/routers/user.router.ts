@@ -97,4 +97,8 @@ userRouter.route('/isUserSubscribed').get(
     authenticateToken, (req, res) => new UserController().isUserSubscribed(req, res)
 )
 
+userRouter.route('/getTop3Masters').post(
+    (req, res) => new UserController().getTop3Masters(req, res)
+)
+
 export default userRouter;

@@ -7,6 +7,7 @@ button {
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s ease;
+    text-align: center;
 }
 
 .img-file-input {
@@ -123,4 +124,9 @@ input[type="file"].hidden {
 
 .dropdown-item:hover {
     background-color: #201e26;
+}
+
+#red-btn {
+    background: #ce3434;
+    color: #fcfcfd
 }

@@ -40,12 +40,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: #eead2b;
-    border: 2px solid #9f9f9f;
+    /* background: #fcfcfd; */
+
+    border: 2px solid #eead2b;
     border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
 }
 
 .category-card:hover {

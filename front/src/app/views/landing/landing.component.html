@@ -24,14 +24,14 @@
               <div class="inputs-wrapper" *ngIf="!idUser">
                 <!-- City input -->
                 <input [(ngModel)]="selectedCity" list="cities" name="citySearch" id="citySearch" placeholder="Grad..."
-                  class="input-style" (input)="filterJobs()" />
+                  class="input-style" (change)="getTop3Masters()" />
                 <datalist id="cities">
                   <option *ngFor="let city of filteredCities" [value]="city.city"></option>
                 </datalist>
 
                 <!-- Profession input -->
                 <input [(ngModel)]="selectedProfession" list="professions" name="professionSearch" id="professionSearch"
-                  placeholder="Profesija..." class="input-style" (input)="filterJobs()" />
+                  placeholder="Profesija..." class="input-style" (change)="getTop3Masters()" />
                 <datalist id="professions">
                   <option *ngFor="let profession of professions" [value]="profession"></option>
                 </datalist>
@@ -39,16 +39,20 @@
 
               <!-- Leva strana – kartice -->
               <div class="cards-wrapper">
-                <div class="job-card" *ngFor="let job of topJobs.slice(0, 3)">
-                  <div class="job-inner"  [ngStyle]="{'background-image': 'url(' + job.urlPhoto + ')'}" (click)="job_navigation(job.id)">
+                <div class="job-card" *ngFor="let job of topMasters.slice(0, 3)">
+                  <div class="job-inner" [ngStyle]="{'background-image': 'url(' + job.urlPhoto + ')'}"
+                    (click)="job_navigation(job.id)">
                     <div class="px-4 py-5 flex-auto content">
                       <div
                         class="text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blueGray-200 border-zlatna border-solid border-2 overflow-hidden">
                         <img [src]="job.photo" alt="Profilna" class="w-full h-full object-cover">
                       </div>
-                      <h6 class="text-xl font-bold text-zlatna">{{job.title}}</h6>
+                      <h6 class="text-xl font-bold text-basic">{{ job.firstname }} {{ job.lastname }}</h6>
+                      <p class="mt-1 text-sm font-semibold text-zlatna">
+                        Ocena: {{ job.rate | number:'1.2-2' }}
+                      </p>
                     </div>
-                    <!-- <button class="istrazi-dugme" (click)="job_navigation(job.id)">Istraži</button> -->
+                    <button class="istrazi-dugme" (click)="job_navigation(job.id)">Pogledaj profil</button> 
                   </div>
                 </div>
               </div>
@@ -307,7 +311,7 @@
       </h1>
     </div>
     <div class="cards-grid">
-      <div class="category-card" *ngFor="let category of professions | slice:0:12">
+      <div class="category-card" *ngFor="let category of topProfessions | slice:0:12">
         <div class="card-header">
           <img src="assets/img/logon.png" alt="Logo">
         </div>

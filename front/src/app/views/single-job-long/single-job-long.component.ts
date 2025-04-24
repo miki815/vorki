@@ -347,4 +347,5 @@ export class SingleJobLongComponent implements OnInit {
     console.log('Calling phone number:', phoneNumber);
     window.location.href = `tel:${phoneNumber}`;
   }
+
 }

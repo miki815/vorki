@@ -16,13 +16,17 @@ export class MainNavbarComponent implements OnInit {
   notificationsEnabled = false;
   showAnimation = true;
   readonly VAPID_PUBLIC_KEY = "BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg";
-
+  userId: string = "";
+  userType: string = "";
 
 
   constructor(private router: Router, private cookieService: CookieService, private route: ActivatedRoute, private notificationService: NotificationService, private swPush: SwPush, private userService: UserService) { }
 
   ngOnInit(): void {
     this.login = this.cookieService.get('userId') ? 1 : 0;
+    this.userId = this.cookieService.get('userId');
+    this.userType = this.cookieService.get('userType');
+
     const savedState = localStorage.getItem('notificationsEnabled');
     this.userService.isUserSubscribed().subscribe({
       next: response => this.notificationsEnabled = response['subscribed'],

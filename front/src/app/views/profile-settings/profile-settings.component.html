@@ -33,17 +33,18 @@
           </div>
 
           <!-- <div class="flex justify-center items-center min-h-screen bg-gray-100"> -->
-            <div class="w-full max-w-2xl p-6 bg-white rounded-2xl shadow-lg mt-4 mb-2">
-              <h2 class="text-2xl font-bold text-center text-crna">Reci nešto o sebi</h2>
-              <textarea [(ngModel)]="infoText" name="infoText"
-                placeholder="Opiši sebe, iskustvo, veštine ili šta god želiš da potencijalni korisnici znaju o tebi..." rows="8"
-                class="w-full p-4 border border-gray-300 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-crna"></textarea>
-            </div>
+          <div class="w-full max-w-2xl p-6 bg-white rounded-2xl shadow-lg mt-4 mb-2">
+            <h2 class="text-2xl font-bold text-center text-crna">Opišite poslove kojima se bavite</h2>
+            <textarea [(ngModel)]="infoText" name="infoText"
+              placeholder="Opišite sebe, iskustvo, veštine ili šta god želite da potencijalni korisnici znaju o Vama..."
+              rows="8"
+              class="w-full p-4 border border-gray-300 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-crna"></textarea>
+          </div>
           <!-- </div> -->
 
 
           <div class="flex flex-wrap">
-            <div class="w-full lg:w-6/12 px-4">
+            <!-- <div class="w-full lg:w-6/12 px-4">
               <div class="relative w-full mb-3">
                 <label class="block uppercase text-basic text-xs font-semibold mb-2" htmlFor="grid-password">
                   Korisničko ime
@@ -52,7 +53,7 @@
                   class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 border-2 border-solid border-zlatna"
                   value="{{username}}" [(ngModel)]="username" name="username" />
               </div>
-            </div>
+            </div> -->
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative w-full mb-3">
                 <label class="block uppercase text-basic text-xs font-semibold mb-2" htmlFor="grid-password">
@@ -167,13 +168,12 @@
             <gallery id="{{galleryId}}" class="bg-crna" (indexChange)="onIndexChange($event)" *ngIf="imagesLoaded">
             </gallery>
             <div class="flex justify-center">
-              <!-- <button class="m-2" (click)="removeCurrentImage()" *ngIf="imagesLoaded">Ukloni ovu sliku</button> -->
+              <button class="m-2" id="red-btn" (click)="removeCurrentImage()" *ngIf="imagesLoaded">Ukloni trenutnu sliku</button>
               <label class="m-2 img-file-input">
-                Dodaj slike
+                Dodaj slike (maks veličina slike je 10MB)
                 <input type="file" id="images" (change)="onFileSelected($event)" multiple hidden />
               </label>
             </div>
-            <!-- <button class="m-2 bg-crna" (click)="addImages()">Dodaj slike</button> -->
           </div>
 
           <div class="flex flex-wrap">

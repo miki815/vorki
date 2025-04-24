@@ -93,4 +93,12 @@ jobRouter.route('/uploadImage').post(
     authenticateToken, (req, res) => new JobController().uploadImage(req, res)
 )
 
+jobRouter.route('/updateUserProfessions').post(
+    authenticateToken, (req, res) => new JobController().updateUserProfessions(req, res)
+)
+
+jobRouter.route('/getPageJobs').post(
+    (req, res) => new JobController().getPageJobs(req, res)
+)
+
 export default jobRouter;

@@ -155,8 +155,8 @@
       [routerLinkActiveOptions]="{exact: true}">POČETNA STRANA</a>
     <span class="separator text-siva">|</span>
     <a [routerLink]="['/dodaj_oglas']" class="text-basic" routerLinkActive="text-zlatna"
-      (click)="navigateToAddJob()">DODAJ OGLAS</a>
-    <span class="separator text-siva">|</span>
+      (click)="navigateToAddJob()" *ngIf="userType == 1">DODAJ OGLAS</a>
+    <span class="separator text-siva" *ngIf="userType == 1">|</span>
     <a [routerLink]="['/izbor-kategorije']" class="text-basic" routerLinkActive="text-zlatna"
       (click)="navigateToJobListing()">SVI
       OGLASI</a>

@@ -89,12 +89,12 @@ export class JobService {
     return this.http.post(`${this.uri}/jobs/changeJobLocationForUser`, data, { headers });
   }
 
-  sendOffer(data){
+  sendOffer(data) {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
     return this.http.post(`${this.uri}/jobs/sendOffer`, data, { headers });
   }
 
-  checkUserRequestForAgreement(data){
+  checkUserRequestForAgreement(data) {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
     return this.http.post(`${this.uri}/jobs/checkUserRequestForAgreement`, data, { headers });
   }
@@ -104,8 +104,8 @@ export class JobService {
     return this.http.get(`${this.uri}/jobs/getTop3Jobs`, { params });
   }
 
-  getJobsCountByStatus(data){
-    return this.http.post(`${this.uri}/jobs/getJobsCountByStatus`, data);  
+  getJobsCountByStatus(data) {
+    return this.http.post(`${this.uri}/jobs/getJobsCountByStatus`, data);
   }
 
   deleteImageFromGallery(data) {
@@ -116,5 +116,14 @@ export class JobService {
   uploadImage(data) {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
     return this.http.post(`${this.uri}/jobs/uploadImage`, data, { headers });
+  }
+
+  updateUserProfessions(data) {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);
+    return this.http.post(`${this.uri}/jobs/updateUserProfessions`, data, { headers });
+  }
+
+  getPageJobs(data) {
+    return this.http.post(`${this.uri}/jobs/getPageJobs`, data);
   }
 }

@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { SwPush } from "@angular/service-worker";
 import { CookieService } from "ngx-cookie-service";
 import { NotificationService } from "src/app/services/notification.service";
+import { UserService } from "src/app/services/user.service";
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -16,7 +17,11 @@ export class ContactComponent {
   uri: string = 'https://vorki.rs';
   // uri: string = environment.uri;
   userId: string;
-  constructor(private swPush: SwPush, private http: HttpClient, private notificationService: NotificationService, private cookieService: CookieService) { }
+  name: string = "";
+  email: string = "";
+  message: string = "";
+  infoMsg: string = "";
+  constructor(private swPush: SwPush, private http: HttpClient, private notificationService: NotificationService, private cookieService: CookieService, private userService: UserService) { }
 
   ngOnInit() {
     this.userId = this.cookieService.get('userId');
@@ -33,9 +38,9 @@ export class ContactComponent {
     // }
     // else console.error('Service Worker not supported');
 
-     Notification.requestPermission().then(permission => {
-    //   console.log(permission);
-     });
+    Notification.requestPermission().then(permission => {
+      //   console.log(permission);
+    });
 
   }
 
@@ -60,20 +65,20 @@ export class ContactComponent {
   }
 
   subscribeToNotifications() {
-     console.log("subscribeToNotifications called");
-     this.swPush.requestSubscription({
-       serverPublicKey: this.VAPID_PUBLIC_KEY
-     })
-       .then(sub => {
-         console.log("Subscription successful", sub);
-         this.notificationService.subscribe_to_notifications(sub).subscribe({
-           next: response => console.log('Subscription sent to server successfully', response),
-           error: error => console.error('Failed to send subscription to server', error)
-         });
-       })
-       .catch(err => {
-         console.error('Subscription failed:', err);
-       });
+    console.log("subscribeToNotifications called");
+    this.swPush.requestSubscription({
+      serverPublicKey: this.VAPID_PUBLIC_KEY
+    })
+      .then(sub => {
+        console.log("Subscription successful", sub);
+        this.notificationService.subscribe_to_notifications(sub).subscribe({
+          next: response => console.log('Subscription sent to server successfully', response),
+          error: error => console.error('Failed to send subscription to server', error)
+        });
+      })
+      .catch(err => {
+        console.error('Subscription failed:', err);
+      });
     //  this.notificationService.subscribeToNotifications();
   }
 
@@ -127,6 +132,29 @@ export class ContactComponent {
     this.notificationService.trigger_event(eventData).subscribe({
       next: () => console.log('Event triggered successfully'),
       error: (err) => console.error('Failed to trigger event:', err),
+    });
+  }
+
+  send() {
+    if (!this.name || !this.email || !this.message) {
+      this.infoMsg = "Niste popunili sva polja.";
+      return;
+    }
+    // if ((!/^381\d{8,9}$/.test(this.contact.slice(1)) || this.contact[0] != "+")
+    //   && !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(this.contact)) { this.msg = "Mobilni telefon ili email nije u dobrom formatu. \n Format broja telefona: +381xxxxxxxxx"; return; }
+    this.infoMsg = "";
+    const data = {
+      contact: this.email,
+      message: this.message,
+      nameAndSurname: this.name
+    }
+    this.userService.support(data).subscribe((response: any) => {
+      if (response['message'] == "0") {
+        this.infoMsg = "Naš tim je primio Vašu poruku. Odgovorićemo Vam u najkraćem roku.";
+        return;
+      } else {
+        this.infoMsg = "Problemi sa serverom. Molimo vas pokušajte kasnije.";
+      }
     });
   }
 }

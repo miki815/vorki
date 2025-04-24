@@ -8,13 +8,13 @@ import { NavigationExtras, Router } from '@angular/router';
 export class SingleJobShortComponent implements OnInit{
   @Input() job: any;
   imageSrc: string;
-  shortDescription: string;
+  shortDescription: string = "";
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.imageSrc = this.job.photo;
-    this.shortDescription = this.job.description.substring(0, 100) + '...';
+    if(this.job.description) this.shortDescription = this.job.description.substring(0, 100) + '...';
   }
 
   locateToJob() {
@@ -24,7 +24,8 @@ export class SingleJobShortComponent implements OnInit{
         job: this.job
       }
     };
-    this.router.navigate(['/oglasi/', this.job.id], navigationExtras);
+    // this.router.navigate(['/oglasi/', this.job.id], navigationExtras);
+    this.router.navigate(['/profil/', this.job.idUser]);
   }
 
 }

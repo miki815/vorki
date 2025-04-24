@@ -42,6 +42,7 @@ export class JobListingComponent implements OnInit {
       this.idUser = params.get('idU');
       this.getCities();
       this.getCraftmen();
+      // this.loadJobs();
       this.getJobs();
     });
 
@@ -109,6 +110,24 @@ export class JobListingComponent implements OnInit {
   }
 
   nextPage() {
+    // const data = {
+    //   page: this.currentPage + 1,
+    //   jobsPerPage: this.jobsPerPage,
+    //   selectedCity: this.selectedCity,
+    //   selectedProfession: this.selectedProfession,
+    //   selectedSort: this.selectedSort
+    // };
+    // this.jobService.getPageJobs(data).subscribe((response) => {
+    //   if(response['message'].length != 0) {
+    //     this.jobs = response['message'];
+    //     this.allJobs = response['message'];
+    //     this.currentPage++;
+    //     console.log(this.jobs);
+    //   }
+    //   else {
+    //     this.currentPage = 1;
+    //   }
+    // });
     if (this.jobs.length > this.currentPage * this.jobsPerPage) this.currentPage++;
     this.moveToTop();
   }
@@ -137,6 +156,24 @@ export class JobListingComponent implements OnInit {
     );
   }
 
+  loadJobs() {
+    const data = {
+      page: this.currentPage,
+      jobsPerPage: this.jobsPerPage,
+      selectedCity: this.selectedCity,
+      selectedProfession: this.selectedProfession,
+      selectedSort: this.selectedSort
+    };
+    this.jobService.getPageJobs(data).subscribe((response) => {
+      this.jobs = this.allJobs = response['message'];
+      console.log(this.jobs);
+      // this.totalJobs = response.total; // za paginaciju ako trebaš
+    });
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.jobs.length / this.jobsPerPage);
+  }
 
 }
 

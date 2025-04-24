@@ -1,6 +1,6 @@
 @media screen and (max-width: 1025px) {
   .c {
-    margin-top: 70px;
+    margin-top: 10px;
   }
 }
 
@@ -144,5 +144,11 @@ table.items-center tr:nth-child(even) {
     margin: 0 auto;
     justify-content: center;
     align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-picture-wrapper {
+    margin-top: 1.5rem; /* 24px */
   }
 }
