@@ -1,0 +1,12 @@
+<div class="cookie-banner" *ngIf="isVisible">
+    <div class="cookie-content">
+        <p>Ova stranica koristi kolačiće kako bi vam pružila bolje korisničko iskustvo. Prihvatanjem pristajete na
+            korišćenje kolačića u skladu sa našom Politikom privatnosti.</p>
+        <div class="cookie-actions">
+            <button (click)="acceptCookies()">Prihvati sve</button>
+            <button (click)="acceptNecessaryCookies()">Prihvati neophodne</button>
+            <button (click)="rejectCookies()">Odbij</button>
+            <a href="/politika-privatnosti" class="cookie-link">Saznaj više</a>
+        </div>
+    </div>
+</div>

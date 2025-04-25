@@ -1,5 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, isDevMode } from "@angular/core";
+import { NgcCookieConsentModule, NgcCookieConsentConfig } from 'ngx-cookieconsent';
+
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -70,6 +72,32 @@ import { RecurrenceEditorModule, ScheduleModule, DayService, WeekService, WorkWe
 import { JobSettingsComponent } from "./views/job-settings/job-settings.component";
 import { JobCardsComponent } from "./views/job-cards/job-cards.component";
 import { ContactComponent } from "./views/contact/contact.component";
+import { CookieBannerComponent } from "./views/cookie-banner/cookie-banner.component";
+
+
+const cookieConfig: NgcCookieConsentConfig = {
+  cookie: {
+    // domain: 'vorki.rs'
+    domain: ''
+  },
+  palette: {
+    popup: {
+      background: '#000'
+    },
+    button: {
+      background: '#f1d600'
+    }
+  },
+  theme: 'classic',
+  type: 'opt-in',
+  content: {
+    message: 'Ova stranica koristi kolačiće za poboljšanje korisničkog iskustva.',
+    dismiss: 'U redu',
+    deny: 'Odbijam',
+    link: 'Saznaj više',
+    href: 'https://www.cookiesandyou.com'
+  }
+};
 
 
 
@@ -122,7 +150,8 @@ import { ContactComponent } from "./views/contact/contact.component";
     CalendarComponent,
     JobSettingsComponent,
     JobCardsComponent,
-    ContactComponent
+    ContactComponent,
+    CookieBannerComponent
   ],
   imports: [
     FormsModule,
@@ -133,6 +162,7 @@ import { ContactComponent } from "./views/contact/contact.component";
     CommonModule,
     ScheduleModule,
     RecurrenceEditorModule,
+    NgcCookieConsentModule.forRoot(cookieConfig),
     // CalendarModule.forRoot({
     //   provide: DateAdapter,
     //   useFactory: adapterFactory,

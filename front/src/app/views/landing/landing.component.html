@@ -60,8 +60,7 @@
 
             <!-- Desna strana – galerija -->
             <div class="gallery-wrapper" *ngIf="imagesLoaded">
-              <gallery id="{{galleryId}}" class="bg-crna" (indexChange)="onIndexChange($event)"
-                [options]="galleryConfig"></gallery>
+              <gallery id="{{galleryId}}" class="bg-crna" (indexChange)="onIndexChange($event)"></gallery>
             </div>
           </div>
 

@@ -6,6 +6,7 @@ import { SwPush } from "@angular/service-worker";
 import { HttpClient } from "@angular/common/http";
 import { JobService } from 'src/app/services/job.service';
 import { Gallery, GalleryConfig, GalleryItem, GalleryRef, GalleryState, ImageItem } from 'ng-gallery';
+import { NgcCookieConsentService } from 'ngx-cookieconsent';
 
 
 
@@ -75,7 +76,7 @@ export class LandingComponent implements OnInit, AfterViewInit {
     });
   }
 
-  constructor(private userService: UserService, private cookieService: CookieService, private router: Router, private route: ActivatedRoute, private swPush: SwPush, private http: HttpClient, private jobService: JobService, private gallery: Gallery) { }
+  constructor(private userService: UserService, private cookieService: CookieService, private router: Router, private route: ActivatedRoute, private swPush: SwPush, private http: HttpClient, private jobService: JobService, private gallery: Gallery, private ccService: NgcCookieConsentService) { }
   login: number = 1;
   ngOnInit(): void {
     this.login = this.cookieService.get('userId') ? 1 : 0;
@@ -267,6 +268,11 @@ export class LandingComponent implements OnInit, AfterViewInit {
     this.userService.getTop3Masters(data).subscribe((data: any) => {
       this.topMasters = data['top3'];
     });
+  }
+
+  showPopupAgain() {
+    this.ccService.clearStatus(); 
+    this.ccService.open();
   }
 
 }
