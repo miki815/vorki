@@ -32,7 +32,7 @@ const upload = (0, multer_1.default)({ storage });
 // SERVING APP
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
-    origin: ['https://vorki.rs', 'http://localhost:4200'],
+    origin: ['https://vorki.rs', 'http://localhost:4200', 'https://www.vorki.rs'],
     credentials: true
 }));
 app.use(body_parser_1.default.json({ limit: '100mb' }));
@@ -81,6 +81,31 @@ app.post('/upload', upload.array('images', 10), (req, res) => {
                 message: 'Uspešno sačuvano!',
                 data: {
                     idUser: idUser,
+                    images: imagePaths,
+                }
+            });
+        });
+    });
+});
+// INSERT PICTURES FOR JOBS
+app.post('/uploadJobPictures', upload.array('images', 10), (req, res) => {
+    if (!req.files || !req.body.idJob) {
+        return res.status(400).send('Nedostaju fajlovi ili ID posla.');
+    }
+    const idJob = req.body.idJob;
+    const imagePaths = req.files.map(file => '/uploads/' + file.filename);
+    const insertQuery = 'INSERT INTO gallery (idJob, urlPhoto) VALUES ?';
+    const values = imagePaths.map(path => [idJob, path]);
+    pool.getConnection((err, connection) => {
+        connection.query(insertQuery, [values], (err, result) => {
+            if (err) {
+                console.error('Greška pri unosu u bazu:', err);
+                return res.status(500).json({ error: 'Greška pri čuvanju podataka u bazi.' });
+            }
+            res.status(201).json({
+                message: 'Uspešno sačuvano!',
+                data: {
+                    idJob: idJob,
                     images: imagePaths,
                 }
             });

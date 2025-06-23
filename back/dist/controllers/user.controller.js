@@ -25,8 +25,8 @@ const SECRET_KEY = process.env.JWT_SECRET || 'moj_tajni_kljuc';
 const logger = require('../logger');
 const moment = require('moment');
 const jwt = require('jsonwebtoken');
-const emailBody = `
-Poštovani,
+const emailBodyMaster = `
+Poštovani/a,
 
 Hvala što ste se registrovali na Vorki!
 
@@ -45,7 +45,28 @@ Za bilo kakvu pomoć, tu smo:
 
 
 Srdačno,
-Vorki tim`;
+Vaš Vorki.rs tim`;
+const emailBodyUser = `
+Dobrodošli na Vorki.rs – pronađite pouzdane majstore brzo i lako! 🛠️
+
+
+
+Poštovani/a,
+
+Hvala što ste se registrovali na Vorki.rs – mesto gde se kvalitetni majstori i korisnici lako pronalaze!
+
+Od sada možete:
+🔎 Brzo pronaći proverenog majstora u svom gradu
+📝 Objaviti besplatan oglas sa detaljima posla koji vam je potreban
+💬 Komunicirati direktno sa majstorima
+⭐ Ocenjivati i deliti iskustva sa drugima
+
+Sve je kreirano tako da vam olakšamo potragu za pouzdanim profesionalcima – bilo da vam treba električar, moler, vodoinstalater ili neko drugi.
+
+Ako vam je potrebna pomoć ili imate pitanja, slobodno nas kontaktirajte na support@vorki.rs.
+
+Dobrodošli u Vorki zajednicu!
+Vaš Vorki.rs tim`;
 function databaseFatalError(res, err, msg) {
     logger.error({ err }, msg);
     return res.json({ error: 1, message: "Fatal error: " + err });
@@ -169,7 +190,7 @@ class UserController {
                                 from: "support@vorki.rs",
                                 to: email,
                                 subject: 'Dobrodošli na Vorki - Vaša registracija je uspešna!',
-                                text: emailBody,
+                                text: type == '0' ? emailBodyMaster : emailBodyUser,
                             };
                             transporter.sendMail(mailOptions, function (err, info) {
                                 if (err)
@@ -193,7 +214,7 @@ class UserController {
             if (!id || !Number.isInteger(Number(id))) {
                 return databaseFatalError(res, null, 'getUserById failed: Invalid userID');
             }
-            const sql = 'SELECT username, firstname, lastname, birthday, phone, location, email, photo, backPhoto, type, instagram, facebook, info, distance FROM user WHERE id = ?';
+            const sql = 'SELECT username, firstname, lastname, birthday, phone, location, email, photo, backPhoto, type, instagram, facebook, info, distance, rate, profile_clicks, phone_clicks FROM user WHERE id = ?';
             server_1.pool.query(sql, [id], (err, user) => {
                 if (err)
                     return databaseFatalError(res, err, 'getUserById failed');
@@ -358,8 +379,17 @@ class UserController {
                     logger.error({ idUser, idRater, rate, error: err }, "rate failed: Database error");
                     return databaseFatalError(res, err, 'rate failed');
                 }
-                logger.info({ idUser, idRater, rate }, 'rate added or updated');
-                res.json({ error: 0 });
+                const sqlUpdateAvg = `
+                UPDATE user
+                SET rate = (SELECT ROUND(AVG(rate), 2) FROM rate WHERE idUser = ?)
+                WHERE id = ?
+            `;
+                server_1.pool.query(sqlUpdateAvg, [idUser, idUser], (err) => {
+                    if (err)
+                        return databaseFatalError(res, err, 'Error updating user average rating');
+                    logger.info({ idUser, idRater, rate }, 'rate added or updated');
+                    return res.json({ error: 0, message: 'Rating saved and average updated' });
+                });
             });
         };
         this.getRateByIdUser = (req, res) => {
@@ -403,7 +433,7 @@ class UserController {
              * @returns {json} - success or error message
              */
             const { idUser, password, newPassword } = req.body;
-            logger.info({ idUser }, 'changePassword attempt');
+            logger.info({ idUser, password, newPassword }, 'changePassword attempt');
             if (!idUser || !password || !newPassword) {
                 return res.status(400).json({ error: 1, message: "Missing required fields" });
             }
@@ -422,15 +452,17 @@ class UserController {
                         logger.warn({ idUser }, 'Invalid old password for changePassword');
                         return res.json({ error: 1, message: "Invalid password" });
                     }
-                    bcryptjs_1.default.hash(newPassword, 10).then((hashedNewPassword) => {
-                        const sql = 'UPDATE user SET password = ? WHERE id = ?';
-                        server_1.pool.query(sql, [hashedNewPassword, idUser], (err, _) => {
-                            if (err)
-                                return databaseFatalError(res, err, 'changePassword failed');
-                            logger.info({ idUser }, 'Password changed');
-                            res.json({ error: 0 });
+                    else {
+                        bcryptjs_1.default.hash(newPassword, 10).then((hashedNewPassword) => {
+                            const sql = 'UPDATE user SET password = ? WHERE id = ?';
+                            server_1.pool.query(sql, [hashedNewPassword, idUser], (err, _) => {
+                                if (err)
+                                    return databaseFatalError(res, err, 'changePassword failed');
+                                logger.info({ idUser }, 'Password changed');
+                                res.json({ error: 0 });
+                            });
                         });
-                    });
+                    }
                 });
             });
         };
@@ -749,6 +781,38 @@ class UserController {
                 logger.error(error, 'getTop3Masters failed');
                 res.status(500).json({ error: 'Internal server error' });
             }
+        };
+        this.trackPhoneClick = (req, res) => {
+            /**
+             * @param {number} userId - id of the user
+             * @returns {json} - success or error message
+             */
+            const { userId } = req.body;
+            const sql = 'UPDATE user SET phone_clicks = phone_clicks + 1 WHERE id = ?';
+            server_1.pool.query(sql, [userId], (err, result) => {
+                if (err) {
+                    logger.error(err, 'trackPhoneClick failed');
+                    return databaseFatalError(res, err, 'trackPhoneClick failed');
+                }
+                logger.info('Phone click tracked for user ID: ' + userId);
+                res.json({ error: 0 });
+            });
+        };
+        this.trackProfileClick = (req, res) => {
+            /**
+             * @param {number} userId - id of the user
+             * @returns {json} - success or error message
+             */
+            const { userId } = req.body;
+            const sql = 'UPDATE user SET profile_clicks = profile_clicks + 1 WHERE id = ?';
+            server_1.pool.query(sql, [userId], (err, result) => {
+                if (err) {
+                    logger.error(err, 'trackProfileClick failed');
+                    return databaseFatalError(res, err, 'trackProfileClick failed');
+                }
+                logger.info('Profile click tracked for user ID: ' + userId);
+                res.json({ error: 0 });
+            });
         };
     }
     verifyPassword(plainPassword, hashedPassword) {

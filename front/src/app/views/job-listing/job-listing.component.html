@@ -36,13 +36,13 @@
         (currentPage - 1) * jobsPerPage,
         currentPage * jobsPerPage
       )">
-      <app-single-job-short [job]="job"></app-single-job-short>
+      <app-single-job-short [job]="job" [currentPage]="currentPage"></app-single-job-short>
     </div>
   </div>
 
   <div class="mt-4 pb-4 flex justify-center items-center space-x-4" *ngIf="jobs">
     <button class="button-nvg" (click)="prevPage()" [disabled]="currentPage === 1">Prethodna</button>
-    <span class="text-basic">| {{ currentPage }}<span> / </span>{{ totalPages }}|</span>
+    <span class="text-basic">| {{ currentPage }}<span> / </span>{{ totalPages }} |</span>
     <button class="button-nvg" (click)="nextPage()" [disabled]="jobs.length <= currentPage * jobsPerPage">
       Sledeća
     </button>

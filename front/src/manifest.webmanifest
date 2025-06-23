@@ -1,8 +1,8 @@
 {
-  "name": "notus-angular",
-  "short_name": "notus-angular",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Vorki",
+  "short_name": "Vorki",
+  "theme_color": "#eead2b",
+  "background_color": "#201e26",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

@@ -34,9 +34,9 @@ CREATE TABLE user (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     rate FLOAT DEFAULT 5.0,
+    profile_clicks INT DEFAULT 0,
+    phone_clicks INT DEFAULT 0
 );
-
-
 
 
 CREATE TABLE comments (
@@ -110,6 +110,9 @@ CREATE TABLE agreements (
     endTime DATETIME,
     currentStatus VARCHAR(20),
     additionalInfo VARCHAR(255),
+    location VARCHAR(255),
+    contact VARCHAR(100),
+    rate INT DEFAULT NULL,
     FOREIGN KEY (idMaster) REFERENCES user(id),
     FOREIGN KEY (idUser) REFERENCES user(id),
     FOREIGN KEY (idJob) REFERENCES job(id)
@@ -130,6 +133,14 @@ CREATE TABLE distances (
     city1 VARCHAR(255),
     city2 VARCHAR(255),
     distance FLOAT
+);
+
+CREATE TABLE job_items (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  jobId INT NOT NULL,
+  item_name VARCHAR(255) NOT NULL,
+  count INT DEFAULT 1,
+  FOREIGN KEY (jobId) REFERENCES job(id) ON DELETE CASCADE
 );
 
 INSERT INTO user (username, firstname, lastname, password, birthday, phone, location, type, email, photo)

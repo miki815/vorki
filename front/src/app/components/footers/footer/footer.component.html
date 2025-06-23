@@ -24,11 +24,21 @@
             </a>
           </li>
           <li class="border-l border-white pl-4">
-            <a class="text-white hover:text-blueGray-300 font-semibold text-sm" [routerLink]="'/politika-privatnosti'">
+            <a class="text-white hover:text-blueGray-300 font-semibold text-sm" href="assets/politika_privatnosti.pdf"
+              target="_blank" rel="noopener noreferrer">
               Politika privatnosti
             </a>
           </li>
         </ul>
+      </div>
+      <!-- Ikonice društvenih mreža -->
+      <div class="flex space-x-4 mt-4">
+        <a href="https://www.facebook.com/profile.php?id=61563955501069" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-facebook-f text-white text-xl face-icon"></i>
+        </a>
+        <a href="https://www.instagram.com/vorki.rs/" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-instagram text-white text-xl insta-icon"></i>
+        </a>
       </div>
     </div>
 
@@ -48,6 +58,14 @@
 
 
 <style>
+  .face-icon {
+    color: #3b5998;
+  }
+
+  .insta-icon {
+    color: #E1306C;
+  }
+
   @media (max-width: 640px) {
 
     /* Za mobilne uređaje */

@@ -152,7 +152,7 @@ export class LandingComponent implements OnInit, AfterViewInit {
           // error: (err) => console.error('Failed to save subscription:', err),
         });
       })
-      // .catch((err) => console.error('Failed to subscribe to notifications:', err));
+    // .catch((err) => console.error('Failed to subscribe to notifications:', err));
   }
 
   category_navigation(id: number) {
@@ -271,8 +271,13 @@ export class LandingComponent implements OnInit, AfterViewInit {
   }
 
   showPopupAgain() {
-    this.ccService.clearStatus(); 
+    this.ccService.clearStatus();
     this.ccService.open();
   }
+
+  formatCategoryToFilename(category: string): string {
+    return category.replace(/\s+/g, '-');
+  }
+
 
 }

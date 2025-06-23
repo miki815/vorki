@@ -28,6 +28,7 @@ export class AdvertisementComponent implements OnInit {
   filteredCities: any;
   filteredProfessions: string[] = [];
   jobType: number;
+  jobAddress: string = null;
 
   // uri = 'http://127.0.0.1:4000'
   uri = 'https://vorki.rs';
@@ -46,7 +47,6 @@ export class AdvertisementComponent implements OnInit {
         this.filteredCities = this.cities;
       })
       .catch(error => {
-        console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje gradova):', error);
       });
 
     fetch('assets/craftsmen.json')
@@ -57,12 +57,10 @@ export class AdvertisementComponent implements OnInit {
         this.filteredProfessions = this.professions;
       })
       .catch(error => {
-        console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje zanata):', error);
       });
   }
 
   insertJob() {
-    console.log("Insert job - submit: START")
     // Provera
     if (!this.description || !this.title || !this.selectedCity || !this.selectedProfession) {
       this.poruka = "Niste uneli sve podatke.";
@@ -75,16 +73,15 @@ export class AdvertisementComponent implements OnInit {
       title: this.title,
       city: this.selectedCity,
       profession: this.selectedProfession,
-      type: "1"
+      type: "1",
+      address: this.jobAddress,
     }
     //Slanje
     this.jobService.insertJob(data).subscribe((message: any) => {
       if (message['message'] == 0) {
-        console.log("Insert job - submit: PASS")
         const job_id = message['job_id'];
         this.addPicturesJobInsert(job_id);
-        this.notificationService.newJobNotification({ user_id: this.cookieService.get('userId'), job_id: message['job_id'], job_title: this.title, job_location: this.selectedCity }).subscribe((message: any) => {
-          console.log("Notification sent for job title: " + this.title);
+        this.notificationService.newJobNotification({ user_id: this.cookieService.get('userId'), job_id: message['job_id'], job_title: this.title, job_location: this.selectedCity, job_profession: this.selectedProfession }).subscribe((message: any) => {
           this.router.navigate(['/oglasi/' + job_id]);
         });
       }
@@ -131,31 +128,25 @@ export class AdvertisementComponent implements OnInit {
 
       Array.from(imageFiles).forEach((file: File) => {
         if (file.size > MAX_SIZE) {
-          console.warn(`Slika ${file.name} je prevelika (${(file.size / 1024 / 1024).toFixed(2)} MB). Maksimalna dozvoljena veličina je 2MB.`);
           return;
         }
         formData.append('images', file, file.name);
       });
     }
 
-    this.http.post(`${this.uri}/upload`, formData)
+    this.http.post(`${this.uri}/uploadJobPictures`, formData)
       .subscribe((response: any) => {
-        console.log('Response from server:', response);
+
       });
   }
 
   filterCities() {
-    console.log('Register - filterCities: START')
-    console.log('Search query:', this.searchQuery)
-    console.log('Cities:', this.cities[0])
     this.filteredCities = this.cities.filter(city =>
       this.normalizeString(city.city).includes(this.normalizeString(this.searchQuery))
     );
   }
 
   filterProfessions() {
-    console.log('Register - filterProfessions: START')
-    console.log('Search term:', this.searchQueryProf)
     this.filteredProfessions = this.professions.filter((profession) =>
       this.normalizeString(profession).includes(this.normalizeString(this.searchQueryProf))
     );
@@ -169,7 +160,6 @@ export class AdvertisementComponent implements OnInit {
   }
 
   test() {
-    console.log("Prijava - test: START")
     var rezultati = [];
     var provera = [0, -1, -1]
     fetch('assets/login_test.json')
@@ -184,19 +174,16 @@ export class AdvertisementComponent implements OnInit {
 
         if (rezultati.length !== provera.length) {
           alert("Prijava - test: FAILED")
-          console.log("Prijava - test: FAILED");
           return;
         }
         if (rezultati.every((element, index) => element === provera[index])) {
           alert("Prijava - test: FAILED")
-          console.log("Prijava - test: FAILED");
           return;
         }
         alert("Prijava - test: PASS");
-        console.log("Prijava - test: END")
       })
       .catch(error => {
-        console.error('Došlo je do greške prilikom učitavanja JSON fajla (učitavanje login):', error);
+        
       });
   }
 }

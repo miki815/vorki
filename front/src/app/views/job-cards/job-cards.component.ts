@@ -79,4 +79,8 @@ export class JobCardsComponent {
     }, {} as { [profession: string]: number });
   }
 
+  formatCategoryToFilename(category: string): string {
+    return category.replace(/\s+/g, '-');
+  }
+
 }

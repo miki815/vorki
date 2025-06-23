@@ -1,0 +1,128 @@
+<section class="advertisement-container bg-gradient-crna">
+    <app-main-navbar></app-main-navbar>
+    <div class="w-full bg-full pt-8">
+        <div class="container mx-auto px-4 h-full">
+            <div class="flex content-center items-center justify-center">
+                <div class="w-full lg:w-6/12 px-4">
+                    <div
+                        class="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg border-0 mt-10 form-container">
+                        <div class="rounded-t mb-0 px-6 py-6">
+                            <div class="btn-wrapper text-center">
+                                <h2 class="text-crna text-3xl font-bold">Potreban materijal</h2>
+                            </div>
+                            <hr class="mt-6 border-b-2 border-basic" />
+                        </div>
+                        <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+
+                            <form>
+                                <div class="relative w-full mb-3">
+                                    <label class="block uppercase text-crna text-xs font-bold mb-2"
+                                        htmlFor="proffesion">
+                                        Vrsta radnje
+                                    </label>
+                                    <input [(ngModel)]="selectedShop" list="shops" name="shopSearch" id="shopSearch"
+                                        placeholder="Izaberite radnju..."
+                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 input-field" />
+                                    <datalist id="shops">
+                                        <option *ngFor="let shop of filteredShops" [value]="shop"></option>
+                                    </datalist>
+                                </div>
+
+                                <div class="relative w-full mb-3">
+                                    <div class="flex space-x-4">
+                                        <label class="block uppercase text-crna text-xs font-bold mb-2" htmlFor="city">
+                                            Način preuzimanja
+                                        </label>
+                                        <div class="flex uppercase items-center text-crna text-xs font-bold mb-2">
+                                            <input [(ngModel)]="isDelivery" name="type" value="0" type="radio"
+                                                class="radio-input" />
+                                            <label class="text-crna">Lično</label>
+                                        </div>
+                                        <div class="flex uppercase items-center text-crna text-xs font-bold mb-2">
+                                            <input [(ngModel)]="isDelivery" name="type" value="1" type="radio"
+                                                class="radio-input" />
+                                            <label class="text-crna">Dostava</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="relative w-full mb-3" *ngIf="isDelivery=='1'">
+                                    <label class="block uppercase text-crna text-xs font-bold mb-2" htmlFor="city">
+                                        Vaše mesto
+                                    </label>
+                                    <input [(ngModel)]="selectedCity" list="cities" name="citySearch" id="citySearch"
+                                        placeholder="Izaberite mesto..."
+                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 input-field" />
+                                    <datalist id="cities">
+                                        <option *ngFor="let city of filteredCities" [value]="city.city"></option>
+                                    </datalist>
+                                </div>
+
+                                <div class="relative w-full mb-3" *ngIf="isDelivery=='1'">
+                                    <label class="block uppercase text-crna text-xs font-bold mb-2" htmlFor="title">
+                                        Vaša adresa
+                                    </label>
+                                    <input [(ngModel)]="jobAddress" name="jobAddress" type="text"
+                                        placeholder="Vaša adresa..."
+                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 input-field" />
+                                </div>
+
+                                <div class="relative w-full mb-3">
+                                    <label class="block uppercase text-crna text-xs font-bold mb-2">Potreban
+                                        materijal</label>
+                                    <div class="flex gap-2 mb-2">
+                                        <input [(ngModel)]="exchangeItem" class="input-field flex-1" name="exchangeItem"
+                                            placeholder="Unesite stavku..." />
+                                        <button (click)="addItem()" id="addItemButton"
+                                            class="px-3 py-1 m-2 rounded bg-crna text-bela">Dodaj stavku</button>
+                                    </div>
+                                    <ul class="space-y-2 mt-2">
+                                        <li *ngFor="let item of items; let i = index"
+                                            class="flex justify-between items-center text-lg text-basic bg-crna border border-zlatna rounded-xl px-4 py-2 shadow-sm">
+                                            <span class="flex items-center gap-2 text-basic">
+                                                <span class="text-zlatna font-bold text-lg">• </span>
+                                                {{ item }}
+                                            </span>
+                                            <button (click)="removeItem(i)" id="removeItemButton"
+                                                class="text-red-300 text-xs transition duration-200">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                                <div class="text-center mt-6">
+                                    <button id="insertJobButton"
+                                        class="text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                                        type="button" (click)="insertExchangeJob()">
+                                        Dodaj oglas
+                                    </button>
+                                </div>
+                                <div *ngIf="poruka" [ngStyle]="{'background-color': bgcolor}"
+                                    style="width: 100%; text-align: center; margin-top: 20px; color: white; padding: 10px; border-radius: 5px; ">
+                                    {{poruka}}
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap mt-6 relative" style="font-size: 20px;">
+                        <!-- <div class="w-1/2">
+          <a [routerLink]="['/auth/#']" class="text-blueGray-200">
+            <small>Zaboravili ste lozinku?</small>
+          </a>
+        </div>
+        <div class="w-1/2 text-right">
+          <a [routerLink]="['/auth/register']" class="text-blueGray-200">
+            <small>Napravite nov profil!</small>
+          </a>
+        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+
+    </div>
+
+</section>

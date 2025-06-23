@@ -33,7 +33,7 @@
           </div>
 
           <!-- <div class="flex justify-center items-center min-h-screen bg-gray-100"> -->
-          <div class="w-full max-w-2xl p-6 bg-white rounded-2xl shadow-lg mt-4 mb-2">
+          <div class="w-full max-w-2xl p-6 bg-white rounded-2xl shadow-lg mt-4 mb-2" *ngIf="type == '0'">
             <h2 class="text-2xl font-bold text-center text-crna">Opišite poslove kojima se bavite</h2>
             <textarea [(ngModel)]="infoText" name="infoText"
               placeholder="Opišite sebe, iskustvo, veštine ili šta god želite da potencijalni korisnici znaju o Vama..."
@@ -84,7 +84,7 @@
                   value="{{lastname}}" [(ngModel)]="lastname" name="lastname" />
               </div>
             </div>
-            <div class="w-full lg:w-6/12 px-4">
+            <div class="w-full lg:w-6/12 px-4" *ngIf="type == '0'">
               <div class="relative w-full mb-3">
                 <label class="block uppercase text-basic text-xs font-semibold mb-2" htmlFor="grid-password">
                   Poslovi kojima se bavite
@@ -113,7 +113,7 @@
 
               </div>
             </div>
-            <div class="w-full lg:w-6/12 px-4">
+            <div class="w-full lg:w-6/12 px-4" *ngIf="type == '0'">
               <div class="relative w-full mb-3">
                 <label htmlFor="grid-password" class="block uppercase text-basic text-xs font-semibold mb-2">Zelim da
                   primam
@@ -162,13 +162,23 @@
             </div>
           </div>
 
+          <div style="width: 100%;display: flex; justify-content: center;">
+            <div style="display: flex; flex-direction: column;margin-bottom: 20px;">
+              <div *ngIf="message" [ngClass]="{'error-message': err === 1, 'success-message': err === 0}"
+                style="width: 100%; text-align: center; margin-top: 20px; color: white; padding: 10px; border-radius: 5px;">
+                {{message}}
+              </div>
+            </div>
+          </div>
+
           <!-- GALERIJA -->
-          <h1 *ngIf="!imagesLoaded" class="text-center text-basic text-3xl">Vaša galerija je prazna</h1>
-          <div class="gallery-wrapper mt-6">
+          <h1 *ngIf="type == '0' && !imagesLoaded" class="text-center text-basic text-3xl">Vaša galerija je prazna</h1>
+          <div class="gallery-wrapper mt-6" *ngIf="type == '0'">
             <gallery id="{{galleryId}}" class="bg-crna" (indexChange)="onIndexChange($event)" *ngIf="imagesLoaded">
             </gallery>
             <div class="flex justify-center">
-              <button class="m-2" id="red-btn" (click)="removeCurrentImage()" *ngIf="imagesLoaded">Ukloni trenutnu sliku</button>
+              <button class="m-2" id="red-btn" (click)="removeCurrentImage()" *ngIf="imagesLoaded">Ukloni trenutnu
+                sliku</button>
               <label class="m-2 img-file-input">
                 Dodaj slike (maks veličina slike je 10MB)
                 <input type="file" id="images" (change)="onFileSelected($event)" multiple hidden />
@@ -208,14 +218,7 @@
             </div>
           </div>
 
-          <div style="width: 100%;display: flex; justify-content: center;">
-            <div style="display: flex; flex-direction: column;margin-bottom: 20px;">
-              <div *ngIf="message" [ngClass]="{'error-message': err === 1, 'success-message': err === 0}"
-                style="width: 100%; text-align: center; margin-top: 20px; color: white; padding: 10px; border-radius: 5px;">
-                {{message}}
-              </div>
-            </div>
-          </div>
+
         </form>
       </div>
     </div>

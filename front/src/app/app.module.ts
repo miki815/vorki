@@ -73,6 +73,9 @@ import { JobSettingsComponent } from "./views/job-settings/job-settings.componen
 import { JobCardsComponent } from "./views/job-cards/job-cards.component";
 import { ContactComponent } from "./views/contact/contact.component";
 import { CookieBannerComponent } from "./views/cookie-banner/cookie-banner.component";
+import { UserJobsComponent } from "./views/user-jobs/user-jobs.component";
+import { AdvertisementExchangeComponent } from "./views/advertisement-exchange/advertisement-exchange.component";
+import { ExchangeComponent } from "./views/exchange/exchange.component";
 
 
 const cookieConfig: NgcCookieConsentConfig = {
@@ -151,7 +154,10 @@ const cookieConfig: NgcCookieConsentConfig = {
     JobSettingsComponent,
     JobCardsComponent,
     ContactComponent,
-    CookieBannerComponent
+    CookieBannerComponent,
+    UserJobsComponent,
+    AdvertisementExchangeComponent,
+    ExchangeComponent
   ],
   imports: [
     FormsModule,

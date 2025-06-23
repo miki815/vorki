@@ -1,0 +1,316 @@
+@media screen and (max-width: 1025px) {
+  .c {
+    margin-top: 10px;
+  }
+}
+
+
+table.items-center tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+
+.message {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  background-color: rgb(239, 114, 114);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  color: #274153;
+}
+
+.ovde:hover {
+  color: #efca21;
+  background-color: #274153;
+  border-radius: 5%;
+}
+
+
+.messageSucc {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  background-color: rgb(59, 185, 109);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  color: #1e293b;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .button-container {
+    flex-direction: row;
+  }
+}
+
+/* #declineBtn {
+  background-color: red;
+  margin: 5px;
+  color: white;
+} */
+
+#declineBtn:hover {
+  background-color: #d12a2a;
+}
+
+.basic-btn {
+  background-color: #9f9f9f;
+  color: #fcfcfd;
+}
+
+.basic-btn:hover {
+  background-color: #99989e;
+  transition: background-color 0.3s ease;
+}
+
+/* #acceptBtn {
+  background-color: green;
+  margin: 5px;
+  color: white;
+} */
+
+#acceptBtn:hover {
+  background-color: #2a9d2a;
+}
+
+.details-btn:hover {
+  background-color: #eeb645;
+  transition: background-color 0.3s ease;
+}
+
+.job-link {
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.job-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.button-list {
+  width: 200px;
+  height: 48px;
+  text-align: center;
+  background: #eead2b;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button-list:hover {
+  background: #d89b2a;
+}
+
+.profile-info-card {
+  background: radial-gradient(circle, #f0f0f0, #e0e0e0);
+}
+
+.main-container {
+  /* background: linear-gradient(to top, #eead2b, #201e26); */
+}
+
+.job-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+
+/* .job-item {
+  width: 70%;
+  padding: 1rem;
+} */
+
+/* Dva oglasa po redu na tabletima */
+@media (min-width: 640px) {
+  .job-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tri oglasa po redu na većim ekranima */
+@media (min-width: 1024px) {
+  .job-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.gallery-wrapper {
+  width: 100%;
+  /* display: flex; */
+  justify-content: center;
+  align-items: flex-start;
+
+  @media (min-width: 1024px) {
+    width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-picture-wrapper {
+    margin-top: 1.5rem;
+    /* 24px */
+  }
+}
+
+
+.custom-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.custom-modal {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.custom-modal label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 600;
+  color: #333;
+}
+
+.custom-modal input,
+.custom-modal textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.modal-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cancel-btn,
+.send-btn,
+.basic-btn,
+.accept-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.cancel-btn {
+  background-color: rgb(239, 68, 68);
+  color: #fcfcfd;
+}
+
+.send-btn {
+  background-color: #eead2b;
+  color: #201e26;
+}
+
+.accept-btn {
+  background-color: #2a9d2a;
+  color: #fcfcfd;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+  .custom-modal {
+    padding: 16px;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cancel-btn,
+  .send-btn,
+  .basic-btn,
+  .accept-btn {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+.text-yellow-400 {
+  color: #facc15;
+}
+
+.text-gray-400 {
+  color: #9ca3af;
+}
+
+/* .job-table {
+  display: block;
+} */
+
+.job-cards {
+  display: none;
+}
+
+#acceptButton:hover {
+    background-color: #2a9d2a;
+    transition: background-color 0.3s ease;
+}
+
+#declineButton:hover {
+    background-color: #d12a2a;
+    transition: background-color 0.3s ease;
+}
+
+/* Na malim ekranima (npr. širina ispod 640px), sakrij tabelu, prikaži kartice */
+@media (max-width: 639px) {
+  .job-table {
+    display: none;
+  }
+
+  .job-cards {
+    display: block;
+  }
+}

@@ -31,57 +31,65 @@ import { CalendarComponent } from "./components/calendar/calendar.component";
 import { JobSettingsComponent } from "./views/job-settings/job-settings.component";
 import { JobCardsComponent } from "./views/job-cards/job-cards.component";
 import { ContactComponent } from "./views/contact/contact.component";
+import { UserJobsComponent } from "./views/user-jobs/user-jobs.component";
+import { AdvertisementExchangeComponent } from "./views/advertisement-exchange/advertisement-exchange.component";
+import { ExchangeComponent } from "./views/exchange/exchange.component";
 
 const routes: Routes = [
-  // admin views
-  {
-    path: "admin",
-    component: AdminComponent,
-    children: [
-      { path: "dashboard", component: DashboardComponent },
-      { path: "settings", component: SettingsComponent },
-      { path: "tables", component: TablesComponent },
-      { path: "maps", component: MapsComponent },
-      { path: "", redirectTo: "dashboard", pathMatch: "full" },
-    ],
-  },
-  // auth views
-  {
-    path: "autentikacija",
-    component: AuthComponent,
-    children: [
-      { path: "prijava", component: LoginComponent },
-      { path: "registracija", component: RegisterComponent },
-      { path: "zaboravljena_lozinka", component: ForgottenPasswordComponent },
-      { path: 'promena_zaboravljene_lozinke/:reset_token', component: ForgottenPasswordChangeComponent },
-      { path: "", redirectTo: "prijava", pathMatch: "full" },
-      //{ path: "dodaj_oglas", component: AdvertisementComponent },
+    // admin views
+    {
+        path: "admin",
+        component: AdminComponent,
+        children: [
+            { path: "dashboard", component: DashboardComponent },
+            { path: "settings", component: SettingsComponent },
+            { path: "tables", component: TablesComponent },
+            { path: "maps", component: MapsComponent },
+            { path: "", redirectTo: "dashboard", pathMatch: "full" },
+        ],
+    },
+    // auth views
+    {
+        path: "autentikacija",
+        component: AuthComponent,
+        children: [
+            { path: "prijava", component: LoginComponent },
+            { path: "registracija", component: RegisterComponent },
+            { path: "zaboravljena_lozinka", component: ForgottenPasswordComponent },
+            { path: 'promena_zaboravljene_lozinke/:reset_token', component: ForgottenPasswordChangeComponent },
+            { path: "", redirectTo: "prijava", pathMatch: "full" },
+            //{ path: "dodaj_oglas", component: AdvertisementComponent },
 
-    ],
-  },
-  // no layout views
-  { path: "kalendar", component: CalendarComponent },
-  { path: 'kontakt', component: ContactComponent },
-  { path: "profil/:id", component: ProfileComponent },
-  { path: "podesavanje_profila", component: ProfileSettingsComponent, canActivate: [authGuard] },
-  { path: "podesavanje_oglasa/:jobId", component: JobSettingsComponent, canActivate: [authGuard] },
-  { path: "pocetna", component: LandingComponent },
-  { path: "oglasi", component: JobListingComponent },
-  // { path: "oglasi/:id", component: JobListingComponent, canActivate: [authGuard]},
-  { path: "izbor-kategorije", component: CategoriesChoiceComponent },
-  { path: "dodaj_oglas", component: AdvertisementComponent, canActivate: [authGuard] },
-  { path: 'oglasi/:id', component: SingleJobLongComponent, canActivate: [authGuard] },
-  // { path: 'oglasi/:idU', component: JobListingComponent, canActivate: [authGuard] },
-  { path: 'kategorija/:idK', component: JobCardsComponent },
-  // { path: "", component: IndexComponent },
-  // { path: "", component: AuthComponent, children: [{ path: "", component: LoginComponent }] },
-  { path: "", component: LandingComponent },
-  { path: "**", redirectTo: "", pathMatch: "full" },
+        ],
+    },
+    // no layout views
+    { path: "kalendar", component: CalendarComponent },
+    { path: 'kontakt', component: ContactComponent },
+    { path: "profil/:id", component: ProfileComponent },
+    { path: "podesavanje_profila", component: ProfileSettingsComponent, canActivate: [authGuard] },
+    { path: "podesavanje_oglasa/:jobId", component: JobSettingsComponent, canActivate: [authGuard] },
+    { path: "pocetna", component: LandingComponent },
+    { path: "oglasi", component: JobListingComponent },
+    { path: "poslovi", component: UserJobsComponent },
+    // { path: "oglasi/:id", component: JobListingComponent, canActivate: [authGuard]},
+    { path: "izbor-kategorije", component: CategoriesChoiceComponent },
+    { path: "dodaj_oglas", component: AdvertisementComponent, canActivate: [authGuard] },
+    { path: "oglas_berza", component: AdvertisementExchangeComponent, canActivate: [authGuard] },
+    { path: 'oglasi/:id', component: SingleJobLongComponent, canActivate: [authGuard] },
+    { path: 'berza', component: ExchangeComponent },
+    // { path: 'oglasi/:idU', component: JobListingComponent, canActivate: [authGuard] },
+    { path: 'kategorija/:idK', component: JobCardsComponent },
+    // { path: "", component: IndexComponent },
+    // { path: "", component: AuthComponent, children: [{ path: "", component: LoginComponent }] },
+    { path: "", component: LandingComponent },
+    { path: "**", redirectTo: "", pathMatch: "full" },
 ];
 
 @NgModule({
-  // imports: [RouterModule.forRoot(routes, {useHash: true})],
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+    // imports: [RouterModule.forRoot(routes, {useHash: true})],
+    imports: [RouterModule.forRoot(routes, {
+        scrollPositionRestoration: 'enabled',
+    })],
+    exports: [RouterModule],
 })
 export class AppRoutingModule { }

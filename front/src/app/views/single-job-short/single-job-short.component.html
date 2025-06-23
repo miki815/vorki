@@ -4,7 +4,7 @@
     <div class="px-6 py-4 flex flex-col items-center">
         <img alt="..." loading="lazy" [src]="imageSrc" class="w-20 h-20 object-cover rounded-full shadow-md border-4 border-white" />
         <div class="avg-rate mt-2 px-3 py-1 rounded-lg">
-            <label class="text-lg font-semibold">&#9733; {{ !job.avgRate ? (5.00 | number: '1.2-2') : (job.avgRate |
+            <label class="text-lg font-semibold">&#9733; {{ !job.avgRate ? 'Bez ocene' : (job.avgRate |
                 number: '1.2-2') }}</label>
         </div>
         <h1 class="font-semibold text-basic text-xl mt-2">{{ job.firstName }} {{ job.lastName }}</h1>

@@ -30,12 +30,12 @@ export class CookieService {
     this.ngxCookieService.set(this.COOKIE_CONSENT_NAME, type, expiryDate, '/', undefined, false, 'Lax');
 
     if (type === 'none') {
-      this.removeNonEssentialCookies();
+      // this.removeNonEssentialCookies();
     }
     else if (type === 'all') {
-      this.initializePixel();
+      // this.initializePixel();
     } else if (type === 'necessary') {
-      this.initializePixel();
+      // this.initializePixel();
     }
   }
 

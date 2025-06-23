@@ -474,15 +474,17 @@ input::placeholder {
 /* Gornji deo kartice */
 .card-header {
     flex-shrink: 0;
-    /* Sprečava smanjivanje */
-    /* height: 80px; */
-    /* Definisana visina */
     display: flex;
     justify-content: center;
     align-items: center;
     background: #eead2b;
-    /* Tamnija nijansa plave */
     padding: 20px;
+    /* Background img */
+    /* background-image: url('/assets/img/elektricar.jpg'); */
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px 15px 0 0;
+    height: 100px; 
 }
 
 .card-header img {

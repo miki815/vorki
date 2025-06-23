@@ -4,8 +4,6 @@ import bodyParser from 'body-parser'
 import userRouter from './routers/user.router';
 import jobRouter from './routers/job.router';
 import webPush from 'web-push';
-import { log } from 'console';
-import { connection } from 'mongoose';
 import subscriptionRouter from './routers/subscription.router';
 import path from 'path';
 import multer from 'multer'
@@ -45,7 +43,7 @@ const upload = multer({ storage });
 const app = express();
 
 app.use(cors({
-  origin: ['https://vorki.rs', 'http://localhost:4200'],
+  origin: ['https://vorki.rs', 'http://localhost:4200', 'https://www.vorki.rs'],
   credentials: true
 }));
 app.use(bodyParser.json({ limit: '100mb' }));
@@ -105,6 +103,35 @@ app.post('/upload', upload.array('images', 10), (req, res) => {
         message: 'Uspešno sačuvano!',
         data: {
           idUser: idUser,
+          images: imagePaths,
+        }
+      });
+    });
+  });
+});
+
+
+// INSERT PICTURES FOR JOBS
+app.post('/uploadJobPictures', upload.array('images', 10), (req, res) => {
+  if (!req.files || !req.body.idJob) {
+    return res.status(400).send('Nedostaju fajlovi ili ID posla.');
+  }
+
+  const idJob = req.body.idJob;
+  const imagePaths = (req.files as Express.Multer.File[]).map(file => '/uploads/' + file.filename);
+
+  const insertQuery = 'INSERT INTO gallery (idJob, urlPhoto) VALUES ?';
+  const values = imagePaths.map(path => [idJob, path]);
+  pool.getConnection((err, connection) => {
+    connection.query(insertQuery, [values], (err, result) => {
+      if (err) {
+        console.error('Greška pri unosu u bazu:', err);
+        return res.status(500).json({ error: 'Greška pri čuvanju podataka u bazi.' });
+      }
+      res.status(201).json({
+        message: 'Uspešno sačuvano!',
+        data: {
+          idJob: idJob,
           images: imagePaths,
         }
       });

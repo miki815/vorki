@@ -11,8 +11,9 @@
         <!-- Kartice -->
         <div class="cards-grid">
             <div class="category-card" *ngFor="let category of categories">
-                <div class="card-header">
-                    <img src="assets/img/logon.png" alt="Logo">
+                <div class="card-header"
+                    [ngStyle]="{'background-image': 'url(assets/img/zanimanja/' + formatCategoryToFilename(category) + '.webp)'}">
+                    <!-- <img [src]="'assets/img/' + category + '.png'" [alt]="category"> -->
                 </div>
                 <div class="card-body">
                     <h2>{{category}}</h2>

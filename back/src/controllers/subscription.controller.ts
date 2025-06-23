@@ -24,7 +24,7 @@ function sendTestNotification(subscription, res) {
         });
 }
 
-function sendNotificationToRelatedUsers(results, payload){
+function sendNotificationToRelatedUsers(results, payload) {
     results.forEach((subscription) => {
         const pushSubscription = {
             endpoint: subscription.endpoint,
@@ -37,16 +37,16 @@ function sendNotificationToRelatedUsers(results, payload){
             .sendNotification(pushSubscription, payload)
             .then(() => logger.info('Notification sent successfully'))
             .catch((err) => logger.error('Notification error:', err));
-            logger.info('Notification sent successfully to user with ID: ' + subscription.user_id);
+        logger.info('Notification sent successfully to user with ID: ' + subscription.user_id);
     });
 }
 
 export class SubscriptionController {
 
     get_related_subscribers = (req: express.Request, res: express.Response) => {
-        const { user_id, job_id, job_title, job_location } = req.body;
+        const { user_id, job_id, job_title, job_location, job_profession } = req.body;
         const job_location_utf = Buffer.from(job_location, 'latin1').toString('utf-8');
-        logger.info({ user_id, job_id, job_title, job_location_utf }, 'Finding related subscribers');
+        logger.info({ user_id, job_id, job_title, job_location_utf, job_profession }, 'Finding related subscribers');
 
 
         if (!user_id) {
@@ -86,9 +86,10 @@ export class SubscriptionController {
                     SELECT DISTINCT u.id, u.location
                     FROM user u
                     JOIN subscriptions s ON u.id = s.user_id
-                    WHERE u.location IN (?)
+                    JOIN job j ON u.id = j.idUser
+                    WHERE u.location IN (?) AND j.profession = ? AND u.type = 0
                 `;
-                connection.query(getSubscribersQuery, [relatedCities], (err, subscribersResults) => {
+                connection.query(getSubscribersQuery, [relatedCities, job_profession], (err, subscribersResults) => {
                     if (err) {
                         console.error('Error fetching subscribers:', err);
                         return res.status(500).json({ error: err });
@@ -116,12 +117,13 @@ export class SubscriptionController {
 
 
     inform_master_of_job = (req: express.Request, res: express.Response) => {
-        const { job_title, master_id, user_id } = req.body;
+        const { job_title, master_id, user_id, type } = req.body;
 
         if (!job_title || !master_id || !user_id) {
             return res.status(400).json({ error: 'Job ID, master ID, and user ID are required' });
         }
 
+        logger.info({ job_title, master_id, user_id, type }, 'Finding subscribers for job offer');
         pool.getConnection((err, connection) => {
             if (err) {
                 console.error('Database connection error:', err);
@@ -134,7 +136,13 @@ export class SubscriptionController {
                     logger(req, res).error('Database error:', err);
                     return res.status(500).json({ error: 'Failed to fetch subscriptions' });
                 }
-                const payload = JSON.stringify({ title: 'Novi posao', body: `Korisnik je zainteresovan za vaš oglas`, url: `https://vorki.rs/profil/${master_id}` });
+                let payload
+                if (type == '1') {
+                    payload = JSON.stringify({ title: 'Nova ponuda', body: `Javio se stručnjak koji želi da završi vaš posao`, url: `https://vorki.rs/profil/${master_id}` });
+                }
+                else {
+                    payload = JSON.stringify({ title: 'Ponuda za posao', body: `Korisnik je zainteresovan za vaše usluge`, url: `https://vorki.rs/profil/${master_id}` });
+                }
                 results.forEach((subscription) => {
                     const pushSubscription = {
                         endpoint: subscription.endpoint,

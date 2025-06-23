@@ -52,7 +52,7 @@
                         Ocena: {{ job.rate | number:'1.2-2' }}
                       </p>
                     </div>
-                    <button class="istrazi-dugme" (click)="job_navigation(job.id)">Pogledaj profil</button> 
+                    <button class="istrazi-dugme" (click)="job_navigation(job.id)">Pogledaj profil</button>
                   </div>
                 </div>
               </div>
@@ -311,8 +311,8 @@
     </div>
     <div class="cards-grid">
       <div class="category-card" *ngFor="let category of topProfessions | slice:0:12">
-        <div class="card-header">
-          <img src="assets/img/logon.png" alt="Logo">
+        <div class="card-header" [ngStyle]="{'background-image': 'url(assets/img/zanimanja/' + formatCategoryToFilename(category) + '.webp)'}">
+          <!-- <img [src]="'assets/img/' + category + '.png'" [alt]="category"> -->
         </div>
         <div class="card-body">
           <h2>{{category}}</h2>
@@ -464,7 +464,7 @@
 
         <!-- Leva strana - Mockup slika -->
         <div class="mockup-container">
-          <img src="assets/img/mockupn1.png" alt="Mockup sajta" class="mockup-image">
+          <img src="assets/img/mockupn3.jpg" alt="Mockup sajta" class="mockup-image">
         </div>
 
         <!-- Desna strana - Forma -->

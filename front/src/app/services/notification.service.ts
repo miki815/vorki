@@ -11,7 +11,7 @@ export class NotificationService {
   private vapidPublicKey = 'BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg';
   uri = 'https://vorki.rs';
   // uri = 'http://127.0.0.1:4000'
-  // uri = environment.uri;
+  // uri = environment.apiUrl;
   readonly VAPID_PUBLIC_KEY = "BHTg9h9CX0rT_okcYjvkFRNXVFoPMSOVu99KjTfflvuMhz8iU8tgwzLfuglAQjTbBP6XgZT75JStZNHbX_rZ5Vg";
 
   constructor(private http: HttpClient, private swPush: SwPush) { }

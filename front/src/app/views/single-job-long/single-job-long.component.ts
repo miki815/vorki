@@ -68,6 +68,28 @@ export class SingleJobLongComponent implements OnInit {
           this.username = message['message'].username;
           this.phoneNumber = message['message'].phone;
         });
+
+        this.jobService.getRelationIfExists({ idUser: this.cookie, idMaster: this.idUser }).subscribe((response: any) => {
+          let status = response['result'][0].currentStatus;
+          if (!status) return;
+          if (status == "pending") {
+            this.isRequest = false;
+            this.requestMsg = "Zahtev poslat!";
+          } else if (status == "accepted") {
+            this.isRequest = false;
+            this.requestMsg = "Korisnik je prihvatio vašu ponudu!";
+          } else if (status == "declined") {
+            this.isRequest = false;
+            this.requestMsg = "Korisnik je odbio vašu ponudu!";
+          } else if (status == "canceled") {
+            this.isRequest = false;
+            this.requestMsg = "Otkazan posao!";
+          } else if (status == "offer") {
+            this.isRequest = false;
+            this.requestMsg = "Zahtev poslat!";
+          }
+        });
+
         this.jobService.getJobGallery(this.jobId).subscribe((imgs: any) => {
           console.log(imgs);
           imgs.forEach(element => {
@@ -179,7 +201,7 @@ export class SingleJobLongComponent implements OnInit {
   }
 
   sendOffer() {
-    const data = { idJob: this.job.id, idMaster: this.job.idUser }
+    const data = { idJob: this.job.id, idMaster: this.job.idUser, additionalInfo: this.job.description, address: this.job.address, phone: this.phoneNumber }
     this.jobService.sendOffer(data).subscribe((message: any) => {
       this.isRequest = false;
       this.requestMsg = "Ponuda poslata!";

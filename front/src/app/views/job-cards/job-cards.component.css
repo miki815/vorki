@@ -64,11 +64,17 @@ button:hover {
 
 /* Gornji deo kartice */
 .card-header {
+    flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     background: #eead2b;
     padding: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px 15px 0 0;
+    height: 120px; 
 }
 
 .card-header img {

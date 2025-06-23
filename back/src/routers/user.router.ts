@@ -101,4 +101,12 @@ userRouter.route('/getTop3Masters').post(
     (req, res) => new UserController().getTop3Masters(req, res)
 )
 
+userRouter.route('/trackPhoneClick').post(
+    (req, res) => new UserController().trackPhoneClick(req, res)
+)
+
+userRouter.route('/trackProfileClick').post(
+    (req, res) => new UserController().trackProfileClick(req, res)
+)
+
 export default userRouter;

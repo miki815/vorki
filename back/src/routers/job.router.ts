@@ -29,6 +29,10 @@ jobRouter.route('/get_job_and_user_info/:id').get(
     (req, res) => new JobController().get_job_and_user_info(req, res)
 )
 
+jobRouter.route('/get_exchange_and_user_info').get(
+    (req, res) => new JobController().get_exchange_and_user_info(req, res)
+)
+
 jobRouter.route('/requestForAgreement').post( // only user can request for agreement
     authenticateToken, (req, res) => new JobController().requestForAgreement(req, res)
 )
@@ -73,6 +77,10 @@ jobRouter.route('/sendOffer').post(
     authenticateToken, (req, res) => new JobController().sendOffer(req, res)
 )
 
+jobRouter.route('/sendExchangeOffer').post(
+    authenticateToken, (req, res) => new JobController().sendExchangeOffer(req, res)
+)
+
 jobRouter.route('/checkUserRequestForAgreement').post(
     authenticateToken, (req, res) => new JobController().checkUserRequestForAgreement(req, res)
 )
@@ -99,6 +107,10 @@ jobRouter.route('/updateUserProfessions').post(
 
 jobRouter.route('/getPageJobs').post(
     (req, res) => new JobController().getPageJobs(req, res)
+)
+
+jobRouter.route('/getRelationIfExists').post(
+    (req, res) => new JobController().getRelationIfExists(req, res)
 )
 
 export default jobRouter;

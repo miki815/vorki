@@ -1,0 +1,250 @@
+<main class="profile-page full-page main-container bg-gradient-crna">
+    <app-main-navbar></app-main-navbar>
+
+    <!-- MODAL ZA SLANJE ZAHTEVA -->
+    <div *ngIf="showModal" class="custom-modal-overlay">
+        <div class="custom-modal">
+            <h2 class="modal-title">Detalji zahteva</h2>
+
+            <label>Način preuzimanja</label>
+            <input type="text" [(ngModel)]="currRequest.pickupMethod" [disabled]="modalDisabled" />
+
+            <label>Potreban materijal</label>
+            <textarea rows="3" [(ngModel)]="currRequest.description" [disabled]="modalDisabled"></textarea>
+
+            <label>Kontakt telefon</label>
+            <input type="tel" [(ngModel)]="currRequest.phone" [disabled]="modalDisabled" />
+
+            <div class="modal-buttons" *ngIf="!modalDisabled">
+                <button (click)="showModal = false" class="cancel-btn">Otkaži</button>
+                <button (click)="sendOffer()" class="send-btn">Pošalji</button>
+            </div>
+            <div class="modal-buttons" *ngIf="modalDisabled">
+                <div class="bg-crna rounded-lg justify-center text-center star-btn"
+                    *ngIf="currRequest.currentStatus == 'accepted' && type == '1'">
+                    <ng-container *ngFor="let star of stars; let i = index">
+                        <span class="cursor-pointer text-2xl" [class.text-yellow-400]="i < selectedRating"
+                            [class.text-gray-400]="i >= selectedRating" (click)="setRating(i + 1)">
+                            ★
+                        </span>
+                    </ng-container>
+                </div>
+                <button (click)="acceptRequest()" class="accept-btn"
+                    *ngIf="currRequest.currentStatus == 'offer' && !isMasterOpen">Prihvati</button>
+                <button (click)="declineRequest()" class="cancel-btn"
+                    *ngIf="currRequest.currentStatus == 'offer' && !isMasterOpen">Odbij</button>
+                <button (click)="finishRequest()" class="send-btn"
+                    *ngIf="currRequest.currentStatus == 'accepted' && type == '1'">Oceni i završi</button>
+                <button (click)="cancelRequest()" class="cancel-btn"
+                    *ngIf="currRequest.currentStatus == 'accepted'">Otkaži</button>
+                <button (click)="showModal = false; modalDisabled = false" class="basic-btn">Zatvori</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MODAL ZA SLANJE PONUDE -->
+    <div *ngIf="showOffer" class="custom-modal-overlay">
+        <div class="custom-modal">
+            <h2 class="modal-title">Nova ponuda</h2>
+            <label>Cena</label>
+            <input type="text" [(ngModel)]="currRequest.price" />
+            <div class="modal-buttons">
+                <button (click)="showOffer = false" class="cancel-btn">Otkaži</button>
+                <button (click)="sendOffer()" class="send-btn">Pošalji</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex justify-center px-4" style="width: 100%;">
+        <h1 class="text-2xl font-bold text-center text-basic mb-4 pb-2">
+            Berza materijala
+        </h1>
+    </div>
+
+    <div class="flex justify-center gap-4 mb-6">
+        <button class="px-6 py-2 rounded-full text-white font-semibold transition-all duration-200"
+            [ngClass]="{ 'bg-zlatna text-crna': activeTab === 'berza', 'bg-[#2a2733]': activeTab !== 'berza' }"
+            (click)="activeTab = 'berza'">
+            Berza
+        </button>
+        <button class="px-6 py-2 rounded-full text-white font-semibold transition-all duration-200"
+            [ngClass]="{ 'bg-zlatna text-crna': activeTab === 'mojePonude', 'bg-[#2a2733]': activeTab !== 'mojePonude' }"
+            (click)="activeTab = 'mojePonude'">
+            Poslate ponude
+        </button>
+        <button class="px-6 py-2 rounded-full text-white font-semibold transition-all duration-200"
+            [ngClass]="{ 'bg-zlatna text-crna': activeTab === 'primljenePonude', 'bg-[#2a2733]': activeTab !== 'primljenePonude' }"
+            (click)="activeTab = 'primljenePonude'">
+            Primljene ponude
+        </button>
+    </div>
+
+    <!-- BERZA -->
+    <div class="flex justify-center px-4" style="width: 100%;" *ngIf="jobs.length > 0 && activeTab === 'berza'">
+        <div class="overflow-x-auto w-full">
+            <table
+                class="job-table w-full shadow-xl rounded-2xl overflow-hidden border border-crna bg-basic rounded-lg">
+                <thead *ngIf="jobs.length > 0">
+                    <tr class="bg-gradient-to-r from-[#1a181f] via-[#201e26] to-[#2a2733] text-[#fcfcfd]">
+                        <th class="py-5 px-6 w-1/3 text-center uppercase text-xl font-semibold tracking-wider">
+                            Korisnik</th>
+                        <th class="py-5 px-6 w-1/3 text-center uppercase text-xl font-semibold tracking-wider">Potreban
+                            materijal</th>
+                        <th class="py-5 px-6 w-1/3 text-center uppercase text-xl font-semibold tracking-wider">Ponuda
+                        </th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="jobs.length > 0" class="bg-[#201e26]">
+                    <ng-container *ngFor="let request of jobs">
+                        <tr *ngIf="request.currentStatus != 'finished'"
+                            class="border-b border-crna hover:bg-[#2b2935] transition-colors duration-200">
+                            <td class="py-4 px-6 text-[#fcfcfd] text-center text-lg font-medium">
+                                <a [routerLink]="['/profil', request.idUser]"
+                                    class="hover:text-[#eead2b] transition duration-200 underline-offset-4 hover:underline font-semibold">
+                                    {{ request.firstname }}&nbsp;{{ request.lastname }}
+                                </a>
+                            </td>
+                            <td class="py-4 px-6 text-center">
+                                <button
+                                    class="w-1/2 bg-zlatna text-crna px-4 py-2 rounded-xl text-lg font-semibold transition duration-200 shadow-md border border-crna details-btn rounded"
+                                    (click)="showDetails(request)">
+                                    Detalji
+                                </button>
+                            </td>
+                            <td class="py-4 px-6 text-[#fcfcfd] text-center text-lg font-medium font-semibold">
+                                <button
+                                    class="w-1/2 bg-zlatna text-crna px-4 py-2 rounded-xl text-lg font-semibold transition duration-200 shadow-md border border-crna details-btn rounded"
+                                    (click)="showOfferInfo(request)">
+                                    Pošalji ponudu
+                                </button>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- POSLATE PONUDE -->
+    <div class="flex justify-center px-4" style="width: 100%;" *ngIf="jobs.length > 0 && activeTab === 'mojePonude'">
+        <div class="overflow-x-auto w-full">
+            <table
+                class="job-table w-full shadow-xl rounded-2xl overflow-hidden border border-crna bg-basic rounded-lg">
+                <thead *ngIf="jobs.length > 0">
+                    <tr class="bg-gradient-to-r from-[#1a181f] via-[#201e26] to-[#2a2733] text-[#fcfcfd]">
+                        <th class="py-5 px-6 w-1/4 text-center uppercase text-xl font-semibold tracking-wider">Prodavac
+                        </th>
+                        <th class="py-5 px-6 w-1/4 text-center uppercase text-xl font-semibold tracking-wider">Potreban
+                            materijal</th>
+                        <th class="py-5 px-6 w-1/4 text-center uppercase text-xl font-semibold tracking-wider">Ponuda
+                        </th>
+                        <th class="py-5 px-6 w-1/4 text-center uppercase text-xl font-semibold tracking-wider">Status
+                        </th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="sendJobOffers.length > 0" class="bg-[#201e26]">
+                    <ng-container *ngFor="let request of sendJobOffers">
+                        <tr *ngIf="request.currentStatus != 'finished'"
+                            class="border-b border-crna hover:bg-[#2b2935] transition-colors duration-200">
+                            <td class="py-4 px-6 text-[#fcfcfd] text-center text-lg font-medium">
+                                <a [routerLink]="['/profil', request.idUser]"
+                                    class="hover:text-[#eead2b] transition duration-200 underline-offset-4 hover:underline font-semibold">
+                                    {{ request.firstname }}&nbsp;{{ request.lastname }}
+                                </a>
+                            </td>
+                            <td class="py-4 px-6 text-center">
+                                <button
+                                    class="w-1/2 bg-zlatna text-crna px-4 py-2 rounded-xl text-lg font-semibold transition duration-200 shadow-md border border-crna details-btn rounded"
+                                    (click)="showOfferDetails(request)">
+                                    Detalji
+                                </button>
+                            </td>
+                            <td class="py-4 px-6 text-[#fcfcfd] text-center text-lg font-medium font-semibold">
+                                {{ request.price ? request.price + ' RSD' : 'N/A' }}
+                            </td>
+                            <td class="py-4 px-6 text-[#fcfcfd] text-center text-lg font-medium font-semibold">
+                                {{ request.currentStatus == 'exoffer' ? 'Čeka se odgovor' :
+                                request.currentStatus == 'exaccepted' ? 'Ponuda prihvaćena' :
+                                request.currentStatus == 'exdeclined' ? 'Ponuda odbijena' :
+                                request.currentStatus == 'exfinished' ? 'Završeno' : 'N/A' }}
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- PRIMLJENE PONUDE -->
+    <div class="flex justify-center px-4" style="width: 100%;"
+        *ngIf="jobs.length > 0 && activeTab === 'primljenePonude'">
+        <div class="overflow-x-auto w-full">
+            <table
+                class="job-table w-full shadow-xl rounded-2xl overflow-hidden border border-crna bg-basic rounded-lg">
+                <thead *ngIf="jobs.length > 0">
+                    <tr class="bg-gradient-to-r from-[#1a181f] via-[#201e26] to-[#2a2733] text-[#fcfcfd]">
+                        <th class="py-5 px-6 w-1/4 text-center uppercase text-xl font-semibold tracking-wider">
+                            Prodavac</th>
+                        <th class="py-5 px-6 w-1/4 text-center uppercase text-xl font-semibold tracking-wider">Potreban
+                            materijal</th>
+                        <th class="py-5 px-6 w-1/4 text-center uppercase text-xl font-semibold tracking-wider">Ponuda
+                        </th>
+                        <th class="py-5 px-6 w-1/4 text-center uppercase text-xl font-semibold tracking-wider">
+                            Prihvati/odbij</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="receivedJobOffers.length > 0" class="bg-crna">
+                    <ng-container *ngFor="let request of receivedJobOffers">
+                        <tr *ngIf="request.currentStatus != 'finished'"
+                            class="border-b border-basic hover:bg-[#2b2935] transition-colors duration-200">
+                            <td class="py-4 px-6 text-basic text-center text-lg font-medium">
+                                <a [routerLink]="['/profil', request.idUser]"
+                                    class="hover:text-[#eead2b] transition duration-200 underline-offset-4 hover:underline font-semibold">
+                                    {{ request.firstname }}&nbsp;{{ request.lastname }}
+                                </a>
+                            </td>
+                            <td class="py-4 px-6 text-center">
+                                <button
+                                    class="w-1/2 bg-zlatna text-crna px-4 py-2 rounded-xl text-lg font-semibold transition duration-200 shadow-md border border-crna details-btn rounded"
+                                    (click)="showOfferDetails(request)">
+                                    Detalji
+                                </button>
+                            </td>
+                            <td class="py-4 px-6 text-basic text-center text-lg font-medium font-semibold">
+                                {{ request.price ? request.price + ' RSD' : 'N/A' }}
+                            </td>
+                            <td class="py-4 px-6 text-center" *ngIf="request.currentStatus == 'exoffer'">
+                                <div class="flex justify-center gap-2">
+                                    <button
+                                        class="bg-green-500 hover:bg-green-700 text-basic px-4 py-2 rounded-xl text-sm font-semibold transition duration-200"
+                                        (click)="acceptRequest(request)" id="acceptButton">
+                                        Prihvati
+                                    </button>
+                                    <button
+                                        class="bg-red-600 hover:bg-red-700 text-basic px-4 py-2 rounded-xl text-sm font-semibold transition duration-200"
+                                        (click)="declineRequest(request)" id="declineButton">
+                                        Odbij
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6 text-basic text-center text-lg font-medium font-semibold"
+                                *ngIf="request.currentStatus == 'exaccepted'">
+                                Ponuda prihvaćena
+                            </td>
+                            <td class="py-4 px-6 text-basic text-center text-lg font-medium font-semibold"
+                                *ngIf="request.currentStatus == 'exdeclined'">
+                                Ponuda odbijena
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</main>
+
+<app-footer></app-footer>
